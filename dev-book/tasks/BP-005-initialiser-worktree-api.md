@@ -2,7 +2,7 @@
 
 - **Créée le** : 2026-10-05.
 - **Session** : non disponible (Codex).
-- **Statut** : à faire — dépendances à satisfaire avant démarrage.
+- **Statut** : clôturée le 2026-10-06.
 - **Type** : outillage.
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
@@ -46,7 +46,8 @@ réinitialiser ou forcer un push. Un arbre propre ne prouve pas une couche libre
 
 ## Hors périmètre
 
-Installation de framework, services, secrets, DNS réel, déploiement, push et PR.
+Installation de framework, services applicatifs, secrets, DNS réel, déploiement, push et PR.
+Le conteneur témoin commun de BP-009 sert uniquement à vérifier le processus.
 La stack et l’exemple applicatif seront définis séparément ; ils ne bloquent pas le socle Git.
 
 ## Documentation impactée
@@ -55,16 +56,16 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Définition de terminé
 
-- [ ] Le worktree enregistré porte exactement `layers/api` et partage le dépôt Git commun attendu.
-- [ ] Le chemin absolu est vérifié ; une branche déjà sortie est réutilisée au bon chemin.
-- [ ] La branche nouvellement créée démarre sur le SHA develop consigné.
-- [ ] Pour une branche existante, toute divergence est inventoriée sans réécriture.
-- [ ] Une relance réutilise le worktree sans modifier ses fichiers ni son environnement.
-- [ ] `api/README.md` décrit le périmètre, les limites et les preuves applicables.
-- [ ] Les exclusions du parent empêchent la recherche et les tests de parcourir cette copie.
-- [ ] La carte est conservée pour sa clôture dans l’arbre cible sans reprendre une mission tierce.
-- [ ] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
-- [ ] Le travail préexistant reste intact ; aucun accès distant ou déploiement n’a lieu.
+- [x] Le worktree enregistré porte exactement `layers/api` et partage le dépôt Git commun attendu.
+- [x] Le chemin absolu est vérifié ; une branche déjà sortie est réutilisée au bon chemin.
+- [x] La branche nouvellement créée démarre sur le SHA develop consigné.
+- [x] Pour une branche existante, toute divergence est inventoriée sans réécriture.
+- [x] Une relance réutilise le worktree sans modifier ses fichiers ni son environnement.
+- [x] `api/README.md` décrit le périmètre, les limites et les preuves applicables.
+- [x] Les exclusions du parent empêchent la recherche et les tests de parcourir cette copie.
+- [x] La carte est conservée pour sa clôture dans l’arbre cible sans reprendre une mission tierce.
+- [x] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
+- [x] Le travail préexistant reste intact ; aucun accès distant ou déploiement n’a lieu.
 
 ## Première étape d’implémentation
 
@@ -72,6 +73,19 @@ Vérifier BP-003, la disponibilité de api, les arbres enregistrés et le SHA de
 
 ## Preuves et livraison
 
-À renseigner pendant l’exécution. Une tâche, un commit demandé explicitement, avec sa carte
+Vérification du 2026-10-06 :
+
+- Worktree : `/home/johan/www/lab/ai-orchestrated-development/worktree/api` ; branche `layers/api` ; dépôt commun `/home/johan/www/lab/ai-orchestrated-development/.git`.
+- Base identifiée : `c6e3302ffd6e71449d0bac22ccfc0773f034cd69` (develop, contient BP-001, BP-003 et BP-009).
+- Relance du créateur : même chemin, aucun fichier modifié.
+- Endpoint local : `http://127.0.0.1:18102/`, identité `api` observée.
+- Projet Docker : `aiod-d10fdac8-api` ; volume `aiod-d10fdac8-api_state`.
+- Marqueur `/data/init-proof` : `api`, conservé après relance.
+- `.env` préservé ; artefacts `.aiod/` exclus de Git ; aucune copie de secret.
+- `api/README.md` décrit les responsabilités et la recette.
+- Les contrôles Python ciblent tests/ et n’explorent pas worktree/ ; Git ignore la copie.
+
+L’utilisateur a autorisé un commit d’initialisation par couche. La stack applicative reste hors
+périmètre, conformément à son arbitrage. Une tâche, un commit demandé explicitement, avec sa carte
 clôturée et sa documentation. Les opérations Git locales sont prouvées par les références,
 branches et chemins observés ; leur simple présence dans la carte n’est pas une exécution.
