@@ -18,3 +18,15 @@ Les volumes ne sont pas supprimés par la commande d’arrêt.
 
 Références : [projets Compose](https://docs.docker.com/compose/intro/compose-application-model/),
 [services et montages](https://docs.docker.com/reference/compose-file/services/).
+
+## Couche devops — initialisation AIOD
+
+- Branche : `layers/devops` ; préfixe des futures tâches : `OPS`.
+- Dossier Git : le chemin absolu enregistré par `git worktree list`.
+- La [carte BP-007](../dev-book/tasks/BP-007-initialiser-worktree-devops.md)
+  consigne l’initialisation, la base et les preuves.
+- Le [routage commun](../docs/aiod/couches.md) définit les responsabilités de cette couche.
+- Depuis ce worktree, `python3 scripts/process.py up` démarre le conteneur témoin ;
+  `verify` observe sa page et `down` arrête son environnement en conservant les volumes.
+- Aucun framework ni application : cet environnement sert uniquement à la recette AIOD.
+- Vérifier la disponibilité de la couche avant une mission, même si Git affiche un arbre propre.
