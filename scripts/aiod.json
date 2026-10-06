@@ -1,0 +1,28 @@
+{
+  "layers": {
+    "blueprint": {
+      "branch": "layers/blueprint",
+      "role": "Maintenance du blueprint"
+    },
+    "backoffice": {
+      "branch": "layers/backoffice",
+      "role": "Interface d’administration"
+    },
+    "api": {
+      "branch": "layers/api",
+      "role": "Contrats et services serveur"
+    },
+    "web": {
+      "branch": "layers/web",
+      "role": "Socle et cibles webapp/sites"
+    },
+    "devops": {
+      "branch": "layers/devops",
+      "role": "Domaines et infrastructure serveur"
+    },
+    "design": {
+      "branch": "layers/design",
+      "role": "Maquettes, parcours et direction artistique"
+    }
+  }
+}

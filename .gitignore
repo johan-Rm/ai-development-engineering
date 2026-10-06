@@ -1,0 +1,8 @@
+# Les worktrees Git contiennent leurs propres copies du dépôt.
+/worktree/*
+!/worktree/README.md
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example

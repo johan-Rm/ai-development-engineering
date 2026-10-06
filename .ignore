@@ -1,0 +1,3 @@
+/worktree/*
+!/worktree/README.md
+__pycache__/
