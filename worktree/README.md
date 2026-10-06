@@ -4,7 +4,7 @@ Ce dossier est réservé aux worktrees réels, créés sur affectation d’une t
 
 ```sh
 python3 scripts/worktrees.py list
-python3 scripts/worktrees.py add --layer blueprint --branch layers/blueprint --base main
+python3 scripts/worktrees.py add --layer blueprint --branch layers/blueprint --base develop
 ```
 
 Si `layers/blueprint` est déjà sortie à la racine, la commande retourne cette racine.

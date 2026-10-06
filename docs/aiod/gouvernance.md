@@ -14,12 +14,11 @@ Les commandes et écritures visent ce dossier explicitement.
 ## Conventions de workflow
 
 - Référence publique : `master`. `main` est conservée comme référence historique.
-- Intégration actuelle : branche de travail, en attendant la création de `develop` (BP-003).
-  Aucun déploiement applicatif n’est configuré.
-- Travail du blueprint : `layers/blueprint`. Aucun changement de tâche directement sur `main`.
+- Intégration : `develop`. Aucun déploiement applicatif n’est configuré.
+- Travail du blueprint : `layers/blueprint`. Aucun changement de tâche directement sur `develop` ou `master`.
 - Cartes : `dev-book/tasks/BP-NNN-slug.md`. Vérifier les identifiants sur les branches concernées
   avant attribution ; aucun compteur concurrent automatique n’est fourni.
-- Création : `python3 scripts/worktrees.py add --layer blueprint --branch layers/blueprint --base main`.
+- Création : `python3 scripts/worktrees.py add --layer blueprint --branch layers/blueprint --base develop`.
   La base est explicite, locale et résolue à un commit ; la commande ne fait pas de fetch.
 - Une tâche à la fois, un commit par tâche avec tests pertinents, documentation et carte clôturée.
 - Contrôle avant PR : `python3 scripts/check.py`. La relecture vérifie le comportement et le diff.

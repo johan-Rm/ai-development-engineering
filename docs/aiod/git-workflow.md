@@ -25,7 +25,7 @@ en a besoin. Ne pas rebasing une branche partagée ou occupée sans coordination
 
 Sur demande, actualiser les références distantes et vérifier que la PR est réellement fusionnée.
 Pour une branche propre et explicitement libre, tenter un réalignement sans perte de données
-(par exemple `git merge --ff-only origin/main` lorsque l’historique le permet).
+(par exemple `git merge --ff-only origin/develop` lorsque l’historique le permet).
 Si la commande ne peut pas avancer simplement, signaler la divergence et choisir la stratégie
 avec le coordinateur. Ne pas modifier une branche sale ou occupée.
 
@@ -36,3 +36,6 @@ les arbres et l’équivalence des patches. Aucun force-push ni réécriture aut
 
 `master` porte la référence publique. `main` est conservée durant la transition ;
 aucune branche par défaut GitHub n’est modifiée automatiquement.
+
+Les couches partent de `develop`. Les changements validés y sont intégrés avant publication
+sur `master`. Les branches d’intégration ne reçoivent aucun commit direct.

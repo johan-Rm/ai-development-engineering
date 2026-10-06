@@ -2,7 +2,7 @@
 
 - **Créée le** : 2026-10-05.
 - **Session** : non disponible (Codex).
-- **Statut** : à faire — dépendances à satisfaire avant démarrage.
+- **Statut** : clôturée le 2026-10-06.
 - **Type** : outillage.
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
@@ -48,14 +48,14 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Définition de terminé
 
-- [ ] `refs/heads/develop` existe et contient le commit validé du blueprint.
-- [ ] Les scripts et la configuration nécessaires sont présents dans l’arbre develop.
-- [ ] Les consignes donnent develop comme intégration/base, master comme référence publique.
-- [ ] Les exemples de recette, commandes de création et worktree/README.md utilisent develop.
-- [ ] Les contrôles du blueprint passent sur le contenu intégré.
-- [ ] Les cinq tâches aval disposent d’une base contenant réellement l’outillage.
-- [ ] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
-- [ ] Le travail préexistant reste intact ; aucun accès distant ou déploiement n’a lieu.
+- [x] `refs/heads/develop` existe et contient le commit validé du blueprint.
+- [x] Les scripts et la configuration nécessaires sont présents dans l’arbre develop.
+- [x] Les consignes donnent develop comme intégration/base, master comme référence publique.
+- [x] Les exemples de recette, commandes de création et worktree/README.md utilisent develop.
+- [x] Les contrôles du blueprint passent sur le contenu intégré.
+- [x] Les cinq tâches aval disposent d’une base contenant réellement l’outillage.
+- [x] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
+- [x] Le travail préexistant reste intact ; aucun accès distant ou déploiement n’a lieu.
 
 ## Première étape d’implémentation
 
@@ -63,6 +63,6 @@ Vérifier master et le SHA commité de BP-001 ; arrêter si BP-001 est encore no
 
 ## Preuves et livraison
 
-À renseigner pendant l’exécution. Une tâche, un commit demandé explicitement, avec sa carte
+Preuve du 2026-10-06 : develop a été créée depuis master puis avancée sans force par fetch local vers `0a11fa5`, contenant BP-001 (`8dc7c36`). Les exemples et la gouvernance utilisent désormais develop. Les tests Git du blueprint passent. Le commit de documentation de cette tâche sera également intégré par avance rapide locale. Une tâche, un commit demandé explicitement, avec sa carte
 clôturée et sa documentation. Les opérations Git locales sont prouvées par les références,
 branches et chemins observés ; leur simple présence dans la carte n’est pas une exécution.

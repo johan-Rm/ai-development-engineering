@@ -13,7 +13,7 @@ AIOD_TRIAL="$(mktemp -d /tmp/aiod-recette.XXXXXX)"
 mkdir -p "$AIOD_TRIAL/scripts"
 cp "$AIOD_SOURCE/scripts/worktrees.py" "$AIOD_SOURCE/scripts/aiod.json" "$AIOD_TRIAL/scripts/"
 cd "$AIOD_TRIAL"
-git init -b main
+git init -b develop
 git config user.name 'AIOD Recette'
 git config user.email 'recette@example.invalid'
 printf '/worktree/
@@ -27,10 +27,10 @@ Conserver le chemin affiché par `pwd`. Le dépôt ne possède aucun remote.
 ## Créer puis réutiliser
 
 ```sh
-python3 scripts/worktrees.py add --layer api --branch layers/api --base main
+python3 scripts/worktrees.py add --layer api --branch layers/api --base develop
 printf 'preuve locale
 ' > worktree/api/preuve.txt
-python3 scripts/worktrees.py add --layer api --branch layers/api --base main
+python3 scripts/worktrees.py add --layer api --branch layers/api --base develop
 python3 scripts/worktrees.py list
 cat worktree/api/preuve.txt
 ```
@@ -42,7 +42,7 @@ principal propre, fichier intact. Une API modifiée reste occupée par cette rec
 
 ```sh
 cd worktree/api
-python3 scripts/worktrees.py add --layer web --branch layers/web --base main
+python3 scripts/worktrees.py add --layer web --branch layers/web --base develop
 git worktree list
 ```
 
