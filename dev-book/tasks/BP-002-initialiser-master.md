@@ -2,7 +2,7 @@
 
 - **Créée le** : 2026-10-05.
 - **Session** : non disponible (Codex).
-- **Statut** : en cours — branche créée ; documentation et commit à finaliser.
+- **Statut** : clôturée le 2026-10-06.
 - **Type** : outillage.
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
@@ -47,12 +47,12 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Définition de terminé
 
-- [ ] `refs/heads/master` existe sur la base explicitement choisie.
-- [ ] Une référence master préexistante divergente est signalée, sans déplacement forcé.
-- [ ] La branche courante et les modifications ouvertes restent intactes.
-- [ ] La documentation distingue master, develop et main conservée temporairement.
-- [ ] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
-- [ ] Le travail préexistant reste intact ; aucun accès distant ou déploiement n’a lieu.
+- [x] `refs/heads/master` existe sur la base explicitement choisie.
+- [x] Une référence master préexistante divergente est signalée, sans déplacement forcé.
+- [x] La branche courante et les modifications ouvertes restent intactes.
+- [x] La documentation distingue master, develop et main conservée temporairement.
+- [x] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
+- [x] Le travail préexistant reste intact ; aucun accès distant ou déploiement n’a lieu.
 
 ## Première étape d’implémentation
 
@@ -63,7 +63,7 @@ Lire les références Git, l’état des arbres et les missions ; vérifier la b
 Observation du 2026-10-06 : `refs/heads/master` créée sur
 `9a60e1c5b6908f1c87fa3c2264fad778ba5f583a`. La branche courante reste `layers/blueprint` ;
 aucun fichier ouvert n’a été déplacé ou écrasé. `main` est conservée.
-La documentation durable et le commit de cette tâche restent à finaliser.
+La documentation durable indique master comme référence publique et la transition depuis main.
 
  Une tâche, un commit demandé explicitement, avec sa carte
 clôturée et sa documentation. Les opérations Git locales sont prouvées par les références,

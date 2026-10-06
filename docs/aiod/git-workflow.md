@@ -31,3 +31,8 @@ avec le coordinateur. Ne pas modifier une branche sale ou occupée.
 
 Un SHA différent ne prouve pas un changement inédit : après rebase ou squash, comparer également
 les arbres et l’équivalence des patches. Aucun force-push ni réécriture automatique.
+
+## Référence publique
+
+`master` porte la référence publique. `main` est conservée durant la transition ;
+aucune branche par défaut GitHub n’est modifiée automatiquement.

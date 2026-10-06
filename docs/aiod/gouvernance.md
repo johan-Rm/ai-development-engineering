@@ -13,7 +13,9 @@ Les commandes et écritures visent ce dossier explicitement.
 
 ## Conventions de workflow
 
-- Intégration et version publique : `main`. Aucun déploiement applicatif n’est configuré.
+- Référence publique : `master`. `main` est conservée comme référence historique.
+- Intégration actuelle : branche de travail, en attendant la création de `develop` (BP-003).
+  Aucun déploiement applicatif n’est configuré.
 - Travail du blueprint : `layers/blueprint`. Aucun changement de tâche directement sur `main`.
 - Cartes : `dev-book/tasks/BP-NNN-slug.md`. Vérifier les identifiants sur les branches concernées
   avant attribution ; aucun compteur concurrent automatique n’est fourni.
