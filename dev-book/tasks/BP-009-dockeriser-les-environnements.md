@@ -2,7 +2,7 @@
 
 - **Créée le** : 2026-10-06.
 - **Session** : non disponible (Codex).
-- **Statut** : à cadrer — choix de stack demandé à l’utilisateur.
+- **Statut** : clôturée le 2026-10-06 — outillage commun testé en dépôt jetable.
 - **Type** : outillage.
 - **Tests** : résolution Compose, builds et démarrage de deux environnements simultanés ;
   observation des endpoints et des destinations d’écriture.
@@ -34,13 +34,14 @@ La création du worktree ne démarre pas automatiquement les services.
 - Aucune opération sur les domaines publics ou serveurs distants.
 - Commandes de démarrage et d’arrêt distinctes de la création Git.
 
-## Questions ouvertes
+## Arbitrage humain du 2026-10-06
 
-- Runtimes du backoffice, API et web ; base de données et proxy éventuels.
-- Type d’exemple applicatif à construire, s’il dépasse de simples environnements de travail.
-- Services réellement nécessaires à design et devops.
-
-Ces réponses doivent précéder les fichiers spécifiques à une technologie.
+Aucune stack produit, aucune application : seule la mécanique AIOD est testée.
+Un conteneur BusyBox sert une page témoin par couche. Son runtime n’est pas une stack applicative.
+Chaque couche possède un port stable, un réseau et un volume distincts. Les tests observent
+les pages, les montages et des écritures dans les volumes. Aucun build applicatif à tester.
+Un commit d’initialisation par couche est autorisé ; le socle commun est commité au préalable
+pour que les worktrees consomment un contenu identifié.
 
 ## Hors périmètre
 
@@ -54,15 +55,29 @@ et procédure de démarrage/arrêt dans `dev-book/runbooks/`.
 
 ## Définition de terminé
 
-- [ ] La stack et les services sont définis explicitement.
-- [ ] Les configurations Compose se résolvent depuis les worktrees concernés.
-- [ ] Deux environnements tournent simultanément sans collision de ports ou de données.
-- [ ] Leurs endpoints et destinations effectives d’écriture sont observés et consignés.
-- [ ] Une relance conserve les environnements et données préexistants.
-- [ ] Les commandes et limites de chaque couche sont documentées.
-- [ ] Aucun secret n’est commité et aucune ressource distante n’est modifiée.
+- [x] La stack et les services sont définis explicitement.
+- [x] Les configurations Compose se résolvent depuis les worktrees concernés, sans build applicatif.
+- [x] Deux environnements tournent simultanément sans collision de ports ou de données.
+- [x] Leurs endpoints et destinations effectives d’écriture sont observés et consignés.
+- [x] Une relance conserve les environnements et données préexistants.
+- [x] Les commandes et limites de chaque couche sont documentées.
+- [x] Aucun secret n’est commité et aucune ressource distante n’est modifiée.
 
 ## Preuves initiales
 
 2026-10-06 : Docker Engine 29.7.2 et Docker Compose v5.5.0 disponibles.
 Accès au moteur local vérifié après autorisation ; aucune pile lancée à ce stade.
+
+## Vérification
+
+Recette en dépôt jetable `/tmp/aiod-docker-trial-tqo6vjkp` : API et web simultanés,
+ports 18102 et 18103, réseaux et volumes `aiod-8e0aadc5-api` et `aiod-8e0aadc5-web` distincts.
+Les montages /proof pointent sur chaque arbre, en lecture seule. Les marqueurs de données
+api et web sont différents et conservés après relance. Les ressources de test ont été retirées.
+Douze tests Python valident la mécanique Git, l’identité et la préservation des fichiers.
+Les cinq environnements du dépôt seront démarrés et observés pendant BP-004 à BP-008.
+
+## Livré
+
+Compose commun, outils process/check_docker, identifiants stables, exclusions et procédure de recette.
+Aucune stack applicative, aucun build produit, aucun secret ni ressource distante.

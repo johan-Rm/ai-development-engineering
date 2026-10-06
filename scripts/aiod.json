@@ -6,23 +6,32 @@
     },
     "backoffice": {
       "branch": "layers/backoffice",
-      "role": "Interface d’administration"
+      "role": "Interface d’administration",
+      "id": 1
     },
     "api": {
       "branch": "layers/api",
-      "role": "Contrats et services serveur"
+      "role": "Contrats et services serveur",
+      "id": 2
     },
     "web": {
       "branch": "layers/web",
-      "role": "Socle et cibles webapp/sites"
+      "role": "Socle et cibles webapp/sites",
+      "id": 3
     },
     "devops": {
       "branch": "layers/devops",
-      "role": "Domaines et infrastructure serveur"
+      "role": "Domaines et infrastructure serveur",
+      "id": 4
     },
     "design": {
       "branch": "layers/design",
-      "role": "Maquettes, parcours et direction artistique"
+      "role": "Maquettes, parcours et direction artistique",
+      "id": 5
     }
+  },
+  "process": {
+    "port_base": 18100,
+    "image": "busybox:1.37.0"
   }
 }

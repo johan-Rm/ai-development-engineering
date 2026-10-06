@@ -9,7 +9,8 @@ isoler les dossiers de travail, cadrer les tâches et vérifier ce qui est livr�
 2. Suivre [le guide d’adoption](docs/aiod/adoption.md) pour un projet nouveau ou existant.
 3. Essayer [une première tâche](docs/aiod/premiere-tache.md) dans un dépôt temporaire.
 
-Python 3 et Git suffisent pour l’outillage fourni. Aucun framework, serveur ou Docker requis.
+Python 3 et Git suffisent pour l’outillage Git. Docker et Compose permettent de tester
+l’isolation du processus avec des conteneurs témoins, sans stack applicative.
 
 ```sh
 python3 scripts/worktrees.py list
@@ -36,3 +37,6 @@ Les [documents originaux](docs/aiod/sources/README.md) expliquent la démarche.
 Les adaptations opérationnelles sont indiquées dans les principes.
 
 Ce dépôt n’installe aucun skill personnel et ne lance aucun agent automatiquement.
+
+La [recette AIOD](dev-book/runbooks/recette-aiod.md) décrit les cinq environnements témoins
+et la vérification de leurs écritures isolées.

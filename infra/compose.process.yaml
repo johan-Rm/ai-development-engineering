@@ -1,0 +1,25 @@
+services:
+  witness:
+    image: ${AIOD_IMAGE:?}
+    command: [httpd, -f, -p, '8080', -h, /proof]
+    read_only: true
+    ports:
+      - '127.0.0.1:${AIOD_PORT:?}:8080'
+    volumes:
+      - type: bind
+        source: ${AIOD_PROOF_DIR:?}
+        target: /proof
+        read_only: true
+        bind:
+          create_host_path: false
+      - state:/data
+    tmpfs:
+      - /tmp
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:8080/]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+    restart: 'no'
+volumes:
+  state:

@@ -1,7 +1,7 @@
 # Couches et responsabilités
 
 Le blueprint décrit cinq couches pour le projet consommateur, indépendamment de sa stack.
-Leurs dossiers restent à créer lors de l’implémentation ; aucune application n’est installée.
+Leurs dossiers sont préparés dans les worktrees à l’initialisation ; aucune application n’est installée.
 
 | Couche | Chemins proposés | Branche | Worktree | Préfixe | Preuve attendue |
 | --- | --- | --- | --- | --- | --- |
@@ -53,3 +53,9 @@ Preuve : documentation cohérente et `python3 scripts/check.py`.
 La configuration `scripts/aiod.json` connaît ces cinq couches et la maintenance du blueprint.
 Lors de l’adoption, conserver seulement les couches utiles et adapter cette table avec le JSON.
 Chaque couche reçoit un écrivain à la fois ; les consignes ne sont pas des verrous automatiques.
+
+## Preuve du processus
+
+Dans ce blueprint, les preuves applicatives du tableau restent des exemples pour un projet futur.
+La recette actuelle vérifie seulement Git, le témoin HTTP et l’isolation des ressources Docker,
+y compris pour design et devops. Voir [la recette](../../dev-book/runbooks/recette-aiod.md).
