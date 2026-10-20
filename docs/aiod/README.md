@@ -8,3 +8,14 @@
 6. [Travail parallèle et isolation](parallel-work.md)
 7. [Première tâche à essayer ensemble](premiere-tache.md)
 8. [Documents originaux](sources/README.md)
+
+## Représentation du cadre
+
+[Vue synthétique de l’écosystème AIOD](cadre-aiod.html) : un schéma des acteurs,
+de la boucle d’écriture IA et de la consolidation des règles et contrôles.
+Fichier HTML autonome, imprimable sur une page en paysage.
+
+## Référence graphique
+
+[Charte Graines Digitales et adaptations AIOD](charte-graphique.md) : source officielle
+dans `design/`, règles de marque et couleurs des rôles humain/IA.

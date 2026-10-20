@@ -7,3 +7,11 @@ Ces règles s’appliquent à ce dépôt ; les instructions explicites de l’ut
 Pour Codex, une mission se donne avec le chemin absolu du worktree, sa branche, les chemins
 autorisés et la preuve attendue. Les profils `.claude/agents/` ne sont pas automatiquement
 chargés comme sous-agents Codex. Ne déléguer que sur demande explicite.
+
+## Référence graphique à conserver
+
+Pour tout travail graphique, lire la charte officielle du dépôt :
+[Brand Guidelines — Graines Digitales](<design/Brand Guidelines - Graines Digitales (standalone).html>).
+Ne pas lui substituer une copie externe. La [synthèse opérationnelle](docs/aiod/charte-graphique.md)
+rappelle ses règles et les adaptations explicitement demandées pour AIOD : humain/cadre en olive,
+IA en terre cuite `#C07040`, couleurs dans les fonds/textes/bordures, sans traits décoratifs de rôle.
