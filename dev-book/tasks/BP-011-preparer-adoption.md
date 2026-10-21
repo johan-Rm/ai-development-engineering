@@ -27,9 +27,9 @@
 ## Vérification — 2026-10-20
 
 - BP-010 commité avant les corrections : `995cbcf`.
-- `python3 scripts/apps.py install all` : réussi avec accès réseau autorisé, caches temporaires. Aucun verrou de dépendances modifié. Premier essai interrompu par l’absence de résolution réseau du bac à sable ; nouvelle exécution réussie.
-- `python3 scripts/quality.py` : code de sortie 0 ; tests outillage, contrat HTTP CRUD avec SQLite temporaire, conteneur Symfony, mapping Doctrine, comparaison OpenAPI, types et builds des deux applications Nuxt.
-- `python3 scripts/check.py` après ajout du contrôle de régression OpenAPI : 15 tests réussis. Couvre notamment conservation du `.env`, chemin avec espaces, arrêt après échec et rejet du contrat obsolète sans modification du fichier.
+- `python3 codebase-quality-control/scripts/apps.py install all` : réussi avec accès réseau autorisé, caches temporaires. Aucun verrou de dépendances modifié. Premier essai interrompu par l’absence de résolution réseau du bac à sable ; nouvelle exécution réussie.
+- `python3 codebase-quality-control/scripts/quality.py` : code de sortie 0 ; tests outillage, contrat HTTP CRUD avec SQLite temporaire, conteneur Symfony, mapping Doctrine, comparaison OpenAPI, types et builds des deux applications Nuxt.
+- `python3 codebase-quality-control/scripts/check.py` après ajout du contrôle de régression OpenAPI : 15 tests réussis. Couvre notamment conservation du `.env`, chemin avec espaces, arrêt après échec et rejet du contrat obsolète sans modification du fichier.
 - `npm run test:e2e` dans chaque application Nuxt : 1 test réussi par application, contre l’API locale de développement déjà démarrée ; Chromium et bibliothèques temporaires disponibles dans l’environnement de vérification. Les serveurs locaux existants ont été réutilisés par Playwright.
 - Workflow YAML analysé avec succès ; script Bash du parcours validé avec `bash -n`.
 - Liens locaux Markdown : aucune cible absente ; aucun chemin personnel absolu ni dépendance aux skills du poste dans les documents Markdown.

@@ -21,7 +21,7 @@ commitée ; aucune suppression forcée, publication ou réécriture des commits 
 - Consignes, documentation et outillage communs attribués à devops, préfixe OPS.
 - Gouvernance, tableau des responsabilités et exemple de création de worktree actualisés.
 - Références aux anciennes missions reformulées sans réécrire leur rattachement historique.
-- `python3 -B scripts/check.py` : 15 tests réussis.
+- `python3 -B codebase-quality-control/scripts/check.py` : 15 tests réussis.
 - Contrôle de la configuration réelle : cinq couches, branches cohérentes et identifiants 1 à 5.
 - Recherche dans les fichiers suivis : aucune référence restante au nom de l’ancienne branche.
 - `git diff --check` : réussi pour les modifications de cette tâche. Le diff de fusion déjà

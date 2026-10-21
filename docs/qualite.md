@@ -7,13 +7,13 @@ Depuis la racine du dépôt ou du worktree à vérifier :
 
 | Commande | Portée |
 | --- | --- |
-| `python3 scripts/check.py` | Tests unitaires de l’outillage Git, de l’isolation et des commandes applicatives |
-| `python3 scripts/apps.py check api` | Contrat HTTP CRUD avec SQLite jetable, conteneur Symfony, mapping Doctrine et comparaison OpenAPI |
-| `python3 scripts/apps.py check web` | Types puis build Nuxt |
-| `python3 scripts/apps.py check backoffice` | Types puis build Nuxt |
-| `python3 scripts/quality.py` | Tous les contrôles ci-dessus, arrêt au premier échec |
-| `python3 scripts/apps.py check web --browser` | Types, build et parcours Playwright ; API et Chromium requis |
-| `python3 scripts/apps.py check backoffice --browser` | Types, build et parcours Playwright ; API et Chromium requis |
+| `python3 codebase-quality-control/scripts/check.py` | Tests unitaires de l’outillage Git, de l’isolation et des commandes applicatives |
+| `python3 codebase-quality-control/scripts/apps.py check api` | Contrat HTTP CRUD avec SQLite jetable, conteneur Symfony, mapping Doctrine et comparaison OpenAPI |
+| `python3 codebase-quality-control/scripts/apps.py check web` | Types puis build Nuxt |
+| `python3 codebase-quality-control/scripts/apps.py check backoffice` | Types puis build Nuxt |
+| `python3 codebase-quality-control/scripts/quality.py` | Tous les contrôles ci-dessus, arrêt au premier échec |
+| `python3 codebase-quality-control/scripts/apps.py check web --browser` | Types, build et parcours Playwright ; API et Chromium requis |
+| `python3 codebase-quality-control/scripts/apps.py check backoffice --browser` | Types, build et parcours Playwright ; API et Chromium requis |
 
 Installer les dépendances avant les contrôles applicatifs. `--root` sélectionne explicitement un autre worktree ; par défaut les scripts utilisent leur propre dépôt, sans dépendre du dossier courant. Les builds écrivent les artefacts Nuxt ignorés par Git. La vérification OpenAPI exporte dans un dossier temporaire et ne modifie pas le contrat versionné. Après une évolution voulue du contrat, régénérer celui-ci depuis `api/app/` : `php bin/console api:openapi:export --output=openapi.json`.
 
@@ -21,4 +21,4 @@ La CI `.github/workflows/quality.yml` installe les dépendances, exécute les co
 
 PHPUnit, Vitest, Deptrac, PHPStan, lint/formatage et types front générés ne sont pas configurés dans ce socle. Leur ajout dépendra des besoins du projet adopté. Les conventions sont d’abord documentées ; seuls les contrôles réellement exécutables sont annoncés comme automatisés.
 
-La recette Docker reste facultative : `python3 scripts/check_docker.py`. Elle demande Docker, Compose et les worktrees de couche ; voir le runbook du processus. Chaque compte rendu précise les commandes exécutées et celles restées non vérifiées.
+La recette Docker reste facultative : `python3 codebase-quality-control/scripts/check_docker.py`. Elle demande Docker, Compose et les worktrees de couche ; voir le runbook du processus. Chaque compte rendu précise les commandes exécutées et celles restées non vérifiées.

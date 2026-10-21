@@ -23,8 +23,8 @@ Aucun dossier templates. Aucun framework, service, publication, push ou profil p
 
 ## Preuves
 
-- `python3 -B scripts/check.py` : neuf scénarios Git validés dans des dépôts jetables.
-- Les cinq couches (backoffice, API, web, devops et design) sont documentées et déclarées dans `scripts/aiod.json`.
+- `python3 -B codebase-quality-control/scripts/check.py` : neuf scénarios Git validés dans des dépôts jetables.
+- Les cinq couches (backoffice, API, web, devops et design) sont documentées et déclarées dans `codebase-quality-control/scripts/aiod.json`.
 - Les documents originaux ont été déplacés sans modification dans `docs/aiod/sources/`.
 - La recette humaine est décrite dans `docs/aiod/premiere-tache.md`, à effectuer ensemble.
 - Aucun service n’est configuré ; la stack de l’exemple concret reste à définir.

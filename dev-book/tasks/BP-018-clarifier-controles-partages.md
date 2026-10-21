@@ -13,7 +13,7 @@
 - Retrait des mentions « Produit · changement livré » et « Règles et contrôles enrichissent le cadre » de cette zone.
 - Bande commune : Développement (exécute) ← Contrôles déterministes ← Consolidation (enrichit). Le centre précise « Sans IA · CI/CD ou à la demande » et reste cliquable.
 - Détails explicitant le rôle de chaque processus, l’indépendance de l’IA à l’exécution et la distinction PR/livraison.
-- `node tests/browser/vue-aiod.cjs web/targets/app` : réussi ; contenu de la bande et du panneau, géométrie, interactions et absence de débordement vertical.
+- `node codebase-quality-control/tests/browser/vue-aiod.cjs web/targets/app` : réussi ; contenu de la bande et du panneau, géométrie, interactions et absence de débordement vertical.
 - Capture à 1366 × 768 relue ; tests ordinateur/mobile réussis. `git diff --check` réussi.
 
 Ajustement typographique demandé : les deux libellés verticaux « Cycle IA » utilisent Inter 400, 13px.
@@ -36,4 +36,4 @@ Indication répétée « Cliquez sur un élément pour afficher ses détails. É
 
 ## Mise en commit — 2026-10-21
 
-`node tests/browser/vue-aiod.cjs web/targets/app` réussi dans Chromium, avec `PLAYWRIGHT_BROWSERS_PATH=/tmp/aiod-playwright` et les bibliothèques de `/tmp/aiod-browser-libs/root/usr/lib/x86_64-linux-gnu`. `git diff --check` réussi. Les cartes BP-013 à BP-021 sont livrées ensemble avec la version finale de la vue et de son test : leurs états intermédiaires non commités ne sont pas reconstruits. Écart à la convention un commit par tâche pour cette reprise du travail accumulé.
+`node codebase-quality-control/tests/browser/vue-aiod.cjs web/targets/app` réussi dans Chromium, avec `PLAYWRIGHT_BROWSERS_PATH=/tmp/aiod-playwright` et les bibliothèques de `/tmp/aiod-browser-libs/root/usr/lib/x86_64-linux-gnu`. `git diff --check` réussi. Les cartes BP-013 à BP-021 sont livrées ensemble avec la version finale de la vue et de son test : leurs états intermédiaires non commités ne sont pas reconstruits. Écart à la convention un commit par tâche pour cette reprise du travail accumulé.

@@ -23,15 +23,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: python3 scripts/apps.py install all
-      - run: python3 scripts/quality.py
+      - run: python3 codebase-quality-control/scripts/apps.py install all
+      - run: python3 codebase-quality-control/scripts/quality.py
       - name: Installer Chromium
         working-directory: web/targets/app
         run: npx playwright install --with-deps chromium
       - name: Parcours navigateur avec API locale
         shell: bash
         run: |
-          python3 scripts/apps.py serve api > "$RUNNER_TEMP/aiod-api.log" 2>&1 &
+          python3 codebase-quality-control/scripts/apps.py serve api > "$RUNNER_TEMP/aiod-api.log" 2>&1 &
           api_pid=$!
           trap 'kill "$api_pid" 2>/dev/null || true' EXIT
           ready=false

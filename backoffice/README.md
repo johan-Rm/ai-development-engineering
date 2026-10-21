@@ -16,7 +16,7 @@ Ouvrir http://127.0.0.1:3001. Démarrer séparément l'API sur 127.0.0.1:8000
 La liste dispose d'une pagination, d'états chargement, vide et erreur.
 Le formulaire crée et modifie les articles ; la suppression demande confirmation.
 Les saisies restent présentes en cas d'échec. Aucune donnée n'est injectée au lancement.
-Le témoin `scripts/process.py` reste indépendant de l'application.
+Le témoin `codebase-quality-control/scripts/process.py` reste indépendant de l'application.
 
 ## Configuration et contrat
 

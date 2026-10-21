@@ -41,7 +41,8 @@ def context(cwd):
 
 def add(cwd, layer, branch, base):
     root, records = context(cwd)
-    config = json.loads((root / 'scripts/aiod.json').read_text())['layers']
+    tree = Path(git(cwd, 'rev-parse', '--show-toplevel'))
+    config = json.loads((tree / 'codebase-quality-control/scripts/aiod.json').read_text())['layers']
     if not re.fullmatch('[a-z][a-z0-9-]*', layer) or layer not in config:
         raise ValueError('Couche inconnue ou nom invalide')
     if branch != config[layer]['branch']:

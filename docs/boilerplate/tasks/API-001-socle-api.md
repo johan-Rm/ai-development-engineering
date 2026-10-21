@@ -66,7 +66,7 @@ Ce socle ouvert sert au développement local et ne constitue pas une administrat
 - Migration exécutée sur la base locale vide ; aucune donnée de démonstration ajoutée.
 - API Platform 4.4.5, Symfony 7.4.21, fichiers lock conservés.
 - Serveur de développement vérifié sur 127.0.0.1:8000.
-- Contrôle du dépôt `python3 scripts/check.py` : 12 tests OK.
+- Contrôle du dépôt `python3 codebase-quality-control/scripts/check.py` : 12 tests OK.
 
 - PHP minimum corrigé à 8.4, conformément aux dépendances Doctrine verrouillées.
 - `openapi.json` régénéré avec `api:openapi:export` ; validation Composer stricte réussie.

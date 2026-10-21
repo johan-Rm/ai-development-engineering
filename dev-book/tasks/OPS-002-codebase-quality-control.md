@@ -15,8 +15,8 @@
 - Liens depuis les index documentaires et la page des commandes qualité.
 - Vue interactive : libellé Codebase Quality Control et panneau complet ; géométrie conservée.
 - Nom du cadre AIDE (AI Development Engineering), sans renommage du dépôt ni des dossiers.
-- `python3 -B scripts/check.py` : 15 tests réussis.
-- Test Chromium `tests/browser/vue-aiod.cjs` : réussi avec les dépendances Playwright de
+- `python3 -B codebase-quality-control/scripts/check.py` : 15 tests réussis.
+- Test Chromium `codebase-quality-control/tests/browser/vue-aiod.cjs` : réussi avec les dépendances Playwright de
   la webapp du worktree principal, `PLAYWRIGHT_BROWSERS_PATH=/tmp/aiod-playwright` et les
   bibliothèques de `/tmp/aiod-browser-libs/root/usr/lib/x86_64-linux-gnu`.
 - Capture `/tmp/aide-codebase-quality-control.png` relue : nouveau nom visible et panneau

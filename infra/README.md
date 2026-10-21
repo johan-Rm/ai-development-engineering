@@ -4,11 +4,11 @@
 Il sert une page locale décrivant sa couche et monte un volume privé pour vérifier les écritures.
 Le port est lié exclusivement à `127.0.0.1` ; aucun domaine, proxy ou DNS public n’est nécessaire.
 
-Le script `scripts/process.py`, lancé depuis un worktree de couche, impose sa branche,
+Le script `codebase-quality-control/scripts/process.py`, lancé depuis un worktree de couche, impose sa branche,
 son identité Compose et le chemin absolu des artefacts. Il ne lit ni ne modifie les `.env`.
 Les paramètres de Compose sont explicitement fournis par l’outil.
 
-Les identifiants stables sont dans `scripts/aiod.json` ; leur ordre dans le fichier ne change
+Les identifiants stables sont dans `codebase-quality-control/scripts/aiod.json` ; leur ordre dans le fichier ne change
 pas les ports. Les noms des projets incluent un hash du chemin du dépôt principal et la couche.
 Deux clones ont des noms distincts ; leurs ports doivent aussi être configurés avec des bases
 différentes s’ils tournent sur le même hôte. Changer `process.port_base` avant le premier démarrage.
@@ -26,7 +26,7 @@ Références : [projets Compose](https://docs.docker.com/compose/intro/compose-a
 - La [carte BP-007](../docs/boilerplate/tasks/BP-007-initialiser-worktree-devops.md)
   consigne l’initialisation, la base et les preuves.
 - Le [routage commun](../docs/aiod/couches.md) définit les responsabilités de cette couche.
-- Depuis ce worktree, `python3 scripts/process.py up` démarre le conteneur témoin ;
+- Depuis ce worktree, `python3 codebase-quality-control/scripts/process.py up` démarre le conteneur témoin ;
   `verify` observe sa page et `down` arrête son environnement en conservant les volumes.
 - Aucun framework ni application : cet environnement sert uniquement à la recette AIOD.
 - Vérifier la disponibilité de la couche avant une mission, même si Git affiche un arbre propre.

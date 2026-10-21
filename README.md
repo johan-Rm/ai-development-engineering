@@ -9,16 +9,16 @@ Prérequis et détails : [installation et lancement](docs/demarrage.md).
 Depuis la racine du dépôt :
 
 ```sh
-python3 scripts/apps.py install all
+python3 codebase-quality-control/scripts/apps.py install all
 ```
 
-Dans trois terminaux : `python3 scripts/apps.py serve api`, `python3 scripts/apps.py serve web`
-et `python3 scripts/apps.py serve backoffice`.
+Dans trois terminaux : `python3 codebase-quality-control/scripts/apps.py serve api`, `python3 codebase-quality-control/scripts/apps.py serve web`
+et `python3 codebase-quality-control/scripts/apps.py serve backoffice`.
 
 API : http://127.0.0.1:8000/api/docs · Web : http://127.0.0.1:3000 · Dashboard : http://127.0.0.1:3001.
 
 ```sh
-python3 scripts/quality.py
+python3 codebase-quality-control/scripts/quality.py
 ```
 
 [Adopter le boilerplate](docs/aiod/adoption.md) · [Contrôles et CI](docs/qualite.md).
@@ -28,8 +28,8 @@ Les applications tournent sur l’hôte ; Docker fournit séparément des conten
 
 | Thème | Chemins et responsabilités |
 | --- | --- |
-| Couches | `api/`, `web/`, `backoffice/`, `design/`, `infra/`, `worktree/` ; routage dans `scripts/aiod.json` |
-| Consolidation | `scripts/`, `tests/`, tests applicatifs et CI : rendre les exigences vérifiables |
+| Couches | `api/`, `web/`, `backoffice/`, `design/`, `infra/`, `worktree/` ; routage dans `codebase-quality-control/scripts/aiod.json` |
+| Consolidation | `codebase-quality-control/scripts/`, `codebase-quality-control/tests/`, tests applicatifs et CI : rendre les exigences vérifiables |
 | IA Engineering | `AGENTS.md`, `CLAUDE.md`, `ia-engineering/`, `.claude/` : consignes des agents |
 | Documentation | `docs/`, `dev-book/`, `**/README.md` : produit, responsabilités, tâches et preuves |
 

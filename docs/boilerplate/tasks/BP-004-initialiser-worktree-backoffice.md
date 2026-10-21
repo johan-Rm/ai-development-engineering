@@ -6,7 +6,7 @@
 - **Type** : outillage.
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
-- **Réf** : BP-003 ; commit develop contenant scripts/worktrees.py et scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
+- **Réf** : BP-003 ; commit develop contenant codebase-quality-control/scripts/worktrees.py et codebase-quality-control/scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
 - **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
@@ -28,7 +28,7 @@ le rôle de la couche : interface d’administration.
 Commande prévue :
 
 ```sh
-python3 scripts/worktrees.py add --layer backoffice --branch layers/backoffice --base develop
+python3 codebase-quality-control/scripts/worktrees.py add --layer backoffice --branch layers/backoffice --base develop
 ```
 
 La commande est exécutée depuis le dépôt principal ou un arbre enregistré, après vérification
