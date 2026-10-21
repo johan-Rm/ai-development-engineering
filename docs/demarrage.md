@@ -22,7 +22,7 @@ python3 codebase-quality-control/scripts/apps.py serve web
 python3 codebase-quality-control/scripts/apps.py serve backoffice
 ```
 
-L’API applique ses migrations puis écoute sur http://127.0.0.1:8000/api/docs ; la webapp sur http://127.0.0.1:3000 et le dashboard sur http://127.0.0.1:3001. Chaque processus s’arrête avec Ctrl+C. SQLite persiste dans `api/app/var/app.db`. Aucun article n’est créé automatiquement.
+L’API applique ses migrations puis écoute sur http://127.0.0.1:8000/api/docs ; la webapp sur http://127.0.0.1:3000 et le dashboard sur http://127.0.0.1:3001. Chaque processus s’arrête avec Ctrl+C. SQLite persiste dans `app/api/app/var/app.db`. Aucun article n’est créé automatiquement.
 
 ```sh
 python3 codebase-quality-control/scripts/quality.py
@@ -31,7 +31,7 @@ python3 codebase-quality-control/scripts/quality.py
 Pour Playwright, API démarrée sur le port 8000 :
 
 ```sh
-cd web/targets/app
+cd app/web/targets/app
 npx playwright install --with-deps chromium
 cd ../../..
 python3 codebase-quality-control/scripts/apps.py check web --browser

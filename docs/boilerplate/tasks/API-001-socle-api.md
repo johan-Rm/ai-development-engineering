@@ -7,7 +7,7 @@
 - **Tests** : CRUD HTTP, validation 422, persistance SQLite, documentation OpenAPI.
 - **Réf** : demande utilisateur, docs/aiod/couches.md.
 - **Mission** : couche `api`, branche `layers/api`, worktree `<depot>/worktree/api`.
-- **Chemins autorisés** : `api/`, cette carte.
+- **Chemins autorisés** : `app/api/`, cette carte.
 - **Base vérifiée** : `f19ba58b78eff96d0ea618e03b44343f64812a66` ; aucune réécriture de branche.
 
 ## Contexte

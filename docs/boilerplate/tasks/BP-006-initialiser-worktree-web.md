@@ -21,7 +21,7 @@ pour chaque couche, ainsi que les branches `master` et `develop`.
 
 Créer ou réutiliser le worktree `<depot>/worktree/web` sur `layers/web` depuis un SHA identifié
 de `develop`. Ajouter ou compléter `web/README.md` dans ce worktree pour décrire
-le rôle de la couche : socle partagé et construction de plusieurs sites/webapps. Décrire `web/shared/` et `web/targets/<nom>/`, sans installer de runtime ni générer de cible.
+le rôle de la couche : socle partagé et construction de plusieurs sites/webapps. Décrire `web/shared/` et `app/web/targets/<nom>/`, sans installer de runtime ni générer de cible.
 
 ## Décisions de cadrage
 

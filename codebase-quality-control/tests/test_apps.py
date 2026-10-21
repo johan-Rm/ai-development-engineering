@@ -12,10 +12,19 @@ spec.loader.exec_module(apps)
 
 
 class Apps(unittest.TestCase):
+    def test_backoffice_install_uses_app_directory(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            directory = root / 'app/backoffice'
+            directory.mkdir(parents=True)
+            with patch.object(apps.subprocess, 'run') as execute:
+                apps.run('install', 'backoffice', root)
+                self.assertEqual(execute.call_args.kwargs['cwd'], directory)
+
     def test_install_preserves_existing_env_and_uses_selected_root(self):
         with tempfile.TemporaryDirectory(prefix='aiod projet ') as tmp:
             root = Path(tmp)
-            directory = root / 'api/app'
+            directory = root / 'app/api/app'
             directory.mkdir(parents=True)
             (directory / '.env.example').write_text('DEFAULT=1')
             with patch.object(apps.subprocess, 'run') as execute:
@@ -30,7 +39,7 @@ class Apps(unittest.TestCase):
     def test_failed_typecheck_stops_before_build(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            (root / 'web/targets/app').mkdir(parents=True)
+            (root / 'app/web/targets/app').mkdir(parents=True)
             with patch.object(apps.subprocess, 'run', side_effect=subprocess.CalledProcessError(1, 'npm')) as execute:
                 with self.assertRaises(subprocess.CalledProcessError):
                     apps.run('check', 'web', root)
@@ -39,7 +48,7 @@ class Apps(unittest.TestCase):
     def test_openapi_drift_fails_without_overwriting_contract(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            directory = root / 'api/app'
+            directory = root / 'app/api/app'
             directory.mkdir(parents=True)
             contract = directory / 'openapi.json'
             contract.write_text('{"paths": {}}')

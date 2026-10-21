@@ -15,7 +15,7 @@ Depuis la racine du dépôt ou du worktree à vérifier :
 | `python3 codebase-quality-control/scripts/apps.py check web --browser` | Types, build et parcours Playwright ; API et Chromium requis |
 | `python3 codebase-quality-control/scripts/apps.py check backoffice --browser` | Types, build et parcours Playwright ; API et Chromium requis |
 
-Installer les dépendances avant les contrôles applicatifs. `--root` sélectionne explicitement un autre worktree ; par défaut les scripts utilisent leur propre dépôt, sans dépendre du dossier courant. Les builds écrivent les artefacts Nuxt ignorés par Git. La vérification OpenAPI exporte dans un dossier temporaire et ne modifie pas le contrat versionné. Après une évolution voulue du contrat, régénérer celui-ci depuis `api/app/` : `php bin/console api:openapi:export --output=openapi.json`.
+Installer les dépendances avant les contrôles applicatifs. `--root` sélectionne explicitement un autre worktree ; par défaut les scripts utilisent leur propre dépôt, sans dépendre du dossier courant. Les builds écrivent les artefacts Nuxt ignorés par Git. La vérification OpenAPI exporte dans un dossier temporaire et ne modifie pas le contrat versionné. Après une évolution voulue du contrat, régénérer celui-ci depuis `app/api/app/` : `php bin/console api:openapi:export --output=openapi.json`.
 
 La CI `.github/workflows/quality.yml` installe les dépendances, exécute les contrôles et les parcours navigateur sur les pull requests et les pushes vers `develop` et `master`. Elle utilise une base et des processus propres au runner. Aucun déploiement n’est configuré.
 

@@ -3,10 +3,10 @@
 Application Nuxt 4 / Vue 3 / TypeScript avec rendu serveur, dans `targets/app/`.
 Couche `web`. Node >= 22.12 et npm requis.
 
-Depuis la racine du dépôt ou du worktree concerné, entrer dans `web/targets/app/` :
+Depuis la racine du dépôt ou du worktree concerné, entrer dans `app/web/targets/app/` :
 
 ```sh
-cd web/targets/app
+cd app/web/targets/app
 npm ci
 npm run dev
 ```
@@ -25,7 +25,7 @@ un proxy Nuxt limité à la collection des articles. Les mutations ne sont pas e
 Le contrat JSON-LD attend `member`, `totalItems` et les champs `id`, `title`, `content`, `published`.
 La liste inclut les brouillons dans ce boilerplate de développement ; aucune authentification.
 
-Le contrat API est versionné dans `api/app/openapi.json`.
+Le contrat API est versionné dans `app/api/app/openapi.json`.
 Le dossier `web/shared/` pourra accueillir un socle commun quand une autre cible en aura besoin.
 
 ## Vérifier et construire

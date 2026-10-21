@@ -7,7 +7,7 @@
 - **Tests** : typecheck, build, rendu SSR et parcours de création, modification, suppression.
 - **Réf** : demande utilisateur, docs/aiod/couches.md.
 - **Mission** : couche `backoffice`, branche `layers/backoffice`, worktree `<depot>/worktree/backoffice`.
-- **Chemins autorisés** : `backoffice/`, cette carte.
+- **Chemins autorisés** : `app/backoffice/`, cette carte.
 - **Base vérifiée** : `921a7bf15d7e44ef88d89a1ee47d764e9904d261` ; aucune réécriture de branche.
 
 ## Contexte
@@ -47,7 +47,7 @@ Ce socle ouvert sert au développement local et ne constitue pas une administrat
 
 ## Documentation impactée
 
-`backoffice/README.md`, exemples de configuration et commandes de lancement propres à l'application.
+`app/backoffice/README.md`, exemples de configuration et commandes de lancement propres à l'application.
 
 ## Définition de terminé
 

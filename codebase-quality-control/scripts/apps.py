@@ -8,7 +8,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
-APPS = {'api': 'api/app', 'web': 'web/targets/app', 'backoffice': 'backoffice'}
+APPS = {'api': 'app/api/app', 'web': 'app/web/targets/app', 'backoffice': 'app/backoffice'}
 
 
 def commands(action, app):
@@ -44,7 +44,7 @@ def run(action, app, root, browser=False):
             export = Path(tmp) / 'openapi.json'
             subprocess.run(['php', 'bin/console', 'api:openapi:export', f'--output={export}'], cwd=directory, check=True)
             if json.loads(export.read_text()) != json.loads((directory / 'openapi.json').read_text()):
-                raise ValueError('Contrat OpenAPI obsolète : régénérer api/app/openapi.json')
+                raise ValueError('Contrat OpenAPI obsolète : régénérer app/api/app/openapi.json')
     if browser and app != 'api':
         subprocess.run(['npm', 'run', 'test:e2e'], cwd=directory, check=True)
 

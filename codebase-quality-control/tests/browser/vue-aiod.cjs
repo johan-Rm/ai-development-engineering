@@ -1,11 +1,11 @@
-// Usage : node codebase-quality-control/tests/browser/vue-aiod.cjs web/targets/app
+// Usage : node codebase-quality-control/tests/browser/vue-aiod.cjs app/web/targets/app
 const path = require('node:path');
 const os = require('node:os');
 const { createRequire } = require('node:module');
 const { pathToFileURL } = require('node:url');
 const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '../../..');
-const requireApp = createRequire(path.resolve(root, process.argv[2] || 'web/targets/app', 'package.json'));
+const requireApp = createRequire(path.resolve(root, process.argv[2] || 'app/web/targets/app', 'package.json'));
 const { chromium } = requireApp('playwright');
 (async () => {
   const browser = await chromium.launch();

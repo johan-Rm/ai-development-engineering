@@ -3,7 +3,7 @@
 Mini administration Nuxt 4 / Vue 3 / TypeScript, avec rendu serveur.
 Couche `backoffice`. Node >= 22.12 et npm requis.
 
-Depuis la racine du dépôt ou du worktree concerné, entrer dans `backoffice/` :
+Depuis la racine du dépôt ou du worktree concerné, entrer dans `app/backoffice/` :
 
 ```sh
 cd backoffice
@@ -26,7 +26,7 @@ Les routes Nuxt `/api/articles` (GET, POST) et `/api/articles/{id}` (GET, PATCH,
 relaient uniquement ces opérations vers l'API, avec les types MIME JSON-LD et merge-patch attendus.
 Le contrat attend une collection `member`, `totalItems` et des articles `id`, `title`, `content`, `published`.
 Les compteurs « publiés » et « brouillons » portent sur la page courante, le total sur toute la collection.
-Le contrat API est versionné dans `api/app/openapi.json`.
+Le contrat API est versionné dans `app/api/app/openapi.json`.
 
 Ce boilerplate de développement local ne fournit pas d'authentification ni de contrôle de permissions.
 

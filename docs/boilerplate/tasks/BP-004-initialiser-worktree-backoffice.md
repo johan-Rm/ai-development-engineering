@@ -20,7 +20,7 @@ pour chaque couche, ainsi que les branches `master` et `develop`.
 ## Périmètre
 
 Créer ou réutiliser le worktree `<depot>/worktree/backoffice` sur `layers/backoffice` depuis un SHA identifié
-de `develop`. Ajouter ou compléter `backoffice/README.md` dans ce worktree pour décrire
+de `develop`. Ajouter ou compléter `app/backoffice/README.md` dans ce worktree pour décrire
 le rôle de la couche : interface d’administration.
 
 ## Décisions de cadrage
@@ -52,7 +52,7 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Documentation impactée
 
-`backoffice/README.md` dans le worktree cible ; `docs/aiod/couches.md` seulement si le routage doit être précisé ; carte courante pour les preuves.
+`app/backoffice/README.md` dans le worktree cible ; `docs/aiod/couches.md` seulement si le routage doit être précisé ; carte courante pour les preuves.
 
 ## Définition de terminé
 
@@ -61,7 +61,7 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 - [x] La branche nouvellement créée démarre sur le SHA develop consigné.
 - [x] Pour une branche existante, toute divergence est inventoriée sans réécriture.
 - [x] Une relance réutilise le worktree sans modifier ses fichiers ni son environnement.
-- [x] `backoffice/README.md` décrit le périmètre, les limites et les preuves applicables.
+- [x] `app/backoffice/README.md` décrit le périmètre, les limites et les preuves applicables.
 - [x] Les exclusions du parent empêchent la recherche et les tests de parcourir cette copie.
 - [x] La carte est conservée pour sa clôture dans l’arbre cible sans reprendre une mission tierce.
 - [x] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
@@ -82,7 +82,7 @@ Vérification du 2026-10-06 :
 - Projet Docker : `aiod-d10fdac8-backoffice` ; volume `aiod-d10fdac8-backoffice_state`.
 - Marqueur `/data/init-proof` : `backoffice`, conservé après relance.
 - `.env` préservé ; artefacts `.aiod/` exclus de Git ; aucune copie de secret.
-- `backoffice/README.md` décrit les responsabilités et la recette.
+- `app/backoffice/README.md` décrit les responsabilités et la recette.
 - Les contrôles Python ciblent tests/ et n’explorent pas worktree/ ; Git ignore la copie.
 
 L’utilisateur a autorisé un commit d’initialisation par couche. La stack applicative reste hors

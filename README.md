@@ -1,7 +1,7 @@
-# AI-Orchestrated Development
+# AIDE — AI Development Engineering
 
-Boilerplate API Platform / Symfony et deux applications Nuxt : une webapp et un dashboard.
-Le cadre AIOD organise le travail des agents par couches et worktrees, avec des preuves vérifiables.
+Cadre de développement agnostique organisé par couches et worktrees, avec des preuves vérifiables.
+Les applications de démonstration sont regroupées dans `app/` : API Platform / Symfony, webapp et dashboard Nuxt.
 
 ## Démarrer
 
@@ -28,8 +28,8 @@ Les applications tournent sur l’hôte ; Docker fournit séparément des conten
 
 | Thème | Chemins et responsabilités |
 | --- | --- |
-| Couches | `api/`, `web/`, `backoffice/`, `design/`, `infra/`, `worktree/` ; routage dans `codebase-quality-control/scripts/aiod.json` |
-| Consolidation | `codebase-quality-control/scripts/`, `codebase-quality-control/tests/`, tests applicatifs et CI : rendre les exigences vérifiables |
+| Couches | `app/api/`, `app/web/`, `app/backoffice/`, `design/`, `infra/`, `worktree/` ; routage dans `codebase-quality-control/scripts/aiod.json` |
+| Codebase Quality Control | `codebase-quality-control/`, tests applicatifs et CI : rendre les exigences vérifiables |
 | IA Engineering | `AGENTS.md`, `CLAUDE.md`, `ia-engineering/`, `.claude/` : consignes des agents |
 | Documentation | `docs/`, `dev-book/`, `**/README.md` : produit, responsabilités, tâches et preuves |
 

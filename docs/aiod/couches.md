@@ -1,20 +1,20 @@
 # Couches et responsabilités
 
 Le blueprint décrit cinq couches pour le projet consommateur, indépendamment de sa stack.
-Les applications de démonstration sont fournies : API Platform dans `api/app/`, Nuxt dans
-`web/targets/app/` et `backoffice/`. Leurs dépendances sont installées à la demande.
+Les applications de démonstration sont fournies : API Platform dans `app/api/app/`, Nuxt dans
+`app/web/targets/app/` et `app/backoffice/`. Leurs dépendances sont installées à la demande.
 
 | Couche | Chemins proposés | Branche | Worktree | Préfixe | Preuve attendue |
 | --- | --- | --- | --- | --- | --- |
-| backoffice | `backoffice/` | `layers/backoffice` | `worktree/backoffice` | BO | Parcours d’administration exécuté |
-| api | `api/` | `layers/api` | `worktree/api` | API | Requête et réponse observées, tests du contrat |
-| web | `web/` : socle partagé et cibles | `layers/web` | `worktree/web` | WEB | Build et rendu des cibles touchées |
+| backoffice | `app/backoffice/` | `layers/backoffice` | `worktree/backoffice` | BO | Parcours d’administration exécuté |
+| api | `app/api/` | `layers/api` | `worktree/api` | API | Requête et réponse observées, tests du contrat |
+| web | `app/web/` : socle partagé et cibles | `layers/web` | `worktree/web` | WEB | Build et rendu des cibles touchées |
 | design | `design/` : maquettes, parcours et direction artistique | `layers/design` | `worktree/design` | UX | Relecture visuelle et validation des parcours |
 | devops | `infra/` : domaines, déploiement, architecture serveur ; consignes, documentation et outillage du cadre | `layers/devops` | `worktree/devops` | OPS | Configuration vérifiée sur l’environnement autorisé |
 
 ## Plusieurs webapps et sites
 
-`web/` peut contenir `shared/` et `targets/<nom>/`. Une cible représente un site ou une webapp,
+`app/web/` peut contenir `shared/` et `targets/<nom>/`. Une cible représente un site ou une webapp,
 avec sa configuration et sa commande de build. Le nombre de cibles n’impose pas le nombre de
 worktrees : une couche web suffit tant que ses tâches sont séquentielles. Si plusieurs cibles
 nécessitent des écrivains simultanés, définir des couches avec des chemins distincts.

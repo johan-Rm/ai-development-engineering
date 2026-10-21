@@ -26,7 +26,7 @@ jobs:
       - run: python3 codebase-quality-control/scripts/apps.py install all
       - run: python3 codebase-quality-control/scripts/quality.py
       - name: Installer Chromium
-        working-directory: web/targets/app
+        working-directory: app/web/targets/app
         run: npx playwright install --with-deps chromium
       - name: Parcours navigateur avec API locale
         shell: bash
@@ -46,5 +46,5 @@ jobs:
             cat "$RUNNER_TEMP/aiod-api.log"
             exit 1
           fi
-          (cd web/targets/app && npm run test:e2e)
-          (cd backoffice && npm run test:e2e)
+          (cd app/web/targets/app && npm run test:e2e)
+          (cd app/backoffice && npm run test:e2e)
