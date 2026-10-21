@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal.
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
 - Périmètre : vue HTML, test navigateur et cette carte ; préserver les autres changements.
 - Demande : demandes en entrée et PR en sortie, hors de la boucle, dans un en-tête et un pied de bloc.
 - Décision : chaque demande alimente une ou plusieurs tâches ; le cycle commence par une tâche et conserve la livraison d’un commit. Les PR rassemblent les commits à l’extérieur du cycle.

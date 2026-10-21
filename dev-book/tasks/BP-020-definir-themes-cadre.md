@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal (chemin absolu obtenu par `git rev-parse --show-toplevel`).
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal (chemin absolu obtenu par `git rev-parse --show-toplevel`).
 - Périmètre : détails des thèmes de la vue HTML, présentation des accroches dans le panneau, test navigateur et cette carte.
 - Demande : intégrer les quatre accroches et définitions validées pour Couches, Consolidation, IA Engineering et Documentation ; mettre en avant les bénéfices des couches.
 - Critères : accroche visible au premier regard dans le panneau, définition puis éléments sous-jacents ; parallélisme, limitation des conflits, facilité de vérification et périmètres explicités ; schéma et autres détails conservés.

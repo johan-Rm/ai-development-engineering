@@ -7,14 +7,14 @@
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
 - **Réf** : BP-003 ; commit develop contenant scripts/worktrees.py et scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
-- **Rattachement** : maintenance du blueprint, branche `layers/blueprint`, préfixe BP.
+- **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
 - **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
 
 ## Contexte
 
 Les cinq couches sont définies mais leurs worktrees n’existent pas. Le dépôt ne possède pour
-l’instant que `main` et `layers/blueprint`. L’utilisateur demande une tâche d’initialisation
+l’instant que `main` et la branche historique de maintenance. L’utilisateur demande une tâche d’initialisation
 pour chaque couche, ainsi que les branches `master` et `develop`.
 
 ## Périmètre

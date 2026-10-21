@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal (chemin absolu obtenu par `git rev-parse --show-toplevel`).
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal (chemin absolu obtenu par `git rev-parse --show-toplevel`).
 - Périmètre : détails des six étapes dans `docs/aiod/vue-d-ensemble-aiod.html`, adaptation des assertions navigateur concernées et cette carte. Préserver les autres travaux et les pictos ajoutés par l’utilisateur.
 - Demande : intégrer les six textes validés un à un dans le chat, sans modification de la présentation.
 - Critères : demande pouvant contenir plusieurs tâches par couche, une tâche/un commit, une PR par demande ; isolation et disponibilité des couches ; vérification humaine ; reconstitution ; contrôles réussis avant écriture des tests et de la documentation en finalisation.

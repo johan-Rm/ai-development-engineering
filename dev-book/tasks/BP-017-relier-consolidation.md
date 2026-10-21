@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal.
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
 - Périmètre : vue HTML, test navigateur et cette carte ; préserver les autres changements.
 - Demande : liaison depuis la vérification humaine vers les demandes de consolidation ; en-tête Demandes et footer à deux sorties (PRs de consolidation, règles et contrôles).
 - Critères : liaison cliquable avec détails ; deux critères de vérification documentés ; consolidation pouvant produire du code, une règle ou les deux ; pas de défilement vertical ni déplacement du contenu par le panneau.

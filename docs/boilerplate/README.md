@@ -3,6 +3,9 @@
 `tasks/` conserve les cartes de construction antérieures à l’adoption : BP-001 à BP-010,
 API-001, WEB-001 et BO-001. Ce sont des archives, jamais des tâches à reprendre automatiquement.
 Les chemins personnels historiques sont remplacés par des placeholders ; les originaux restent dans Git.
+La maintenance du cadre relève désormais de devops. Les anciennes affectations sont décrites
+comme historiques ; leurs libellés originaux restent consultables dans Git. Les identifiants BP
+sont conservés pour ne pas rompre les références aux cartes.
 Les anciennes preuves datées ne valent pas exécution actuelle des contrôles.
 
 ## Exemples remplaçables

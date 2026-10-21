@@ -3,7 +3,7 @@
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
 - Demande : corriger les cinq points de l’audit après commit de BP-010.
-- Mission : couche blueprint, branche `layers/blueprint`, worktree principal (chemin obtenu avec `git rev-parse --show-toplevel`).
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal (chemin obtenu avec `git rev-parse --show-toplevel`).
 - Périmètre : documentation, consignes, archivage documentaire, scripts communs, tests de ces scripts et CI. Aucun changement fonctionnel des applications.
 - Preuves attendues : tests Python, exécution des contrôles applicatifs disponibles, validation des liens et absence de chemins personnels actifs.
 

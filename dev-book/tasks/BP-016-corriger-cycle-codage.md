@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal.
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
 - Périmètre : vue HTML interactive, test navigateur et cette carte. Préserver les autres changements.
 - Demande : appliquer les six étapes validées : Interview, Découpage, Réalisation, Vérification humaine, Reconstitution et Finalisation. Cinq étapes IA, une étape humaine ; retour à la réalisation si corrections.
 - Critères : en-tête Demandes et footer PRs conservés hors du cycle, détails actualisés, couleurs correctes, panneau au clic, absence de défilement vertical préservée.

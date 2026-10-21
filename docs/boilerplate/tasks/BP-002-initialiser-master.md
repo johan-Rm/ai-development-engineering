@@ -7,14 +7,14 @@
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
 - **Réf** : BP-001 : cadrage de la gouvernance validé ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
-- **Rattachement** : maintenance du blueprint, branche `layers/blueprint`, préfixe BP.
+- **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
 - **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
 
 ## Contexte
 
 Les cinq couches sont définies mais leurs worktrees n’existent pas. Le dépôt ne possède pour
-l’instant que `main` et `layers/blueprint`. L’utilisateur demande une tâche d’initialisation
+l’instant que `main` et la branche historique de maintenance. L’utilisateur demande une tâche d’initialisation
 pour chaque couche, ainsi que les branches `master` et `develop`.
 
 ## Périmètre
@@ -61,7 +61,7 @@ Lire les références Git, l’état des arbres et les missions ; vérifier la b
 ## Preuves et livraison
 
 Observation du 2026-10-06 : `refs/heads/master` créée sur
-`9a60e1c5b6908f1c87fa3c2264fad778ba5f583a`. La branche courante reste `layers/blueprint` ;
+`9a60e1c5b6908f1c87fa3c2264fad778ba5f583a`. La branche courante reste la branche historique de maintenance ;
 aucun fichier ouvert n’a été déplacé ou écrasé. `main` est conservée.
 La documentation durable indique master comme référence publique et la transition depuis main.
 

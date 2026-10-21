@@ -10,7 +10,7 @@ Les applications de démonstration sont fournies : API Platform dans `api/app/`,
 | api | `api/` | `layers/api` | `worktree/api` | API | Requête et réponse observées, tests du contrat |
 | web | `web/` : socle partagé et cibles | `layers/web` | `worktree/web` | WEB | Build et rendu des cibles touchées |
 | design | `design/` : maquettes, parcours et direction artistique | `layers/design` | `worktree/design` | UX | Relecture visuelle et validation des parcours |
-| devops | `infra/` : domaines, déploiement, architecture serveur | `layers/devops` | `worktree/devops` | OPS | Configuration vérifiée sur l’environnement autorisé |
+| devops | `infra/` : domaines, déploiement, architecture serveur ; consignes, documentation et outillage du cadre | `layers/devops` | `worktree/devops` | OPS | Configuration vérifiée sur l’environnement autorisé |
 
 ## Plusieurs webapps et sites
 
@@ -46,12 +46,13 @@ Le worktree design se crée à l’affectation d’une tâche ; aucun serveur n�
 
 ## Maintenance de ce dépôt
 
-La couche `blueprint`, branche `layers/blueprint`, préfixe BP, possède les consignes,
-la documentation et l’outillage de ce dépôt. Elle est une couche de maintenance du blueprint,
-distincte des cinq couches proposées pour le projet consommateur. Son worktree peut être la racine si la branche y est sortie.
+La maintenance du cadre appartient à la couche `devops`, branche `layers/devops`,
+préfixe `OPS`, worktree `worktree/devops`. Elle couvre les consignes, la documentation
+et l’outillage communs de ce dépôt. Elle ne constitue pas une sixième couche.
 Preuve : documentation cohérente et `python3 scripts/check.py`.
+Les cartes `BP` existantes conservent leurs identifiants historiques.
 
-La configuration `scripts/aiod.json` connaît ces cinq couches et la maintenance du blueprint.
+La configuration `scripts/aiod.json` déclare uniquement les cinq couches du tableau.
 Lors de l’adoption, conserver seulement les couches utiles et adapter cette table avec le JSON.
 Chaque couche reçoit un écrivain à la fois ; les consignes ne sont pas des verrous automatiques.
 

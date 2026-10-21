@@ -7,14 +7,14 @@
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
 - **Réf** : BP-002 ; BP-001 validée et commitée avant intégration du blueprint ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
-- **Rattachement** : maintenance du blueprint, branche `layers/blueprint`, préfixe BP.
+- **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
 - **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
 
 ## Contexte
 
 Les cinq couches sont définies mais leurs worktrees n’existent pas. Le dépôt ne possède pour
-l’instant que `main` et `layers/blueprint`. L’utilisateur demande une tâche d’initialisation
+l’instant que `main` et la branche historique de maintenance. L’utilisateur demande une tâche d’initialisation
 pour chaque couche, ainsi que les branches `master` et `develop`.
 
 ## Périmètre
@@ -27,7 +27,7 @@ et les consignes nécessaires aux futurs worktrees.
 
 `develop` devient la base explicite des cinq couches. La réunion se fait avec le commit
 validé de BP-001, jamais par copie du travail non commité. Maintenir l’arbre principal sur
-`layers/blueprint`. Si un checkout est nécessaire, utiliser un worktree d’intégration temporaire
+la branche historique de maintenance. Si un checkout est nécessaire, utiliser un worktree d’intégration temporaire
 vérifié plutôt que basculer un arbre modifié. Un arbre temporaire reste inventorié jusqu’à
 une décision explicite de retrait.
 

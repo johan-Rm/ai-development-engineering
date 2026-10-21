@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal.
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
 - Périmètre : zone des contrôles de la vue HTML, test navigateur et cette carte. Préserver les autres travaux.
 - Demande : clarifier les relations entre développement, consolidation et contrôles ; retirer l’ambiguïté entre PR et livraison.
 - Critères : lecture explicite de la production des contrôles par la consolidation et de leur exécution par le développement ; exécution sans IA, en CI/CD ou à la demande ; détails au clic ; pas de défilement vertical.

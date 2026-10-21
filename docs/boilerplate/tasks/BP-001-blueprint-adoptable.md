@@ -3,8 +3,8 @@
 - État : clôturée le 2026-10-06
 - Date : 2026-10-05
 - Demande : rendre les documents AIOD plus faciles à intégrer depuis un dépôt GitHub public.
-- Couche : blueprint
-- Affectation : session Codex, branche `layers/blueprint`, dossier
+- Rattachement historique : maintenance du cadre
+- Affectation : session Codex, sur la branche historique de maintenance, dossier
   `<depot>`.
 - Dépendance : socle initial `9a60e1c`.
 

@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal.
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
 - Périmètre : `docs/aiod/cadre-aiod.html` et cette carte. Préserver BP-011 non commité.
 - Demande : représenter les quatre éléments et leurs sous-éléments validés dans le chat : Couches, Consolidation, IA Engineering, Documentation.
 - Choix : un élément sur chaque côté du cadre olive, avec des libellés courts. Les deux boucles seront retravaillées séparément.

@@ -1,9 +1,5 @@
 {
   "layers": {
-    "blueprint": {
-      "branch": "layers/blueprint",
-      "role": "Maintenance du blueprint"
-    },
     "backoffice": {
       "branch": "layers/backoffice",
       "role": "Interface d’administration",
@@ -21,7 +17,7 @@
     },
     "devops": {
       "branch": "layers/devops",
-      "role": "Domaines et infrastructure serveur",
+      "role": "Infrastructure, outillage et maintenance du cadre",
       "id": 4
     },
     "design": {

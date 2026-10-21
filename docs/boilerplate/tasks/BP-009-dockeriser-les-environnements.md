@@ -7,7 +7,7 @@
 - **Tests** : résolution Compose, builds et démarrage de deux environnements simultanés ;
   observation des endpoints et des destinations d’écriture.
 - **Réf** : BP-003 à BP-008 ; `docs/aiod/parallel-work.md`.
-- **Rattachement** : devops pour les fichiers d’infrastructure, coordination blueprint
+- **Rattachement** : devops pour les fichiers d’infrastructure, coordination de la maintenance du cadre
   pour l’outillage commun. Les changements applicatifs éventuels font l’objet de tâches distinctes.
 
 ## Contexte

@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-21.
 - Date : 2026-10-21.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal (chemin absolu obtenu par `git rev-parse --show-toplevel`).
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal (chemin absolu obtenu par `git rev-parse --show-toplevel`).
 - Périmètre : étapes et détails de consolidation dans la vue HTML, test navigateur et cette carte. Préserver les autres changements.
 - Demande : intégrer Interview, Analyse globale, Arbitrage, Implémentation, Vérification et Livraison, avec les textes validés dans le chat.
 - Critères : six étapes numérotées, quatre IA et deux humaines ; analyse de toute la base de code ; arbitrage de la règle distinct de la vérification de son application ; entrée et sorties conservées ; pas de défilement vertical.

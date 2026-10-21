@@ -15,10 +15,10 @@ Les commandes et écritures visent ce dossier explicitement.
 
 - Référence publique : `master`. `main` est conservée comme référence historique.
 - Intégration : `develop`. Aucun déploiement applicatif n’est configuré.
-- Travail du blueprint : `layers/blueprint`. Aucun changement de tâche directement sur `develop` ou `master`.
-- Cartes : `dev-book/tasks/BP-NNN-slug.md`. Vérifier les identifiants sur les branches concernées
+- Maintenance du cadre : couche devops, branche `layers/devops`. Aucun changement de tâche directement sur `develop` ou `master`.
+- Cartes : `dev-book/tasks/<PRÉFIXE>-NNN-slug.md` (`OPS` pour devops). Les références `BP` existantes sont historiques. Vérifier les identifiants sur les branches concernées
   avant attribution ; aucun compteur concurrent automatique n’est fourni.
-- Création : `python3 scripts/worktrees.py add --layer blueprint --branch layers/blueprint --base develop`.
+- Création : `python3 scripts/worktrees.py add --layer devops --branch layers/devops --base develop`.
   La base est explicite, locale et résolue à un commit ; la commande ne fait pas de fetch.
 - Une tâche à la fois, un commit par tâche avec tests pertinents, documentation et carte clôturée.
 - Contrôle avant PR : `python3 scripts/quality.py` après installation des dépendances. La relecture vérifie le comportement et le diff.

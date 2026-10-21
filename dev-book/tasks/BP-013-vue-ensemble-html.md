@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal.
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
 - Périmètre : nouvelle vue `docs/aiod/vue-d-ensemble-aiod.html`, index documentaire, test navigateur et cette carte. Préserver les corrections BP-011, BP-012 et le schéma SVG existant.
 - Demande : convertir la représentation en HTML/CSS, avec détails dans un panneau latéral au survol et au clic.
 - Critères : quatre thèmes validés, éléments sous-jacents dans le panneau, boucles conservées, couleurs et polices conservées ; fonctionnement souris, clavier et tactile ; fermeture et absence de débordement mobile.

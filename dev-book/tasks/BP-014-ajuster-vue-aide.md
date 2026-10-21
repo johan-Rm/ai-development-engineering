@@ -2,7 +2,7 @@
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Mission : blueprint, branche `layers/blueprint`, worktree principal.
+- Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
 - Périmètre : vue HTML interactive, schéma SVG de référence pour sa mention de version, index, tests navigateur et cette carte. Préserver les autres travaux.
 - Demande : panneau superposé sans déplacement, fermeture fiable, signature discrète en bas à droite, nom « AIDE — AI Development Workflow Engineering », suppression de la mention « Pointillés : boucle de retour · Proposition v10 ».
 - Preuves : test navigateur de stabilité géométrique et fermeture persistante souris/clavier/tactile ; captures relues.
