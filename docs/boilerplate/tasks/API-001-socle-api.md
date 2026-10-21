@@ -1,14 +1,14 @@
-# WEB-001 — Socle webapp Nuxt
+# API-001 — Socle API Platform
 
 - **Créée le** : 2026-10-18.
 - **Session** : non disponible (Codex).
 - **Statut** : ✅ fait le 2026-10-18.
 - **Type** : feat.
-- **Tests** : typecheck, build, rendu SSR de la liste et états vide/erreur.
+- **Tests** : CRUD HTTP, validation 422, persistance SQLite, documentation OpenAPI.
 - **Réf** : demande utilisateur, docs/aiod/couches.md.
-- **Mission** : couche `web`, branche `layers/web`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/web`.
-- **Chemins autorisés** : `web/`, cette carte.
-- **Base vérifiée** : `c320053cc1e802386aa17322fd367a09dd3f0c45` ; aucune réécriture de branche.
+- **Mission** : couche `api`, branche `layers/api`, worktree `<depot>/worktree/api`.
+- **Chemins autorisés** : `api/`, cette carte.
+- **Base vérifiée** : `f19ba58b78eff96d0ea618e03b44343f64812a66` ; aucune réécriture de branche.
 
 ## Contexte
 
@@ -17,7 +17,7 @@ L'utilisateur a autorisé les trois cartes puis leur réalisation dans cette ses
 
 ## Périmètre
 
-Socle webapp Nuxt. Ressource Article : id entier, title obligatoire (1 à 160 caractères),
+Socle API Platform. Ressource Article : id entier, title obligatoire (1 à 160 caractères),
 content facultatif (texte), published booléen. Collection JSON-LD `/api/articles`
 avec `member` et `totalItems`, détail `/api/articles/{id}` ; POST JSON-LD,
 PATCH merge-patch JSON et DELETE. Pagination serveur, 20 éléments par page.
@@ -30,8 +30,8 @@ Nuxt avec TypeScript et SSR, styles CSS simples et responsive, aucun service Doc
 Web en lecture ; dashboard CRUD. États chargement, vide et erreur visibles.
 Les clients utilisent un proxy Nuxt de même origine vers une URL API configurable côté serveur.
 Contrat décrit ici avant réalisation ; aucune copie de fichiers non commités entre couches.
-Contrat API livré par le commit `bc9ea8fb2f80160c02c8dd3f91f38b877fdf1474` (API-001),
-référence utilisée pour l’intégration locale sur develop.
+Ce commit constitue la livraison du contrat API ; les interfaces le référencent par SHA
+avant la réunion locale des trois branches sur develop.
 
 ## Hors périmètre
 
@@ -47,36 +47,36 @@ Ce socle ouvert sert au développement local et ne constitue pas une administrat
 
 ## Documentation impactée
 
-`web/README.md`, exemples de configuration et commandes de lancement propres à l'application.
+`api/README.md`, exemples de configuration et commandes de lancement propres à l'application.
 
 ## Définition de terminé
 
 - [x] Application installée avec dépendances verrouillées.
-- [x] typecheck, build, rendu SSR de la liste et états vide/erreur.
+- [x] CRUD HTTP, validation 422, persistance SQLite, documentation OpenAPI.
 - [x] Commandes de démarrage, contrat et limites documentés.
 - [x] Preuves consignées et travail préexistant préservé.
 
 ## Vérification
 
-- Nuxt 4.6.2, versions verrouillées dans package-lock.json.
-- `npm run typecheck` : OK ; `npm run build` : OK (build de production SSR).
-- `npm run test:e2e` : 1 test Chromium réussi (lecture API réelle, erreur, vide, mobile).
-- L'état hydraté désactive le bouton avant activation des événements côté navigateur.
-- Chromium et bibliothèques système extraits dans /tmp pour cette session.
-- Alertes npm transitives : correction automatique écartée car elle rétrograde Nuxt et introduit
-  des alertes critiques. Version 4.6.2 conservée ; détails et limite dans le README.
-- Captures ordinateur et mobile relues ; test navigateur final réussi après build final.
-- Audit final : 11 alertes high transitives, aucune critique.
-- Vérification du build servi : SSR et proxy 200, page invalide 400 ; méthodes interdites refusées en 405.
-- Services locaux : API 8000, webapp 3000, dashboard 3001 ; base de développement vide après tests.
+- `python3 tests/smoke.py` : OK, CRUD HTTP, 3 titres invalides rejetés en 422,
+  validation PATCH sans écriture, pagination 21 articles sur deux pages, suppression puis 404, OpenAPI.
+- `doctrine:schema:validate`, `lint:container`, `lint:yaml config` : OK.
+- Isolation HTTP renforcée par `variables_order=EGPCS` et assertion du nombre de lignes dans la base temporaire.
+- `composer validate --strict --no-check-publish` : OK.
+- Migration exécutée sur la base locale vide ; aucune donnée de démonstration ajoutée.
+- API Platform 4.4.5, Symfony 7.4.21, fichiers lock conservés.
+- Serveur de développement vérifié sur 127.0.0.1:8000.
+- Contrôle du dépôt `python3 scripts/check.py` : 12 tests OK.
 
-- Vérification avant commit : test navigateur rejoué et réussi.
+- PHP minimum corrigé à 8.4, conformément aux dépendances Doctrine verrouillées.
+- `openapi.json` régénéré avec `api:openapi:export` ; validation Composer stricte réussie.
+
+- Vérification avant commit : test HTTP rejoué, 1 test réussi en 2,1 secondes.
 
 ## Livré
 
-Webapp Nuxt SSR, proxy de lecture, pagination, styles, test navigateur et README.
+API Platform, entité Article, migration SQLite, contrat OpenAPI, test HTTP et README.
 
 ## Reste à faire (hors périmètre)
 
 Dockerisation applicative, authentification et déploiement. Aucun push demandé.
-Les alertes npm transitives restent documentées dans le README.

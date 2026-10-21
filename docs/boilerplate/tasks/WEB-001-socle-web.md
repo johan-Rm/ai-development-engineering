@@ -1,14 +1,14 @@
-# BO-001 — Socle dashboard Nuxt
+# WEB-001 — Socle webapp Nuxt
 
 - **Créée le** : 2026-10-18.
 - **Session** : non disponible (Codex).
 - **Statut** : ✅ fait le 2026-10-18.
 - **Type** : feat.
-- **Tests** : typecheck, build, rendu SSR et parcours de création, modification, suppression.
+- **Tests** : typecheck, build, rendu SSR de la liste et états vide/erreur.
 - **Réf** : demande utilisateur, docs/aiod/couches.md.
-- **Mission** : couche `backoffice`, branche `layers/backoffice`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/backoffice`.
-- **Chemins autorisés** : `backoffice/`, cette carte.
-- **Base vérifiée** : `921a7bf15d7e44ef88d89a1ee47d764e9904d261` ; aucune réécriture de branche.
+- **Mission** : couche `web`, branche `layers/web`, worktree `<depot>/worktree/web`.
+- **Chemins autorisés** : `web/`, cette carte.
+- **Base vérifiée** : `c320053cc1e802386aa17322fd367a09dd3f0c45` ; aucune réécriture de branche.
 
 ## Contexte
 
@@ -17,7 +17,7 @@ L'utilisateur a autorisé les trois cartes puis leur réalisation dans cette ses
 
 ## Périmètre
 
-Socle dashboard Nuxt. Ressource Article : id entier, title obligatoire (1 à 160 caractères),
+Socle webapp Nuxt. Ressource Article : id entier, title obligatoire (1 à 160 caractères),
 content facultatif (texte), published booléen. Collection JSON-LD `/api/articles`
 avec `member` et `totalItems`, détail `/api/articles/{id}` ; POST JSON-LD,
 PATCH merge-patch JSON et DELETE. Pagination serveur, 20 éléments par page.
@@ -47,24 +47,26 @@ Ce socle ouvert sert au développement local et ne constitue pas une administrat
 
 ## Documentation impactée
 
-`backoffice/README.md`, exemples de configuration et commandes de lancement propres à l'application.
+`web/README.md`, exemples de configuration et commandes de lancement propres à l'application.
 
 ## Définition de terminé
 
 - [x] Application installée avec dépendances verrouillées.
-- [x] typecheck, build, rendu SSR et parcours de création, modification, suppression.
+- [x] typecheck, build, rendu SSR de la liste et états vide/erreur.
 - [x] Commandes de démarrage, contrat et limites documentés.
 - [x] Preuves consignées et travail préexistant préservé.
 
 ## Vérification
 
 - Nuxt 4.6.2, versions verrouillées dans package-lock.json.
-- `npm run typecheck` : OK ; `npm run build` : OK, build SSR de production.
-- `npm run test:e2e` : 1 test Chromium réussi : création 201 via formulaire, édition,
-  publication, échec PATCH simulé avec saisies conservées, suppression confirmée et retrait de la liste.
-- Captures ordinateur et mobile relues ; absence de débordement à 390px vérifiée dans le navigateur.
-- Les articles créés pendant les tests ont été supprimés.
-- Audit npm : 11 alertes high transitives, aucune critique ; limite documentée dans le README.
+- `npm run typecheck` : OK ; `npm run build` : OK (build de production SSR).
+- `npm run test:e2e` : 1 test Chromium réussi (lecture API réelle, erreur, vide, mobile).
+- L'état hydraté désactive le bouton avant activation des événements côté navigateur.
+- Chromium et bibliothèques système extraits dans /tmp pour cette session.
+- Alertes npm transitives : correction automatique écartée car elle rétrograde Nuxt et introduit
+  des alertes critiques. Version 4.6.2 conservée ; détails et limite dans le README.
+- Captures ordinateur et mobile relues ; test navigateur final réussi après build final.
+- Audit final : 11 alertes high transitives, aucune critique.
 - Vérification du build servi : SSR et proxy 200, page invalide 400 ; méthodes interdites refusées en 405.
 - Services locaux : API 8000, webapp 3000, dashboard 3001 ; base de développement vide après tests.
 
@@ -72,7 +74,7 @@ Ce socle ouvert sert au développement local et ne constitue pas une administrat
 
 ## Livré
 
-Dashboard Nuxt SSR, proxy CRUD, formulaire, styles, test navigateur et README.
+Webapp Nuxt SSR, proxy de lecture, pagination, styles, test navigateur et README.
 
 ## Reste à faire (hors périmètre)
 

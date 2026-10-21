@@ -1,11 +1,12 @@
 # API — API Platform
 
 Mini API Symfony 7.4 / API Platform 4, PHP >= 8.4, extensions SQLite/PDO,
-Composer et Python 3 pour le test du contrat. Branche `layers/api`, tâche API-001.
+Composer et Python 3 pour le test du contrat. Couche `api`.
 
-Depuis `/home/johan/www/lab/ai-orchestrated-development/worktree/api/api/app` :
+Depuis la racine du dépôt ou du worktree concerné, entrer dans `api/app/` :
 
 ```sh
+cd api/app
 composer install
 # Seulement lors d'une nouvelle installation, si .env n'existe pas :
 cp -n .env.example .env

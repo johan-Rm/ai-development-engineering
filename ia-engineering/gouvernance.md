@@ -2,7 +2,7 @@
 
 ## Avant d’écrire
 
-Lire la demande, sa carte, [les couches](couches.md), [le workflow Git](git-workflow.md)
+Lire la demande, sa carte, [les couches](../docs/aiod/couches.md), [le workflow Git](git-workflow.md)
 et [l’isolation](parallel-work.md). Vérifier les missions actives auprès du coordinateur.
 Exécuter `python3 scripts/worktrees.py list` et `git status --short`.
 
@@ -21,7 +21,7 @@ Les commandes et écritures visent ce dossier explicitement.
 - Création : `python3 scripts/worktrees.py add --layer blueprint --branch layers/blueprint --base develop`.
   La base est explicite, locale et résolue à un commit ; la commande ne fait pas de fetch.
 - Une tâche à la fois, un commit par tâche avec tests pertinents, documentation et carte clôturée.
-- Contrôle avant PR : `python3 scripts/check.py`. La relecture vérifie le comportement et le diff.
+- Contrôle avant PR : `python3 scripts/quality.py` après installation des dépendances. La relecture vérifie le comportement et le diff.
 - Merge proposé : merge commit pour conserver les commits par tâche. Respecter la politique GitHub
   réellement configurée, vérifier le merge distant, puis réaligner les branches au repos.
 - Commit, push, PR et merge uniquement lorsqu’ils sont demandés ; aucune action distante automatique.

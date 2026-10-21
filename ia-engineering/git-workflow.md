@@ -11,7 +11,7 @@ puis relire `git diff --cached` pour ne pas embarquer le travail d’une autre s
 
 ## Avant la PR
 
-Exécuter `python3 scripts/check.py` et les contrôles propres au projet adopté. Le titre et la
+Exécuter `python3 scripts/quality.py` et les parcours navigateur concernés. Le titre et la
 description expliquent le problème, le comportement obtenu, les preuves et les limites.
 Aucun remote n’est contacté par le contrôle du blueprint.
 

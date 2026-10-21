@@ -1,11 +1,12 @@
 # Dashboard — Nuxt
 
 Mini administration Nuxt 4 / Vue 3 / TypeScript, avec rendu serveur.
-Branche `layers/backoffice`, tâche BO-001. Node >= 22.12 et npm requis.
+Couche `backoffice`. Node >= 22.12 et npm requis.
 
-Depuis `/home/johan/www/lab/ai-orchestrated-development/worktree/backoffice/backoffice` :
+Depuis la racine du dépôt ou du worktree concerné, entrer dans `backoffice/` :
 
 ```sh
+cd backoffice
 npm ci
 npm run dev
 ```
@@ -25,8 +26,7 @@ Les routes Nuxt `/api/articles` (GET, POST) et `/api/articles/{id}` (GET, PATCH,
 relaient uniquement ces opérations vers l'API, avec les types MIME JSON-LD et merge-patch attendus.
 Le contrat attend une collection `member`, `totalItems` et des articles `id`, `title`, `content`, `published`.
 Les compteurs « publiés » et « brouillons » portent sur la page courante, le total sur toute la collection.
-Contrat API de référence : commit `bc9ea8fb2f80160c02c8dd3f91f38b877fdf1474` (API-001),
-avec le schéma versionné dans `api/app/openapi.json`.
+Le contrat API est versionné dans `api/app/openapi.json`.
 
 Ce boilerplate de développement local ne fournit pas d'authentification ni de contrôle de permissions.
 

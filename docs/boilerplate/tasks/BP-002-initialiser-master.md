@@ -8,7 +8,7 @@
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
 - **Réf** : BP-001 : cadrage de la gouvernance validé ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du blueprint, branche `layers/blueprint`, préfixe BP.
-- **Dossier de coordination** : `/home/johan/www/lab/ai-orchestrated-development`.
+- **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
 
 ## Contexte

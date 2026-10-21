@@ -8,7 +8,7 @@
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
 - **Réf** : BP-003 ; commit develop contenant scripts/worktrees.py et scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du blueprint, branche `layers/blueprint`, préfixe BP.
-- **Dossier de coordination** : `/home/johan/www/lab/ai-orchestrated-development`.
+- **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
 
 ## Contexte
@@ -19,7 +19,7 @@ pour chaque couche, ainsi que les branches `master` et `develop`.
 
 ## Périmètre
 
-Créer ou réutiliser le worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/web` sur `layers/web` depuis un SHA identifié
+Créer ou réutiliser le worktree `<depot>/worktree/web` sur `layers/web` depuis un SHA identifié
 de `develop`. Ajouter ou compléter `web/README.md` dans ce worktree pour décrire
 le rôle de la couche : socle partagé et construction de plusieurs sites/webapps. Décrire `web/shared/` et `web/targets/<nom>/`, sans installer de runtime ni générer de cible.
 
@@ -75,7 +75,7 @@ Vérifier BP-003, la disponibilité de web, les arbres enregistrés et le SHA de
 
 Vérification du 2026-10-06 :
 
-- Worktree : `/home/johan/www/lab/ai-orchestrated-development/worktree/web` ; branche `layers/web` ; dépôt commun `/home/johan/www/lab/ai-orchestrated-development/.git`.
+- Worktree : `<depot>/worktree/web` ; branche `layers/web` ; dépôt commun `<depot>/.git`.
 - Base identifiée : `c6e3302ffd6e71449d0bac22ccfc0773f034cd69` (develop, contient BP-001, BP-003 et BP-009).
 - Relance du créateur : même chemin, aucun fichier modifié.
 - Endpoint local : `http://127.0.0.1:18103/`, identité `web` observée.

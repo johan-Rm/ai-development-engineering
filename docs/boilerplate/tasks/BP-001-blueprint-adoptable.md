@@ -5,7 +5,7 @@
 - Demande : rendre les documents AIOD plus faciles à intégrer depuis un dépôt GitHub public.
 - Couche : blueprint
 - Affectation : session Codex, branche `layers/blueprint`, dossier
-  `/home/johan/www/lab/ai-orchestrated-development`.
+  `<depot>`.
 - Dépendance : socle initial `9a60e1c`.
 
 ## Périmètre

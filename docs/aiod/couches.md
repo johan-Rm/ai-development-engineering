@@ -1,7 +1,8 @@
 # Couches et responsabilités
 
 Le blueprint décrit cinq couches pour le projet consommateur, indépendamment de sa stack.
-Leurs dossiers sont préparés dans les worktrees à l’initialisation ; aucune application n’est installée.
+Les applications de démonstration sont fournies : API Platform dans `api/app/`, Nuxt dans
+`web/targets/app/` et `backoffice/`. Leurs dépendances sont installées à la demande.
 
 | Couche | Chemins proposés | Branche | Worktree | Préfixe | Preuve attendue |
 | --- | --- | --- | --- | --- | --- |
@@ -56,6 +57,6 @@ Chaque couche reçoit un écrivain à la fois ; les consignes ne sont pas des ve
 
 ## Preuve du processus
 
-Dans ce blueprint, les preuves applicatives du tableau restent des exemples pour un projet futur.
-La recette actuelle vérifie seulement Git, le témoin HTTP et l’isolation des ressources Docker,
+Les contrôles applicatifs sont décrits dans [la qualité](../qualite.md).
+La recette de processus vérifie séparément Git, le témoin HTTP et l’isolation des ressources Docker,
 y compris pour design et devops. Voir [la recette](../../dev-book/runbooks/recette-aiod.md).

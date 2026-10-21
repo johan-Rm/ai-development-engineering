@@ -1,7 +1,7 @@
 # Première tâche à essayer ensemble
 
 Objectif : observer l’isolation Git d’une couche API, puis vérifier qu’une relance conserve
-le travail. Cet essai ne lance aucun serveur ; l’exemple applicatif sera défini séparément.
+le travail. Cet essai ne lance aucun serveur ; le démarrage des applications est décrit séparément dans [le guide](../demarrage.md).
 
 ## Préparer un dépôt jetable
 
@@ -52,6 +52,6 @@ jamais à l’intérieur de `worktree/api/`. Aucun `.env` n’est généré.
 ## Notre verdict ensemble
 
 Vérifier les chemins, les branches et la conservation du fichier. Noter les points de confusion
-avant de choisir un exemple applicatif. Les contrôles automatiques complètent cette recette :
+avant d’appliquer la méthode au produit. Les contrôles automatiques complètent cette recette :
 ils exercent aussi les destinations occupées, branches inattendues et liens symboliques.
 Les dépôts de test sont nettoyés automatiquement ; ce dépôt manuel reste disponible pour inspection.

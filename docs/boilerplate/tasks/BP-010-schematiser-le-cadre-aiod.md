@@ -6,7 +6,7 @@
 - **Type** : docs.
 - **Tests** : relecture visuelle Chromium sur ordinateur et mobile ; vérification du SVG, du défilement et de l’impression sur une page.
 - **Réf** : docs/aiod/principes.md, sources/AIOD-carrousel-v1.html ; deux inventaires fournis dans la conversation.
-- **Mission** : blueprint, branche `layers/blueprint`, worktree `/home/johan/www/lab/ai-orchestrated-development`.
+- **Mission** : blueprint, branche `layers/blueprint`, worktree `<depot>`.
 - **Chemins autorisés** : `docs/aiod/cadre-aiod.html`, `docs/aiod/README.md`, `docs/aiod/charte-graphique.md`, `AGENTS.md`, cette carte.
 - **Base** : `c610bfdb437e9d5feae0eee8aea6fec9884e752b`.
 
@@ -87,7 +87,7 @@ résolutions vérifiées, textes dans le cadre, mobile défilant et PDF une page
 
 ## Charte Graines Digitales et couleurs de rôle — 2026-10-20
 
-V6 : référence lue dans `/home/johan/www/graines-digitales/modern-web-apps/nuxt-builder/Brand Guidelines - Graines Digitales (standalone).html`, édition 5, août 2026.
+V6 : référence lue dans `<ancienne-source-externe>/Brand Guidelines - Graines Digitales (standalone).html`, édition 5, août 2026.
 Palette olive #6B7A4A, blanc cassé #FAFAF6, noir #212121 et gris de la charte.
 Inter pour le texte ; Newsreader pour le titre, remplacement explicitement autorisé de Rationale.
 Polices latines issues du document de référence et intégrées au HTML pour rester autonome.
@@ -114,7 +114,7 @@ des règles de la marque. La mise en page du schéma n’est pas redessinée dan
 
 V7 : à la demande explicite de l’utilisateur, Rationale Regular remplace Newsreader
 pour le titre AIOD et les titres des deux boucles. Inter reste utilisée pour les blocs et textes.
-Le fichier TTF et sa licence SIL OFL ont été lus dans `/home/johan/www/cv-sync/webapp/public/fonts/`.
+Le fichier TTF et sa licence SIL OFL ont été lus dans `<ancienne-source-de-polices>/`.
 La police et sa licence sont intégrées dans le HTML autonome, sans requête réseau.
 
 Vérification v7 : chargement de Rationale confirmé dans Chromium et styles calculés des titres vérifiés.

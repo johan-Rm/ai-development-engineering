@@ -29,4 +29,4 @@ configurés sur des bases différentes pour exécuter les mêmes couches sur le 
 Le créateur prépare uniquement Git. Depuis une couche, `python3 scripts/process.py up`
 lance la recette ; `down` arrête les conteneurs en conservant les volumes.
 Les artefacts locaux sont exclus de Git, de la recherche et du contexte de build.
-La [procédure de recette](../../dev-book/runbooks/recette-aiod.md) détaille les preuves.
+La [procédure de recette](../dev-book/runbooks/recette-aiod.md) détaille les preuves.

@@ -1,6 +1,6 @@
 # Consignes des agents
 
-Avant toute écriture, lire [la gouvernance commune](docs/aiod/gouvernance.md),
+Avant toute écriture, lire [la gouvernance commune](ia-engineering/gouvernance.md),
 [les couches](docs/aiod/couches.md) et la carte de la tâche demandée.
 Ces règles s’appliquent à ce dépôt ; les instructions explicites de l’utilisateur priment.
 

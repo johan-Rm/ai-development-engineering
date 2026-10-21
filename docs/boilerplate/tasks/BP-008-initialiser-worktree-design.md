@@ -1,4 +1,4 @@
-# BP-007 — Initialiser le worktree devops
+# BP-008 — Initialiser le worktree design
 
 - **Créée le** : 2026-10-05.
 - **Session** : non disponible (Codex).
@@ -8,7 +8,7 @@
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
 - **Réf** : BP-003 ; commit develop contenant scripts/worktrees.py et scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du blueprint, branche `layers/blueprint`, préfixe BP.
-- **Dossier de coordination** : `/home/johan/www/lab/ai-orchestrated-development`.
+- **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
 
 ## Contexte
@@ -19,23 +19,23 @@ pour chaque couche, ainsi que les branches `master` et `develop`.
 
 ## Périmètre
 
-Créer ou réutiliser le worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops` sur `layers/devops` depuis un SHA identifié
-de `develop`. Ajouter ou compléter `infra/README.md` dans ce worktree pour décrire
-le rôle de la couche : domaines et architecture serveur. Décrire le nommage par projet, environnement et couche ; ne créer aucun domaine réel.
+Créer ou réutiliser le worktree `<depot>/worktree/design` sur `layers/design` depuis un SHA identifié
+de `develop`. Ajouter ou compléter `design/README.md` dans ce worktree pour décrire
+le rôle de la couche : maquettes, parcours et direction artistique. Autoriser les prototypes et leur relecture dans un navigateur ; les composants livrés restent chez leur consommateur.
 
 ## Décisions de cadrage
 
 Commande prévue :
 
 ```sh
-python3 scripts/worktrees.py add --layer devops --branch layers/devops --base develop
+python3 scripts/worktrees.py add --layer design --branch layers/design --base develop
 ```
 
 La commande est exécutée depuis le dépôt principal ou un arbre enregistré, après vérification
-des missions. Le préfixe opérationnel de cette couche sera `OPS` ; la présente carte BP
-porte le bootstrap coordonné du blueprint. Les consignes locales sont écrites sur `layers/devops`,
+des missions. Le préfixe opérationnel de cette couche sera `UX` ; la présente carte BP
+porte le bootstrap coordonné du blueprint. Les consignes locales sont écrites sur `layers/design`,
 avec la carte clôturée dans le même commit lorsque son exécution et son commit seront demandés.
-Le dossier représente un environnement de travail Git ; vérification future des configurations sur un environnement autorisé ne sont pas annoncées comme testées.
+Le dossier représente un environnement de travail Git ; relecture visuelle et validation humaine futures ne sont pas annoncées comme testées.
 Aucun `.env` n’est copié ou généré automatiquement.
 
 ## Règles et cas limites
@@ -51,16 +51,16 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Documentation impactée
 
-`infra/README.md` dans le worktree cible ; `docs/aiod/couches.md` seulement si le routage doit être précisé ; carte courante pour les preuves.
+`design/README.md` dans le worktree cible ; `docs/aiod/couches.md` seulement si le routage doit être précisé ; carte courante pour les preuves.
 
 ## Définition de terminé
 
-- [ ] Le worktree enregistré porte exactement `layers/devops` et partage le dépôt Git commun attendu.
+- [ ] Le worktree enregistré porte exactement `layers/design` et partage le dépôt Git commun attendu.
 - [ ] Le chemin absolu est vérifié ; une branche déjà sortie est réutilisée au bon chemin.
 - [ ] La branche nouvellement créée démarre sur le SHA develop consigné.
 - [ ] Pour une branche existante, toute divergence est inventoriée sans réécriture.
 - [ ] Une relance réutilise le worktree sans modifier ses fichiers ni son environnement.
-- [ ] `infra/README.md` décrit le périmètre, les limites et les preuves applicables.
+- [ ] `design/README.md` décrit le périmètre, les limites et les preuves applicables.
 - [ ] Les exclusions du parent empêchent la recherche et les tests de parcourir cette copie.
 - [ ] La carte est conservée pour sa clôture dans l’arbre cible sans reprendre une mission tierce.
 - [ ] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
@@ -68,7 +68,7 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Première étape d’implémentation
 
-Vérifier BP-003, la disponibilité de devops, les arbres enregistrés et le SHA develop.
+Vérifier BP-003, la disponibilité de design, les arbres enregistrés et le SHA develop.
 
 ## Preuves et livraison
 

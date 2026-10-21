@@ -1,11 +1,12 @@
 # Web — mini webapp Nuxt
 
 Application Nuxt 4 / Vue 3 / TypeScript avec rendu serveur, dans `targets/app/`.
-Branche `layers/web`, tâche WEB-001. Node >= 22.12 et npm requis.
+Couche `web`. Node >= 22.12 et npm requis.
 
-Depuis `/home/johan/www/lab/ai-orchestrated-development/worktree/web/web/targets/app` :
+Depuis la racine du dépôt ou du worktree concerné, entrer dans `web/targets/app/` :
 
 ```sh
+cd web/targets/app
 npm ci
 npm run dev
 ```
@@ -24,8 +25,7 @@ un proxy Nuxt limité à la collection des articles. Les mutations ne sont pas e
 Le contrat JSON-LD attend `member`, `totalItems` et les champs `id`, `title`, `content`, `published`.
 La liste inclut les brouillons dans ce boilerplate de développement ; aucune authentification.
 
-Contrat API de référence : commit `bc9ea8fb2f80160c02c8dd3f91f38b877fdf1474` (API-001),
-avec le schéma versionné dans `api/app/openapi.json`.
+Le contrat API est versionné dans `api/app/openapi.json`.
 Le dossier `web/shared/` pourra accueillir un socle commun quand une autre cible en aura besoin.
 
 ## Vérifier et construire
