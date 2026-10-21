@@ -1,5 +1,8 @@
 # Contrôles fournis
 
+Le [Codebase Quality Control](aiod/codebase-quality-control.md) définit l’organisation des
+conventions et points de contrôle dans chaque projet. Cette page décrit les commandes réellement fournies.
+
 Depuis la racine du dépôt ou du worktree à vérifier :
 
 | Commande | Portée |

@@ -1,4 +1,4 @@
-# Adopter AIOD
+# Adopter AIDE — AI Development Engineering
 
 1. [Principes et adaptations du carrousel](principes.md)
 2. [Adoption dans un projet](adoption.md)
@@ -7,7 +7,8 @@
 5. [Workflow Git](../../ia-engineering/git-workflow.md)
 6. [Travail parallèle et isolation](../../ia-engineering/parallel-work.md)
 7. [Première tâche à essayer ensemble](premiere-tache.md)
-8. [Documents originaux](sources/README.md)
+8. [Codebase Quality Control](codebase-quality-control.md)
+9. [Documents originaux](sources/README.md)
 
 ## Représentation du cadre
 
