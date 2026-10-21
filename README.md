@@ -1,42 +1,41 @@
 # AI-Orchestrated Development
 
-Un blueprint pour organiser le travail avec des assistants IA : définir les responsabilités,
-isoler les dossiers de travail, cadrer les tâches et vérifier ce qui est livré.
+Boilerplate API Platform / Symfony et deux applications Nuxt : une webapp et un dashboard.
+Le cadre AIOD organise le travail des agents par couches et worktrees, avec des preuves vérifiables.
 
-## Commencer
+## Démarrer
 
-1. Lire [les principes](docs/aiod/principes.md).
-2. Suivre [le guide d’adoption](docs/aiod/adoption.md) pour un projet nouveau ou existant.
-3. Essayer [une première tâche](docs/aiod/premiere-tache.md) dans un dépôt temporaire.
-
-Python 3 et Git suffisent pour l’outillage Git. Docker et Compose permettent de tester
-l’isolation du processus avec des conteneurs témoins, sans stack applicative.
+Prérequis et détails : [installation et lancement](docs/demarrage.md).
+Depuis la racine du dépôt :
 
 ```sh
-python3 scripts/worktrees.py list
-python3 scripts/check.py
+python3 scripts/apps.py install all
 ```
 
-Le blueprint propose cinq couches : **backoffice**, **api**, **web** (plusieurs webapps/sites)
-**devops** (domaines et infrastructure) et **design** (maquettes et direction artistique). Elles restent indépendantes de la stack.
-La couche `blueprint` sert uniquement à entretenir ce dépôt.
+Dans trois terminaux : `python3 scripts/apps.py serve api`, `python3 scripts/apps.py serve web`
+et `python3 scripts/apps.py serve backoffice`.
+
+API : http://127.0.0.1:8000/api/docs · Web : http://127.0.0.1:3000 · Dashboard : http://127.0.0.1:3001.
+
+```sh
+python3 scripts/quality.py
+```
+
+[Adopter le boilerplate](docs/aiod/adoption.md) · [Contrôles et CI](docs/qualite.md).
+Les applications tournent sur l’hôte ; Docker fournit séparément des conteneurs témoins pour la recette AIOD.
 
 ## Se repérer
 
-| Chemin | Usage |
+| Thème | Chemins et responsabilités |
 | --- | --- |
-| `docs/aiod/` | Principes, adoption et gouvernance AIOD |
-| `dev-book/` | Besoins, cartes, preuves et procédures du projet |
-| `AGENTS.md`, `CLAUDE.md` | Entrées des assistants vers une référence commune |
-| `scripts/` | Outillage local Git et vérifications |
-| `tests/` | Tests dans des dépôts jetables, sans accès au remote |
-| `design/` | Maquettes et recherches non livrées |
-| `worktree/` | Dossiers Git créés uniquement pour une tâche affectée |
+| Couches | `api/`, `web/`, `backoffice/`, `design/`, `infra/`, `worktree/` ; routage dans `scripts/aiod.json` |
+| Consolidation | `scripts/`, `tests/`, tests applicatifs et CI : rendre les exigences vérifiables |
+| IA Engineering | `AGENTS.md`, `CLAUDE.md`, `ia-engineering/`, `.claude/` : consignes des agents |
+| Documentation | `docs/`, `dev-book/`, `**/README.md` : produit, responsabilités, tâches et preuves |
 
-Les [documents originaux](docs/aiod/sources/README.md) expliquent la démarche.
-Les adaptations opérationnelles sont indiquées dans les principes.
+Chaque README définit les responsabilités de son dossier. Aucun skill personnel n’est requis.
+Les tâches de construction du boilerplate sont archivées dans [docs/boilerplate/](docs/boilerplate/README.md).
+`dev-book/` accueille le travail du projet adopté.
 
-Ce dépôt n’installe aucun skill personnel et ne lance aucun agent automatiquement.
-
-La [recette AIOD](dev-book/runbooks/recette-aiod.md) décrit les cinq environnements témoins
-et la vérification de leurs écritures isolées.
+[Principes AIOD](docs/aiod/principes.md) · [Couches](docs/aiod/couches.md) · [Consignes](ia-engineering/README.md)
+· [Recette Git isolée](docs/aiod/premiere-tache.md).
