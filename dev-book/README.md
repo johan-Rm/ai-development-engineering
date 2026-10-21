@@ -26,3 +26,8 @@ vérification des branches concernées. Une carte découverte ne constitue pas u
 
 Objectif, préconditions, étapes, vérifications, arrêt en cas d’erreur et retour arrière si applicable.
 Les dossiers sans contenu sont créés lors de leur premier usage ; Git ne conserve pas les dossiers vides.
+
+Les cartes de construction sont archivées dans [docs/boilerplate/](../docs/boilerplate/README.md). Seules les tâches courantes du projet sont placées ici.
+
+La maintenance du cadre appartient à devops (cartes `OPS`). Les cartes `BP` conservent
+leurs identifiants et leur contexte historiques ; elles ne définissent aucune couche supplémentaire.

@@ -1,0 +1,20 @@
+# OPS-006 — Préserver l’initialisation design avant intégration
+
+- Statut : réalisée.
+- Date : 2026-10-21.
+- Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Demande : fusionner tout le travail dans `develop` et mettre à jour les cinq couches.
+- Périmètre : réunion de l’historique design, README de design et carte historique BP-008.
+- Dépendances : devops `c5067aa` et design `8ce031f`.
+- Critères : commit design préservé sans réécriture ; carte clôturée conservée dans les archives ; liens et commandes adaptés à l’organisation actuelle.
+- Preuve attendue : suite Python, vérification du diff et des liens, état Git sans conflit.
+
+## Livré et vérifié
+
+- Fusion du commit design préparée sans conflit, avec conservation de son historique.
+- Carte BP-008 clôturée conservée dans les archives et chemins personnels remplacés par `<depot>`.
+- README design : lien vers la carte archivée et commande de recette actualisés.
+- `python3 -B codebase-quality-control/scripts/check.py` : 17 tests réussis.
+- Liens du README design : valides ; diff sans erreurs d’espacement.
+- Aucun code applicatif ni point de contrôle modifié. Les contrôles applicatifs et le test
+  navigateur avaient déjà réussi sur le code intégré ; cette réunion apporte uniquement de la documentation.

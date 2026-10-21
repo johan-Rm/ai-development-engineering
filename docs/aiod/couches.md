@@ -1,19 +1,20 @@
 # Couches et responsabilités
 
 Le blueprint décrit cinq couches pour le projet consommateur, indépendamment de sa stack.
-Leurs dossiers sont préparés dans les worktrees à l’initialisation ; aucune application n’est installée.
+Les applications de démonstration sont fournies : API Platform dans `app/api/app/`, Nuxt dans
+`app/web/targets/app/` et `app/backoffice/`. Leurs dépendances sont installées à la demande.
 
 | Couche | Chemins proposés | Branche | Worktree | Préfixe | Preuve attendue |
 | --- | --- | --- | --- | --- | --- |
-| backoffice | `backoffice/` | `layers/backoffice` | `worktree/backoffice` | BO | Parcours d’administration exécuté |
-| api | `api/` | `layers/api` | `worktree/api` | API | Requête et réponse observées, tests du contrat |
-| web | `web/` : socle partagé et cibles | `layers/web` | `worktree/web` | WEB | Build et rendu des cibles touchées |
+| backoffice | `app/backoffice/` | `layers/backoffice` | `worktree/backoffice` | BO | Parcours d’administration exécuté |
+| api | `app/api/` | `layers/api` | `worktree/api` | API | Requête et réponse observées, tests du contrat |
+| web | `app/web/` : socle partagé et cibles | `layers/web` | `worktree/web` | WEB | Build et rendu des cibles touchées |
 | design | `design/` : maquettes, parcours et direction artistique | `layers/design` | `worktree/design` | UX | Relecture visuelle et validation des parcours |
-| devops | `infra/` : domaines, déploiement, architecture serveur | `layers/devops` | `worktree/devops` | OPS | Configuration vérifiée sur l’environnement autorisé |
+| devops | `infra/` : domaines, déploiement, architecture serveur ; consignes, documentation et outillage du cadre | `layers/devops` | `worktree/devops` | OPS | Configuration vérifiée sur l’environnement autorisé |
 
 ## Plusieurs webapps et sites
 
-`web/` peut contenir `shared/` et `targets/<nom>/`. Une cible représente un site ou une webapp,
+`app/web/` peut contenir `shared/` et `targets/<nom>/`. Une cible représente un site ou une webapp,
 avec sa configuration et sa commande de build. Le nombre de cibles n’impose pas le nombre de
 worktrees : une couche web suffit tant que ses tâches sont séquentielles. Si plusieurs cibles
 nécessitent des écrivains simultanés, définir des couches avec des chemins distincts.
@@ -45,17 +46,18 @@ Le worktree design se crée à l’affectation d’une tâche ; aucun serveur n�
 
 ## Maintenance de ce dépôt
 
-La couche `blueprint`, branche `layers/blueprint`, préfixe BP, possède les consignes,
-la documentation et l’outillage de ce dépôt. Elle est une couche de maintenance du blueprint,
-distincte des cinq couches proposées pour le projet consommateur. Son worktree peut être la racine si la branche y est sortie.
-Preuve : documentation cohérente et `python3 scripts/check.py`.
+La maintenance du cadre appartient à la couche `devops`, branche `layers/devops`,
+préfixe `OPS`, worktree `worktree/devops`. Elle couvre les consignes, la documentation
+et l’outillage communs de ce dépôt. Elle ne constitue pas une sixième couche.
+Preuve : documentation cohérente et `python3 codebase-quality-control/scripts/check.py`.
+Les cartes `BP` existantes conservent leurs identifiants historiques.
 
-La configuration `scripts/aiod.json` connaît ces cinq couches et la maintenance du blueprint.
+La configuration `codebase-quality-control/scripts/aiod.json` déclare uniquement les cinq couches du tableau.
 Lors de l’adoption, conserver seulement les couches utiles et adapter cette table avec le JSON.
 Chaque couche reçoit un écrivain à la fois ; les consignes ne sont pas des verrous automatiques.
 
 ## Preuve du processus
 
-Dans ce blueprint, les preuves applicatives du tableau restent des exemples pour un projet futur.
-La recette actuelle vérifie seulement Git, le témoin HTTP et l’isolation des ressources Docker,
+Les contrôles applicatifs sont décrits dans [la qualité](../qualite.md).
+La recette de processus vérifie séparément Git, le témoin HTTP et l’isolation des ressources Docker,
 y compris pour design et devops. Voir [la recette](../../dev-book/runbooks/recette-aiod.md).
