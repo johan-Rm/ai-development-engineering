@@ -109,21 +109,37 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 </script></head><body><main class="page"><div class="diagram" tabindex="0" role="region" aria-label="Schéma AIOD ; sur petit écran, faire défiler horizontalement"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 790" preserveAspectRatio="none" role="img" aria-labelledby="schema-title schema-desc">
-<title id="schema-title">L’écosystème AIOD : humain, codage IA et consolidation</title><desc id="schema-desc">Une enveloppe AIOD entoure les acteurs et les deux boucles : architecture en haut, couches à gauche, isolation à droite, règles en bas. L’olive distingue l’humain et le cadre qu’il définit. La terre cuite distingue l’IA. Chaque action possède un seul acteur. La validation humaine du changement précède la livraison par l’IA. Le code et les contrôles sont des artefacts ; l’IA exécute les vérifications. À l’intérieur, l’humain cadre, arbitre et valide. La documentation des règles alimente cette enveloppe. À gauche : besoin, IA, code, vérification, validation et livraison. Les échecs de vérification ou de validation retournent à l’IA pour correction. Le code et ses usages produisent des observations. À droite, l’humain signale les défauts, l’IA analyse les retours, l’humain arbitre, l’IA documente, l’humain valide la règle puis l’IA automatise les contrôles. La règle validée par l’humain enrichit le cadre. Mesurer leurs effets alimente de nouvelles observations. Les contrôles déterministes sont exécutés pendant le développement et en CI ; ils alimentent la vérification du code.</desc>
+<title id="schema-title">L’écosystème AIOD : humain, codage IA et consolidation</title><desc id="schema-desc">Une enveloppe AIOD entoure les acteurs et les deux boucles : couches en haut, consolidation à gauche, IA Engineering à droite, documentation en bas. Les couches définissent responsabilités, périmètres, isolation et contrats. La consolidation conserve conventions, patterns et garde-fous acquis. IA Engineering définit les consignes, les missions, la coordination, les règles d’exécution, de validation et d’autorisation. La documentation rassemble docs/, dev-book/ et les README récursifs définissant les responsabilités des dossiers. L’olive distingue l’humain et le cadre qu’il définit. La terre cuite distingue l’IA. Chaque action possède un seul acteur. La validation humaine du changement précède la livraison par l’IA. Le code et les contrôles sont des artefacts ; l’IA exécute les vérifications. À l’intérieur, l’humain cadre, arbitre et valide. La documentation des règles alimente cette enveloppe. À gauche : besoin, IA, code, vérification, validation et livraison. Les échecs de vérification ou de validation retournent à l’IA pour correction. Le code et ses usages produisent des observations. À droite, l’humain signale les défauts, l’IA analyse les retours, l’humain arbitre, l’IA documente, l’humain valide la règle puis l’IA automatise les contrôles. La règle validée par l’humain enrichit le cadre. Mesurer leurs effets alimente de nouvelles observations. Les contrôles déterministes sont exécutés pendant le développement et en CI ; ils alimentent la vérification du code.</desc>
 <defs><marker id="orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 9 5 1 9" fill="none" stroke="#8A8884" stroke-width="1.4"/></marker><marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 9 5 1 9" fill="none" stroke="#8A8884" stroke-width="1.4"/></marker><marker id="ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 9 5 1 9" fill="none" stroke="#8A8884" stroke-width="1.4"/></marker></defs>
 <!-- Enveloppe conceptuelle : titre, acteurs, boucles et légende à l’intérieur. -->
-<g id="cadre-aiod" role="group" aria-label="Cadre AIOD : architecture, couches, isolation et règles">
+<g id="cadre-aiod" role="group" aria-label="Cadre AIOD : couches, consolidation, IA Engineering et documentation">
 <rect id="enveloppe" x="0" y="0" width="1320" height="790" rx="24" fill="#6B7A4A" stroke="#6B7A4A" stroke-width="1.5"/>
-<rect x="45" y="115" width="1230" height="600" rx="15" fill="#FAFAF6"/>
+<rect x="75" y="115" width="1170" height="600" rx="15" fill="#FAFAF6"/>
 <text x="65" y="65" class="brand-title" font-size="42" font-weight="400" fill="#FAFAF6">AIOD</text>
 <text x="165" y="65" class="brand-title" font-size="32" font-weight="400" fill="#FAFAF6">AI Orchestrated Development</text>
 <text x="65" y="94" font-size="14" fill="#FAFAF6">Un cadre · deux boucles reliées</text>
-<text x="1255" y="62" class="label" text-anchor="end" fill="#FAFAF6">ARCHITECTURE</text>
-<text x="27" y="415" class="label" text-anchor="middle" transform="rotate(-90 27 415)" fill="#FAFAF6">COUCHES</text>
-<text x="1293" y="415" class="label" text-anchor="middle" transform="rotate(90 1293 415)" fill="#FAFAF6">ISOLATION</text>
-<text x="660" y="740" class="label" text-anchor="middle" fill="#FAFAF6">RÈGLES</text>
+<g class="frame-theme" aria-label="Couches : responsabilités, périmètres, isolation, contrats et dépendances">
+<text x="1250" y="30" class="label" text-anchor="end" fill="#FAFAF6">COUCHES</text>
+<text x="1250" y="53" text-anchor="end" font-size="12" fill="#FAFAF6">Responsabilités et périmètres</text>
+<text x="1250" y="75" text-anchor="end" font-size="12" fill="#FAFAF6">Isolation : branches · worktrees · environnements</text>
+<text x="1250" y="97" text-anchor="end" font-size="12" fill="#FAFAF6">Contrats et dépendances entre couches</text>
 </g>
-<g id="ecosysteme" transform="translate(0 60)">
+<g class="frame-theme" transform="translate(34 415) rotate(-90)" aria-label="Consolidation : conventions, patterns éprouvés et garde-fous acquis">
+<text x="0" y="-12" class="label" text-anchor="middle" fill="#FAFAF6">CONSOLIDATION</text>
+<text x="0" y="10" text-anchor="middle" font-size="12" fill="#FAFAF6">Conventions · patterns éprouvés</text>
+<text x="0" y="30" text-anchor="middle" font-size="12" fill="#FAFAF6">Garde-fous : tests · vérificateurs · contrôles automatisés</text>
+</g>
+<g class="frame-theme" transform="translate(1286 415) rotate(90)" aria-label="IA Engineering : consignes, missions, coordination, exécution, validation et autorisations">
+<text x="0" y="-12" class="label" text-anchor="middle" fill="#FAFAF6">IA ENGINEERING</text>
+<text x="0" y="10" text-anchor="middle" font-size="12" fill="#FAFAF6">Consignes des agents · missions et coordination</text>
+<text x="0" y="30" text-anchor="middle" font-size="12" fill="#FAFAF6">Exécution · validation · autorisations</text>
+</g>
+<g class="frame-theme" aria-label="Documentation : docs/, dev-book/ et README récursifs des responsabilités">
+<text x="660" y="736" class="label" text-anchor="middle" fill="#FAFAF6">DOCUMENTATION</text>
+<text x="660" y="756" text-anchor="middle" font-size="12" fill="#FAFAF6">docs/ : projet · dev-book/ : demandes, tâches, procédures et preuves · **/README.md : responsabilités des dossiers</text>
+</g>
+</g>
+<g id="ecosysteme" transform="translate(45 60) scale(.93 1)">
 <text x="82" y="105" font-size="13" fill="#525E38">Pilotage humain : cadre · arbitre · valide</text>
 <g id="legende-roles" aria-label="Humain : olive. IA : terre cuite. Chaque action est attribuée à un seul acteur.">
 <g class="role-human"><rect x="962" y="81" width="122" height="34" rx="8"/><text x="1023" y="103" text-anchor="middle" font-size="12" fill="#212121">Humain</text></g>
@@ -160,7 +176,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <g class="node role-human"><rect x="945" y="380" width="135" height="64" rx="12"/><text class="node-title" x="1012.5" y="408">Valider</text><text class="node-sub" x="1012.5" y="428">la règle</text></g>
 <g class="node role-ai"><rect x="785" y="380" width="135" height="64" rx="12"/><text class="node-title" x="852.5" y="408">Automatiser</text><text class="node-sub" x="852.5" y="428">les contrôles</text></g>
 <!-- La consolidation fait évoluer les règles de l’enveloppe. -->
-<path id="retour-au-cadre" class="flow green" d="M1012 445 V500 H1247 V674 H710"/>
+<path id="retour-au-cadre" class="flow green" d="M1012 445 V500 H1247 V655 H710"/>
 <text x="1237" y="532" text-anchor="middle" transform="rotate(-90 1237 532)" font-size="11" fill="#4F4D4A">enrichir le cadre</text>
 <!-- Sortie du travail et retour des contrôles dans l’écriture. -->
 <path class="flow orange" d="M152 445 V525"/>
@@ -170,6 +186,6 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <rect x="340" y="580" width="880" height="71" rx="13" fill="#F1F2E9" stroke="#D3D1CB"/>
 <text x="780" y="607" text-anchor="middle" font-size="15" fill="#212121" font-weight="500">CONTRÔLES DÉTERMINISTES</text><text x="780" y="631" text-anchor="middle" font-size="13" fill="#4F4D4A">Tests · types · architecture · contrats <tspan fill="#8A8884">/</tspan> en développement et en CI</text>
 </g>
-<text x="65" y="766" font-size="11" fill="#FAFAF6">Le codage fait avancer le produit. La consolidation renforce le cadre.</text>
-<text x="1255" y="766" text-anchor="end" font-size="11" fill="#FAFAF6">Pointillés : boucle de retour · Proposition v9</text>
+<text x="65" y="778" font-size="11" fill="#FAFAF6">Le codage fait avancer le produit. La consolidation renforce le cadre.</text>
+
 </svg></div></main></body></html>
