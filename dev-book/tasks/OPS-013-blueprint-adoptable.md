@@ -1,4 +1,4 @@
-# BP-001 — Un blueprint AIOD adoptable
+# OPS-013 — Un blueprint AIOD adoptable
 
 - État : clôturée le 2026-10-06
 - Date : 2026-10-05

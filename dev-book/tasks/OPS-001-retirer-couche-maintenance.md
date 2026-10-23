@@ -1,5 +1,7 @@
 # OPS-001 — Rattacher la maintenance du cadre à devops
 
+> Note historique ajoutée lors d’OPS-010 : les mentions de fusion préparée, de fichiers non commités ou d’anciens chemins décrivent l’état lors de cette tâche. Elles ne décrivent pas l’état Git actuel ni un travail restant. Les cartes sont désormais réunies dans `dev-book/tasks/`.
+
 - Statut : réalisée ; réunion des historiques préparée sans commit.
 - Date : 2026-10-21.
 - Demande : conserver uniquement les cinq couches validées et retirer la couche de maintenance supplémentaire.

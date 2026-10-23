@@ -6,3 +6,20 @@ Fichiers de référence utilisés pour réaliser ou vérifier le projet.
 - [Picto JPG](Picto-fond-noir-1000x1000.jpg) : version matricielle.
 
 Les fichiers sources sont conservés sans modification.
+
+## Documents originaux
+
+- [Carrousel HTML](AIOD-carrousel-v1.html)
+- [Document PDF](AIOD.pdf)
+- [Schéma d’approche](aiod-approche_1.png)
+
+Ces fichiers de l’auteur sont conservés sans modification. Le carrousel a servi à rédiger
+les principes ; le PDF et le schéma restent des sources à relire ensemble.
+Les adaptations opérationnelles sont explicites dans [les principes](../../docs/principes.md).
+
+## Représentations du cadre
+
+- [Vue interactive AIDE](vue-d-ensemble-ai-development-engineering.html).
+- [Vue synthétique AIOD](cadre-aiod.html).
+
+Ces ressources sont référencées par les guides Markdown de `docs/`.

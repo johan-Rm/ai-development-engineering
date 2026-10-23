@@ -1,4 +1,4 @@
-# BP-002 — Préparer la branche master
+# OPS-014 — Préparer la branche master
 
 - **Créée le** : 2026-10-05.
 - **Session** : non disponible (Codex).
@@ -6,7 +6,7 @@
 - **Type** : outillage.
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
-- **Réf** : BP-001 : cadrage de la gouvernance validé ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
+- **Réf** : OPS-013 : cadrage de la gouvernance validé ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
 - **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.

@@ -68,5 +68,5 @@ de contrôle associés.
 Les moments d’exécution et les étapes bloquées par ces contrôles sont définis par les autres
 briques du cadre AIDE.
 
-Les [commandes de contrôle fournies dans ce dépôt](../qualite.md) décrivent l’existant
+Les [commandes de contrôle fournies dans ce dépôt](qualite.md) décrivent l’existant
 du socle ; cette page définit la structure à faire vivre dans chaque projet.

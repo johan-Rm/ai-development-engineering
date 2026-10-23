@@ -1,4 +1,4 @@
-# BP-018 — Clarifier les contrôles partagés
+# OPS-030 — Clarifier les contrôles partagés
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
@@ -36,4 +36,4 @@ Indication répétée « Cliquez sur un élément pour afficher ses détails. É
 
 ## Mise en commit — 2026-10-21
 
-`node codebase-quality-control/tests/browser/vue-aiod.cjs app/web/targets/app` réussi dans Chromium, avec `PLAYWRIGHT_BROWSERS_PATH=/tmp/aiod-playwright` et les bibliothèques de `/tmp/aiod-browser-libs/root/usr/lib/x86_64-linux-gnu`. `git diff --check` réussi. Les cartes BP-013 à BP-021 sont livrées ensemble avec la version finale de la vue et de son test : leurs états intermédiaires non commités ne sont pas reconstruits. Écart à la convention un commit par tâche pour cette reprise du travail accumulé.
+`node codebase-quality-control/tests/browser/vue-aiod.cjs app/web/targets/app` réussi dans Chromium, avec `PLAYWRIGHT_BROWSERS_PATH=/tmp/aiod-playwright` et les bibliothèques de `/tmp/aiod-browser-libs/root/usr/lib/x86_64-linux-gnu`. `git diff --check` réussi. Les cartes OPS-025 à OPS-033 sont livrées ensemble avec la version finale de la vue et de son test : leurs états intermédiaires non commités ne sont pas reconstruits. Écart à la convention un commit par tâche pour cette reprise du travail accumulé.

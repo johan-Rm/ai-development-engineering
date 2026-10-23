@@ -1,9 +1,11 @@
-# BP-012 — Actualiser les quatre éléments du cadre
+# OPS-024 — Actualiser les quatre éléments du cadre
+
+> Note historique ajoutée lors d’OPS-010 : les mentions de fusion préparée, de fichiers non commités ou d’anciens chemins décrivent l’état lors de cette tâche. Elles ne décrivent pas l’état Git actuel ni un travail restant. Les cartes sont désormais réunies dans `dev-book/tasks/`.
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
 - Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
-- Périmètre : `docs/aiod/cadre-aiod.html` et cette carte. Préserver BP-011 non commité.
+- Périmètre : `docs/aiod/cadre-aiod.html` et cette carte. Préserver OPS-023 non commité.
 - Demande : représenter les quatre éléments et leurs sous-éléments validés dans le chat : Couches, Consolidation, IA Engineering, Documentation.
 - Choix : un élément sur chaque côté du cadre olive, avec des libellés courts. Les deux boucles seront retravaillées séparément.
 - Preuve : rendu Chromium sur ordinateur et mobile ; texte contenu dans le cadre, polices et couleurs conservées.
@@ -24,8 +26,8 @@
 - PDF : une page paysage ; aucun bouton ajouté.
 - `git diff --check` : réussi.
 
-Le contenu intérieur a été légèrement resserré horizontalement pour réserver la place des textes latéraux. Les étapes et relations des deux boucles sont conservées. BP-011 reste non commité et n’a pas été modifié.
+Le contenu intérieur a été légèrement resserré horizontalement pour réserver la place des textes latéraux. Les étapes et relations des deux boucles sont conservées. OPS-023 reste non commité et n’a pas été modifié.
 
 ## Mise en commit — 2026-10-21
 
-`git diff --check` réussi. Les preuves visuelles datées ci-dessus sont conservées. La suppression de la mention de version, demandée pendant BP-014, accompagne ici le même fichier statique.
+`git diff --check` réussi. Les preuves visuelles datées ci-dessus sont conservées. La suppression de la mention de version, demandée pendant OPS-026, accompagne ici le même fichier statique.

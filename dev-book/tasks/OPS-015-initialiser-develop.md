@@ -1,4 +1,4 @@
-# BP-003 — Préparer la branche develop
+# OPS-015 — Préparer la branche develop
 
 - **Créée le** : 2026-10-05.
 - **Session** : non disponible (Codex).
@@ -6,7 +6,7 @@
 - **Type** : outillage.
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
-- **Réf** : BP-002 ; BP-001 validée et commitée avant intégration du blueprint ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
+- **Réf** : OPS-014 ; OPS-013 validée et commitée avant intégration du blueprint ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
 - **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
@@ -19,14 +19,14 @@ pour chaque couche, ainsi que les branches `master` et `develop`.
 
 ## Périmètre
 
-Créer ou réutiliser `develop` depuis `master`, puis intégrer le commit validé de BP-001
+Créer ou réutiliser `develop` depuis `master`, puis intégrer le commit validé de OPS-013
 par SHA identifié. Rendre disponibles sur develop les scripts, la configuration des cinq couches
 et les consignes nécessaires aux futurs worktrees.
 
 ## Décisions de cadrage
 
 `develop` devient la base explicite des cinq couches. La réunion se fait avec le commit
-validé de BP-001, jamais par copie du travail non commité. Maintenir l’arbre principal sur
+validé de OPS-013, jamais par copie du travail non commité. Maintenir l’arbre principal sur
 la branche historique de maintenance. Si un checkout est nécessaire, utiliser un worktree d’intégration temporaire
 vérifié plutôt que basculer un arbre modifié. Un arbre temporaire reste inventorié jusqu’à
 une décision explicite de retrait.
@@ -59,10 +59,10 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Première étape d’implémentation
 
-Vérifier master et le SHA commité de BP-001 ; arrêter si BP-001 est encore non commitée.
+Vérifier master et le SHA commité de OPS-013 ; arrêter si OPS-013 est encore non commitée.
 
 ## Preuves et livraison
 
-Preuve du 2026-10-06 : develop a été créée depuis master puis avancée sans force par fetch local vers `0a11fa5`, contenant BP-001 (`8dc7c36`). Les exemples et la gouvernance utilisent désormais develop. Les tests Git du blueprint passent. Le commit de documentation de cette tâche sera également intégré par avance rapide locale. Une tâche, un commit demandé explicitement, avec sa carte
+Preuve du 2026-10-06 : develop a été créée depuis master puis avancée sans force par fetch local vers `0a11fa5`, contenant OPS-013 (`8dc7c36`). Les exemples et la gouvernance utilisent désormais develop. Les tests Git du blueprint passent. Le commit de documentation de cette tâche sera également intégré par avance rapide locale. Une tâche, un commit demandé explicitement, avec sa carte
 clôturée et sa documentation. Les opérations Git locales sont prouvées par les références,
 branches et chemins observés ; leur simple présence dans la carte n’est pas une exécution.

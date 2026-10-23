@@ -1,7 +1,7 @@
 # Première tâche à essayer ensemble
 
 Objectif : observer l’isolation Git d’une couche API, puis vérifier qu’une relance conserve
-le travail. Cet essai ne lance aucun serveur ; le démarrage des applications est décrit séparément dans [le guide](../demarrage.md).
+le travail. Cet essai ne lance aucun serveur ; le démarrage des applications est décrit séparément dans [le guide](demarrage.md).
 
 ## Préparer un dépôt jetable
 

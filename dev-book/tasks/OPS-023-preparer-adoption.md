@@ -1,8 +1,10 @@
-# BP-011 — Préparer l’adoption du boilerplate
+# OPS-023 — Préparer l’adoption du boilerplate
+
+> Note historique ajoutée lors d’OPS-010 : les mentions de fusion préparée, de fichiers non commités ou d’anciens chemins décrivent l’état lors de cette tâche. Elles ne décrivent pas l’état Git actuel ni un travail restant. Les cartes sont désormais réunies dans `dev-book/tasks/`.
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
-- Demande : corriger les cinq points de l’audit après commit de BP-010.
+- Demande : corriger les cinq points de l’audit après commit de OPS-022.
 - Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal (chemin obtenu avec `git rev-parse --show-toplevel`).
 - Périmètre : documentation, consignes, archivage documentaire, scripts communs, tests de ces scripts et CI. Aucun changement fonctionnel des applications.
 - Preuves attendues : tests Python, exécution des contrôles applicatifs disponibles, validation des liens et absence de chemins personnels actifs.
@@ -26,7 +28,7 @@
 
 ## Vérification — 2026-10-20
 
-- BP-010 commité avant les corrections : `995cbcf`.
+- OPS-022 commité avant les corrections : `995cbcf`.
 - `python3 codebase-quality-control/scripts/apps.py install all` : réussi avec accès réseau autorisé, caches temporaires. Aucun verrou de dépendances modifié. Premier essai interrompu par l’absence de résolution réseau du bac à sable ; nouvelle exécution réussie.
 - `python3 codebase-quality-control/scripts/quality.py` : code de sortie 0 ; tests outillage, contrat HTTP CRUD avec SQLite temporaire, conteneur Symfony, mapping Doctrine, comparaison OpenAPI, types et builds des deux applications Nuxt.
 - `python3 codebase-quality-control/scripts/check.py` après ajout du contrôle de régression OpenAPI : 15 tests réussis. Couvre notamment conservation du `.env`, chemin avec espaces, arrêt après échec et rejet du contrat obsolète sans modification du fichier.
@@ -37,7 +39,7 @@
 
 ## Limites
 
-La CI est configurée mais n’a pas été exécutée sur GitHub ; aucun push demandé. La recette Docker existante n’a pas été relancée. Les 11 alertes npm de sévérité élevée déjà documentées restent présentes. Les applications restent exécutées sur l’hôte ; cette tâche n’ajoute pas leur conteneurisation. Les corrections BP-011 sont incluses dans le commit de cette carte.
+La CI est configurée mais n’a pas été exécutée sur GitHub ; aucun push demandé. La recette Docker existante n’a pas été relancée. Les 11 alertes npm de sévérité élevée déjà documentées restent présentes. Les applications restent exécutées sur l’hôte ; cette tâche n’ajoute pas leur conteneurisation. Les corrections OPS-023 sont incluses dans le commit de cette carte.
 
 ## Mise en commit — 2026-10-21
 
