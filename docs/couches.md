@@ -58,6 +58,6 @@ Chaque couche reçoit un écrivain à la fois ; les consignes ne sont pas des ve
 
 ## Preuve du processus
 
-Les contrôles applicatifs sont décrits dans [la qualité](../qualite.md).
+Les contrôles applicatifs sont décrits dans [la qualité](qualite.md).
 La recette de processus vérifie séparément Git, le témoin HTTP et l’isolation des ressources Docker,
-y compris pour design et devops. Voir [la recette](../../dev-book/runbooks/recette-aiod.md).
+y compris pour design et devops. Voir [la recette](../dev-book/runbooks/recette-aiod.md).

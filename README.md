@@ -21,7 +21,7 @@ API : http://127.0.0.1:8000/api/docs · Web : http://127.0.0.1:3000 · Dashboard
 python3 codebase-quality-control/scripts/quality.py
 ```
 
-[Adopter le boilerplate](docs/aiod/adoption.md) · [Contrôles et CI](docs/qualite.md).
+[Adopter le boilerplate](docs/adoption.md) · [Contrôles et CI](docs/qualite.md).
 Les applications tournent sur l’hôte ; Docker fournit séparément des conteneurs témoins pour la recette AIOD.
 
 ## Se repérer
@@ -37,5 +37,5 @@ Chaque README définit les responsabilités de son dossier. Aucun skill personne
 Les cartes de construction et de maintenance sont conservées dans [le dev-book](dev-book/README.md).
 Toutes les cartes restent dans `dev-book/tasks/`, distinguées par leur statut.
 
-[Principes AIOD](docs/aiod/principes.md) · [Couches](docs/aiod/couches.md) · [Consignes](ia-engineering/README.md)
-· [Recette Git isolée](docs/aiod/premiere-tache.md).
+[Principes AIOD](docs/principes.md) · [Couches](docs/couches.md) · [Consignes](ia-engineering/README.md)
+· [Recette Git isolée](docs/premiere-tache.md).

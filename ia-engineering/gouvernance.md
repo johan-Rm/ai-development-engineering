@@ -2,7 +2,7 @@
 
 ## Avant d’écrire
 
-Lire la demande, sa carte, [les couches](../docs/aiod/couches.md), [le workflow Git](git-workflow.md)
+Lire la demande, sa carte, [les couches](../docs/couches.md), [le workflow Git](git-workflow.md)
 et [l’isolation](parallel-work.md). Vérifier les missions actives auprès du coordinateur.
 Exécuter `python3 codebase-quality-control/scripts/worktrees.py list` et `git status --short`.
 

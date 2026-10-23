@@ -2,7 +2,7 @@
 
 ## Source officielle
 
-Lire la [charte fournie dans le dépôt](<../../design/Brand Guidelines - Graines Digitales (standalone).html>)
+Lire la [charte fournie dans le dépôt](<../design/Brand Guidelines - Graines Digitales (standalone).html>)
 avant toute création ou modification graphique. Cette source fait autorité ; cette page aide
 à l’appliquer et ne la remplace pas. Ne pas choisir une copie dans un autre projet.
 

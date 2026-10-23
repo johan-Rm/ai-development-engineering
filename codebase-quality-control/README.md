@@ -44,6 +44,6 @@ La commande complète, après installation des dépendances applicatives :
 python3 codebase-quality-control/scripts/quality.py
 ```
 
-Les [principes et domaines](../docs/aiod/codebase-quality-control.md) décrivent la structure
+Les [principes et domaines](../docs/codebase-quality-control.md) décrivent la structure
 du Codebase Quality Control. Les [commandes fournies](../docs/qualite.md) précisent leur portée.
 Les tests applicatifs restent au plus près de chaque application.
