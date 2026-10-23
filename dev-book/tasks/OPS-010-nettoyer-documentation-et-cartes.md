@@ -8,7 +8,7 @@
 - **Mission** : couche devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
 - **Dépendance par SHA** : `e90631fc77fae1a7519f1059f58c0c396c5473c9`, état local commun à `develop` et `layers/devops` lors du cadrage.
 - **Tests** : inventaire avant/après des cartes, vérification des liens locaux et des références aux anciens chemins, `python3 codebase-quality-control/scripts/check.py` et `git diff --check`. Pas de nouveaux tests applicatifs : aucun code exécutable ni comportement applicatif modifié.
-- **Réf** : OPS-001, BP-011 ; `docs/README.md`, `docs/boilerplate/README.md`, `docs/aiod/adoption.md`, `dev-book/README.md`, `docs/aiod/couches.md`.
+- **Réf** : OPS-001, OPS-023 ; `docs/README.md`, `docs/boilerplate/README.md`, `docs/aiod/adoption.md`, `dev-book/README.md`, `docs/aiod/couches.md`.
 
 ## Contexte
 
@@ -21,7 +21,7 @@ historique des réalisations et travail restant.
 
 ## Périmètre
 
-- Migrer les treize cartes BP-001 à BP-010, API-001, WEB-001 et BO-001 vers `dev-book/tasks/`.
+- Migrer les treize cartes OPS-013 à OPS-022, API-001, WEB-001 et BO-001 vers `dev-book/tasks/`.
 - Conserver toutes les cartes ensemble, ouvertes ou clôturées, distinguées par leur statut.
 - Réintégrer l’inventaire utile des exemples de `docs/boilerplate/README.md` dans le guide d’adoption, puis retirer `docs/boilerplate/` devenu vide de contenu utile.
 - Actualiser les liens entrants, les liens relatifs des cartes déplacées, les index et la procédure d’adoption.
@@ -78,10 +78,10 @@ publication ou création de tâches applicatives. Aucun commit, push ou PR dans 
 ## Livré et vérification — 2026-10-23
 
 - Branche `layers/devops` reprise sur la base locale prévue, sans fetch ni changement Git ; seule la carte OPS-010 était non suivie à l’ouverture.
-- Treize cartes migrées ; comparaison de leur texte à l’inventaire avant déplacement : contenu identique après retrait des seules notes historiques ajoutées à BP-010. Les 34 cartes présentes ont des identifiants uniques, OPS-010 comprise.
+- Treize cartes migrées ; comparaison de leur texte à l’inventaire avant déplacement : contenu identique après retrait des seules notes historiques ajoutées à OPS-022. Les 34 cartes présentes ont des identifiants uniques, OPS-010 comprise.
 - `docs/boilerplate/` retiré après récupération de l’inventaire des exemples dans `docs/aiod/adoption.md`. Aucun autre dossier de cartes ne subsiste dans `docs/`.
 - Index et liens d’initialisation design/devops actualisés ; convention des cartes ouvertes et clôturées explicitée dans le dev-book.
-- Notes de contexte ajoutées aux cartes BP-010, BP-011, BP-012, OPS-001, OPS-002, OPS-003, OPS-006 et OPS-008 pour qualifier les anciens états Git et chemins. Critères, affectations et preuves historiques préservés.
+- Notes de contexte ajoutées aux cartes OPS-022, OPS-023, OPS-024, OPS-001, OPS-002, OPS-003, OPS-006 et OPS-008 pour qualifier les anciens états Git et chemins. Critères, affectations et preuves historiques préservés.
 - Vérification des liens de fichiers Markdown locaux, sur les fichiers suivis existants et les cartes nouvellement présentes : 75 cibles vérifiées, aucune absente (fragments internes non contrôlés).
 - Recherche de `boilerplate/` dans les guides courants, consignes et README d’accueil, design et infra : aucune occurrence. Les mentions restantes dans les cartes documentent le contexte historique ou le périmètre de migration.
 - Configuration JSON vérifiée : exactement api, backoffice, web, design et devops ; tableau de routage et gouvernance déjà cohérents, sans modification nécessaire.

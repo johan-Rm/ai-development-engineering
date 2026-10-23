@@ -16,7 +16,7 @@ Les commandes et écritures visent ce dossier explicitement.
 - Référence publique : `master`. `main` est conservée comme référence historique.
 - Intégration : `develop`. Aucun déploiement applicatif n’est configuré.
 - Maintenance du cadre : couche devops, branche `layers/devops`. Aucun changement de tâche directement sur `develop` ou `master`.
-- Cartes : `dev-book/tasks/<PRÉFIXE>-NNN-slug.md` (`OPS` pour devops). Les références `BP` existantes sont historiques. Vérifier les identifiants sur les branches concernées
+- Cartes : `dev-book/tasks/<PRÉFIXE>-NNN-slug.md` (`OPS` pour devops). Les anciennes cartes BP ont été migrées vers OPS ; la correspondance est dans `dev-book/README.md`. Vérifier les identifiants sur les branches concernées
   avant attribution ; aucun compteur concurrent automatique n’est fourni.
 - Création : `python3 codebase-quality-control/scripts/worktrees.py add --layer devops --branch layers/devops --base develop`.
   La base est explicite, locale et résolue à un commit ; la commande ne fait pas de fetch.

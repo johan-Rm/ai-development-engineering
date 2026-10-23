@@ -1,4 +1,4 @@
-# BP-009 — Dockeriser les environnements de travail
+# OPS-021 — Dockeriser les environnements de travail
 
 - **Créée le** : 2026-10-06.
 - **Session** : non disponible (Codex).
@@ -6,7 +6,7 @@
 - **Type** : outillage.
 - **Tests** : résolution Compose, builds et démarrage de deux environnements simultanés ;
   observation des endpoints et des destinations d’écriture.
-- **Réf** : BP-003 à BP-008 ; `docs/aiod/parallel-work.md`.
+- **Réf** : OPS-015 à OPS-020 ; `docs/aiod/parallel-work.md`.
 - **Rattachement** : devops pour les fichiers d’infrastructure, coordination de la maintenance du cadre
   pour l’outillage commun. Les changements applicatifs éventuels font l’objet de tâches distinctes.
 
@@ -75,7 +75,7 @@ ports 18102 et 18103, réseaux et volumes `aiod-8e0aadc5-api` et `aiod-8e0aadc5-
 Les montages /proof pointent sur chaque arbre, en lecture seule. Les marqueurs de données
 api et web sont différents et conservés après relance. Les ressources de test ont été retirées.
 Douze tests Python valident la mécanique Git, l’identité et la préservation des fichiers.
-Les cinq environnements du dépôt seront démarrés et observés pendant BP-004 à BP-008.
+Les cinq environnements du dépôt seront démarrés et observés pendant OPS-016 à OPS-020.
 
 ## Livré
 

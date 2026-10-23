@@ -48,5 +48,5 @@ Le nettoyage concerne les fichiers de la copie adoptée, pas l’historique Git 
 - La [charte Graines Digitales](<../design/Brand Guidelines - Graines Digitales (standalone).html>), le [schéma du cadre](../dev-book/resources/cadre-aiod.html), la [synthèse graphique](charte-graphique.md) et les [sources](../dev-book/resources/README.md) sont les références fournies. Dans le projet adopté, les remplacer ou retirer si elles ne sont pas utilisées, puis adapter les liens et la consigne graphique dans `AGENTS.md`.
 - `infra/compose.process.yaml` et le [runbook de recette](../dev-book/runbooks/recette-aiod.md) vérifient le processus indépendamment de l’application.
 
-La maintenance du cadre relève de devops. Les identifiants BP et les affectations historiques
-sont conservés pour la traçabilité ; ils ne définissent aucune couche supplémentaire.
+La maintenance du cadre relève de devops. Les anciennes cartes BP utilisent désormais des identifiants OPS ; leur correspondance est
+conservée dans le dev-book. Les affectations historiques ne définissent aucune couche supplémentaire.

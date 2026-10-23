@@ -1,4 +1,4 @@
-# BP-006 — Initialiser le worktree web
+# OPS-018 — Initialiser le worktree web
 
 - **Créée le** : 2026-10-05.
 - **Session** : non disponible (Codex).
@@ -6,7 +6,7 @@
 - **Type** : outillage.
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
-- **Réf** : BP-003 ; commit develop contenant codebase-quality-control/scripts/worktrees.py et codebase-quality-control/scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
+- **Réf** : OPS-015 ; commit develop contenant codebase-quality-control/scripts/worktrees.py et codebase-quality-control/scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
 - **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
@@ -47,7 +47,7 @@ réinitialiser ou forcer un push. Un arbre propre ne prouve pas une couche libre
 ## Hors périmètre
 
 Installation de framework, services applicatifs, secrets, DNS réel, déploiement, push et PR.
-Le conteneur témoin commun de BP-009 sert uniquement à vérifier le processus.
+Le conteneur témoin commun de OPS-021 sert uniquement à vérifier le processus.
 La stack et l’exemple applicatif seront définis séparément ; ils ne bloquent pas le socle Git.
 
 ## Documentation impactée
@@ -69,14 +69,14 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Première étape d’implémentation
 
-Vérifier BP-003, la disponibilité de web, les arbres enregistrés et le SHA develop.
+Vérifier OPS-015, la disponibilité de web, les arbres enregistrés et le SHA develop.
 
 ## Preuves et livraison
 
 Vérification du 2026-10-06 :
 
 - Worktree : `<depot>/worktree/web` ; branche `layers/web` ; dépôt commun `<depot>/.git`.
-- Base identifiée : `c6e3302ffd6e71449d0bac22ccfc0773f034cd69` (develop, contient BP-001, BP-003 et BP-009).
+- Base identifiée : `c6e3302ffd6e71449d0bac22ccfc0773f034cd69` (develop, contient OPS-013, OPS-015 et OPS-021).
 - Relance du créateur : même chemin, aucun fichier modifié.
 - Endpoint local : `http://127.0.0.1:18103/`, identité `web` observée.
 - Projet Docker : `aiod-d10fdac8-web` ; volume `aiod-d10fdac8-web_state`.

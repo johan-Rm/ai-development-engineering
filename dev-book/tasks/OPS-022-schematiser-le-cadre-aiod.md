@@ -1,4 +1,4 @@
-# BP-010 — Schématiser le cadre AIOD et ses deux boucles
+# OPS-022 — Schématiser le cadre AIOD et ses deux boucles
 
 > Note historique ajoutée lors d’OPS-010 : les mentions de fusion préparée, de fichiers non commités ou d’anciens chemins décrivent l’état lors de cette tâche. Elles ne décrivent pas l’état Git actuel ni un travail restant. Les cartes sont désormais réunies dans `dev-book/tasks/`.
 
@@ -48,7 +48,7 @@ La v1 détaillée est remplacée à la demande de l’utilisateur.
 - Impression PDF paysage : une seule page générée et vérifiée.
 - Aucune erreur JavaScript pendant le parcours.
 - `git diff --check` : OK.
-- Fichiers non commités : HTML, index documentaire et carte BP-010.
+- Fichiers non commités : HTML, index documentaire et carte OPS-022.
 - Aperçu local conservé : http://127.0.0.1:8090/cadre-aiod.html.
 
 ## Ajustement demandé

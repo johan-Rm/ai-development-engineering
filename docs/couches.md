@@ -50,7 +50,7 @@ La maintenance du cadre appartient à la couche `devops`, branche `layers/devops
 préfixe `OPS`, worktree `worktree/devops`. Elle couvre les consignes, la documentation
 et l’outillage communs de ce dépôt. Elle ne constitue pas une sixième couche.
 Preuve : documentation cohérente et `python3 codebase-quality-control/scripts/check.py`.
-Les cartes `BP` existantes conservent leurs identifiants historiques.
+Les anciennes cartes BP sont migrées vers OPS ; voir la correspondance dans [le dev-book](../dev-book/README.md).
 
 La configuration `codebase-quality-control/scripts/aiod.json` déclare uniquement les cinq couches du tableau.
 Lors de l’adoption, conserver seulement les couches utiles et adapter cette table avec le JSON.

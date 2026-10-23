@@ -1,4 +1,4 @@
-# BP-007 — Initialiser le worktree devops
+# OPS-016 — Initialiser le worktree backoffice
 
 - **Créée le** : 2026-10-05.
 - **Session** : non disponible (Codex).
@@ -6,7 +6,7 @@
 - **Type** : outillage.
 - **Tests** : contrôles Git locaux et relance sans perte ; les tests de l’outil sont exécutés
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
-- **Réf** : BP-003 ; commit develop contenant codebase-quality-control/scripts/worktrees.py et codebase-quality-control/scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
+- **Réf** : OPS-015 ; commit develop contenant codebase-quality-control/scripts/worktrees.py et codebase-quality-control/scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
 - **Dossier de coordination** : `<depot>`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
@@ -19,23 +19,23 @@ pour chaque couche, ainsi que les branches `master` et `develop`.
 
 ## Périmètre
 
-Créer ou réutiliser le worktree `<depot>/worktree/devops` sur `layers/devops` depuis un SHA identifié
-de `develop`. Ajouter ou compléter `infra/README.md` dans ce worktree pour décrire
-le rôle de la couche : domaines et architecture serveur. Décrire le nommage par projet, environnement et couche ; ne créer aucun domaine réel.
+Créer ou réutiliser le worktree `<depot>/worktree/backoffice` sur `layers/backoffice` depuis un SHA identifié
+de `develop`. Ajouter ou compléter `app/backoffice/README.md` dans ce worktree pour décrire
+le rôle de la couche : interface d’administration.
 
 ## Décisions de cadrage
 
 Commande prévue :
 
 ```sh
-python3 codebase-quality-control/scripts/worktrees.py add --layer devops --branch layers/devops --base develop
+python3 codebase-quality-control/scripts/worktrees.py add --layer backoffice --branch layers/backoffice --base develop
 ```
 
 La commande est exécutée depuis le dépôt principal ou un arbre enregistré, après vérification
-des missions. Le préfixe opérationnel de cette couche sera `OPS` ; la présente carte BP
-porte le bootstrap coordonné du blueprint. Les consignes locales sont écrites sur `layers/devops`,
+des missions. Le préfixe opérationnel de cette couche sera `BO` ; la présente carte BP
+porte le bootstrap coordonné du blueprint. Les consignes locales sont écrites sur `layers/backoffice`,
 avec la carte clôturée dans le même commit lorsque son exécution et son commit seront demandés.
-Le dossier représente un environnement de travail Git ; vérification future des configurations sur un environnement autorisé ne sont pas annoncées comme testées.
+Le dossier représente un environnement de travail Git ; parcours et validation future du backoffice ne sont pas annoncées comme testées.
 Aucun `.env` n’est copié ou généré automatiquement.
 
 ## Règles et cas limites
@@ -47,21 +47,21 @@ réinitialiser ou forcer un push. Un arbre propre ne prouve pas une couche libre
 ## Hors périmètre
 
 Installation de framework, services applicatifs, secrets, DNS réel, déploiement, push et PR.
-Le conteneur témoin commun de BP-009 sert uniquement à vérifier le processus.
+Le conteneur témoin commun de OPS-021 sert uniquement à vérifier le processus.
 La stack et l’exemple applicatif seront définis séparément ; ils ne bloquent pas le socle Git.
 
 ## Documentation impactée
 
-`infra/README.md` dans le worktree cible ; `docs/aiod/couches.md` seulement si le routage doit être précisé ; carte courante pour les preuves.
+`app/backoffice/README.md` dans le worktree cible ; `docs/aiod/couches.md` seulement si le routage doit être précisé ; carte courante pour les preuves.
 
 ## Définition de terminé
 
-- [x] Le worktree enregistré porte exactement `layers/devops` et partage le dépôt Git commun attendu.
+- [x] Le worktree enregistré porte exactement `layers/backoffice` et partage le dépôt Git commun attendu.
 - [x] Le chemin absolu est vérifié ; une branche déjà sortie est réutilisée au bon chemin.
 - [x] La branche nouvellement créée démarre sur le SHA develop consigné.
 - [x] Pour une branche existante, toute divergence est inventoriée sans réécriture.
 - [x] Une relance réutilise le worktree sans modifier ses fichiers ni son environnement.
-- [x] `infra/README.md` décrit le périmètre, les limites et les preuves applicables.
+- [x] `app/backoffice/README.md` décrit le périmètre, les limites et les preuves applicables.
 - [x] Les exclusions du parent empêchent la recherche et les tests de parcourir cette copie.
 - [x] La carte est conservée pour sa clôture dans l’arbre cible sans reprendre une mission tierce.
 - [x] Les commandes, chemins absolus et SHA observés sont consignés dans la carte.
@@ -69,20 +69,20 @@ La stack et l’exemple applicatif seront définis séparément ; ils ne bloquen
 
 ## Première étape d’implémentation
 
-Vérifier BP-003, la disponibilité de devops, les arbres enregistrés et le SHA develop.
+Vérifier OPS-015, la disponibilité de backoffice, les arbres enregistrés et le SHA develop.
 
 ## Preuves et livraison
 
 Vérification du 2026-10-06 :
 
-- Worktree : `/home/johan/www/lab/ai-orchestrated-development/worktree/devops` ; branche `layers/devops` ; dépôt commun `/home/johan/www/lab/ai-orchestrated-development/.git`.
-- Base identifiée : `c6e3302ffd6e71449d0bac22ccfc0773f034cd69` (develop, contient BP-001, BP-003 et BP-009).
+- Worktree : `<depot>/worktree/backoffice` ; branche `layers/backoffice` ; dépôt commun `<depot>/.git`.
+- Base identifiée : `c6e3302ffd6e71449d0bac22ccfc0773f034cd69` (develop, contient OPS-013, OPS-015 et OPS-021).
 - Relance du créateur : même chemin, aucun fichier modifié.
-- Endpoint local : `http://127.0.0.1:18104/`, identité `devops` observée.
-- Projet Docker : `aiod-d10fdac8-devops` ; volume `aiod-d10fdac8-devops_state`.
-- Marqueur `/data/init-proof` : `devops`, conservé après relance.
+- Endpoint local : `http://127.0.0.1:18101/`, identité `backoffice` observée.
+- Projet Docker : `aiod-d10fdac8-backoffice` ; volume `aiod-d10fdac8-backoffice_state`.
+- Marqueur `/data/init-proof` : `backoffice`, conservé après relance.
 - `.env` préservé ; artefacts `.aiod/` exclus de Git ; aucune copie de secret.
-- `infra/README.md` décrit les responsabilités et la recette.
+- `app/backoffice/README.md` décrit les responsabilités et la recette.
 - Les contrôles Python ciblent tests/ et n’explorent pas worktree/ ; Git ignore la copie.
 
 L’utilisateur a autorisé un commit d’initialisation par couche. La stack applicative reste hors

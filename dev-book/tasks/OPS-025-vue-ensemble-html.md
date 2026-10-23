@@ -1,9 +1,9 @@
-# BP-013 — Vue d’ensemble AIOD en HTML interactif
+# OPS-025 — Vue d’ensemble AIOD en HTML interactif
 
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
 - Mission historique : maintenance du cadre, sur la branche historique de maintenance, worktree principal.
-- Périmètre : nouvelle vue `docs/aiod/vue-d-ensemble-aiod.html`, index documentaire, test navigateur et cette carte. Préserver les corrections BP-011, BP-012 et le schéma SVG existant.
+- Périmètre : nouvelle vue `docs/aiod/vue-d-ensemble-aiod.html`, index documentaire, test navigateur et cette carte. Préserver les corrections OPS-023, OPS-024 et le schéma SVG existant.
 - Demande : convertir la représentation en HTML/CSS, avec détails dans un panneau latéral au survol et au clic.
 - Critères : quatre thèmes validés, éléments sous-jacents dans le panneau, boucles conservées, couleurs et polices conservées ; fonctionnement souris, clavier et tactile ; fermeture et absence de débordement mobile.
 - Preuve attendue : test navigateur Chromium et captures relues sur ordinateur et mobile.
@@ -20,4 +20,4 @@
 
 ## Mise en commit — 2026-10-21
 
-`node codebase-quality-control/tests/browser/vue-aiod.cjs app/web/targets/app` réussi dans Chromium, avec `PLAYWRIGHT_BROWSERS_PATH=/tmp/aiod-playwright` et les bibliothèques de `/tmp/aiod-browser-libs/root/usr/lib/x86_64-linux-gnu`. `git diff --check` réussi. Les cartes BP-013 à BP-021 sont livrées ensemble avec la version finale de la vue et de son test : leurs états intermédiaires non commités ne sont pas reconstruits. Écart à la convention un commit par tâche pour cette reprise du travail accumulé.
+`node codebase-quality-control/tests/browser/vue-aiod.cjs app/web/targets/app` réussi dans Chromium, avec `PLAYWRIGHT_BROWSERS_PATH=/tmp/aiod-playwright` et les bibliothèques de `/tmp/aiod-browser-libs/root/usr/lib/x86_64-linux-gnu`. `git diff --check` réussi. Les cartes OPS-025 à OPS-033 sont livrées ensemble avec la version finale de la vue et de son test : leurs états intermédiaires non commités ne sont pas reconstruits. Écart à la convention un commit par tâche pour cette reprise du travail accumulé.
