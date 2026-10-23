@@ -34,8 +34,8 @@ Les applications tournent sur l’hôte ; Docker fournit séparément des conten
 | Documentation | `docs/`, `dev-book/`, `**/README.md` : produit, responsabilités, tâches et preuves |
 
 Chaque README définit les responsabilités de son dossier. Aucun skill personnel n’est requis.
-Les tâches de construction du boilerplate sont archivées dans [docs/boilerplate/](docs/boilerplate/README.md).
-`dev-book/` accueille le travail du projet adopté.
+Les cartes de construction et de maintenance sont conservées dans [le dev-book](dev-book/README.md).
+Toutes les cartes restent dans `dev-book/tasks/`, distinguées par leur statut.
 
 [Principes AIOD](docs/aiod/principes.md) · [Couches](docs/aiod/couches.md) · [Consignes](ia-engineering/README.md)
 · [Recette Git isolée](docs/aiod/premiere-tache.md).

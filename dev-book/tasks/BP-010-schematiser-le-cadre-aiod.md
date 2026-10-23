@@ -1,5 +1,7 @@
 # BP-010 — Schématiser le cadre AIOD et ses deux boucles
 
+> Note historique ajoutée lors d’OPS-010 : les mentions de fusion préparée, de fichiers non commités ou d’anciens chemins décrivent l’état lors de cette tâche. Elles ne décrivent pas l’état Git actuel ni un travail restant. Les cartes sont désormais réunies dans `dev-book/tasks/`.
+
 - **Créée le** : 2026-10-18.
 - **Session** : non disponible (Codex).
 - **Statut** : clôturée le 2026-10-20 — schéma et référence graphique livrés.

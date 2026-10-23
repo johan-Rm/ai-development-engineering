@@ -1,5 +1,7 @@
 # BP-011 — Préparer l’adoption du boilerplate
 
+> Note historique ajoutée lors d’OPS-010 : les mentions de fusion préparée, de fichiers non commités ou d’anciens chemins décrivent l’état lors de cette tâche. Elles ne décrivent pas l’état Git actuel ni un travail restant. Les cartes sont désormais réunies dans `dev-book/tasks/`.
+
 - Statut : réalisée le 2026-10-20.
 - Date : 2026-10-20.
 - Demande : corriger les cinq points de l’audit après commit de BP-010.

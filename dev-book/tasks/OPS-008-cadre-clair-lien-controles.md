@@ -1,5 +1,7 @@
 # OPS-008 — Cadre olive clair et lien vers les contrôles
 
+> Note historique ajoutée lors d’OPS-010 : les mentions de fusion préparée, de fichiers non commités ou d’anciens chemins décrivent l’état lors de cette tâche. Elles ne décrivent pas l’état Git actuel ni un travail restant. Les cartes sont désormais réunies dans `dev-book/tasks/`.
+
 - Statut : clôturée le 2026-10-23.
 - Date : 2026-10-23.
 - Mission : couche devops, branche `layers/devops`, worktree `worktree/devops` (chemin absolu résolu par Git).

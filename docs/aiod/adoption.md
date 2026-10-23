@@ -34,9 +34,19 @@ Les sources sont conservées pour comprendre la démarche ; elles ne sont pas n�
 
 1. Partir d’un clone contenant les trois applications, puis suivre [le démarrage](../demarrage.md).
 2. Choisir le nom du projet, ses couches utiles et sa stratégie Git. Adapter `codebase-quality-control/scripts/aiod.json`, les responsabilités et les consignes dans `ia-engineering/`.
-3. Lire [l’inventaire des exemples et archives](../boilerplate/README.md). Conserver ces archives pour la traçabilité ou retirer `docs/boilerplate/` du nouveau dépôt et son lien d’index ; elles ne doivent pas être recopiées dans les tâches actives.
-4. Dans une copie destinée au nouveau projet, archiver les éventuelles cartes de maintenance restantes de `dev-book/tasks/` (notamment BP-011) dans `docs/boilerplate/tasks/`, ou les retirer de cette copie. Conserver les README et créer la première demande propre au projet. Ne jamais vider automatiquement les cartes d’un projet existant.
+3. Lire l’inventaire des exemples ci-dessous et [la convention des cartes](../../dev-book/README.md). Les cartes de construction et de maintenance restent dans `dev-book/tasks/`, avec leur statut et leurs preuves historiques.
+4. Dans une copie destinée à un nouveau projet, choisir explicitement de conserver ces cartes pour la traçabilité ou de les retirer de cette copie. Conserver les README et créer la première demande propre au projet. Ne pas déplacer les cartes dans `docs/` ni vider automatiquement les cartes d’un projet existant.
 5. Remplacer ou conserver explicitement l’exemple Article et la marque Graines Digitales. Adapter ensemble code, tests, OpenAPI, liens et consignes graphiques. Le schéma AIOD reste une illustration de méthode.
 6. Exécuter `python3 codebase-quality-control/scripts/quality.py`, puis les parcours navigateur selon [la qualité](../qualite.md). Vérifier la CI avant de commencer les tâches du produit.
 
 Le nettoyage concerne les fichiers de la copie adoptée, pas l’historique Git ni les worktrees du dépôt d’origine. Aucun script ne supprime les données, les `.env` ou les tâches.
+
+## Exemples remplaçables
+
+- L’entité Article, sa migration et les parcours associés dans les trois applications sont une démonstration CRUD.
+- Les tests HTTP, le contrat OpenAPI et les parcours Playwright correspondent à cette démonstration : les adapter ensemble lorsqu’elle est remplacée.
+- La [charte Graines Digitales](<../../design/Brand Guidelines - Graines Digitales (standalone).html>), le [schéma du cadre](cadre-aiod.html), la [synthèse graphique](charte-graphique.md) et les [sources](sources/README.md) sont les références fournies. Dans le projet adopté, les remplacer ou retirer si elles ne sont pas utilisées, puis adapter les liens et la consigne graphique dans `AGENTS.md`.
+- `infra/compose.process.yaml` et le [runbook de recette](../../dev-book/runbooks/recette-aiod.md) vérifient le processus indépendamment de l’application.
+
+La maintenance du cadre relève de devops. Les identifiants BP et les affectations historiques
+sont conservés pour la traçabilité ; ils ne définissent aucune couche supplémentaire.

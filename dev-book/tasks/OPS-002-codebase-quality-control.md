@@ -1,5 +1,7 @@
 # OPS-002 — Définir le Codebase Quality Control
 
+> Note historique ajoutée lors d’OPS-010 : les mentions de fusion préparée, de fichiers non commités ou d’anciens chemins décrivent l’état lors de cette tâche. Elles ne décrivent pas l’état Git actuel ni un travail restant. Les cartes sont désormais réunies dans `dev-book/tasks/`.
+
 - Statut : réalisée, non commitée.
 - Date : 2026-10-21.
 - Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
