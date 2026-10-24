@@ -14,7 +14,7 @@ def check(cwd):
     infos = [process.settings(root / 'worktree' / layer)
              for layer in ('backoffice', 'api', 'web', 'devops', 'design')]
     mounts, networks = [], []
-    marker = '.aiod-proof-' + uuid.uuid4().hex
+    marker = '.process-check-proof-' + uuid.uuid4().hex
     for info in infos:
         process.verify(info)
         cid = process.compose(info, 'ps', '-q', 'witness', capture=True).stdout.strip()
@@ -22,7 +22,7 @@ def check(cwd):
             raise ValueError('Conteneur témoin absent')
         inspect = json.loads(subprocess.check_output(['docker', 'inspect', cid], text=True))[0]
         proof = next(m for m in inspect['Mounts'] if m['Destination'] == '/proof')
-        if proof['Source'] != str(Path(info['worktree']) / '.aiod/runtime') or proof['RW']:
+        if proof['Source'] != str(Path(info['worktree']) / '.local/process-check') or proof['RW']:
             raise ValueError('Montage de preuve incorrect')
         mounts.append(next(m['Name'] for m in inspect['Mounts'] if m['Destination'] == '/data'))
         networks.append(tuple(sorted(inspect['NetworkSettings']['Networks'])))

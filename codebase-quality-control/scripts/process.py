@@ -30,7 +30,7 @@ def settings(cwd):
     if type(port_base) is not int or not 1024 <= port_base + item['id'] <= 65535:
         raise ValueError('Base de ports invalide')
     project = 'aiod-' + hashlib.sha256(str(root).encode()).hexdigest()[:8] + '-' + layer
-    for candidate in (tree / '.aiod', tree / '.aiod/runtime', tree / '.aiod/runtime/index.html'):
+    for candidate in (tree / '.local', tree / '.local/process-check', tree / '.local/process-check/identity.json'):
         if candidate.is_symlink():
             raise ValueError('Lien symbolique inattendu dans les artefacts locaux')
     return dict(root=str(root), worktree=str(tree), branch=branch, layer=layer,
@@ -38,21 +38,21 @@ def settings(cwd):
 
 
 def prepare(info):
-    directory = Path(info['worktree']) / '.aiod/runtime'
+    directory = Path(info['worktree']) / '.local/process-check'
     directory.mkdir(parents=True, exist_ok=True)
-    path = directory / 'index.html'
+    path = directory / 'identity.json'
     try:
         with path.open('x') as stream:
             json.dump(info, stream, ensure_ascii=False)
     except FileExistsError:
         if json.loads(path.read_text()) != info:
-            raise ValueError('Page témoin existante incompatible : aucun écrasement')
+            raise ValueError('Identité JSON existante incompatible : aucun écrasement')
 
 
 def compose(info, *args, capture=False):
     env = os.environ.copy()
     env.update(AIOD_IMAGE=info['image'], AIOD_PORT=str(info['port']),
-               AIOD_PROOF_DIR=str(Path(info['worktree']) / '.aiod/runtime'))
+               AIOD_PROOF_DIR=str(Path(info['worktree']) / '.local/process-check'))
     command = ['docker', 'compose', '--env-file', os.devnull,
                '-f', str(Path(info['worktree']) / 'infra/compose.process.yaml'),
                '-p', info['project'], *args]
@@ -61,7 +61,7 @@ def compose(info, *args, capture=False):
 
 
 def verify(info):
-    with urllib.request.urlopen(f"http://127.0.0.1:{info['port']}/", timeout=5) as response:
+    with urllib.request.urlopen(f"http://127.0.0.1:{info['port']}/identity.json", timeout=5) as response:
         actual = json.load(response)
     if actual != info:
         raise ValueError('Endpoint lié au mauvais environnement')

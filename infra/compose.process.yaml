@@ -16,7 +16,7 @@ services:
     tmpfs:
       - /tmp
     healthcheck:
-      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:8080/]
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:8080/identity.json]
       interval: 2s
       timeout: 2s
       retries: 15

@@ -1,7 +1,7 @@
 # Infrastructure de recette AIOD
 
 `compose.process.yaml` fournit un conteneur témoin BusyBox par couche, sans application.
-Il sert une page locale décrivant sa couche et monte un volume privé pour vérifier les écritures.
+Il sert un fichier `/identity.json` décrivant sa couche et monte un volume privé pour vérifier les écritures.
 Le port est lié exclusivement à `127.0.0.1` ; aucun domaine, proxy ou DNS public n’est nécessaire.
 
 Le script `codebase-quality-control/scripts/process.py`, lancé depuis un worktree de couche, impose sa branche,
@@ -25,9 +25,9 @@ Références : [projets Compose](https://docs.docker.com/compose/intro/compose-a
 - Dossier Git : le chemin absolu enregistré par `git worktree list`.
 - La [carte OPS-019](../dev-book/tasks/OPS-019-initialiser-worktree-devops.md)
   consigne l’initialisation, la base et les preuves.
-- Le [routage commun](../docs/couches.md) définit les responsabilités de cette couche.
+- Le [routage commun](../docs/02-cadre/couches.md) définit les responsabilités de cette couche.
 - Depuis ce worktree, `python3 codebase-quality-control/scripts/process.py up` démarre le conteneur témoin ;
-  `verify` observe sa page et `down` arrête son environnement en conservant les volumes.
+  `verify` observe son identité JSON et `down` arrête son environnement en conservant les volumes.
 - Aucun framework ni application : cet environnement sert uniquement à la recette AIOD.
 - Vérifier la disponibilité de la couche avant une mission, même si Git affiche un arbre propre.
 
@@ -35,3 +35,7 @@ Références : [projets Compose](https://docs.docker.com/compose/intro/compose-a
 
 La couche devops porte aussi les consignes, la documentation et l’outillage communs du cadre.
 Ces travaux utilisent la branche `layers/devops` et le préfixe de tâche `OPS`, sans couche supplémentaire.
+
+Les artefacts générés sont dans `.local/process-check/identity.json`, exclus de Git, de la
+recherche et du contexte Docker. L’ancien dossier `.aiod/` n’est plus utilisé ; ses données
+ne sont pas supprimées automatiquement. Relancer les témoins pour adopter le nouvel endpoint.
