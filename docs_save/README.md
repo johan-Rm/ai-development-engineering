@@ -8,20 +8,20 @@
 
 `docs/` conserve les guides et références durables ; les cartes restent dans `dev-book/tasks/`.
 
-Les consignes d’exécution des agents sont dans [IA Engineering](../ia-engineering/README.md).
-Les README des dossiers décrivent leurs responsabilités ; `dev-book/` suit les demandes et tâches du projet.
+Les consignes d’exécution des agents sont dans [AGENTS.md](../AGENTS.md).
+Les README des dossiers décrivent leurs responsabilités et conventions techniques ;
+[AGENTS.md](../AGENTS.md) précise leur format, leur lecture et leur utilisation en revue de code.
+`dev-book/` suit les demandes et tâches du projet.
 
 ## Méthode et cadre
 
 1. [Principes et adaptations du carrousel](principes.md)
 2. [Adoption dans un projet](adoption.md)
-3. [Gouvernance des agents](../ia-engineering/gouvernance.md)
+3. [Consignes du projet et skills des boucles AIDE](../AGENTS.md)
 4. [Couches et responsabilités](couches.md)
-5. [Workflow Git](../ia-engineering/git-workflow.md)
-6. [Travail parallèle et isolation](../ia-engineering/parallel-work.md)
-7. [Première tâche à essayer ensemble](premiere-tache.md)
-8. [Codebase Quality Control](codebase-quality-control.md)
-9. [Documents originaux](../dev-book/resources/README.md)
+5. [Première tâche à essayer ensemble](premiere-tache.md)
+6. [Codebase Quality Control](codebase-quality-control.md)
+7. [Documents originaux](../dev-book/resources/README.md)
 
 ## Représentation du cadre
 

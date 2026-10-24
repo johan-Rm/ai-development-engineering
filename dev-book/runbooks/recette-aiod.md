@@ -19,18 +19,22 @@ python3 -B codebase-quality-control/scripts/process.py status
 
 Même procédure depuis chacun des quatre autres worktrees.
 La création Git ne démarre aucun conteneur. `up` conserve les artefacts compatibles existants
-et refuse de remplacer une page témoin incompatible. Les `.env` sont ignorés par cette recette.
+et refuse de remplacer une identité JSON incompatible. Les `.env` sont ignorés par cette recette.
 
 | Couche | Branche | Endpoint local |
 | --- | --- | --- |
-| backoffice | layers/backoffice | http://127.0.0.1:18101 |
-| api | layers/api | http://127.0.0.1:18102 |
-| web | layers/web | http://127.0.0.1:18103 |
-| devops | layers/devops | http://127.0.0.1:18104 |
-| design | layers/design | http://127.0.0.1:18105 |
+| backoffice | layers/backoffice | http://127.0.0.1:18101/identity.json |
+| api | layers/api | http://127.0.0.1:18102/identity.json |
+| web | layers/web | http://127.0.0.1:18103/identity.json |
+| devops | layers/devops | http://127.0.0.1:18104/identity.json |
+| design | layers/design | http://127.0.0.1:18105/identity.json |
+
+Le fichier généré est `.local/process-check/identity.json` dans chaque worktree.
+L’ancien `.aiod/` est conservé s’il existe mais n’est plus utilisé ; relancer les témoins
+après mise à jour des scripts et de Compose.
 
 Les ports correspondent à la base 18100. Chaque conteneur a son réseau et son volume.
-Les pages reflètent l’identité du worktree et l’environnement, pas une application.
+Les fichiers JSON reflètent l’identité du worktree et l’environnement, pas une application.
 
 ## Prouver l’isolation
 
@@ -46,7 +50,7 @@ les volumes effectifs. Il écrit un marqueur unique par couche dans `/data/`, v�
 les couches suivantes ne le voient pas, puis relit les cinq valeurs différentes.
 Ces petits marqueurs de preuve sont conservés dans les volumes.
 
-Relancer `up` depuis deux worktrees et vérifier que leurs pages et données persistent.
+Relancer `up` depuis deux worktrees et vérifier que leurs identités et données persistent.
 Un état Git propre ne suffit pas à autoriser une nouvelle mission : vérifier l’affectation.
 
 ## Arrêter

@@ -6,4 +6,4 @@
 `aiod.json` déclare les couches et les identifiants de cette recette.
 
 Les scripts utilisent leur dépôt comme référence et ne parcourent pas les worktrees imbriqués.
-Les commandes publiques et leurs préconditions sont documentées dans `docs/demarrage.md` et `docs/qualite.md`.
+Les commandes publiques et leurs préconditions sont documentées dans `SETUP.md` et `docs/01-codebase-quality-control/points-de-controle.md`.

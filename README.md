@@ -1,41 +1,94 @@
 # AIDE — AI Development Engineering
 
-Cadre de développement agnostique organisé par couches et worktrees, avec des preuves vérifiables.
-Les applications de démonstration sont regroupées dans `app/` : API Platform / Symfony, webapp et dashboard Nuxt.
+**Des conventions techniques humaines, des contributions isolées et des résultats vérifiables.**
 
-## Démarrer
+AIDE organise le développement logiciel assisté par IA autour de conventions techniques humaines,
+de contributions isolées et de résultats vérifiables.
 
-Prérequis et détails : [installation et lancement](docs/demarrage.md).
-Depuis la racine du dépôt :
+Sa brique centrale est le **Codebase Quality Control** : les contrôles déterministes qui
+vérifient l’application des conventions techniques du projet. L’IA peut aider à écrire ces
+contrôles ; leur exécution ne dépend pas de son jugement.
 
-```sh
-python3 codebase-quality-control/scripts/apps.py install all
-```
+Deux boucles font vivre le système :
 
-Dans trois terminaux : `python3 codebase-quality-control/scripts/apps.py serve api`, `python3 codebase-quality-control/scripts/apps.py serve web`
-et `python3 codebase-quality-control/scripts/apps.py serve backoffice`.
+- La boucle de développement transforme les demandes en changements implémentés, vérifiés et livrés.
+- La boucle de consolidation examine les pratiques dans toute la base, corrige les écarts et enrichit les conventions techniques et leurs contrôles.
 
-API : http://127.0.0.1:8000/api/docs · Web : http://127.0.0.1:3000 · Dashboard : http://127.0.0.1:3001.
+Quatre piliers soutiennent ces boucles : la consolidation, les couches, l’IA Engineering
+et la documentation. L’humain définit les règles, arbitre les choix et valide les résultats.
 
-```sh
-python3 codebase-quality-control/scripts/quality.py
-```
+[Codebase Quality Control](#codebase-quality-control) · [Les quatre piliers](#les-quatre-piliers) · [Les deux boucles](#les-deux-boucles) · [Se repérer](#se-repérer)
 
-[Adopter le boilerplate](docs/adoption.md) · [Contrôles et CI](docs/qualite.md).
-Les applications tournent sur l’hôte ; Docker fournit séparément des conteneurs témoins pour la recette AIOD.
+## Codebase Quality Control
+
+Le Codebase Quality Control est la brique la plus importante d’AIDE. Il rend les exigences
+du projet vérifiables par des tests et des vérificateurs exécutables sans IA, en CI/CD ou
+à la demande.
+
+Les humains définissent les conventions techniques et leurs exceptions. Les conventions techniques
+sont documentées au plus près du code, dans les README des dossiers concernés ; les
+contrôles vérifient leur application. Une convention technique encore dépourvue de contrôle doit
+rester identifiable comme telle.
+
+> [!IMPORTANT]
+> La boucle de développement applique les conventions techniques et exécute les contrôles.
+> Leur évolution passe par la consolidation, après arbitrage humain. Un échec de contrôle
+> n’autorise pas l’IA à affaiblir la règle pour faire passer son changement.
+
+Les contrôles bloquants doivent réussir avant l’ouverture d’une PR. Les résultats qui
+nécessitent une interprétation restent soumis au jugement humain.
+
+[Explorer le Codebase Quality Control](codebase-quality-control/README.md)
+
+## Les quatre piliers
+
+| Pilier | Rôle dans AIDE |
+| --- | --- |
+| **Consolidation** | Transformer les constats en corrections globales, conventions techniques validées et contrôles durables. |
+| **Couches** | Définir les responsabilités, isoler les contributions et expliciter les contrats et dépendances. |
+| **IA Engineering** | Donner aux agents les instructions, le contexte et les skills adaptés à chaque étape. |
+| **Documentation** | Expliquer le projet, conserver les décisions et définir les responsabilités et conventions techniques locales. |
+
+Une couche dispose de sa branche, de son worktree et de son environnement. Un seul agent
+y écrit à la fois. L’isolation des fichiers doit être complétée par celle des ports, des
+bases et des autres ressources utilisées.
+
+## Les deux boucles
+
+### Développement
+
+**Demande → Interview → Découpage → Implémentation → Vérification → Reconstitution → Livraison → PR**
+
+L’IA clarifie la demande avec l’humain, la découpe en tâches par couche et réalise chaque
+contribution. L’humain vérifie le résultat et les preuves, puis valide ou demande des
+corrections. Chaque tâche validée produit un commit distinct. La reconstitution réunit
+les commits de la demande avant les contrôles de livraison et la préparation de sa PR.
+
+### Consolidation
+
+**Constat → Interview → Analyse globale → Arbitrage → Implémentation → Vérification → Livraison**
+
+Un constat local peut révéler un problème présent dans toute la base. L’IA analyse les
+occurrences et propose une règle et ses corrections. L’humain arbitre ; l’implémentation
+corrige le code concerné et ajoute les vérifications retenues. Après vérification humaine
+et contrôles réussis, la livraison produit les PRs de consolidation et les règles et
+contrôles qui renforcent les cycles suivants.
+
+[Consulter le schéma interactif AIDE](dev-book/resources/vue-d-ensemble-ai-development-engineering.html)
 
 ## Se repérer
 
-| Thème | Chemins et responsabilités |
+| Emplacement | Contenu |
 | --- | --- |
-| Couches | `app/api/`, `app/web/`, `app/backoffice/`, `design/`, `infra/`, `worktree/` ; routage dans `codebase-quality-control/scripts/aiod.json` |
-| Codebase Quality Control | `codebase-quality-control/`, tests applicatifs et CI : rendre les exigences vérifiables |
-| IA Engineering | `AGENTS.md`, `CLAUDE.md`, `ia-engineering/`, `.claude/` : consignes des agents |
-| Documentation | `docs/`, `dev-book/`, `**/README.md` : produit, responsabilités, tâches et preuves |
+| [codebase-quality-control/](codebase-quality-control/README.md) | Outillage commun et tests de ses vérificateurs ; les tests applicatifs restent dans les applications. |
+| [docs/](docs/index.md) | Explications du système AIDE et de ses boucles. |
+| [AGENTS.md](AGENTS.md) et [.codex/config.toml](.codex/config.toml) | Instructions du projet, skills recommandés et configuration Codex. |
+| [dev-book/](dev-book/README.md) | Demandes, tâches, procédures, ressources et preuves. |
+| `**/README.md` | Responsabilités et conventions techniques des dossiers concernés. |
+| [app/](app/README.md) | Applications de démonstration : API Symfony/API Platform, web et backoffice Nuxt. |
+| [design/](design/README.md) et [infra/](infra/README.md) | Références graphiques et infrastructure de recette. |
 
-Chaque README définit les responsabilités de son dossier. Aucun skill personnel n’est requis.
-Les cartes de construction et de maintenance sont conservées dans [le dev-book](dev-book/README.md).
-Toutes les cartes restent dans `dev-book/tasks/`, distinguées par leur statut.
+AIDE est indépendant des langages et frameworks du projet. Les applications de ce dépôt
+illustrent son utilisation et peuvent être remplacées par une autre stack.
 
-[Principes AIOD](docs/principes.md) · [Couches](docs/couches.md) · [Consignes](ia-engineering/README.md)
-· [Recette Git isolée](docs/premiere-tache.md).
+Installation et adaptation au projet : [SETUP.md](SETUP.md).

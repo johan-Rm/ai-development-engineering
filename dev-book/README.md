@@ -1,6 +1,6 @@
 # Dev-book
 
-Le journal opérationnel du projet qui adopte AIOD. La méthode est dans `docs/`. Les guides Markdown y sont placés directement ;
+Le journal opérationnel du projet qui adopte AIDE. La méthode est dans [docs/index.md](../docs/index.md), organisée par thèmes ;
 les ressources HTML, PDF et images sont dans `resources/`.
 
 | Dossier | Contenu |

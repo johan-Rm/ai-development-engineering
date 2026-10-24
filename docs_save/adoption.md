@@ -3,8 +3,8 @@
 ## Dans un projet existant
 
 1. Lire ses consignes, ses scripts et son workflow Git. Préserver les fichiers existants.
-2. Copier la documentation `docs/` et adapter ses liens. Copier aussi `ia-engineering/`. Compléter les entrées `AGENTS.md`
-   et `CLAUDE.md` au lieu de remplacer des consignes existantes.
+2. Copier la documentation `docs/` et adapter ses liens. Compléter `AGENTS.md`
+   au lieu de remplacer des consignes existantes ; reprendre le socle `.codex/config.toml` après lecture.
 3. Adapter les cinq couches proposées avec les responsables, puis renseigner la table de routage
    et `codebase-quality-control/scripts/aiod.json`. Les deux doivent décrire les mêmes couches.
 4. Installer les scripts et leurs tests ensemble (ou seulement `worktrees.py`, `aiod.json` et `test_worktrees.py` pour le seul outillage Git), puis les exclusions `worktree/` dans les outils
@@ -24,8 +24,9 @@ Les dossiers vides ne sont pas suivis par Git : les créer au moment de leur pre
 ## Indépendance des outils
 
 Les procédures sont lisibles sans commande slash ou skill installé sur le poste de l’auteur.
-Le lecteur peut les suivre manuellement avec Git et Python 3. Adapter les profils au client IA
-utilisé ; un profil Claude ne constitue pas une configuration Codex.
+Le lecteur peut les suivre manuellement avec Git et Python 3. Le contexte Codex est décrit dans
+[AGENTS.md](../AGENTS.md) et la configuration du projet dans
+[.codex/config.toml](../.codex/config.toml). Les skills recommandés restent externes au dépôt.
 
 Les sources sont conservées pour comprendre la démarche ; elles ne sont pas nécessaires
 à l’exécution des scripts. Aucune licence de redistribution n’a encore été choisie.
@@ -33,7 +34,7 @@ Les sources sont conservées pour comprendre la démarche ; elles ne sont pas n�
 ## Adopter les applications fournies
 
 1. Partir d’un clone contenant les trois applications, puis suivre [le démarrage](demarrage.md).
-2. Choisir le nom du projet, ses couches utiles et sa stratégie Git. Adapter `codebase-quality-control/scripts/aiod.json`, les responsabilités et les consignes dans `ia-engineering/`.
+2. Choisir le nom du projet, ses couches utiles et sa stratégie Git. Adapter `codebase-quality-control/scripts/aiod.json`, les responsabilités et les consignes dans `AGENTS.md`.
 3. Lire l’inventaire des exemples ci-dessous et [la convention des cartes](../dev-book/README.md). Les cartes de construction et de maintenance restent dans `dev-book/tasks/`, avec leur statut et leurs preuves historiques.
 4. Dans une copie destinée à un nouveau projet, choisir explicitement de conserver ces cartes pour la traçabilité ou de les retirer de cette copie. Conserver les README et créer la première demande propre au projet. Ne pas déplacer les cartes dans `docs/` ni vider automatiquement les cartes d’un projet existant.
 5. Remplacer ou conserver explicitement l’exemple Article et la marque Graines Digitales. Adapter ensemble code, tests, OpenAPI, liens et consignes graphiques. Le schéma AIOD reste une illustration de méthode.

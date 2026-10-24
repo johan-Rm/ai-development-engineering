@@ -1,5 +1,9 @@
 """Identité et préservation locale sans nécessiter Docker."""
 import json
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+import threading
+from unittest.mock import patch
 from pathlib import Path
 import sys
 import tempfile
@@ -34,7 +38,7 @@ class Process(unittest.TestCase):
         self.assertNotEqual(a['project'], b['project'])
         self.assertNotEqual(a['worktree'], b['worktree'])
         process.prepare(a)
-        witness = api / '.aiod/runtime/index.html'
+        witness = api / '.local/process-check/identity.json'
         before = witness.stat().st_mtime_ns
         process.prepare(a)
         self.assertEqual(before, witness.stat().st_mtime_ns)
@@ -45,8 +49,26 @@ class Process(unittest.TestCase):
     def test_wrong_branch_and_symlink_refused(self):
         with self.assertRaises(ValueError): process.settings(self.root)
         api, _ = self.fixture.add()
-        (api / '.aiod').symlink_to(self.root, target_is_directory=True)
+        (api / '.local').symlink_to(self.root, target_is_directory=True)
         with self.assertRaises(ValueError): process.settings(api)
+
+    def test_identity_served_as_json_and_wrong_identity_refused(self):
+        api, _ = self.fixture.add()
+        info = process.settings(api)
+        process.prepare(info)
+        directory = api / '.local/process-check'
+        handler = partial(SimpleHTTPRequestHandler, directory=str(directory))
+        with ThreadingHTTPServer(('127.0.0.1', 0), handler) as server:
+            thread = threading.Thread(target=server.serve_forever, daemon=True)
+            thread.start()
+            self.addCleanup(thread.join)
+            self.addCleanup(server.shutdown)
+            info['port'] = server.server_port
+            (directory / 'identity.json').write_text(json.dumps(info))
+            process.verify(info)
+            with patch.dict(info, layer='wrong-layer'):
+                with self.assertRaises(ValueError):
+                    process.verify(info)
 
     def test_duplicate_ids_refused(self):
         api, _ = self.fixture.add()

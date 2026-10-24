@@ -15,7 +15,7 @@ Les fichiers sources sont conservés sans modification.
 
 Ces fichiers de l’auteur sont conservés sans modification. Le carrousel a servi à rédiger
 les principes ; le PDF et le schéma restent des sources à relire ensemble.
-Les adaptations opérationnelles sont explicites dans [les principes](../../docs/principes.md).
+Le fonctionnement actuel est décrit dans la [documentation AIDE](../../docs/index.md).
 
 ## Représentations du cadre
 
