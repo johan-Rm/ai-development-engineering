@@ -27,7 +27,7 @@ sans perte de données ; signaler les divergences.
 
 Un worktree n’isole pas les services : ports, volumes, bases, caches et destinations d’écriture
 restent à isoler et à vérifier avant d’en annoncer l’isolation. Les outils excluent `worktree/`.
-La [recette](dev-book/runbooks/recette-aiod.md) documente les témoins Docker ; aucun déploiement
+La [documentation d’infrastructure](infra/README.md) décrit les témoins Docker ; aucun déploiement
 applicatif n’est configuré. Les changements de conventions techniques et contrôles passent par la
 consolidation selon [Codebase Integrity](codebase-integrity/README.md).
 

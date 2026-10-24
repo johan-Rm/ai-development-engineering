@@ -53,7 +53,7 @@ python3 codebase-integrity/scripts/apps.py check web --browser
 python3 codebase-integrity/scripts/apps.py check backoffice --browser
 ```
 
-Ces tests créent puis suppriment des articles. Utiliser une API de développement. Les [points de contrôle](docs/01-codebase-integrity/points-de-controle.md) décrivent les commandes et leur portée ; la [recette Docker](dev-book/runbooks/recette-aiod.md) vérifie séparément les témoins d’isolation.
+Ces tests créent puis suppriment des articles. Utiliser une API de développement. Les [points de contrôle](docs/01-codebase-integrity/points-de-controle.md) décrivent les commandes et leur portée ; la [documentation d’infrastructure](infra/README.md) décrit les témoins Docker utilisés pour vérifier l’isolation.
 
 ## Adapter au projet
 

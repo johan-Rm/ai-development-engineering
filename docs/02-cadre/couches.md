@@ -26,4 +26,4 @@ Un fichier partagé se rattache à sa couche consommatrice et nécessite une coo
 
 La reconstitution réunit les commits validés sur une branche explicitement choisie. Elle ne copie jamais le travail non commité d’un autre worktree.
 
-La [recette Docker](../../dev-book/runbooks/recette-aiod.md) vérifie séparément les identités et ressources des témoins. Elle ne prouve pas l’isolation des applications de démonstration.
+La [documentation d’infrastructure](../../infra/README.md) décrit les témoins Docker et leurs ressources. Leur isolation ne prouve pas celle des applications de démonstration.
