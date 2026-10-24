@@ -1,5 +1,6 @@
 """Identité et préservation locale sans nécessiter Docker."""
 import json
+import os
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import threading
@@ -45,6 +46,38 @@ class Process(unittest.TestCase):
         witness.write_text('travail tiers')
         with self.assertRaises(ValueError): process.prepare(a)
         self.assertEqual(witness.read_text(), 'travail tiers')
+
+    def test_compose_parameters_override_inherited_values_without_mutation(self):
+        api, _ = self.fixture.add()
+        info = process.settings(api)
+        inherited = {
+            'PROCESS_CHECK_IMAGE': 'wrong-image',
+            'PROCESS_CHECK_PORT': '1',
+            'PROCESS_CHECK_PROOF_DIR': '/wrong-path',
+            'UNCHANGED_PARAMETER': 'preserved',
+        }
+        with patch.dict(os.environ, inherited, clear=True):
+            before = dict(os.environ)
+            with patch.object(process.subprocess, 'run') as run:
+                result = process.compose(info, 'config', capture=True)
+            self.assertIs(result, run.return_value)
+            self.assertEqual(dict(os.environ), before)
+        run.assert_called_once()
+        args, kwargs = run.call_args
+        self.assertEqual(args[0], [
+            'docker', 'compose', '--env-file', os.devnull,
+            '-f', str(api / 'infra/compose.process.yaml'),
+            '-p', info['project'], 'config',
+        ])
+        self.assertEqual(kwargs, dict(
+            cwd=info['worktree'], text=True, check=True, capture_output=True,
+            env={
+                'PROCESS_CHECK_IMAGE': info['image'],
+                'PROCESS_CHECK_PORT': str(info['port']),
+                'PROCESS_CHECK_PROOF_DIR': str(api / '.local/process-check'),
+                'UNCHANGED_PARAMETER': 'preserved',
+            },
+        ))
 
     def test_wrong_branch_and_symlink_refused(self):
         with self.assertRaises(ValueError): process.settings(self.root)

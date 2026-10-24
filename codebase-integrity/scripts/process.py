@@ -51,8 +51,8 @@ def prepare(info):
 
 def compose(info, *args, capture=False):
     env = os.environ.copy()
-    env.update(AIOD_IMAGE=info['image'], AIOD_PORT=str(info['port']),
-               AIOD_PROOF_DIR=str(Path(info['worktree']) / '.local/process-check'))
+    env.update(PROCESS_CHECK_IMAGE=info['image'], PROCESS_CHECK_PORT=str(info['port']),
+               PROCESS_CHECK_PROOF_DIR=str(Path(info['worktree']) / '.local/process-check'))
     command = ['docker', 'compose', '--env-file', os.devnull,
                '-f', str(Path(info['worktree']) / 'infra/compose.process.yaml'),
                '-p', info['project'], *args]
