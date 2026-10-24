@@ -1,4 +1,4 @@
-# Infrastructure de recette AIOD
+# Infrastructure de recette AIDE
 
 `compose.process.yaml` fournit un conteneur témoin BusyBox par couche, sans application.
 Il sert un fichier `/identity.json` décrivant sa couche et monte un volume privé pour vérifier les écritures.
@@ -19,7 +19,7 @@ Les volumes ne sont pas supprimés par la commande d’arrêt.
 Références : [projets Compose](https://docs.docker.com/compose/intro/compose-application-model/),
 [services et montages](https://docs.docker.com/reference/compose-file/services/).
 
-## Couche devops — initialisation AIOD
+## Couche devops — initialisation AIDE
 
 - Branche : `layers/devops` ; préfixe des futures tâches : `OPS`.
 - Dossier Git : le chemin absolu enregistré par `git worktree list`.
@@ -28,7 +28,7 @@ Références : [projets Compose](https://docs.docker.com/compose/intro/compose-a
 - Le [routage commun](../docs/02-cadre/couches.md) définit les responsabilités de cette couche.
 - Depuis ce worktree, `python3 codebase-integrity/scripts/process.py up` démarre le conteneur témoin ;
   `verify` observe son identité JSON et `down` arrête son environnement en conservant les volumes.
-- Aucun framework ni application : cet environnement sert uniquement à la recette AIOD.
+- Aucun framework ni application : cet environnement sert uniquement à la recette AIDE.
 - Vérifier la disponibilité de la couche avant une mission, même si Git affiche un arbre propre.
 
 ## Maintenance du cadre

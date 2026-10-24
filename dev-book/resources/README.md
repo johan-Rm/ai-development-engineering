@@ -20,6 +20,7 @@ Le fonctionnement actuel est décrit dans la [documentation AIDE](../../docs/ind
 ## Représentations du cadre
 
 - [Vue interactive AIDE](vue-d-ensemble-ai-development-engineering.html).
-- [Vue synthétique AIOD](cadre-aiod.html).
+- [Vue synthétique historique AIOD](cadre-aiod.html).
 
-Ces ressources sont référencées par les guides Markdown de `docs/`.
+Ces ressources sont référencées par les guides Markdown de `docs/`. La vue synthétique
+conserve l’ancien nom AIOD ; la vue interactive présente le cadre AIDE actuel.
