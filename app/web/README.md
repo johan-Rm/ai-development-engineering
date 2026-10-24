@@ -14,7 +14,7 @@ npm run dev
 Ouvrir http://127.0.0.1:3000. Démarrer séparément l'API sur 127.0.0.1:8000
 (voir `api/README.md` dans le worktree API). Sans API, l'écran présente une erreur et un bouton Réessayer.
 Aucune donnée de démonstration n'est injectée. Liste vide, chargement et pagination sont prévus.
-Le témoin `codebase-quality-control/scripts/process.py` reste indépendant de l'application.
+Le témoin `codebase-integrity/scripts/process.py` reste indépendant de l'application.
 
 ## Configuration et contrat
 

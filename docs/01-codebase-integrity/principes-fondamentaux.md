@@ -1,14 +1,14 @@
 # Principes fondamentaux
 
-> Le **Codebase Quality Control est la pierre angulaire de l’écosystème AIDE — AI Development Engineering**, un cadre d’ingénierie pour concevoir, développer et faire évoluer des logiciels avec l’assistance de l’IA. Les conventions techniques humaines guident la conception ; les contrôles vérifient leur application.
+> Le **Codebase Integrity est la pierre angulaire de l’écosystème AIDE — AI Development Engineering**, un cadre d’ingénierie pour concevoir, développer et faire évoluer des logiciels avec l’assistance de l’IA. Les conventions techniques humaines guident la conception ; les contrôles vérifient leur application.
 
 ## Préambule
 
-Le **Codebase Quality Control cadre et contrôle la boucle de développement** en vérifiant l’application des conventions techniques du projet.
+Le **Codebase Integrity cadre et contrôle la boucle de développement** en vérifiant l’application des conventions techniques du projet.
 
-**La validation de toute PR de développement exige la réussite des tests du Codebase Quality Control.** Un résultat absent ou inconnu ne vaut pas réussite.
+**La validation de toute PR de développement exige la réussite des tests du Codebase Integrity.** Un résultat absent ou inconnu ne vaut pas réussite.
 
-**La boucle de développement ne peut modifier aucun élément du dossier `codebase-quality-control/`** : scripts, tests, configurations ou autres fichiers. Toute modification de ce dossier relève de la boucle de consolidation, après arbitrage humain.
+**La boucle de développement ne peut modifier aucun élément du dossier `codebase-integrity/`** : scripts, tests, configurations ou autres fichiers. Toute modification de ce dossier relève de la boucle de consolidation, après arbitrage humain.
 
 ## L’humain décide, l’IA assiste
 
@@ -26,7 +26,7 @@ Les tests et les autres contrôles bloquants doivent réussir sur la version sou
 
 ## Une brique vivante, deux boucles
 
-Le Codebase Quality Control se construit **surtout pendant la construction du projet** : les réalisations et les revues révèlent les règles à préciser et les contrôles à enrichir.
+Le Codebase Integrity se construit **surtout pendant la construction du projet** : les réalisations et les revues révèlent les règles à préciser et les contrôles à enrichir.
 
 | Boucle | Rôle |
 | --- | --- |

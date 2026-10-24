@@ -12,7 +12,7 @@ L’IA exécute les contrôles sur l’ensemble à livrer, corrige les échecs e
 
 ## Sortie
 
-Une PR correspondant à la demande initiale. Sa validation exige la réussite des tests du Codebase Quality Control et des autres contrôles bloquants. Un résultat inconnu n’est pas une réussite.
+Une PR correspondant à la demande initiale. Sa validation exige la réussite des tests du Codebase Integrity et des autres contrôles bloquants. Un résultat inconnu n’est pas une réussite.
 
 ## Procédure associée
 

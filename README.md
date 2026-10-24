@@ -5,7 +5,7 @@
 AIDE organise le développement logiciel assisté par IA autour de conventions techniques humaines,
 de contributions isolées et de résultats vérifiables.
 
-Sa brique centrale est le **Codebase Quality Control** : les contrôles déterministes qui
+Sa brique centrale est le **Codebase Integrity** : les contrôles déterministes qui
 vérifient l’application des conventions techniques du projet. L’IA peut aider à écrire ces
 contrôles ; leur exécution ne dépend pas de son jugement.
 
@@ -17,11 +17,11 @@ Deux boucles font vivre le système :
 Quatre piliers soutiennent ces boucles : la consolidation, les couches, l’IA Engineering
 et la documentation. L’humain définit les règles, arbitre les choix et valide les résultats.
 
-[Codebase Quality Control](#codebase-quality-control) · [Les quatre piliers](#les-quatre-piliers) · [Les deux boucles](#les-deux-boucles) · [Se repérer](#se-repérer)
+[Codebase Integrity](#codebase-integrity) · [Les quatre piliers](#les-quatre-piliers) · [Les deux boucles](#les-deux-boucles) · [Se repérer](#se-repérer)
 
-## Codebase Quality Control
+## Codebase Integrity
 
-Le Codebase Quality Control est la brique la plus importante d’AIDE. Il rend les exigences
+Le Codebase Integrity est la brique la plus importante d’AIDE. Il rend les exigences
 du projet vérifiables par des tests et des vérificateurs exécutables sans IA, en CI/CD ou
 à la demande.
 
@@ -38,7 +38,7 @@ rester identifiable comme telle.
 Les contrôles bloquants doivent réussir avant l’ouverture d’une PR. Les résultats qui
 nécessitent une interprétation restent soumis au jugement humain.
 
-[Explorer le Codebase Quality Control](codebase-quality-control/README.md)
+[Explorer le Codebase Integrity](codebase-integrity/README.md)
 
 ## Les quatre piliers
 
@@ -80,7 +80,7 @@ contrôles qui renforcent les cycles suivants.
 
 | Emplacement | Contenu |
 | --- | --- |
-| [codebase-quality-control/](codebase-quality-control/README.md) | Outillage commun et tests de ses vérificateurs ; les tests applicatifs restent dans les applications. |
+| [codebase-integrity/](codebase-integrity/README.md) | Outillage commun et tests de ses vérificateurs ; les tests applicatifs restent dans les applications. |
 | [docs/](docs/index.md) | Explications du système AIDE et de ses boucles. |
 | [AGENTS.md](AGENTS.md) et [.codex/config.toml](.codex/config.toml) | Instructions du projet, skills recommandés et configuration Codex. |
 | [dev-book/](dev-book/README.md) | Demandes, tâches, procédures, ressources et preuves. |

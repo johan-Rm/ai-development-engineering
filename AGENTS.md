@@ -11,8 +11,8 @@ Ne déléguer que sur demande explicite.
 - **Branche d’intégration** : `develop` ; **production** : `master` ; `main` reste historique.
 - **Branches de travail** : `layers/<couche>` ; **arbres de travail** : `worktree/<couche>`.
 - **Maintenance du cadre** : devops, `layers/devops`, préfixe `OPS`.
-- **Créer un arbre** : `python3 codebase-quality-control/scripts/worktrees.py add --layer <couche> --branch layers/<couche> --base develop` (base locale explicite, sans fetch).
-- **Qualité avant PR** : `python3 codebase-quality-control/scripts/quality.py` ; **tests de l’outillage** : `python3 codebase-quality-control/scripts/check.py`.
+- **Créer un arbre** : `python3 codebase-integrity/scripts/worktrees.py add --layer <couche> --branch layers/<couche> --base develop` (base locale explicite, sans fetch).
+- **Qualité avant PR** : `python3 codebase-integrity/scripts/quality.py` ; **tests de l’outillage** : `python3 codebase-integrity/scripts/check.py`.
 - **Stratégie de merge proposée** : merge commit, sous réserve de la politique GitHub configurée.
 
 Les skills portent les procédures des étapes ; les règles suivantes précisent leurs limites ici :
@@ -29,7 +29,7 @@ Un worktree n’isole pas les services : ports, volumes, bases, caches et destin
 restent à isoler et à vérifier avant d’en annoncer l’isolation. Les outils excluent `worktree/`.
 La [recette](dev-book/runbooks/recette-aiod.md) documente les témoins Docker ; aucun déploiement
 applicatif n’est configuré. Les changements de conventions techniques et contrôles passent par la
-consolidation selon [Codebase Quality Control](codebase-quality-control/README.md).
+consolidation selon [Codebase Integrity](codebase-integrity/README.md).
 
 ## Documentation et README
 
@@ -73,7 +73,7 @@ La [vue AIDE](dev-book/resources/vue-d-ensemble-ai-development-engineering.html)
 briques des deux boucles. Les skills ci-dessous sont des procédures recommandées lorsqu’ils
 sont disponibles ; leur mention ne les installe pas et ne déclenche aucune étape automatiquement.
 Ils restent personnels, hors du dépôt. Si un skill manque, suivre la carte, les instructions
-ci-dessus et les [commandes de qualité](docs/01-codebase-quality-control/points-de-controle.md) ; signaler toute procédure manquante
+ci-dessus et les [commandes de qualité](docs/01-codebase-integrity/points-de-controle.md) ; signaler toute procédure manquante
 plutôt que supposer le skill installé ou inventer ses étapes.
 
 ### Boucle de développement

@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 import unittest
 
-SCRIPT = Path(__file__).resolve().parents[2] / 'codebase-quality-control/scripts/worktrees.py'
+SCRIPT = Path(__file__).resolve().parents[2] / 'codebase-integrity/scripts/worktrees.py'
 spec = importlib.util.spec_from_file_location('worktrees', SCRIPT)
 wt = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(wt)
@@ -21,12 +21,12 @@ class Worktrees(unittest.TestCase):
         self.git('init', '-b', 'main')
         self.git('config', 'user.name', 'AIOD Test')
         self.git('config', 'user.email', 'test@example.invalid')
-        (self.root / 'codebase-quality-control/scripts').mkdir(parents=True)
-        (self.root / 'codebase-quality-control/scripts/aiod.json').write_text(json.dumps({'layers': {
+        (self.root / 'codebase-integrity/scripts').mkdir(parents=True)
+        (self.root / 'codebase-integrity/scripts/aiod.json').write_text(json.dumps({'layers': {
             'api': {'branch': 'layers/api'}, 'web': {'branch': 'layers/web'}}}))
         (self.root / '.gitignore').write_text('/worktree/*\n!/worktree/README.md\n')
         (self.root / 'reference').write_text('base connue')
-        self.git('add', 'codebase-quality-control/scripts/aiod.json', '.gitignore', 'reference')
+        self.git('add', 'codebase-integrity/scripts/aiod.json', '.gitignore', 'reference')
         self.git('commit', '-m', 'base')
         self.sha = self.git('rev-parse', 'HEAD')
 
@@ -59,7 +59,7 @@ class Worktrees(unittest.TestCase):
 
     def test_secondary_uses_its_config_when_main_layout_differs(self):
         api, _ = self.add()
-        (self.root / 'codebase-quality-control/scripts/aiod.json').unlink()
+        (self.root / 'codebase-integrity/scripts/aiod.json').unlink()
         web, _ = self.add('web', api)
         self.assertEqual(web, self.root / 'worktree/web')
 

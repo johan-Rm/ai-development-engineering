@@ -16,4 +16,4 @@ Un changement accompagné de preuves, prêt pour la vérification humaine. En ca
 
 ## Procédure associée
 
-`demarrer-tache` ; aucun élément de `codebase-quality-control/` ne peut être modifié dans cette boucle.
+`demarrer-tache` ; aucun élément de `codebase-integrity/` ne peut être modifié dans cette boucle.

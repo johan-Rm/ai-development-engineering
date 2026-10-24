@@ -55,7 +55,7 @@ Ces décisions viennent de l’utilisateur et priment sur la palette standard po
 
 - Le cadre est défini par l’humain : **actions humaines en olive `#6B7A4A` et cadre extérieur en olive pâle `#DDE2CF`**. Le texte du cadre pâle est noir pour rester lisible.
 - Les quatre thèmes du cadre sont des badges olive principal `#6B7A4A` avec texte blanc cassé.
-- Codebase Quality Control utilise l’olive clair `#A8B97A` avec texte noir.
+- Codebase Integrity utilise l’olive clair `#A8B97A` avec texte noir.
 - L’IA est identifiée par la **terre cuite `#C07040`**. Cette couleur est une extension demandée,
   pas une couleur prétendument présente dans la charte.
 - Pour les actions du schéma : aplats à 100 % d’opacité, olive pour l’humain et terre cuite pour l’IA,

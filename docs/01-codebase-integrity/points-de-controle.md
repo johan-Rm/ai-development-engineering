@@ -11,7 +11,7 @@ Chaque point de contrôle identifie la convention technique source, le périmèt
 | **Bloquant** | L’écart est établi sans ambiguïté et empêche la validation. |
 | **Informatif** | Le résultat demande une interprétation humaine. |
 
-Les tests du Codebase Quality Control doivent réussir pour valider une PR de développement. Un test non exécuté ou au résultat inconnu ne satisfait pas cette exigence.
+Les tests du Codebase Integrity doivent réussir pour valider une PR de développement. Un test non exécuté ou au résultat inconnu ne satisfait pas cette exigence.
 
 ## Vérifier les vérificateurs
 
@@ -25,11 +25,11 @@ Depuis la racine du worktree :
 
 | Commande Python | Portée |
 | --- | --- |
-| `python3 codebase-quality-control/scripts/check.py` | Tests de l’outillage, dont un serveur HTTP local temporaire ; Git et Python requis. |
-| `python3 codebase-quality-control/scripts/apps.py check api` | Contrat HTTP, conteneur Symfony, mapping et OpenAPI. |
-| `python3 codebase-quality-control/scripts/apps.py check web` | Types et build Nuxt. |
-| `python3 codebase-quality-control/scripts/apps.py check backoffice` | Types et build Nuxt. |
-| `python3 codebase-quality-control/scripts/quality.py` | Ensemble des contrôles précédents, arrêt au premier échec. |
+| `python3 codebase-integrity/scripts/check.py` | Tests de l’outillage, dont un serveur HTTP local temporaire ; Git et Python requis. |
+| `python3 codebase-integrity/scripts/apps.py check api` | Contrat HTTP, conteneur Symfony, mapping et OpenAPI. |
+| `python3 codebase-integrity/scripts/apps.py check web` | Types et build Nuxt. |
+| `python3 codebase-integrity/scripts/apps.py check backoffice` | Types et build Nuxt. |
+| `python3 codebase-integrity/scripts/quality.py` | Ensemble des contrôles précédents, arrêt au premier échec. |
 
 L’option `--browser` des contrôles web et backoffice ajoute les parcours Playwright ; API de développement et Chromium requis. Installation : [SETUP.md](../../SETUP.md).
 
