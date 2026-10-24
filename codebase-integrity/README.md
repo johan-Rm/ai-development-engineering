@@ -1,6 +1,6 @@
-# Codebase Quality Control
+# Codebase Integrity
 
-Le **Codebase Quality Control est la brique déterministe du cadre AIDE**. Il rassemble
+Le **Codebase Integrity est la brique déterministe du cadre AIDE**. Il rassemble
 les outils et les tests qui vérifient l’application des conventions techniques du projet,
 sans jugement d’IA à l’exécution.
 
@@ -17,12 +17,12 @@ sans jugement d’IA à l’exécution.
 ## Autorité et modifications
 
 **Le processus de développement applique les conventions techniques et exécute les contrôles.
-Il ne peut strictement pas modifier le Codebase Quality Control** : conventions techniques,
+Il ne peut strictement pas modifier le Codebase Integrity** : conventions techniques,
 vérificateurs, tests de ces vérificateurs, configurations, exceptions, seuils ou niveaux de blocage.
 Un échec ou une ambiguïté donne lieu à un constat à transmettre à l’humain ; il n’autorise
 ni le contournement ni l’affaiblissement d’un contrôle.
 
-Le Codebase Quality Control est propre à chaque projet et reste vivant. Ses évolutions
+Le Codebase Integrity est propre à chaque projet et reste vivant. Ses évolutions
 passent par le processus de consolidation, sous décision et validation humaines.
 L’IA peut assister l’implémentation d’une évolution explicitement approuvée dans ce cadre ;
 elle ne définit ni ne modifie les conventions techniques de sa propre initiative.
@@ -35,15 +35,15 @@ elle ne définit ni ne modifie les conventions techniques de sa propre initiativ
 Depuis la racine du dépôt :
 
 ```sh
-python3 codebase-quality-control/scripts/check.py
+python3 codebase-integrity/scripts/check.py
 ```
 
 La commande complète, après installation des dépendances applicatives :
 
 ```sh
-python3 codebase-quality-control/scripts/quality.py
+python3 codebase-integrity/scripts/quality.py
 ```
 
-Les [principes et domaines](../docs/01-codebase-quality-control/conventions-et-domaines.md) décrivent la structure
-du Codebase Quality Control. Les [commandes fournies](../docs/01-codebase-quality-control/points-de-controle.md) précisent leur portée.
+Les [principes et domaines](../docs/01-codebase-integrity/conventions-et-domaines.md) décrivent la structure
+du Codebase Integrity. Les [commandes fournies](../docs/01-codebase-integrity/points-de-controle.md) précisent leur portée.
 Les tests applicatifs restent au plus près de chaque application.

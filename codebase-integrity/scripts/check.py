@@ -6,5 +6,5 @@ import sys
 
 root = Path(__file__).resolve().parents[2]
 result = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover',
-                         '-s', str(root / 'codebase-quality-control/tests'), '-p', 'test_*.py'], cwd=root)
+                         '-s', str(root / 'codebase-integrity/tests'), '-p', 'test_*.py'], cwd=root)
 sys.exit(result.returncode)

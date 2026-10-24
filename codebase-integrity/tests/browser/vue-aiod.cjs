@@ -1,4 +1,4 @@
-// Usage : node codebase-quality-control/tests/browser/vue-aiod.cjs app/web/targets/app
+// Usage : node codebase-integrity/tests/browser/vue-aiod.cjs app/web/targets/app
 const path = require('node:path');
 const os = require('node:os');
 const { createRequire } = require('node:module');
@@ -124,13 +124,13 @@ const { chromium } = requireApp('playwright');
     assert.match(await page.locator('#detail-list').innerText(),/écrire les tests ou vérificateurs/);
     await page.keyboard.press('Escape');
     await page.locator('[data-detail="controles"]').click();
-    assert.equal(await page.locator('#detail-title').innerText(), 'Codebase Quality Control');
-    assert.equal(await page.locator('[data-detail="controles"] strong').innerText(), 'Codebase Quality Control');
+    assert.equal(await page.locator('#detail-title').innerText(), 'Codebase Integrity');
+    assert.equal(await page.locator('[data-detail="controles"] strong').innerText(), 'Codebase Integrity');
     const qualityDetails = await page.locator('#detail-list').innerText();
-    for (const text of ['15 domaines', 'Fiabilité des vérifications', 'Chaque convention appartient à un seul domaine', 'informatif', 'sans point de contrôle implémenté', 'sans recopier', 'accepter les cas conformes']) {
+    for (const text of ['15 domaines', 'Fiabilité des vérifications', 'Chaque convention technique appartient à un seul domaine', 'informatif', 'sans point de contrôle implémenté', 'sans recopier', 'accepter les cas conformes']) {
       assert.ok(qualityDetails.includes(text), text);
     }
-    await page.screenshot({path:path.join(os.tmpdir(),'aide-codebase-quality-control.png')});
+    await page.screenshot({path:path.join(os.tmpdir(),'aide-codebase-integrity.png')});
     assert.match(await page.locator('#detail-list').innerText(), /La consolidation enrichit/);
     await page.keyboard.press('Escape');
     for (const step of ['interview','decoupage','realisation','verification','reconstitution','finalisation']) {
@@ -140,7 +140,7 @@ const { chromium } = requireApp('playwright');
     }
     await page.locator('[data-detail="finalisation"]').click();
     const finalisationHeadings = await page.locator('#detail-list h3').allTextContents();
-    assert.ok(finalisationHeadings.indexOf('Faire passer le Codebase Quality Control') < finalisationHeadings.indexOf('Écrire les tests et la documentation'));
+    assert.ok(finalisationHeadings.indexOf('Faire passer le Codebase Integrity') < finalisationHeadings.indexOf('Écrire les tests et la documentation'));
     assert.match(await page.locator('#detail-list').innerText(), /Une fois les contrôles réussis/);
     await page.screenshot({path:path.join(os.tmpdir(),'aide-finalisation-details.png')});
     await page.keyboard.press('Escape');

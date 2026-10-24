@@ -2,7 +2,7 @@
 
 > Transformer les demandes humaines en contributions vérifiées et livrables.
 
-La boucle applique le cadre existant. **Elle ne modifie aucun élément de `codebase-quality-control/`.** Un besoin de changement du cadre devient une demande de consolidation.
+La boucle applique le cadre existant. **Elle ne modifie aucun élément de `codebase-integrity/`.** Un besoin de changement du cadre devient une demande de consolidation.
 
 | Étape | Acteur principal |
 | --- | --- |

@@ -20,7 +20,7 @@ Le contrat généré est versionné dans `app/openapi.json`. Pour le régénére
 `php bin/console api:openapi:export --output=openapi.json`.
 La base `app/var/app.db` est locale et ignorée. Aucune donnée n'est injectée au lancement.
 Les dépendances sont verrouillées dans `composer.lock` et les recettes dans `symfony.lock`.
-Le témoin `codebase-quality-control/scripts/process.py` reste indépendant de cette application.
+Le témoin `codebase-integrity/scripts/process.py` reste indépendant de cette application.
 
 ## Contrat Article
 

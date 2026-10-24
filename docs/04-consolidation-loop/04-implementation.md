@@ -16,4 +16,4 @@ Du code corrigé, une convention technique référencée et des contrôles exéc
 
 ## Procédure associée
 
-`demarrer-tache` pour les cartes autorisées. Cette boucle peut modifier `codebase-quality-control/` dans les limites de l’arbitrage.
+`demarrer-tache` pour les cartes autorisées. Cette boucle peut modifier `codebase-integrity/` dans les limites de l’arbitrage.

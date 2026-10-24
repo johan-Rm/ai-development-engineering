@@ -13,15 +13,15 @@ Docker et Compose servent uniquement à la recette d’isolation ; les applicati
 Depuis la racine du clone ou du worktree :
 
 ```sh
-python3 codebase-quality-control/scripts/apps.py install all
+python3 codebase-integrity/scripts/apps.py install all
 ```
 
 Les fichiers `.env` existants sont conservés. Dans trois terminaux, depuis cette même racine :
 
 ```sh
-python3 codebase-quality-control/scripts/apps.py serve api
-python3 codebase-quality-control/scripts/apps.py serve web
-python3 codebase-quality-control/scripts/apps.py serve backoffice
+python3 codebase-integrity/scripts/apps.py serve api
+python3 codebase-integrity/scripts/apps.py serve web
+python3 codebase-integrity/scripts/apps.py serve backoffice
 ```
 
 | Application | Adresse |
@@ -39,8 +39,8 @@ Les ports applicatifs ne sont pas attribués automatiquement par couche. Avant d
 ## Exécuter les contrôles
 
 ```sh
-python3 codebase-quality-control/scripts/check.py
-python3 codebase-quality-control/scripts/quality.py
+python3 codebase-integrity/scripts/check.py
+python3 codebase-integrity/scripts/quality.py
 ```
 
 La première commande vérifie l’outillage sans dépendances applicatives ; un test nécessite un port HTTP local temporaire. La seconde vérifie aussi les trois applications et demande leurs dépendances installées.
@@ -49,16 +49,16 @@ Pour les parcours navigateur, démarrer l’API de développement, puis :
 
 ```sh
 (cd app/web/targets/app && npx playwright install --with-deps chromium)
-python3 codebase-quality-control/scripts/apps.py check web --browser
-python3 codebase-quality-control/scripts/apps.py check backoffice --browser
+python3 codebase-integrity/scripts/apps.py check web --browser
+python3 codebase-integrity/scripts/apps.py check backoffice --browser
 ```
 
-Ces tests créent puis suppriment des articles. Utiliser une API de développement. Les [points de contrôle](docs/01-codebase-quality-control/points-de-controle.md) décrivent les commandes et leur portée ; la [recette Docker](dev-book/runbooks/recette-aiod.md) vérifie séparément les témoins d’isolation.
+Ces tests créent puis suppriment des articles. Utiliser une API de développement. Les [points de contrôle](docs/01-codebase-integrity/points-de-controle.md) décrivent les commandes et leur portée ; la [recette Docker](dev-book/runbooks/recette-aiod.md) vérifie séparément les témoins d’isolation.
 
 ## Adapter au projet
 
 1. Lire [AGENTS.md](AGENTS.md) et les README existants ; préserver les consignes, fichiers et environnements du projet d’accueil.
-2. Définir les [couches](docs/02-cadre/couches.md), leurs responsabilités, branches et chemins. Adapter ensemble cette table et `codebase-quality-control/scripts/aiod.json`.
+2. Définir les [couches](docs/02-cadre/couches.md), leurs responsabilités, branches et chemins. Adapter ensemble cette table et `codebase-integrity/scripts/aiod.json`.
 3. Compléter les instructions et examiner `.codex/config.toml`. Les skills personnels restent externes ; leur mention ne les installe pas.
 4. Définir les conventions techniques dans les README locaux, puis implémenter les contrôles par la consolidation autorisée.
 5. Adapter les commandes de qualité et la CI. Vérifier les protections GitHub si les tests doivent bloquer la fusion ; aucun déploiement n’est fourni.

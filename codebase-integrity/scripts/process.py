@@ -17,7 +17,7 @@ def settings(cwd):
     if not any(Path(item['worktree']).resolve() == tree for item in records):
         raise ValueError('Arbre Git non enregistré')
     branch = worktrees.git(tree, 'branch', '--show-current')
-    config = json.loads((tree / 'codebase-quality-control/scripts/aiod.json').read_text())
+    config = json.loads((tree / 'codebase-integrity/scripts/aiod.json').read_text())
     layers = config['layers']
     ids = [item['id'] for item in layers.values() if 'id' in item]
     if any(type(item) is not int or item < 1 for item in ids) or len(ids) != len(set(ids)):

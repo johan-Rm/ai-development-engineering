@@ -10,5 +10,5 @@ Le cadre AIDE est agnostique. Les exemples Symfony/API Platform et Nuxt fournis 
 peuvent être remplacés par les technologies du projet.
 
 Depuis la racine du dépôt, les commandes de
-[Codebase Quality Control](../codebase-quality-control/README.md) installent, lancent
+[Codebase Integrity](../codebase-integrity/README.md) installent, lancent
 et vérifient les applications. Les tests applicatifs restent dans leurs applications.

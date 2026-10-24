@@ -3,8 +3,8 @@
 Ce dossier est réservé aux worktrees réels, créés sur affectation d’une tâche.
 
 ```sh
-python3 codebase-quality-control/scripts/worktrees.py list
-python3 codebase-quality-control/scripts/worktrees.py add --layer devops --branch layers/devops --base develop
+python3 codebase-integrity/scripts/worktrees.py list
+python3 codebase-integrity/scripts/worktrees.py add --layer devops --branch layers/devops --base develop
 ```
 
 Si `layers/devops` est déjà sortie dans un worktree, la commande retourne son chemin.

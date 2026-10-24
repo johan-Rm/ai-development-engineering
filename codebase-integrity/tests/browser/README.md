@@ -6,7 +6,7 @@ focus, tactile et absence de débordement horizontal. Il ouvre le fichier local 
 Après installation des dépendances de la webapp et de Chromium :
 
 ```sh
-node codebase-quality-control/tests/browser/vue-aiod.cjs app/web/targets/app
+node codebase-integrity/tests/browser/vue-aiod.cjs app/web/targets/app
 ```
 
 Le second argument désigne l’application Nuxt fournissant Playwright. Les captures sont écrites

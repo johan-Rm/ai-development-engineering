@@ -10,11 +10,11 @@ ont été initialisés depuis un commit develop identifié. Aucun framework ou s
 Depuis `worktree/api/`, par exemple :
 
 ```sh
-python3 -B codebase-quality-control/scripts/process.py info
-python3 -B codebase-quality-control/scripts/process.py config
-python3 -B codebase-quality-control/scripts/process.py up
-python3 -B codebase-quality-control/scripts/process.py verify
-python3 -B codebase-quality-control/scripts/process.py status
+python3 -B codebase-integrity/scripts/process.py info
+python3 -B codebase-integrity/scripts/process.py config
+python3 -B codebase-integrity/scripts/process.py up
+python3 -B codebase-integrity/scripts/process.py verify
+python3 -B codebase-integrity/scripts/process.py status
 ```
 
 Même procédure depuis chacun des quatre autres worktrees.
@@ -41,8 +41,8 @@ Les fichiers JSON reflètent l’identité du worktree et l’environnement, pas
 Une fois les cinq témoins démarrés, depuis la racine :
 
 ```sh
-python3 -B codebase-quality-control/scripts/check_docker.py
-python3 -B codebase-quality-control/scripts/worktrees.py list
+python3 -B codebase-integrity/scripts/check_docker.py
+python3 -B codebase-integrity/scripts/worktrees.py list
 ```
 
 Le contrôle vérifie les réponses HTTP, les chemins montés en lecture seule, les réseaux et
@@ -58,7 +58,7 @@ Un état Git propre ne suffit pas à autoriser une nouvelle mission : vérifier 
 Depuis chaque worktree lancé :
 
 ```sh
-python3 -B codebase-quality-control/scripts/process.py down
+python3 -B codebase-integrity/scripts/process.py down
 ```
 
 Les conteneurs et réseaux de cette couche sont arrêtés, les volumes conservés.

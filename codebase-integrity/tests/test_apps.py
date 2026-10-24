@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-spec = importlib.util.spec_from_file_location('apps', Path(__file__).resolve().parents[2] / 'codebase-quality-control/scripts/apps.py')
+spec = importlib.util.spec_from_file_location('apps', Path(__file__).resolve().parents[2] / 'codebase-integrity/scripts/apps.py')
 apps = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(apps)
 

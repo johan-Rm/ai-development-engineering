@@ -2,13 +2,13 @@
 
 > Comprendre le socle de vérification, les quatre piliers du cadre et les deux boucles de travail.
 
-## 01 — Codebase Quality Control
+## 01 — Codebase Integrity
 
 La pierre angulaire d’AIDE : des conventions techniques humaines et des contrôles exécutables sans IA.
 
-- [Principes fondamentaux](01-codebase-quality-control/principes-fondamentaux.md)
-- [Conventions techniques et domaines](01-codebase-quality-control/conventions-et-domaines.md)
-- [Points de contrôle et commandes](01-codebase-quality-control/points-de-controle.md)
+- [Principes fondamentaux](01-codebase-integrity/principes-fondamentaux.md)
+- [Conventions techniques et domaines](01-codebase-integrity/conventions-et-domaines.md)
+- [Points de contrôle et commandes](01-codebase-integrity/points-de-controle.md)
 
 ## 02 — Cadre
 
