@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ArticleContract(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.tmp = tempfile.TemporaryDirectory(prefix='aiod-api-')
+        cls.tmp = tempfile.TemporaryDirectory(prefix='aide-api-')
         cls.env = dict(os.environ, APP_ENV='dev', APP_DEBUG='0',
                        DATABASE_URL=f'sqlite:///{cls.tmp.name}/test.db')
         subprocess.run(['php', 'bin/console', 'doctrine:migrations:migrate', '-n'],
