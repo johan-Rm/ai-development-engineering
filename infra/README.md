@@ -6,7 +6,19 @@ Le port est lié exclusivement à `127.0.0.1` ; aucun domaine, proxy ou DNS publ
 
 Le script `codebase-integrity/scripts/process.py`, lancé depuis un worktree de couche, impose sa branche,
 son identité Compose et le chemin absolu des artefacts. Il ne lit ni ne modifie les `.env`.
-Les paramètres de Compose sont explicitement fournis par l’outil.
+Les paramètres de Compose sont explicitement fournis par l’outil dans une copie de
+l’environnement appelant, sans modifier celui-ci :
+
+| Paramètre interne | Valeur fournie |
+| --- | --- |
+| `PROCESS_CHECK_IMAGE` | Image du conteneur témoin définie dans la configuration de recette |
+| `PROCESS_CHECK_PORT` | Port local calculé pour la couche |
+| `PROCESS_CHECK_PROOF_DIR` | Chemin absolu du dossier `.local/process-check` du worktree |
+
+Ces paramètres obligatoires décrivent la recette ; ils ne sont pas à renseigner dans
+un `.env`. Le script et le fichier Compose utilisent les mêmes noms, sans alias des
+anciens paramètres. Aucune migration de `.env` n’est nécessaire pour les commandes
+pilotées par le script.
 
 Les identifiants stables sont dans `codebase-integrity/scripts/aiod.json` ; leur ordre dans le fichier ne change
 pas les ports. Les noms des projets incluent un hash du chemin du dépôt principal et la couche.
