@@ -66,5 +66,3 @@ Ces tests créent puis suppriment des articles. Utiliser une API de développeme
 7. Choisir le sort des cartes historiques dans la copie adoptée ; ne pas les reprendre comme des missions actives. Affecter une première tâche et produire ses preuves.
 
 Le dépôt doit posséder un premier commit avant la création des worktrees. Les scripts ne copient pas les `.env`, ne démarrent pas les services lors de la création Git et ne synchronisent pas le remote.
-
-`docs_save/` est la sauvegarde temporaire de l’ancienne documentation pendant sa relecture. Elle n’est pas une seconde source de règles actives.
