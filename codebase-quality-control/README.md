@@ -12,12 +12,12 @@ sans jugement d’IA à l’exécution.
   exceptions et niveaux bloquants ou informatifs.
 - Tester les vérificateurs propres au projet pour qu’ils détectent les écarts et acceptent
   les cas conformes.
-- Rendre visible l’absence de contrôle implémenté pour une convention documentée.
+- Rendre visible l’absence de contrôle implémenté pour une convention technique documentée.
 
 ## Autorité et modifications
 
-**Le processus de développement applique les conventions et exécute les contrôles.
-Il ne peut strictement pas modifier le Codebase Quality Control** : conventions,
+**Le processus de développement applique les conventions techniques et exécute les contrôles.
+Il ne peut strictement pas modifier le Codebase Quality Control** : conventions techniques,
 vérificateurs, tests de ces vérificateurs, configurations, exceptions, seuils ou niveaux de blocage.
 Un échec ou une ambiguïté donne lieu à un constat à transmettre à l’humain ; il n’autorise
 ni le contournement ni l’affaiblissement d’un contrôle.
@@ -25,7 +25,7 @@ ni le contournement ni l’affaiblissement d’un contrôle.
 Le Codebase Quality Control est propre à chaque projet et reste vivant. Ses évolutions
 passent par le processus de consolidation, sous décision et validation humaines.
 L’IA peut assister l’implémentation d’une évolution explicitement approuvée dans ce cadre ;
-elle ne définit ni ne modifie les conventions de sa propre initiative.
+elle ne définit ni ne modifie les conventions techniques de sa propre initiative.
 
 ## Contenu et commandes
 
@@ -44,6 +44,6 @@ La commande complète, après installation des dépendances applicatives :
 python3 codebase-quality-control/scripts/quality.py
 ```
 
-Les [principes et domaines](../docs/codebase-quality-control.md) décrivent la structure
-du Codebase Quality Control. Les [commandes fournies](../docs/qualite.md) précisent leur portée.
+Les [principes et domaines](../docs/01-codebase-quality-control/conventions-et-domaines.md) décrivent la structure
+du Codebase Quality Control. Les [commandes fournies](../docs/01-codebase-quality-control/points-de-controle.md) précisent leur portée.
 Les tests applicatifs restent au plus près de chaque application.
