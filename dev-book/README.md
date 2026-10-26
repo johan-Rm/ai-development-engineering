@@ -98,6 +98,9 @@ Les références des cartes ont été actualisées ; les SHA, statuts et mission
 
 ## Fin de livraison
 
-La livraison finale exige les fusions contrôlées vers `develop` puis `master`, branche par défaut.
-Les preuves rapportent les deux PR, leurs SHA et les branches temporaires effectivement supprimées
-localement et à distance. Conserver les couches locales `layers/*`, les branches occupées et les worktrees.
+La livraison se termine après la fusion contrôlée de la PR vers `develop`, branche par défaut.
+Supprimer ensuite les branches temporaires livrées, localement et à distance, après vérification
+de leur fusion et de l’absence de travail inédit ou d’autre PR ouverte. Conserver les couches
+locales `layers/*`, les branches occupées et les worktrees. Une promotion vers `master`
+nécessite une demande explicite distincte. Les preuves rapportent la PR, son SHA de fusion
+et les suppressions réellement effectuées.

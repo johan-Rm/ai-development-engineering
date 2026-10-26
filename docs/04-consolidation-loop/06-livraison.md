@@ -24,13 +24,12 @@ la fusion. Seules les branches confirmées libres sont réalignées sans perte d
 
 ## Livraison finale et nettoyage
 
-La livraison complète suit deux PR : branche dédiée → `develop`, puis `develop` → `master`.
-`master` est la branche par défaut et de production. Vérifier le diff complet de la promotion :
-toute autre contribution doit être validée et incluse dans le périmètre autorisé ; sinon arrêter
-avant promotion. Attendre les contrôles et protections de chaque PR et vérifier chaque SHA de fusion.
-Une fusion ne constitue pas une preuve de déploiement applicatif.
+La livraison se termine après la fusion vérifiée de la PR de la branche dédiée vers
+`develop`, branche d’intégration et branche par défaut. Une promotion vers `master`
+nécessite une demande explicite distincte. Attendre les contrôles et protections de la PR
+et vérifier son SHA de fusion. Une fusion ne constitue pas une preuve de déploiement applicatif.
 
-Après fusion finale vérifiée, supprimer les branches temporaires livrées locales et distantes,
+Après fusion vérifiée dans `develop`, supprimer les branches temporaires livrées locales et distantes,
 libres et sans travail inédit ni autre PR ouverte, sans suppression forcée. Conserver les branches
 `master`, `develop`, les couches locales `layers/*` et les branches occupées. Les couches ne sont
 pas publiées sur le distant. Conserver les worktrees et leurs `.env` ; détacher uniquement celui

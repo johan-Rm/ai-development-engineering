@@ -54,5 +54,5 @@ La reconstitution réunit les commits validés sur une branche explicitement cho
 La [documentation d’infrastructure](../../infra/README.md) décrit les témoins Docker et leurs ressources. Leur isolation ne prouve pas celle des applications de démonstration.
 
 Les branches `layers/*` restent locales et ne sont pas poussées sur le distant. La livraison
-publie une branche temporaire dédiée, passe par `develop` puis `master` (branche par défaut),
+publie une branche temporaire dédiée et se termine par sa fusion dans `develop` (branche par défaut),
 et supprime les branches temporaires livrées après vérification, en conservant les couches et les worktrees.

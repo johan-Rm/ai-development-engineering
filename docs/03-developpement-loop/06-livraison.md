@@ -20,7 +20,7 @@ Une PR correspondant à la demande initiale. Sa validation exige la réussite de
 
 L’invocation de `livrer-demande` autorise la livraison complète : contrôles, commits
 documentaires nécessaires, vérification distante, push, création ou mise à jour de la PR vers
-`develop`, puis vers `master`, fusions et nettoyage des branches temporaires livrées. Aucune confirmation intermédiaire n’est nécessaire.
+`develop`, fusion et nettoyage des branches temporaires livrées. Aucune confirmation intermédiaire n’est nécessaire.
 Une instruction explicitement limitée à une PR conserve cette limite. Les validations humaines
 acquises, les contrôles bloquants et les protections GitHub restent nécessaires ; ne pas les contourner.
 Seules les branches confirmées libres sont réalignées sans perte de données.
@@ -30,13 +30,12 @@ met à jour AGENTS.md et les guides concernés ensemble.
 
 ## Livraison finale et nettoyage
 
-La livraison complète suit deux PR : branche dédiée → `develop`, puis `develop` → `master`.
-`master` est la branche par défaut et de production. Vérifier le diff complet de la promotion :
-toute autre contribution doit être validée et incluse dans le périmètre autorisé ; sinon arrêter
-avant promotion. Attendre les contrôles et protections de chaque PR et vérifier chaque SHA de fusion.
-Une fusion ne constitue pas une preuve de déploiement applicatif.
+La livraison se termine après la fusion vérifiée de la PR de la branche dédiée vers
+`develop`, branche d’intégration et branche par défaut. Une promotion vers `master`
+nécessite une demande explicite distincte. Attendre les contrôles et protections de la PR
+et vérifier son SHA de fusion. Une fusion ne constitue pas une preuve de déploiement applicatif.
 
-Après fusion finale vérifiée, supprimer les branches temporaires livrées locales et distantes,
+Après fusion vérifiée dans `develop`, supprimer les branches temporaires livrées locales et distantes,
 libres et sans travail inédit ni autre PR ouverte, sans suppression forcée. Conserver les branches
 `master`, `develop`, les couches locales `layers/*` et les branches occupées. Les couches ne sont
 pas publiées sur le distant. Conserver les worktrees et leurs `.env` ; détacher uniquement celui

@@ -8,7 +8,7 @@ Ne déléguer que sur demande explicite.
 ## Conventions de workflow
 
 - **Cartes de tâches** : `dev-book/tasks/`, préfixes et routage dans [les couches](docs/02-cadre/couches.md).
-- **Branche d’intégration** : `develop` ; **production et branche par défaut** : `master` ; `main` reste historique.
+- **Branche d’intégration et branche par défaut** : `develop` ; **production** : `master` ; `main` reste historique.
 - **Couches locales, sans publication distante** : `layers/<couche>` ; **arbres de travail** : `worktree/<couche>`.
 - **Maintenance du cadre** : devops, `layers/devops`, préfixe `OPS`.
 - **Créer un arbre** : `python3 codebase-integrity/scripts/worktrees.py add --layer <couche> --branch layers/<couche> --base develop` (base locale explicite, sans fetch).
@@ -23,7 +23,7 @@ et prévoit la branche dédiée `demands/<identifiant>`, créée à la reconstit
 une seule couche ; ne pas utiliser une branche de couche pour réunir une demande.
 Invoquer `livrer-demande` ou `livrer-consolidation` autorise la livraison complète en autonomie : commits documentaires
 nécessaires, vérification distante et fetch, push sans forcer, création ou mise à jour de la PR
-vers `develop`, puis PR de promotion de `develop` vers `master`, fusions après contrôles et
+vers `develop`, fusion après contrôles et
 protections satisfaits, suppression des branches temporaires livrées locales et distantes,
 puis suivi et réalignement sans perte des seules branches libres. Ne pas redemander une autorisation pour chacune de ces
 opérations. Une demande limitée explicitement à une PR reste limitée à cette PR.
@@ -135,13 +135,12 @@ IA en bleu `#1B6EAE`, couleurs dans les fonds/textes/bordures, sans traits déco
 
 ## Livraison finale et branches temporaires
 
-La livraison finale suit branche dédiée → `develop` → `master`, par deux PR contrôlées.
-Avant promotion, vérifier tout le diff de production : les contributions supplémentaires
-présentes dans `develop` doivent être validées et comprises dans le périmètre autorisé.
-Un périmètre inconnu bloque la promotion ; la fusion vers `develop` seule n’est pas la livraison finale.
-Après vérification des deux fusions, supprimer les seules branches temporaires livrées,
+La livraison se termine après la fusion vérifiée de la PR de la branche dédiée vers `develop`,
+branche d’intégration et branche par défaut. Une promotion vers `master` exige une demande
+explicite distincte et ne fait pas partie de cette livraison.
+Après vérification de la fusion dans `develop`, supprimer les seules branches temporaires livrées,
 locales et distantes, libres et sans travail inédit ni autre PR ouverte. Ne pas forcer une suppression.
 Conserver `master`, `develop`, les couches locales `layers/*`, les branches occupées et les worktrees.
 Détacher si nécessaire le worktree propre et libre de la livraison sur son commit livré avant
 suppression de sa branche temporaire ; préserver ses fichiers et `.env`.
-Ne pas publier de branches `layers/*`. Rapporter les SHA des deux fusions et le nettoyage réel.
+Ne pas publier de branches `layers/*`. Rapporter la PR, son SHA de fusion et le nettoyage réel.
