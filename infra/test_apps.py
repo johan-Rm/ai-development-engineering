@@ -101,6 +101,8 @@ class LauncherTests(unittest.TestCase):
             for source in ['app/api/app', 'app/web/targets/app', 'app/backoffice']:
                 (root / source).mkdir(parents=True)
             envfile = root / 'app/api/app/.env'
+            apps.prepare_mountpoints({'root': str(root)}, 'web')
+            self.assertFalse(envfile.exists())
             envfile.write_text('preserve')
             apps.prepare_mountpoints({'root': str(root)}, 'web')
             self.assertEqual(envfile.read_text(), 'preserve')
@@ -147,6 +149,8 @@ class LauncherTests(unittest.TestCase):
                     self.assertEqual(str(binding['published']), str(info['port']))
                     self.assertEqual(services['api']['environment']['DATABASE_URL'], 'sqlite:////app/var/app.db')
                     self.assertTrue(services['api']['volumes'][0]['read_only'])
+                    self.assertEqual(json.loads(services['api']['environment']['APP_RUNTIME_OPTIONS'])['dotenv_path'], '.env.example')
+                    self.assertNotIn('/app/.env', [m['target'] for m in services['api']['volumes']])
         self.assertEqual(len(projects), 5)
         self.assertEqual(len(ports), 5)
 

@@ -64,8 +64,9 @@ Les sources sont montées en lecture seule dans les conteneurs. Les volumes priv
 contiennent SQLite/var, vendor/Composer et, pour chaque interface, node_modules,
 .nuxt et .output. L’initialisation attribue ces volumes à l’UID/GID de l’utilisateur
 appelant ; les applications ne tournent pas en root. Les `.env` hôte ne sont jamais
-écrits ou copiés. L’API utilise explicitement les valeurs locales Docker et monte
-`.env.example` comme `.env` dans le conteneur ; les paramètres de base sont donc
+écrits ou copiés. L’API utilise explicitement les valeurs locales Docker et sélectionne
+`.env.example` avec `APP_RUNTIME_OPTIONS.dotenv_path`, sans montage ni création de `.env` ;
+les paramètres de base sont donc
 indépendants des secrets et connexions de l’hôte. Les options internes Compose sont
 fournies par le lanceur, qui ignore les `.env` Compose et les variables `COMPOSE_*` héritées.
 
