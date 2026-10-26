@@ -109,3 +109,7 @@ Journaux locaux : `/tmp/DEM-005-tests-stack.log`, `/tmp/DEM-005-check.log`,
 Captures : `/tmp/DEM-005-browser-artifacts/DEM-005-devops-{web,backoffice}.png`.
 La stack devops reste disponible pour la recette OPS-052. Aucun verdict humain inventé.
 Le SHA de ce commit sera référencé par OPS-052 et dans le bilan final.
+
+Correction documentaire OPS-051 : les responsabilités et conventions de la nouvelle stack
+utilisent les chapitres `## Rôle et responsabilités` et `## Conventions techniques`
+attendus pour la revue locale. `git diff --check` réussi ; aucun changement exécutable.
