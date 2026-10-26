@@ -103,12 +103,3 @@ Les références des cartes ont été actualisées ; les SHA, statuts et mission
 | BP-019 | [OPS-031](tasks/OPS-031-textes-process-developpement.md) |
 | BP-020 | [OPS-032](tasks/OPS-032-definir-themes-cadre.md) |
 | BP-021 | [OPS-033](tasks/OPS-033-etapes-consolidation.md) |
-
-## Fin de livraison
-
-La livraison se termine après la fusion contrôlée de la PR vers `develop`, branche par défaut.
-Supprimer ensuite les branches temporaires livrées, localement et à distance, après vérification
-de leur fusion et de l’absence de travail inédit ou d’autre PR ouverte. Conserver les couches
-locales `layers/*`, les branches occupées et les worktrees. Une promotion vers `master`
-nécessite une demande explicite distincte. Les preuves rapportent la PR, son SHA de fusion
-et les suppressions réellement effectuées.

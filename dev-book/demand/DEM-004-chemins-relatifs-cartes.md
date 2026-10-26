@@ -160,3 +160,18 @@ worktree de réunion fonctionne avec les commandes Git ordinaires.
 
 Demande reconstituée et prête pour l’étape de livraison ; aucun push, PR ou merge effectué.
 La présente preuve est conservée dans un commit documentaire sur la branche dédiée.
+
+## Ajustement de livraison confirmé — 2026-10-26
+
+Décision humaine explicite : livrer uniquement les chemins relatifs et conserver les
+règles de workflow actuelles de `develop`. Les effets des commits antérieurs hors demande
+`2c9aeb3` et `ce9fca2` sont donc exclus du diff final, sans réécrire l’historique.
+
+La cible distante observée est `63313b9cda819f1d6b7d672925537f58b4dec4d1`.
+Intégration de cette cible dans la branche dédiée par merge commit. Les conflits add/add
+sur DEM-003 et OPS-048 sont résolus en conservant intégralement leurs documents distants,
+avec uniquement les substitutions de chemins de DEM-004. Les dates, SHA et statuts
+historiques distants sont comparés et préservés. Les guides de livraison restent identiques
+à la cible ; aucun changement graphique, applicatif ou du Codebase Integrity.
+Les quatre documents partagés reçoivent seulement le patch de chemins d’OPS-049,
+appliqué aux versions distantes. Le résultat demandé et validé est conservé.

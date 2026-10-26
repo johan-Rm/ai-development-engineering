@@ -156,3 +156,12 @@ Branche `layers/devops` et arbre propre vérifiés avant consignation, en désig
 explicitement les métadonnées Git actuelles. Seules DEM-004 et OPS-049 sont modifiées
 pour ce verdict et son commit documentaire. Aucun code modifié, aucune réparation Git,
 aucun push, PR ou merge. Reconstitution et livraison restent à lancer séparément.
+
+## Ajustement documentaire de livraison — 2026-10-26
+
+L’humain demande d’exclure les changements de workflow antérieurs à cette carte.
+La cible distante est intégrée sans rebase ; les consignes et guides conservent les règles
+de workflow de `develop`, avec uniquement les changements de chemins validés.
+Les preuves distantes supplémentaires de DEM-003 sont conservées et leurs chemins
+neutralisés comme les autres références. Aucun changement au résultat fonctionnel
+validé de cette carte. Voir DEM-004 pour la cible et la résolution documentaire.

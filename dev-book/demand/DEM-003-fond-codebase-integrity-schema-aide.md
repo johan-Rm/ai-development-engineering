@@ -90,3 +90,46 @@ Couleurs et interactions vérifiées dans Chromium ; documentation graphique ali
 Limites présentées et conservées : contraste 3,563:1, mobile et plein écran non exercés.
 Aucune correction demandée. La validation ne vaut pas livraison ; aucune reconstitution,
 PR, fusion ou opération distante n’est lancée par cette étape.
+
+## Preuve de reconstitution — 2026-10-26
+
+Branche dédiée `demands/DEM-003`, worktree
+`worktree/DEM-003`.
+Base locale explicite `f2fd74382cbcf74132ced8211ffe2cc665107046` (`origin/develop`
+observée sans fetch), contenant déjà OPS-047. Le `develop` local divergent est préservé.
+Le commit documentaire hors demande `2c9aeb3` de la couche devops est exclu.
+
+Commits autorisés repris sans conflit, dans l’ordre :
+
+| Origine validée | Commit de réunion | Rôle |
+| --- | --- | --- |
+| `4930bc99d7678d80f6ddeb2ed6a64b224f5a572a` | `bdccc907eb47051e2a06ae99e7a66408d244756e` | Implémentation OPS-048 |
+| `b69f00fb856c640894d6656f2f2112597bf3b61e` | `64d099989076afaa8461fba03e037a50541ba3be` | Verdict humain |
+
+Équivalence des deux patchs vérifiée avec `git patch-id --stable`. Les quatre fichiers
+de la demande sont strictement identiques au résultat validé dans `b69f00f` avant cette
+trace documentaire. Le diff depuis la base contient seulement ces quatre fichiers.
+`git diff --check` réussi. `python3 codebase-integrity/scripts/check.py` : 23 tests réussis
+après relance hors sandbox pour le serveur localhost temporaire ; premier essai refusé
+par les permissions de socket. Aucun contrôle affaibli ni fichier non commité transféré.
+Les preuves navigateur du résultat validé restent applicables au HTML identique ;
+mobile et plein écran restent non exercés. Aucun contrat applicatif modifié.
+La qualité complète avant PR reste à exécuter à la livraison ; aucun push, PR ou merge.
+
+## Préparation de livraison — 2026-10-26
+
+Qualité complète réussie au commit `d95f1cb3b49aceab178359b439f16698d734328b` :
+`python3 codebase-integrity/scripts/quality.py`, après installation verrouillée avec
+`python3 codebase-integrity/scripts/apps.py install all`. Exécution hors sandbox pour
+les sockets localhost des tests. Journal : `/tmp/DEM-003-quality.log`. Outillage (23 tests),
+contrat API et contrôles Symfony, types et builds web/backoffice réussis.
+Les contrôles navigateur ciblés de l’implémentation validée restent documentés dans OPS-048.
+Seule cette trace documentaire est ajoutée après la qualité ; aucun code changé.
+
+Fetch réalisé ; `origin/develop` reste à `f2fd74382cbcf74132ced8211ffe2cc665107046`,
+`origin/master` à `9a60e1c5b6908f1c87fa3c2264fad778ba5f583a`.
+PR prévue vers `develop`, merge commit permis ; branche cible non protégée observée.
+La promotion vers `master` présente déjà 184 fichiers de contributions antérieures à DEM-003.
+Leur validation pour cette livraison n’est pas établie : arrêt prévu après intégration
+sur `develop`, avant ouverture de la PR de promotion, sans inclure ce périmètre inconnu.
+Le `develop` local divergent et les branches de couche restent préservés.

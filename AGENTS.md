@@ -8,8 +8,8 @@ Ne déléguer que sur demande explicite.
 ## Conventions de workflow
 
 - **Cartes de tâches** : `dev-book/tasks/`, préfixes et routage dans [les couches](docs/02-cadre/couches.md).
-- **Branche d’intégration et branche par défaut** : `develop` ; **production** : `master` ; `main` reste historique.
-- **Couches locales, sans publication distante** : `layers/<couche>` ; **arbres de travail** : `worktree/<couche>`.
+- **Branche d’intégration** : `develop` ; **production** : `master` ; `main` reste historique.
+- **Branches de travail** : `layers/<couche>` ; **arbres de travail** : `worktree/<couche>`.
 - **Maintenance du cadre** : devops, `layers/devops`, préfixe `OPS`.
 - **Créer un arbre** : `python3 codebase-integrity/scripts/worktrees.py add --layer <couche> --branch layers/<couche> --base develop` (base locale explicite, sans fetch).
 - **Qualité avant PR** : `python3 codebase-integrity/scripts/quality.py` ; **tests de l’outillage** : `python3 codebase-integrity/scripts/check.py`.
@@ -21,11 +21,10 @@ des cartes confiées et de leurs corrections ; invoquer `verifier-demande` autor
 documentaire des verdicts humains, sans autoriser leur invention. Le découpage est autonome
 et prévoit la branche dédiée `demands/<identifiant>`, créée à la reconstitution, même pour
 une seule couche ; ne pas utiliser une branche de couche pour réunir une demande.
-Invoquer `livrer-demande` ou `livrer-consolidation` autorise la livraison complète en autonomie : commits documentaires
+Invoquer `livrer-demande` autorise la livraison complète en autonomie : commits documentaires
 nécessaires, vérification distante et fetch, push sans forcer, création ou mise à jour de la PR
-vers `develop`, fusion après contrôles et
-protections satisfaits, suppression des branches temporaires livrées locales et distantes,
-puis suivi et réalignement sans perte des seules branches libres. Ne pas redemander une autorisation pour chacune de ces
+vers `develop`, fusion après contrôles et protections satisfaits, puis suivi et réalignement
+sans perte des seules branches libres. Ne pas redemander une autorisation pour chacune de ces
 opérations. Une demande limitée explicitement à une PR reste limitée à cette PR.
 Hors de ce périmètre, les autres opérations Git nécessitent une demande explicite. Aucun changement de tâche
 sur l’intégration ou la production. Préserver le travail existant et les `.env` ; pas de stash,
@@ -132,15 +131,3 @@ Pour tout travail graphique, lire la charte officielle du dépôt :
 Ne pas lui substituer une copie externe. La [synthèse opérationnelle](design/charte-graphique.md)
 rappelle ses règles et les adaptations explicitement demandées pour AIDE : humain/cadre en olive,
 IA en bleu `#1B6EAE`, couleurs dans les fonds/textes/bordures, sans traits décoratifs de rôle.
-
-## Livraison finale et branches temporaires
-
-La livraison se termine après la fusion vérifiée de la PR de la branche dédiée vers `develop`,
-branche d’intégration et branche par défaut. Une promotion vers `master` exige une demande
-explicite distincte et ne fait pas partie de cette livraison.
-Après vérification de la fusion dans `develop`, supprimer les seules branches temporaires livrées,
-locales et distantes, libres et sans travail inédit ni autre PR ouverte. Ne pas forcer une suppression.
-Conserver `master`, `develop`, les couches locales `layers/*`, les branches occupées et les worktrees.
-Détacher si nécessaire le worktree propre et libre de la livraison sur son commit livré avant
-suppression de sa branche temporaire ; préserver ses fichiers et `.env`.
-Ne pas publier de branches `layers/*`. Rapporter la PR, son SHA de fusion et le nettoyage réel.
