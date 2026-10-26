@@ -115,3 +115,21 @@ par les permissions de socket. Aucun contrôle affaibli ni fichier non commité 
 Les preuves navigateur du résultat validé restent applicables au HTML identique ;
 mobile et plein écran restent non exercés. Aucun contrat applicatif modifié.
 La qualité complète avant PR reste à exécuter à la livraison ; aucun push, PR ou merge.
+
+## Préparation de livraison — 2026-10-26
+
+Qualité complète réussie au commit `d95f1cb3b49aceab178359b439f16698d734328b` :
+`python3 codebase-integrity/scripts/quality.py`, après installation verrouillée avec
+`python3 codebase-integrity/scripts/apps.py install all`. Exécution hors sandbox pour
+les sockets localhost des tests. Journal : `/tmp/DEM-003-quality.log`. Outillage (23 tests),
+contrat API et contrôles Symfony, types et builds web/backoffice réussis.
+Les contrôles navigateur ciblés de l’implémentation validée restent documentés dans OPS-048.
+Seule cette trace documentaire est ajoutée après la qualité ; aucun code changé.
+
+Fetch réalisé ; `origin/develop` reste à `f2fd74382cbcf74132ced8211ffe2cc665107046`,
+`origin/master` à `9a60e1c5b6908f1c87fa3c2264fad778ba5f583a`.
+PR prévue vers `develop`, merge commit permis ; branche cible non protégée observée.
+La promotion vers `master` présente déjà 184 fichiers de contributions antérieures à DEM-003.
+Leur validation pour cette livraison n’est pas établie : arrêt prévu après intégration
+sur `develop`, avant ouverture de la PR de promotion, sans inclure ce périmètre inconnu.
+Le `develop` local divergent et les branches de couche restent préservés.
