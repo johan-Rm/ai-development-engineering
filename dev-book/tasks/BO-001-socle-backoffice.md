@@ -6,7 +6,7 @@
 - **Type** : feat.
 - **Tests** : typecheck, build, rendu SSR et parcours de création, modification, suppression.
 - **Réf** : demande utilisateur, docs/aiod/couches.md.
-- **Mission** : couche `backoffice`, branche `layers/backoffice`, worktree `<depot>/worktree/backoffice`.
+- **Mission** : couche `backoffice`, branche `layers/backoffice`, worktree `worktree/backoffice`.
 - **Chemins autorisés** : `app/backoffice/`, cette carte.
 - **Base vérifiée** : `921a7bf15d7e44ef88d89a1ee47d764e9904d261` ; aucune réécriture de branche.
 

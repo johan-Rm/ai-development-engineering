@@ -8,7 +8,7 @@
 - **Type** : docs.
 - **Tests** : relecture visuelle Chromium sur ordinateur et mobile ; vérification du SVG, du défilement et de l’impression sur une page.
 - **Réf** : docs/aiod/principes.md, sources/AIOD-carrousel-v1.html ; deux inventaires fournis dans la conversation.
-- **Mission historique** : maintenance du cadre, sur la branche historique de maintenance, worktree `<depot>`.
+- **Mission historique** : maintenance du cadre, sur la branche historique de maintenance, worktree `.`.
 - **Chemins autorisés** : `docs/aiod/cadre-aiod.html`, `docs/aiod/README.md`, `docs/aiod/charte-graphique.md`, `AGENTS.md`, cette carte.
 - **Base** : `c610bfdb437e9d5feae0eee8aea6fec9884e752b`.
 

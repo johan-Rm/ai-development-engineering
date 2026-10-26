@@ -5,7 +5,7 @@
 - **Statut** : clôturée — ✅ fait le 2026-10-26. Douze skills indépendants, outils transversaux, vue et documentation actualisés ; commit demandé par l’utilisateur après présentation.
 - **Type** : outillage documentaire.
 - **Tests** : validation de la structure et des liens des skills ; scénarios de lecture des entrées, sorties et arrêts ; vérification des douze correspondances dans la vue ; rendu et navigation clavier de la vue ; `git diff --check`. Contrôles existants pertinents et qualité avant PR. Pas de tests applicatifs : aucun comportement applicatif modifié.
-- **Mission** : devops, `layers/devops`, `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : devops, `layers/devops`, `worktree/devops`.
 - **Demande d’origine** : échange du 2026-10-26 ; proposition des douze skills validée, indépendance absolue des boucles exigée ; sources dans le dépôt, installation personnelle ensuite ; vue et documentation incluses.
 - **Dépendances par commit** : base du worktree `7c35e0292f2cd3b2e5f2e46a5864a086ae5dd85d` (OPS-043), déjà intégrée dans `develop` à `aa8b856587058a5f71ec35c13d3cd319fb58b1ce`. Aucun travail non commité d’une autre mission requis.
 
@@ -199,7 +199,7 @@ livraison et retire la conservation de leurs sources dans le dépôt. Cette inst
 le choix initial des sources versionnées et de l’installation ultérieure, conservé ci-dessus
 comme historique du premier commit.
 
-Les dix-huit skills ont été installés et validés dans `/home/johan/.codex/skills/` ; les trois
+Les dix-huit skills ont été installés et validés dans `<skills-personnels>/` ; les trois
 anciens noms remplacés ont été retirés. Les autres skills personnels ont été préservés par
 comparaison SHA-256. Les huit anciens dossiers ont été sauvegardés sous
 `/tmp/aide-skills-avant-refonte-huuypil4`. La session expose désormais les dix-huit nouveaux skills.

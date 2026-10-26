@@ -4,7 +4,7 @@
 - Statut : ✅ fait le 2026-10-24.
 - Type : docs.
 - Session : non disponible (Codex).
-- Mission : devops, `layers/devops`, `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Mission : devops, `layers/devops`, `worktree/devops`.
 - Demande validée : supprimer ia-engineering/, retirer les procédures déjà portées par les skills et conserver dans AGENTS.md les seules consignes spécifiques utiles, sans le rendre exhaustif.
 - Périmètre : AGENTS.md, suppression des quatre documents ia-engineering/, liens actifs README/docs/configuration et précisions utiles dans les documentations existantes.
 - Hors périmètre : audit complet de la documentation de l’écosystème, modification des skills, applications et cartes historiques.

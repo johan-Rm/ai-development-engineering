@@ -2,7 +2,7 @@
 
 - Statut : réalisée.
 - Date : 2026-10-21.
-- Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Mission : devops, branche `layers/devops`, worktree `worktree/devops`.
 - Demande : définir les responsabilités dans le README à la racine du dossier Codebase Quality Control.
 - Périmètre : `codebase-quality-control/README.md` et cette carte.
 - Dépendance : OPS-004, commit `9c5a987`.

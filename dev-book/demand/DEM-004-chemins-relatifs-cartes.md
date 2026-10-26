@@ -1,0 +1,113 @@
+# DEM-004 — Utiliser des chemins relatifs dans les cartes
+
+- Date : 2026-10-26.
+- État : implémentée et commitée, à vérifier.
+- Confirmation humaine : « oui, go », après restitution du cadrage dans le chat.
+- Session : référence de session indisponible.
+- Carte externe : aucune.
+
+## Contexte et problème observé
+
+Le renommage du dossier du projet révèle des chemins personnels absolus dans les
+cartes de tâches. Ces chemins dépendent de la machine et deviennent obsolètes après
+un déplacement du dépôt. Les consignes d’affectation demandent actuellement un
+worktree absolu, tandis que le README du dev-book prévoit déjà la neutralisation
+des chemins personnels historiques.
+
+Les personnes et agents qui lisent les cartes ou exécutent les missions ont besoin
+de références portables, tout en vérifiant précisément leur dossier de travail.
+
+## Résultat attendu
+
+Les cartes versionnées utilisent des chemins relatifs à la racine du dépôt principal,
+par exemple `worktree/devops`. Cette origine reste explicite même lorsqu’une carte
+est consultée depuis un worktree de couche. Le chemin absolu est résolu et vérifié
+uniquement lors de l’exécution, avec la branche et l’état Git.
+
+## Périmètre et contraintes
+
+- Corriger les cartes ouvertes et clôturées, y compris leurs chemins personnels historiques.
+- Harmoniser les consignes et guides concernés pour empêcher la réapparition de ces chemins.
+- Conserver le sens des preuves historiques, leurs dates, SHA et statuts ; les originaux
+  restent consultables dans l’historique Git.
+- Préserver le travail existant et les fichiers `.env`.
+- Lors de l’interview : aucun commit, push, PR ou merge. L’invocation ultérieure
+  d’`implementer-demande` autorise le commit local d’implémentation, sans réécriture
+  d’historique ni opération distante.
+
+## Critères d’acceptation
+
+1. Les affectations des cartes désignent leurs worktrees relativement au dépôt principal.
+2. Les documents concernés ne contiennent plus de chemins personnels absolus vers ce dépôt.
+3. Les consignes et guides distinguent la référence relative versionnée du chemin absolu
+   résolu et vérifié à l’exécution ; aucune règle concernée n’impose sa persistance dans une carte.
+4. Les cartes clôturées restent des traces historiques et ne sont pas rouvertes par la correction.
+5. Une recherche des chemins personnels et une relecture des références corrigées apportent
+   la preuve du nettoyage ; les contrôles pertinents du projet réussissent.
+
+## Exclusions
+
+- Réparation des liens Git des worktrees après déplacement du dépôt.
+- Modification ou redémarrage des environnements Docker.
+- Modification des skills personnels hors du dépôt : aucun changement de ces fichiers
+  n’a été demandé dans ce cadrage.
+
+## Décisions humaines
+
+- Choix explicite : chemins relatifs au dépôt principal, par exemple `worktree/devops` ;
+  chemin absolu résolu seulement lors de l’exécution.
+- Cadrage confirmé : correction des cartes, y compris clôturées, et des consignes et guides ;
+  vérification de l’absence de chemins personnels et contrôles pertinents.
+- La confirmation du besoin ne constitue pas une validation d’un résultat implémenté.
+
+## Questions ouvertes
+
+Aucune question de besoin bloquante. Le découpage devra préciser les documents et
+contrôles concernés à partir de l’inventaire des occurrences.
+
+## Tâches issues du découpage
+
+| Carte | Couche | Couverture | Ordre et dépendances |
+| --- | --- | --- | --- |
+| [OPS-049 — Rendre les chemins documentaires portables](../tasks/OPS-049-chemins-relatifs-cartes.md) | devops | Critères 1 à 5 : cartes ouvertes et historiques, demandes liées, consignes, guides et preuves | Carte unique ; aucune tâche amont à produire |
+
+## Réunion prévue
+
+- Branche dédiée : `demands/DEM-004`.
+- Worktree prévu : `worktree/DEM-004`, relativement au dépôt principal.
+- Création à la reconstitution seulement, après identification du commit validé d’OPS-049.
+- Ne pas réunir la demande sur `develop`, `master` ou une branche de couche.
+
+## Preuve du découpage — 2026-10-26
+
+Historique de toutes les références Git locales et fichiers des worktrees examinés sans
+fetch : maximum OPS-048, d’où OPS-049. Aucun doublon correspondant au besoin trouvé.
+Branche locale `layers/devops` conservée au commit
+`ce9fca295d748188c03f65e0d056011a036a621b`, sans rebase ni synchronisation distante.
+Avant écriture, seul ce document DEM-004 était non suivi ; aucune mission en cours
+n’a été identifiée dans les cartes devops consultées. Cette lecture ne garantit pas
+l’absence d’une session concurrente : revérifier la disponibilité avant implémentation.
+
+Les commandes Git ordinaires du worktree échouent, car son fichier `.git` pointe encore
+vers l’ancien emplacement. L’état a été lu en passant explicitement à Git les chemins
+locaux actuels des métadonnées et du worktree, sans modifier ces liens.
+La branche existe, mais l’environnement n’est pas annoncé prêt. Réparation à traiter
+séparément, puis revérification de la branche, de l’état et de la disponibilité.
+Aucun commit, création de branche, fetch ou opération distante pendant le découpage.
+
+## Implémentation — 2026-10-26
+
+OPS-049 couvre les cinq critères ; résultats et limites détaillés dans sa carte.
+Les 36 références personnelles au dépôt sont remplacées par des chemins relatifs,
+ainsi que les références génériques de mission encore préfixées par le placeholder
+historique du dépôt. Les consignes précisent l’origine commune et la résolution locale.
+Les références aux skills externes sont neutralisées par un placeholder documenté.
+Dates, SHA, statuts et verdicts des documents historiques sont préservés.
+
+Le lien Git n’a pas été réparé. Le démarrage a été rendu possible en désignant
+explicitement les métadonnées et le worktree actuels pour les commandes Git, sans
+modification de ces fichiers. Le blocage signalé au découpage reste une limite des
+commandes Git ordinaires, mais ne bloque plus cette implémentation documentaire.
+Qualité complète réussie hors sandbox, après un refus de socket local dans le sandbox.
+Commit local d’OPS-049 créé avec cette demande ; SHA communiqué dans le chat.
+Aucun verdict humain, aucune reconstitution ni opération distante à cette étape.

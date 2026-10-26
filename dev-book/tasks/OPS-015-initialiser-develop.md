@@ -8,7 +8,7 @@
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
 - **Réf** : OPS-014 ; OPS-013 validée et commitée avant intégration du blueprint ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
-- **Dossier de coordination** : `<depot>`.
+- **Dossier de coordination** : `.`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
 
 ## Contexte

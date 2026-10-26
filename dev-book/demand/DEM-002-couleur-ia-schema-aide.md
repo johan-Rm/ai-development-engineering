@@ -51,7 +51,7 @@ Aucune mission design concurrente sur ces chemins n’a été identifiée dans l
 ## Réunion prévue
 
 - Branche dédiée : `demands/DEM-002`.
-- Worktree prévu : `/home/johan/www/lab/ai-orchestrated-development/worktree/DEM-002`.
+- Worktree prévu : `worktree/DEM-002`.
 - Branche et worktree à créer seulement lors de la reconstitution, à partir des commits validés.
 - Ne pas utiliser `layers/devops`, `develop` ou `master` comme branche de réunion.
 
@@ -105,7 +105,7 @@ La reconstitution et la livraison restent des étapes distinctes, non exécutée
 ## Preuve de reconstitution — 2026-10-26
 
 Branche `demands/DEM-002`, worktree
-`/home/johan/www/lab/ai-orchestrated-development/worktree/DEM-002`, créés à la tête
+`worktree/DEM-002`, créés à la tête
 `efa1a1ee63830a260884f242260cc3b0bbc4e722`.
 Commits réunis, ascendance vérifiée sans rejeu :
 

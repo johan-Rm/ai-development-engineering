@@ -9,7 +9,7 @@
 - **Réf** : OPS-040 ; `infra/README.md`, `codebase-integrity/scripts/README.md`, `codebase-integrity/tests/README.md`.
 - **Demande d’origine** : échange du 2026-10-24 ; remplacement du préfixe lié à l’écosystème par un nom fonctionnel, cadrage validé par l’utilisateur.
 - **Couche et branche** : devops, `layers/devops`.
-- **Worktree absolu** : `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Worktree** : `worktree/devops`.
 - **Chemins autorisés** : `codebase-integrity/scripts/process.py`, `infra/compose.process.yaml`, `infra/README.md`, `codebase-integrity/tests/test_process.py`, présente carte.
 - **Dépendances par commit** : base `ed715efb57b780305138ee814891bcb1e0334077`, incluant OPS-040 ; aucune dépendance aux travaux BO-002, WEB-002 et API-002, aucun aval imposé.
 
@@ -49,7 +49,7 @@ aucune autre convention technique ni aucun contrôle existant ne doit être affa
 
 ## Règles et cas limites
 
-Conserver les valeurs calculées, le chemin absolu des preuves, l’environnement
+Conserver les valeurs calculées, le chemin des preuves relatif au dépôt principal (chemin absolu résolu à l’exécution), l’environnement
 appelant et les options de lancement, notamment `--env-file` pointant sur le fichier
 nul. Ne pas modifier `os.environ` ni lire ou écrire les `.env` pour cette recette.
 Les nouveaux paramètres doivent être fournis explicitement même si l’environnement

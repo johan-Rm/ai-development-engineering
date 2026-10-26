@@ -1,7 +1,7 @@
 # Consignes des agents
 
 Lire [les couches](docs/02-cadre/couches.md), la carte demandée et les README applicables avant d’écrire.
-Les instructions explicites de l’utilisateur priment. Une mission précise son worktree absolu,
+Les instructions explicites de l’utilisateur priment. Une mission précise son worktree relatif à la racine du dépôt principal,
 sa branche, ses chemins autorisés, ses dépendances par commit et sa preuve attendue.
 Ne déléguer que sur demande explicite.
 

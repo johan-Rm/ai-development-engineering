@@ -5,7 +5,7 @@
 - Statut : réalisée ; réunion des historiques préparée sans commit.
 - Date : 2026-10-21.
 - Demande : conserver uniquement les cinq couches validées et retirer la couche de maintenance supplémentaire.
-- Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Mission : devops, branche `layers/devops`, worktree `worktree/devops`.
 - Périmètre autorisé : configuration des couches, gouvernance, documentation de routage et références des cartes historiques.
 - Dépendances : état courant du cadre `841378d` et initialisation devops `79dd507`.
 - Critères : cinq couches configurées ; maintenance du cadre attribuée à devops ; aucune référence à une sixième couche dans les fichiers courants ; historique conservé sans réattribution fictive des anciennes missions.

@@ -78,7 +78,7 @@ sans lancement ni arbitrage supplémentaire dans cette interview.
 Découpage réalisé le 2026-10-26. L’utilisateur a demandé explicitement de réaliser
 cette étape de façon autonome, sans validation intermédiaire du découpage.
 Branche existante conservée : `layers/devops`, dans
-`/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+`worktree/devops`.
 Implémentation réalisée dans OPS-046 ; preuves et contrôles consignés dans la carte,
 résultat validé par l’humain le 2026-10-26 (« validé »).
 Branche de réunion : `layers/devops`. Commit OPS-046 autorisé le 2026-10-26.
@@ -93,7 +93,7 @@ ont été alignés. Le découpage est autonome ; le verdict humain se recueille 
 Les demandes explicites de push, PR et merge restent nécessaires.
 
 Branche de réunion retenue pour cette demande à une seule couche : `layers/devops`,
-worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+worktree `worktree/devops`.
 Les mentions précédentes de blocage décrivent l’ancien fonctionnement. Aucun SHA de
 contribution n’a encore été créé dans cet échange ; la reconstitution reste à effectuer.
 Validation des quatre skills modifiés et 23 tests de l’outillage réussis ; `git diff --check` réussi.

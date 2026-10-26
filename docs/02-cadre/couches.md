@@ -29,9 +29,11 @@ configuration dans le projet sans imposer un chemin personnel.
 
 Pendant la boucle de développement :
 
-1. Au découpage, identifier le worktree absolu et la branche de chaque mission.
+1. Au découpage, indiquer le worktree relativement à la racine du dépôt principal
+   (par exemple `worktree/devops`) et la branche de chaque mission.
 2. À l’implémentation, ouvrir les fichiers dans le dossier de la couche affectée.
-   Dans le terminal, vérifier `pwd` et `git status --short --branch` avant toute écriture.
+   Résoudre localement le chemin absolu depuis le dépôt principal, sans le conserver
+   dans la carte. Dans le terminal, vérifier `pwd` et `git status --short --branch` avant toute écriture.
    Le dossier « ◆ principal » sert de repère pour l’intégration ; les changements de
    tâche sont réalisés dans les worktrees des couches.
 3. À la vérification, consulter les changements Git du dépôt de la couche concernée

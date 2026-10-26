@@ -2,7 +2,7 @@
 
 - Statut : réalisée.
 - Date : 2026-10-21.
-- Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Mission : devops, branche `layers/devops`, worktree `worktree/devops`.
 - Demande : rassembler `api/`, `backoffice/` et `web/` sous `app/`.
 - Périmètre : déplacement des dossiers, commandes applicatives, CI, documentation, liens et tests concernés.
 - Dépendance : OPS-003, commit `16856b9`.

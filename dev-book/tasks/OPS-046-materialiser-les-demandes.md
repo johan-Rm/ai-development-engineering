@@ -5,7 +5,7 @@
 - Demande d’origine : [DEM-001](../demand/DEM-001-materialiser-les-demandes.md).
 - Couche : devops.
 - Session : identifiant fiable indisponible.
-- Worktree : `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Worktree : `worktree/devops`.
 - Branche : `layers/devops`, existante, conservée sans rebase.
 - Base locale observée : `0ca44922ba429652d6f9874f2e1ed888c17bdc0f`.
 - Dépendances par commit : aucune tâche amont distincte. DEM-001 est un document
@@ -29,7 +29,7 @@ Dans le worktree affecté :
 - `dev-book/demand/DEM-001-materialiser-les-demandes.md` : suivi de cette demande.
 - La présente carte : réalisation, preuves et documentation effectivement modifiée.
 
-Hors dépôt : `/home/johan/.codex/skills/interviewer-demande/SKILL.md`, modification
+Hors dépôt : `<skills-personnels>/interviewer-demande/SKILL.md`, modification
 explicitement comprise dans le besoin confirmé. Lire les instructions applicables et utiliser
 `skill-creator` lors de cette modification. Ce chemin requiert une écriture hors des racines
 autorisées par le sandbox ; traiter l’autorisation technique au moment de l’implémentation.
@@ -107,7 +107,7 @@ facultatives et de liens futurs vers les tâches décrites ci-dessus ; il conser
 
 ### Contrôles exécutés
 
-- `quick_validate.py /home/johan/.codex/skills/interviewer-demande` : réussi.
+- `quick_validate.py "<skills-personnels>/interviewer-demande"` : réussi.
 - Vérification des destinations des liens locaux des cinq fichiers documentaires concernés : 26 destinations existantes.
 - `git diff --check` : réussi.
 - `python3 codebase-integrity/scripts/check.py` : premier essai empêché par le sandbox

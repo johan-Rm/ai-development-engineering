@@ -9,7 +9,7 @@
 - **Réf** : `README.md`, `AGENTS.md`, `docs/02-cadre/couches.md`, `dev-book/README.md`.
 - **Demande d’origine** : échange utilisateur du 2026-10-24 ; l’écosystème s’appelle désormais AIDE, périmètre éditorial validé.
 - **Couche et branche** : devops, `layers/devops`.
-- **Worktree** : `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Worktree** : `worktree/devops`.
 - **Dépendances par commit** : base locale `e89440ea47112ad6e4ce7316afed6cd6a1287814`, commune à `develop` et `layers/devops` au cadrage ; aucun autre commit amont requis, aucune tâche aval imposée.
 
 ## Contexte

@@ -5,7 +5,7 @@
 - **Statut** : ✅ fait le 2026-10-24.
 - **Type** : docs.
 - **Tests** : sans objet — suppression documentaire sans code exécutable ; contrôle des liens remplacés et `git diff --check`.
-- **Mission** : devops, `layers/devops`, `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : devops, `layers/devops`, `worktree/devops`.
 - **Dépendances par commit** : base `bd95c1c` ; aucune autre dépendance.
 - **Demande** : suppression explicite du guide, puis commit distinct autorisé par l’utilisateur.
 
