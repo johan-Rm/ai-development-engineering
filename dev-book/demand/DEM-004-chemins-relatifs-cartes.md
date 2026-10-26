@@ -1,7 +1,7 @@
 # DEM-004 — Utiliser des chemins relatifs dans les cartes
 
 - Date : 2026-10-26.
-- État : implémentée et commitée, à vérifier.
+- État : validée.
 - Confirmation humaine : « oui, go », après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -111,3 +111,16 @@ commandes Git ordinaires, mais ne bloque plus cette implémentation documentaire
 Qualité complète réussie hors sandbox, après un refus de socket local dans le sandbox.
 Commit local d’OPS-049 créé avec cette demande ; SHA communiqué dans le chat.
 Aucun verdict humain, aucune reconstitution ni opération distante à cette étape.
+
+## Verdict humain — 2026-10-26
+
+Verdict explicite dans le chat : « validé », après présentation des cinq critères,
+des preuves et de la limite du lien Git cassé, hors périmètre.
+La validation globale couvre DEM-004 et sa seule carte OPS-049, sur le commit
+d’implémentation `60ccb2acdc9436eefc709845b49a6174c96ac181`.
+Les cinq critères sont acceptés ; aucune correction demandée.
+
+Branche `layers/devops` et arbre propre vérifiés avant consignation, en désignant
+explicitement les métadonnées Git actuelles. Seules DEM-004 et OPS-049 sont modifiées
+pour ce verdict et son commit documentaire. Aucun code modifié, aucune réparation Git,
+aucun push, PR ou merge. Reconstitution et livraison restent à lancer séparément.
