@@ -70,14 +70,14 @@ Depuis un worktree : `python3 infra/apps.py up --interface web`, `backoffice` ou
 19300 + l’identifiant de couche de `config/layers.json`, surchargeable par
 `AIDE_APP_PORT_BASE` dans l’environnement appelant. Les ports sont vérifiés avant `up`.
 
-### Rôle et responsabilités
+## Rôle et responsabilités
 
 La stack sert à vérifier le code de la branche locale sans dépendre du service d’une
 couche voisine. L’API garde SQLite ; Caddy expose les trois domaines locaux de la couche.
 Les applications conservent leurs responsabilités et contrats existants.
 Le serveur PHP de développement désactive explicitement OPcache pour refléter les modifications.
 
-### Conventions techniques
+## Conventions techniques
 
 Les sources restent en lecture seule ; les volumes de données, dépendances et sorties
 sont privés au projet dépôt/couche. Les services applicatifs utilisent l’UID/GID hôte.
