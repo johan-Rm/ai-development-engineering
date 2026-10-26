@@ -1,0 +1,134 @@
+x-api-image: &api-image
+  image: aide-app-api:${AIDE_APP_IMAGE_KEY:?}
+  build:
+    context: ${AIDE_APP_ROOT:?}/infra
+    dockerfile: Dockerfile.api
+
+x-nuxt: &nuxt
+  image: node:22-bookworm-slim
+  user: ${AIDE_APP_UID:?}:${AIDE_APP_GID:?}
+  working_dir: /app
+  command: [sh, /infra/nuxt-start.sh]
+  environment:
+    HOME: /tmp
+    npm_config_cache: /tmp/npm-cache
+    NUXT_API_BASE: http://api:8000/api
+    CHOKIDAR_USEPOLLING: 'true'
+    CHOKIDAR_INTERVAL: '500'
+  depends_on:
+    init:
+      condition: service_completed_successfully
+    api:
+      condition: service_healthy
+  healthcheck:
+    test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/api/articles').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+    interval: 5s
+    timeout: 5s
+    retries: 90
+    start_period: 15s
+  restart: 'no'
+
+services:
+  init:
+    image: busybox:1.37.0
+    network_mode: none
+    command: [sh, -c, 'for dir in /state/*; do chown "$${APP_UID}:$${APP_GID}" "$$dir"; done']
+    environment:
+      APP_UID: ${AIDE_APP_UID:?}
+      APP_GID: ${AIDE_APP_GID:?}
+    volumes:
+      - api_vendor:/state/api_vendor
+      - api_var:/state/api_var
+      - composer_cache:/state/composer_cache
+      - web_modules:/state/web_modules
+      - web_nuxt:/state/web_nuxt
+      - web_output:/state/web_output
+      - backoffice_modules:/state/backoffice_modules
+      - backoffice_nuxt:/state/backoffice_nuxt
+      - backoffice_output:/state/backoffice_output
+    restart: 'no'
+  api:
+    <<: *api-image
+    user: ${AIDE_APP_UID:?}:${AIDE_APP_GID:?}
+    working_dir: /app
+    command: [sh, /infra/api-start.sh]
+    environment:
+      APP_ENV: dev
+      APP_SECRET: local-docker-development-only
+      DATABASE_URL: sqlite:////app/var/app.db
+      DEFAULT_URI: http://api.${AIDE_APP_DOMAIN:?}:${AIDE_APP_PORT:?}
+      COMPOSER_HOME: /tmp/composer
+      COMPOSER_CACHE_DIR: /composer-cache
+    volumes:
+      - type: bind
+        source: ${AIDE_APP_ROOT:?}/app/api/app
+        target: /app
+        read_only: true
+        bind:
+          create_host_path: false
+      - ${AIDE_APP_ROOT:?}/app/api/app/.env.example:/app/.env:ro
+      - ${AIDE_APP_ROOT:?}/infra/api-start.sh:/infra/api-start.sh:ro
+      - api_vendor:/app/vendor
+      - api_var:/app/var
+      - composer_cache:/composer-cache
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: [CMD, php, -r, "exit(@file_get_contents('http://127.0.0.1:8000/api/articles') === false ? 1 : 0);"]
+      interval: 3s
+      timeout: 5s
+      retries: 90
+      start_period: 15s
+    restart: 'no'
+  web:
+    <<: *nuxt
+    profiles: [web]
+    volumes:
+      - type: bind
+        source: ${AIDE_APP_ROOT:?}/app/web/targets/app
+        target: /app
+        read_only: true
+        bind:
+          create_host_path: false
+      - ${AIDE_APP_ROOT:?}/infra/nuxt-start.sh:/infra/nuxt-start.sh:ro
+      - web_modules:/app/node_modules
+      - web_nuxt:/app/.nuxt
+      - web_output:/app/.output
+  backoffice:
+    <<: *nuxt
+    profiles: [backoffice]
+    volumes:
+      - type: bind
+        source: ${AIDE_APP_ROOT:?}/app/backoffice
+        target: /app
+        read_only: true
+        bind:
+          create_host_path: false
+      - ${AIDE_APP_ROOT:?}/infra/nuxt-start.sh:/infra/nuxt-start.sh:ro
+      - backoffice_modules:/app/node_modules
+      - backoffice_nuxt:/app/.nuxt
+      - backoffice_output:/app/.output
+  caddy:
+    image: caddy:2.10-alpine
+    environment:
+      AIDE_APP_DOMAIN: ${AIDE_APP_DOMAIN:?}
+    ports:
+      - '127.0.0.1:${AIDE_APP_PORT:?}:80'
+    volumes:
+      - ${AIDE_APP_ROOT:?}/infra/Caddyfile.apps:/etc/caddy/Caddyfile:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: 'no'
+
+volumes:
+  api_vendor:
+  api_var:
+  composer_cache:
+  web_modules:
+  web_nuxt:
+  web_output:
+  backoffice_modules:
+  backoffice_nuxt:
+  backoffice_output:

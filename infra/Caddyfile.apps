@@ -1,0 +1,13 @@
+{
+    admin off
+    auto_https off
+}
+http://api.{$AIDE_APP_DOMAIN} {
+    reverse_proxy api:8000
+}
+http://web.{$AIDE_APP_DOMAIN} {
+    reverse_proxy web:3000
+}
+http://backoffice.{$AIDE_APP_DOMAIN} {
+    reverse_proxy backoffice:3000
+}
