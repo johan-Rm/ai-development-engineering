@@ -175,3 +175,29 @@ historiques distants sont comparés et préservés. Les guides de livraison rest
 à la cible ; aucun changement graphique, applicatif ou du Codebase Integrity.
 Les quatre documents partagés reçoivent seulement le patch de chemins d’OPS-049,
 appliqué aux versions distantes. Le résultat demandé et validé est conservé.
+
+## Préparation de livraison — 2026-10-26
+
+Qualité complète réussie (code de sortie 0) sur
+`c227f0140aeb429dae7be88e5c7ae64395a3c9e0`, après installation verrouillée par
+`python3 codebase-integrity/scripts/apps.py install all` dans le worktree de réunion.
+Commande : `python3 codebase-integrity/scripts/quality.py`, hors sandbox pour les
+sockets localhost des tests. Journaux locaux : `/tmp/DEM-004-install.log` et
+`/tmp/DEM-004-quality.log`. Les 23 tests d’outillage, le contrat API, le lint Symfony,
+le mapping Doctrine, la comparaison OpenAPI, les types et builds web/backoffice passent.
+La synchronisation du schéma est exclue par le contrôle existant `--skip-sync`.
+Aucune modification de dépendance versionnée ou de fichier `.env` existant.
+
+Le diff final depuis `origin/develop` porte sur les 48 fichiers autorisés : consignes,
+README, guides des missions, cartes et demandes. Comparaison exhaustive des documents
+historiques avec la cible : uniquement les substitutions de chemins attendues.
+Recherche de chemins personnels et liens DEM-004/OPS-049 réussis ; `git diff --check`
+réussi. Aucun changement de workflow, de graphique, d’application ou de contrôle.
+Seule la présente preuve documentaire est ajoutée après les contrôles.
+
+Distant vérifié : dépôt `johan-Rm/ai-development-engineering`, branche par défaut
+`develop`, merge commit permis ; cible non protégée et aucun ruleset observé.
+Aucune PR existante pour la branche DEM-004 lors de la recherche préalable.
+Les commits originaux validés restent ancêtres de la branche ; leurs effets hors périmètre
+hérités ont été exclus du résultat final selon la décision humaine.
+Livraison prévue uniquement vers `develop`, sans promotion vers `master`.
