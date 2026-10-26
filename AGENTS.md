@@ -130,4 +130,4 @@ Pour tout travail graphique, lire la charte officielle du dépôt :
 [Brand Guidelines — Graines Digitales](<design/Brand Guidelines - Graines Digitales (standalone).html>).
 Ne pas lui substituer une copie externe. La [synthèse opérationnelle](design/charte-graphique.md)
 rappelle ses règles et les adaptations explicitement demandées pour AIDE : humain/cadre en olive,
-IA en terre cuite `#C07040`, couleurs dans les fonds/textes/bordures, sans traits décoratifs de rôle.
+IA en bleu `#1B6EAE`, couleurs dans les fonds/textes/bordures, sans traits décoratifs de rôle.
