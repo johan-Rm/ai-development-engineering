@@ -16,6 +16,6 @@ Un verdict humain sur les corrections et leurs garde-fous. Les tâches validées
 
 ## Procédure associée
 
-[`verifier-consolidation`](../../skills/verifier-consolidation/SKILL.md).
+`verifier-consolidation`.
 
-Le skill prépare les éléments et consigne le verdict humain. Le commit distinct reste soumis à une demande explicite via `commit-tache`.
+Le skill prépare les éléments et consigne le verdict humain. Le skill réalise également le commit distinct après validation, lorsque celui-ci est explicitement demandé.

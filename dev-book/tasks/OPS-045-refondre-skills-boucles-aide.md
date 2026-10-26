@@ -190,3 +190,45 @@ ci-dessus couvrent le résultat. Aucune modification des vérificateurs du Codeb
 
 Installation personnelle des skills et retrait des anciens noms sur demande distincte.
 Qualité complète et PR, puis intégration, uniquement sur demande de livraison.
+
+
+## Correction demandée après le commit initial — 2026-10-26
+
+L’utilisateur demande que les skills soient opérationnels dans le répertoire personnel avant
+livraison et retire la conservation de leurs sources dans le dépôt. Cette instruction remplace
+le choix initial des sources versionnées et de l’installation ultérieure, conservé ci-dessus
+comme historique du premier commit.
+
+Les dix-huit skills ont été installés et validés dans `/home/johan/.codex/skills/` ; les trois
+anciens noms remplacés ont été retirés. Les autres skills personnels ont été préservés par
+comparaison SHA-256. Les huit anciens dossiers ont été sauvegardés sous
+`/tmp/aide-skills-avant-refonte-huuypil4`. La session expose désormais les dix-huit nouveaux skills.
+Le dossier `skills/` du projet est retiré et les références actives corrigées pour désigner
+les skills personnels. Correction non commitée ; aucun changement de l’historique Git.
+
+
+## Simplification complémentaire demandée — 2026-10-26
+
+Suppression personnelle de `evoquer-un-sujet`, `commit-tache`, `creer-pr` et `apres-pr-mergee`.
+Les deux skills de vérification exécutent eux-mêmes les commits autorisés après verdict humain.
+Les deux skills de livraison exécutent eux-mêmes push, PR, fusion et suivi selon la demande,
+sans dépendance aux skills supprimés ni aux skills de l’autre boucle. Les autorisations du projet,
+les checks et revues avant fusion, la preuve de fusion et la préservation des branches occupées
+restent explicites. Les quatorze skills restants passent quick_validate ; les quatre dossiers
+supprimés sont absents et aucune référence à ces noms ne subsiste dans les douze skills d’étape.
+Sauvegarde préalable : `/tmp/aide-avant-integration-git-iyw7kz8y`.
+Documentation active mise en cohérence ; aucune opération Git de livraison effectuée.
+
+
+## Vérification et clôture des corrections — 2026-10-26
+
+Après présentation du résultat et demande de validation/commit, l’utilisateur invoque
+`verifier-tache OPS-045` : accord de clôture et de commit retenu dans ce contexte.
+Les quatorze skills personnels ont été validés ; les suppressions et l’indépendance des
+boucles sont vérifiées. Les modifications du dépôt sont documentaires et retirent les copies
+des skills ; aucun nouveau comportement applicatif ni contrôle modifié. Les tests existants
+et preuves de la première implémentation restent référencés ci-dessus ; `git diff --check`
+est réussi sur les corrections. Aucun fichier hors OPS-045 observé dans l’index ou le diff.
+La correction remplace les critères initiaux de sources versionnées et d’outils transversaux
+supprimés ; les décisions initiales restent historiques. Les skills personnels opérationnels
+ne font pas partie du commit du dépôt. Aucun push, PR ni merge demandé à cette étape.

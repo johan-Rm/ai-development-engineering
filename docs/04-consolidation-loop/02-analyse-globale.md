@@ -16,4 +16,4 @@ Un état des lieux, les corrections proposées et les points de contrôle à cr�
 
 ## Procédure associée
 
-[`analyser-convention`](../../skills/analyser-convention/SKILL.md).
+`analyser-convention`.

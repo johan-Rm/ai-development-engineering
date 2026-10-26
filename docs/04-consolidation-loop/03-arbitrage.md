@@ -16,4 +16,4 @@ Une décision explicite : convention technique approuvée, périmètre de correc
 
 ## Procédure associée
 
-[`arbitrer-convention`](../../skills/arbitrer-convention/SKILL.md).
+`arbitrer-convention`.

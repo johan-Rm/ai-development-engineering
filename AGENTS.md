@@ -72,9 +72,8 @@ contrôles pertinents.
 La [vue AIDE](dev-book/resources/vue-d-ensemble-ai-development-engineering.html) définit les
 briques des deux boucles. Les skills ci-dessous sont des procédures recommandées lorsqu’ils
 sont disponibles ; leur mention ne les installe pas et ne déclenche aucune étape automatiquement.
-Leurs sources sont versionnées dans [skills/](skills/README.md) ; l’installation personnelle
-reste une opération distincte. Si un skill manque dans la session, consulter sa source versionnée
-et la carte ; signaler ce qui n’est pas disponible sans supposer son installation.
+Les skills sont personnels, hors du dépôt. Si un skill manque dans la session, suivre la carte
+et les instructions du projet ; signaler la procédure manquante sans inventer son contenu.
 
 Les deux boucles ont chacune six skills indépendants. Les skills de vérification et d’arbitrage
 accompagnent et consignent les décisions humaines sans les remplacer.
@@ -83,28 +82,29 @@ accompagnent et consignent les décisions humaines sans les remplacer.
 
 | Étape | Skill |
 | --- | --- |
-| 01 Interview | [`interviewer-demande`](skills/interviewer-demande/SKILL.md) |
-| 02 Découpage | [`decouper-demande`](skills/decouper-demande/SKILL.md) |
-| 03 Implémentation | [`implementer-tache`](skills/implementer-tache/SKILL.md) |
-| 04 Vérification | [`verifier-tache`](skills/verifier-tache/SKILL.md) |
-| 05 Reconstitution | [`reconstituer-demande`](skills/reconstituer-demande/SKILL.md) |
-| 06 Livraison | [`livrer-demande`](skills/livrer-demande/SKILL.md) |
+| 01 Interview | `interviewer-demande` |
+| 02 Découpage | `decouper-demande` |
+| 03 Implémentation | `implementer-tache` |
+| 04 Vérification | `verifier-tache` |
+| 05 Reconstitution | `reconstituer-demande` |
+| 06 Livraison | `livrer-demande` |
 
 ### Boucle de consolidation
 
 | Étape | Skill |
 | --- | --- |
-| 01 Interview | [`interviewer-constat`](skills/interviewer-constat/SKILL.md) |
-| 02 Analyse globale | [`analyser-convention`](skills/analyser-convention/SKILL.md) |
-| 03 Arbitrage | [`arbitrer-convention`](skills/arbitrer-convention/SKILL.md) |
-| 04 Implémentation | [`implementer-consolidation`](skills/implementer-consolidation/SKILL.md) |
-| 05 Vérification | [`verifier-consolidation`](skills/verifier-consolidation/SKILL.md) |
-| 06 Livraison | [`livrer-consolidation`](skills/livrer-consolidation/SKILL.md) |
+| 01 Interview | `interviewer-constat` |
+| 02 Analyse globale | `analyser-convention` |
+| 03 Arbitrage | `arbitrer-convention` |
+| 04 Implémentation | `implementer-consolidation` |
+| 05 Vérification | `verifier-consolidation` |
+| 06 Livraison | `livrer-consolidation` |
 
-`evoquer-un-sujet`, `etat-des-lanes` et `configurer-worktrees-aide` servent avant ou autour
-des boucles. `commit-tache` clôture et committe une tâche validée sur demande ; `creer-pr`
-sert aux livraisons autorisées ; `apres-pr-mergee` intervient après fusion prouvée.
-Le [catalogue](skills/README.md) décrit la migration des anciens noms et l’installation ultérieure.
+`etat-des-lanes` et `configurer-worktrees-aide` sont les deux outils hors des boucles.
+Chaque skill de vérification prend en charge le commit distinct après validation humaine et
+autorisation. Chaque skill de livraison prend en charge directement push, PR, fusion et suivi
+après fusion lorsque ces opérations sont demandées, sans skill transversal supplémentaire.
+Les skills doivent être disponibles et vérifiés dans la session avant la livraison.
 Les tests et la documentation pertinents accompagnent l’implémentation avant présentation.
 Commit, push, PR et merge restent soumis aux demandes explicites prévues ci-dessus.
 

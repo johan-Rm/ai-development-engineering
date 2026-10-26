@@ -21,16 +21,21 @@ Les instructions explicites de l’utilisateur priment. Dans ce dépôt, la dél
 
 ## Utiliser les skills
 
-Les [sources des skills AIDE](../../skills/README.md) sont versionnées dans le dépôt :
+Les skills AIDE sont conservés dans le répertoire personnel de skills de l’outil, hors du dépôt :
 six skills pour le développement et six autres pour la consolidation. Chaque boucle possède
 ses propres entrées, procédures et sorties, sans dépendance aux skills de l’autre.
 
 Les skills d’arbitrage et de vérification préparent les éléments et consignent le verdict humain.
-Les outils transversaux servent à discuter, configurer les worktrees, inventorier les couches,
-committer les tâches validées, ouvrir les PRs demandées et suivre les fusions.
+Les deux outils hors des boucles servent à configurer les worktrees et inventorier les couches.
+Les skills de vérification réalisent les commits autorisés après verdict humain ; les skills de
+livraison réalisent directement push, PR, fusion et suivi après fusion lorsque demandés.
 Ils ne déclenchent aucune autre étape automatiquement.
 
-L’installation personnelle reste distincte de la présence des sources. Le catalogue décrit
-les remplacements des anciens noms et la [préparation de l’installation](../../SETUP.md#skills-aide).
-Si un skill n’est pas exposé dans la session, lire la source versionnée et les instructions
-disponibles ; signaler la procédure manquante sans inventer son contenu.
+Les skills doivent être installés et vérifiés avant la livraison. Leur mention dans le dépôt
+ne prouve pas leur disponibilité ; consulter les skills réellement exposés par la session.
+Si un skill manque, signaler la procédure absente et suivre la carte et les instructions disponibles.
+
+Les anciens `creer-tache` et `demarrer-tache` sont remplacés par les skills propres aux étapes.
+`configurer-worktrees-aiod` devient `configurer-worktrees-aide`. `etat-des-lanes` reste hors des boucles. Les anciennes procédures distinctes de discussion,
+commit, PR et après-fusion sont retirées ; les opérations Git nécessaires sont intégrées
+dans les skills propres à chaque boucle.

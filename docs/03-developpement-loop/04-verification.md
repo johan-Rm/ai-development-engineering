@@ -16,6 +16,6 @@ Un verdict explicite. Une tâche validée donne lieu à un commit distinct ; un 
 
 ## Procédure associée
 
-[`verifier-tache`](../../skills/verifier-tache/SKILL.md).
+`verifier-tache`.
 
-Le skill prépare les éléments et consigne le verdict humain. Le commit distinct reste soumis à une demande explicite via `commit-tache`.
+Le skill prépare les éléments et consigne le verdict humain. Le skill réalise également le commit distinct après validation, lorsque celui-ci est explicitement demandé.

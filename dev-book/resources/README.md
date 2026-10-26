@@ -26,7 +26,7 @@ Ces ressources sont référencées par les guides Markdown de `docs/`. La vue sy
 conserve l’ancien nom AIOD ; la vue interactive présente le cadre AIDE actuel.
 
 La vue interactive associe chacune des douze étapes à son skill propre dans les détails.
-Les noms et chemins des sources sont affichés comme texte pour rester utilisables lorsque
-seul ce dossier est servi. Le [catalogue](../../skills/README.md) porte l’installation et la migration.
+Les noms et emplacements personnels sont affichés comme texte pour rester utilisables lorsque
+seul ce dossier est servi. Les skills restent hors du dépôt et doivent être disponibles avant livraison.
 Les couleurs continuent à identifier l’acteur de l’étape ; un skill de vérification ne remplace
 pas le verdict humain.

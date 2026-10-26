@@ -97,7 +97,7 @@ Ces tests créent puis suppriment des articles. Utiliser une API de développeme
 
 1. Lire [AGENTS.md](AGENTS.md) et les README existants ; préserver les consignes, fichiers et environnements du projet d’accueil.
 2. Définir les [couches](docs/02-cadre/couches.md), leurs responsabilités, branches et chemins. Adapter ensemble cette table et `config/layers.json`. La recette Docker possède sa configuration distincte dans `infra/process-check.json` (`process.image` et `process.port_base`).
-3. Compléter les instructions et examiner `.codex/config.toml`. Les sources des skills sont dans `skills/` ; leur mention ne les installe pas.
+3. Compléter les instructions et examiner `.codex/config.toml`. Les skills restent personnels, hors du dépôt ; vérifier leur disponibilité avant livraison.
 4. Définir les conventions techniques dans les README locaux, puis implémenter les contrôles par la consolidation autorisée.
 5. Adapter les commandes de qualité et la CI. Vérifier les protections GitHub si les tests doivent bloquer la fusion ; aucun déploiement n’est fourni.
 6. Conserver ou remplacer explicitement les exemples Article, Symfony/API Platform, Nuxt et la marque Graines Digitales. Mettre à jour ensemble les contrats, tests et références concernés.
@@ -107,14 +107,12 @@ Le dépôt doit posséder un premier commit avant la création des worktrees. Le
 
 ## Skills AIDE
 
-Le [catalogue versionné](skills/README.md) contient douze skills d’étapes et six outils
-transversaux. Consulter les correspondances des anciens noms avant une installation personnelle.
-Copier uniquement les dossiers choisis, avec leurs ressources, dans le répertoire de skills
-configuré pour l’outil, après examen des destinations existantes. Préserver leurs adaptations
-et vérifier les skills effectivement disponibles dans la session ; le dépôt n’installe rien
-automatiquement. Le retrait des anciens noms se fait séparément sur demande.
+Les douze skills des étapes et les deux outils hors des boucles sont personnels, hors du dépôt.
+Leurs noms sont indiqués dans [AGENTS.md](AGENTS.md). Les installer dans le répertoire de skills
+configuré pour l’outil et valider leur structure et leurs ressources avant livraison.
+Vérifier ensuite qu’ils sont effectivement exposés par la session.
 
-Pour consulter la vue et ses sources depuis un même serveur, depuis la racine du worktree :
+Pour consulter la vue depuis un serveur local, depuis la racine du worktree :
 
 ```sh
 python3 -m http.server 8080 --bind 127.0.0.1
@@ -122,5 +120,5 @@ python3 -m http.server 8080 --bind 127.0.0.1
 
 Ouvrir `/dev-book/resources/vue-d-ensemble-ai-development-engineering.html`. Si le port est
 occupé, choisir un autre port. Dans le mode historique où seul `dev-book/resources/` est servi,
-les détails indiquent le chemin de la source dans le dépôt et ne proposent pas de lien hors
-racine du serveur. Les noms de skills sont consultables sans accès aux fichiers Markdown.
+les détails indiquent les noms des skills et leur emplacement personnel sans créer de lien
+hors racine du serveur.

@@ -16,4 +16,4 @@ Du code corrigé, une convention technique référencée et des contrôles exéc
 
 ## Procédure associée
 
-[`implementer-consolidation`](../../skills/implementer-consolidation/SKILL.md).
+`implementer-consolidation`.

@@ -16,4 +16,4 @@ Une demande cadrée, avec des critères observables de réussite.
 
 ## Procédure associée
 
-[`interviewer-demande`](../../skills/interviewer-demande/SKILL.md).
+`interviewer-demande`.

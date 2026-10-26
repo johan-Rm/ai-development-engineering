@@ -16,4 +16,4 @@ Des cartes ordonnées par couche, rattachées à la demande initiale. Chaque tâ
 
 ## Procédure associée
 
-[`decouper-demande`](../../skills/decouper-demande/SKILL.md).
+`decouper-demande`.

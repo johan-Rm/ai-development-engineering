@@ -16,4 +16,4 @@ Un changement accompagné de preuves, prêt pour la vérification humaine. En ca
 
 ## Procédure associée
 
-[`implementer-tache`](../../skills/implementer-tache/SKILL.md).
+`implementer-tache`.

@@ -83,7 +83,6 @@ contrôles qui renforcent les cycles suivants.
 | [codebase-integrity/](codebase-integrity/README.md) | Outillage commun et tests de ses vérificateurs ; les tests applicatifs restent dans les applications. |
 | [docs/](docs/index.md) | Explications du système AIDE et de ses boucles. |
 | [AGENTS.md](AGENTS.md) et [.codex/config.toml](.codex/config.toml) | Instructions du projet, skills recommandés et configuration Codex. |
-| [skills/](skills/README.md) | Douze skills pour les étapes des deux boucles et outils transversaux ; installation personnelle distincte. |
 | [dev-book/](dev-book/README.md) | Demandes, tâches, procédures, ressources et preuves. |
 | `**/README.md` | Responsabilités et conventions techniques des dossiers concernés. |
 | [app/](app/README.md) | Applications de démonstration : API Symfony/API Platform, web et backoffice Nuxt. |

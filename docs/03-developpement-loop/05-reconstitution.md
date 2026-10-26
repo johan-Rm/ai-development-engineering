@@ -16,4 +16,4 @@ Une branche réunissant la demande initiale, prête pour les vérifications de l
 
 ## Procédure associée
 
-[`reconstituer-demande`](../../skills/reconstituer-demande/SKILL.md).
+`reconstituer-demande`.

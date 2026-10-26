@@ -16,4 +16,4 @@ Une proposition de convention technique documentée et des questions à examiner
 
 ## Procédure associée
 
-[`interviewer-constat`](../../skills/interviewer-constat/SKILL.md).
+`interviewer-constat`.
