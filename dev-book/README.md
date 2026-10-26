@@ -12,7 +12,31 @@ les ressources HTML, PDF et images sont dans `resources/`.
 
 ## Rubriques d’une demande
 
-Contexte, problème observé, résultat attendu, contraintes, questions ouvertes et décisions humaines.
+Après confirmation humaine du cadrage, créer ou reprendre un fichier
+`dev-book/demand/DEM-NNN-<sujet>.md`. Rechercher d’abord une demande existante
+correspondant au besoin ; conserver son identifiant et son chemin lors de la reprise.
+Pour une nouvelle demande, examiner l’historique de toutes les références Git locales
+et les fichiers des worktrees concernés, sans fetch implicite. Choisir le numéro suivant
+le plus grand numéro DEM observé, sur au moins trois chiffres ; une collision ou une
+attribution concurrente doit être résolue avant l’écriture.
+
+Le fichier fait référence pour le besoin et les décisions humaines. Il contient :
+
+- identifiant, titre, date et état du cadrage ;
+- contexte, problème observé, résultat attendu et utilisateurs concernés ;
+- critères observables de réussite, contraintes, exclusions et questions ouvertes ;
+- décisions humaines, notamment la confirmation du cadrage ;
+- référence au chat si disponible, sinon mention explicite « référence de session indisponible » ;
+- lien facultatif vers une carte externe et références aux tâches issues du découpage.
+
+Le chat sert à construire et préciser la demande ; la carte externe sert à son suivi.
+Conserver son lien n’exige aucune connexion à l’outil tiers. Créer ou modifier cette carte
+requiert une instruction explicite. L’absence de référence au chat ou de carte externe
+n’empêche pas le cadrage ; ne jamais inventer ces références.
+
+Au découpage, ajouter les liens vers les cartes dans la demande et le lien vers la demande
+d’origine dans chaque carte. Les cartes restent dans `tasks/`. La confirmation du besoin
+ne vaut pas validation du résultat implémenté et ne déclenche pas l’étape suivante.
 
 ## Rubriques d’une carte
 
