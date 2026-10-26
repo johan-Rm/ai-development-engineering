@@ -16,4 +16,4 @@ Des cartes ordonnées par couche, rattachées à la demande initiale. Chaque tâ
 
 ## Procédure associée
 
-`creer-tache` écrit les cartes et prépare la branche ; le routage suit [les couches](../02-cadre/couches.md).
+[`decouper-demande`](../../skills/decouper-demande/SKILL.md).

@@ -16,4 +16,4 @@ Des PRs de consolidation et des conventions techniques protégées par des véri
 
 ## Procédure associée
 
-`creer-pr`, puis `apres-pr-mergee` après fusion confirmée ; respecter les autorisations du projet.
+[`livrer-consolidation`](../../skills/livrer-consolidation/SKILL.md).

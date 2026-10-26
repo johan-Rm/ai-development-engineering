@@ -16,4 +16,4 @@ Une demande cadrée, avec des critères observables de réussite.
 
 ## Procédure associée
 
-`evoquer-un-sujet` pour une discussion encore ouverte ; `creer-tache` pour le cadrage.
+[`interviewer-demande`](../../skills/interviewer-demande/SKILL.md).

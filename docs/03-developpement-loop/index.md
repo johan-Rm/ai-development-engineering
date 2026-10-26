@@ -20,3 +20,7 @@ regroupe le dépôt principal et les worktrees des couches pour naviguer entre l
 missions et consulter leurs changements. Sa [préparation](../../SETUP.md#préparer-le-workspace-de-développement)
 fait partie de l’installation ; chaque intervention reste attachée au worktree et
 à la branche prévus par sa mission.
+
+Les six [skills du catalogue AIDE](../../skills/README.md) sont propres à cette boucle.
+Elle peut être parcourue sans invoquer un skill de l’autre boucle. Les outils Git transversaux
+ne déclenchent aucune autre étape ; les verdicts restent humains.

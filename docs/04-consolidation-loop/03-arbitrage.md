@@ -16,4 +16,4 @@ Une décision explicite : convention technique approuvée, périmètre de correc
 
 ## Procédure associée
 
-Décision humaine. L’IA ne commence pas les modifications du cadre avant cet arbitrage.
+[`arbitrer-convention`](../../skills/arbitrer-convention/SKILL.md).

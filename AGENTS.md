@@ -72,36 +72,40 @@ contrôles pertinents.
 La [vue AIDE](dev-book/resources/vue-d-ensemble-ai-development-engineering.html) définit les
 briques des deux boucles. Les skills ci-dessous sont des procédures recommandées lorsqu’ils
 sont disponibles ; leur mention ne les installe pas et ne déclenche aucune étape automatiquement.
-Ils restent personnels, hors du dépôt. Si un skill manque, suivre la carte, les instructions
-ci-dessus et les [commandes de qualité](docs/01-codebase-integrity/points-de-controle.md) ; signaler toute procédure manquante
-plutôt que supposer le skill installé ou inventer ses étapes.
+Leurs sources sont versionnées dans [skills/](skills/README.md) ; l’installation personnelle
+reste une opération distincte. Si un skill manque dans la session, consulter sa source versionnée
+et la carte ; signaler ce qui n’est pas disponible sans supposer son installation.
+
+Les deux boucles ont chacune six skills indépendants. Les skills de vérification et d’arbitrage
+accompagnent et consignent les décisions humaines sans les remplacer.
 
 ### Boucle de développement
 
-| Brique AIDE | Skill ou intervention à privilégier |
+| Étape | Skill |
 | --- | --- |
-| Avant le cadrage, sujet à discuter | `evoquer-un-sujet` : discuter sans écrire ni ouvrir une tâche |
-| 01 Interview | `creer-tache` : clarifier le besoin |
-| 02 Découpage | `creer-tache` : écrire les cartes par couche et préparer la branche |
-| 03 Implémentation | `demarrer-tache` : réaliser la carte, produire la preuve, les tests pertinents et la documentation |
-| 04 Vérification | Verdict humain sur le résultat ; aucun skill ne le remplace |
-| 05 Reconstitution | Aucun skill dédié : rassembler uniquement les commits autorisés après identification des dépendances et de la branche de réunion |
-| 06 Livraison | `commit-tache` pour clôturer la carte et committer ; `creer-pr` pour les contrôles de livraison et la PR |
-| Après fusion | `apres-pr-mergee` pour vérifier le merge et réaligner les branches libres |
+| 01 Interview | [`interviewer-demande`](skills/interviewer-demande/SKILL.md) |
+| 02 Découpage | [`decouper-demande`](skills/decouper-demande/SKILL.md) |
+| 03 Implémentation | [`implementer-tache`](skills/implementer-tache/SKILL.md) |
+| 04 Vérification | [`verifier-tache`](skills/verifier-tache/SKILL.md) |
+| 05 Reconstitution | [`reconstituer-demande`](skills/reconstituer-demande/SKILL.md) |
+| 06 Livraison | [`livrer-demande`](skills/livrer-demande/SKILL.md) |
 
 ### Boucle de consolidation
 
-| Brique AIDE | Skill ou intervention à privilégier |
+| Étape | Skill |
 | --- | --- |
-| 01 Interview | `evoquer-un-sujet` si la règle est encore à discuter, puis `creer-tache` pour formaliser la décision |
-| 02 Analyse globale | Aucun skill dédié : examiner toute la base concernée par la convention technique pour relever ses applications et écarts ; ne pas confondre avec le simple état Git |
-| 03 Arbitrage | Décision humaine sur la règle et les corrections à retenir |
-| 04 Implémentation | `demarrer-tache` sur les cartes cadrées : corriger les écarts et automatiser les contrôles adaptés |
-| 05 Vérification | Vérification humaine de l’application de la règle, appuyée par les preuves et contrôles exécutés |
-| 06 Livraison | `commit-tache`, puis `creer-pr` ; `apres-pr-mergee` après fusion demandée |
+| 01 Interview | [`interviewer-constat`](skills/interviewer-constat/SKILL.md) |
+| 02 Analyse globale | [`analyser-convention`](skills/analyser-convention/SKILL.md) |
+| 03 Arbitrage | [`arbitrer-convention`](skills/arbitrer-convention/SKILL.md) |
+| 04 Implémentation | [`implementer-consolidation`](skills/implementer-consolidation/SKILL.md) |
+| 05 Vérification | [`verifier-consolidation`](skills/verifier-consolidation/SKILL.md) |
+| 06 Livraison | [`livrer-consolidation`](skills/livrer-consolidation/SKILL.md) |
 
-`etat-des-lanes` sert à lire l’état des branches sans choisir ni démarrer une tâche.
-Les tests et la documentation pertinents accompagnent l’implémentation avant sa présentation.
+`evoquer-un-sujet`, `etat-des-lanes` et `configurer-worktrees-aide` servent avant ou autour
+des boucles. `commit-tache` clôture et committe une tâche validée sur demande ; `creer-pr`
+sert aux livraisons autorisées ; `apres-pr-mergee` intervient après fusion prouvée.
+Le [catalogue](skills/README.md) décrit la migration des anciens noms et l’installation ultérieure.
+Les tests et la documentation pertinents accompagnent l’implémentation avant présentation.
 Commit, push, PR et merge restent soumis aux demandes explicites prévues ci-dessus.
 
 ## Référence graphique à conserver

@@ -16,4 +16,4 @@ Une PR correspondant à la demande initiale. Sa validation exige la réussite de
 
 ## Procédure associée
 
-`creer-pr` après les commits de tâche ; `apres-pr-mergee` après fusion confirmée. Push, PR et merge suivent les autorisations du projet.
+[`livrer-demande`](../../skills/livrer-demande/SKILL.md).

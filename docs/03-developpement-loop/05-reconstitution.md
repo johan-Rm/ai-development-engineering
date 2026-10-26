@@ -16,4 +16,4 @@ Une branche réunissant la demande initiale, prête pour les vérifications de l
 
 ## Procédure associée
 
-Aucun skill dédié dans le jeu actuel. La branche de réunion et les opérations Git doivent être explicitement autorisées ; ne pas copier de fichiers non commités entre couches.
+[`reconstituer-demande`](../../skills/reconstituer-demande/SKILL.md).

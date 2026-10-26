@@ -21,6 +21,16 @@ Les instructions explicites de l’utilisateur priment. Dans ce dépôt, la dél
 
 ## Utiliser les skills
 
-`creer-tache` cadre ; `demarrer-tache` implémente ; `commit-tache` clôture et committe ; `creer-pr` prépare la PR ; `apres-pr-mergee` intervient après fusion. `evoquer-un-sujet` sert à discuter avant d’ouvrir une tâche et `etat-des-lanes` à lire l’état des branches.
+Les [sources des skills AIDE](../../skills/README.md) sont versionnées dans le dépôt :
+six skills pour le développement et six autres pour la consolidation. Chaque boucle possède
+ses propres entrées, procédures et sorties, sans dépendance aux skills de l’autre.
 
-Les skills personnels restent hors du dépôt. Si un skill manque, suivre la carte et les instructions disponibles ; signaler la procédure manquante sans inventer son contenu.
+Les skills d’arbitrage et de vérification préparent les éléments et consignent le verdict humain.
+Les outils transversaux servent à discuter, configurer les worktrees, inventorier les couches,
+committer les tâches validées, ouvrir les PRs demandées et suivre les fusions.
+Ils ne déclenchent aucune autre étape automatiquement.
+
+L’installation personnelle reste distincte de la présence des sources. Le catalogue décrit
+les remplacements des anciens noms et la [préparation de l’installation](../../SETUP.md#skills-aide).
+Si un skill n’est pas exposé dans la session, lire la source versionnée et les instructions
+disponibles ; signaler la procédure manquante sans inventer son contenu.
