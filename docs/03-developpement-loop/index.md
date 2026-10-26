@@ -13,7 +13,7 @@ La boucle applique le cadre existant. **Elle ne modifie aucun élément de `code
 | [05 — Reconstitution](05-reconstitution.md) | IA, avec décisions humaines requises |
 | [06 — Livraison](06-livraison.md) | IA, avec décisions humaines requises |
 
-Une correction revient à l’implémentation puis à la vérification humaine. Chaque tâche validée produit un commit ; la livraison présente les contrôles exécutés et leurs limites.
+Une correction revient à l’implémentation puis à la vérification humaine. Chaque tâche implémentée produit un commit avant vérification ; le verdict humain est conservé dans un commit documentaire ; la livraison présente les contrôles exécutés et leurs limites.
 
 Le [workspace de développement](../02-cadre/couches.md#suivre-les-couches-dans-le-workspace)
 regroupe le dépôt principal et les worktrees des couches pour naviguer entre les

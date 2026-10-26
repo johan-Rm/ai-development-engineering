@@ -82,3 +82,64 @@ Branche existante conservée : `layers/devops`, dans
 Implémentation réalisée dans OPS-046 ; preuves et contrôles consignés dans la carte,
 résultat validé par l’humain le 2026-10-26 (« validé »).
 Branche de réunion : `layers/devops`. Commit OPS-046 autorisé le 2026-10-26.
+
+
+## Correction du workflow demandée après vérification
+
+L’utilisateur a approuvé le déplacement des commits locaux dans l’implémentation,
+le commit documentaire des verdicts à la vérification et le choix de la branche de réunion
+au découpage. Les skills, AGENTS.md, le dev-book, les guides et les textes de la vue AIDE
+ont été alignés. Le découpage est autonome ; le verdict humain se recueille dans le chat.
+Les demandes explicites de push, PR et merge restent nécessaires.
+
+Branche de réunion retenue pour cette demande à une seule couche : `layers/devops`,
+worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+Les mentions précédentes de blocage décrivent l’ancien fonctionnement. Aucun SHA de
+contribution n’a encore été créé dans cet échange ; la reconstitution reste à effectuer.
+Validation des quatre skills modifiés et 23 tests de l’outillage réussis ; `git diff --check` réussi.
+
+
+## Preuve de reconstitution — 2026-10-26
+
+Carte unique OPS-046, validée par l’humain. Commit de contribution et trace du verdict :
+`1cde387108f7db8e3c064ce578f8e90b0489e225`, présent à la tête de `layers/devops`.
+Ascendance vérifiée : aucune intégration ni répétition de commit nécessaire.
+Les cinq fichiers du commit correspondent au périmètre initial ; destinations des liens
+locaux du commit vérifiées et contrôle du diff du commit réussi.
+Les 23 tests déjà exécutés ont réussi ; aucun code ou contrat applicatif modifié.
+Le skill personnel validé reste hors dépôt. Les corrections de workflow et renommages
+non commités restent exclus de cette réunion. Livraison non engagée ; arbre de travail
+non propre à cause de ces changements conservés. Aucun push, PR ou merge effectué.
+
+
+## Reconstitution sur branche dédiée — 2026-10-26
+
+La décision humaine ultérieure remplace le choix initial de réunion sur la branche de couche.
+La branche dédiée `demands/DEM-001`, créée lors de la reconstitution, pointe sur
+`1cde387108f7db8e3c064ce578f8e90b0489e225` (OPS-046 et trace de validation humaine).
+Ascendance et absence de différence avec le commit validé vérifiées ; contrôle du diff réussi.
+Aucun commit rejoué, aucun merge ni nouveau commit nécessaire. Les corrections locales
+ultérieures restent sur `layers/devops`, hors de la branche dédiée. Cette dernière n’est
+actuellement attachée à aucun worktree. La livraison n’a pas été lancée.
+Le skill personnel d’interview reste hors Git ; les 23 tests exécutés précédemment ont réussi.
+
+
+## Préparation de livraison — 2026-10-26
+
+Qualité complète exécutée avec succès au SHA `1cde387108f7db8e3c064ce578f8e90b0489e225`
+dans une copie locale temporaire isolée, après installation des dépendances :
+23 tests d’outillage, contrôles API, types et builds web/backoffice. Parcours navigateur non exécutés.
+Le diff cumulé vers `develop` comprend aussi OPS-045 (`7c6499d`, `0ca4492`),
+soit trois commits et 23 fichiers au total. Cette inclusion n’a pas été autorisée pour DEM-001.
+Publication en attente d’arbitrage du périmètre et d’autorisation explicite de push/PR.
+Le constat de reconstitution précédente portait uniquement sur la présence d’OPS-046 ;
+il ne prouvait pas l’exclusivité du diff vers l’intégration. Aucun push, PR ou merge effectué.
+
+
+## Autorisation de livraison globale
+
+L’utilisateur confirme que les travaux antérieurs sont validés et demande de tout aligner.
+La livraison inclut le socle antérieur, OPS-046 et les corrections de workflow explicitement
+demandées dans cet échange : commits pendant l’implémentation, verdict documentaire,
+branche dédiée créée à la reconstitution et livraison autonome. Ces corrections sont réunies
+par un commit documentaire distinct ; les skills personnels restent hors du dépôt.

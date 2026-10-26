@@ -1,6 +1,6 @@
 # Livraison
 
-> Présenter une contribution complète, contrôlée et documentée pour préparer sa PR.
+> Livrer en autonomie une demande validée, des contrôles à la fusion et au suivi.
 
 ## Entrée
 
@@ -18,6 +18,12 @@ Une PR correspondant à la demande initiale. Sa validation exige la réussite de
 
 `livrer-demande`.
 
-Le skill réalise directement le push, la création de PR, la fusion et le suivi après fusion
-lorsque ces opérations sont demandées et autorisées. Une demande de PR n’autorise pas à elle seule
-la fusion. Seules les branches confirmées libres sont réalignées sans perte de données.
+L’invocation de `livrer-demande` autorise la livraison complète : contrôles, commits
+documentaires nécessaires, vérification distante, push, création ou mise à jour de la PR vers
+`develop`, fusion et suivi après fusion. Aucune confirmation intermédiaire n’est nécessaire.
+Une instruction explicitement limitée à une PR conserve cette limite. Les validations humaines
+acquises, les contrôles bloquants et les protections GitHub restent nécessaires ; ne pas les contourner.
+Seules les branches confirmées libres sont réalignées sans perte de données.
+Un écart de périmètre ou une contribution non validée reste à résoudre ; l’autonomie de livraison
+n’autorise pas à intégrer du travail étranger. Toute modification de cette procédure et du skill
+met à jour AGENTS.md et les guides concernés ensemble.

@@ -40,11 +40,17 @@ ne vaut pas validation du résultat implémenté et ne déclenche pas l’étape
 
 ## Rubriques d’une carte
 
-Identifiant et titre ; état (à cadrer, prête, en cours, bloquée, clôturée) ; date ; demande d’origine ;
+Identifiant et titre ; état (à cadrer, prête, en cours, bloquée, implémentée et commitée à vérifier, validée, livrée) ; date ; demande d’origine ;
 couche ; périmètre et exclusions ; critères d’acceptation ; dépendances par commit ; affectation
 (session, branche, chemin absolu) ; réalisation ; preuves et commandes ; documentation mise à jour.
 
-Une carte clôturée voyage dans le commit de sa tâche. Les identifiants sont attribués après
+La carte accompagne le commit d’implémentation de sa tâche avec les tests et preuves.
+La vérification consigne le verdict humain et les SHA acceptés dans un commit documentaire.
+Une carte commitée n’est pas encore validée ; une carte validée n’est pas encore livrée.
+Les corrections produisent de nouveaux commits. Les anciens statuts « clôturée » restent historiques.
+Le découpage prévoit la branche de réunion `demands/<identifiant>` et son worktree.
+La reconstitution crée cette branche dédiée, même pour une seule couche ; une branche
+de couche ne sert jamais de branche de réunion. Les identifiants sont attribués après
 vérification des branches concernées. Une carte découverte ne constitue pas une autorisation de travail.
 
 ## Rubriques d’une procédure

@@ -61,7 +61,8 @@ bases et des autres ressources utilisées.
 
 L’IA clarifie la demande avec l’humain, la découpe en tâches par couche et réalise chaque
 contribution. L’humain vérifie le résultat et les preuves, puis valide ou demande des
-corrections. Chaque tâche validée produit un commit distinct. La reconstitution réunit
+corrections. Chaque tâche implémentée produit un commit distinct avant vérification ; le verdict humain
+est ensuite conservé dans un commit documentaire. La reconstitution réunit
 les commits de la demande avant les contrôles de livraison et la préparation de sa PR.
 
 ### Consolidation

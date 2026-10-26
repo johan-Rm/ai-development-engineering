@@ -16,7 +16,17 @@ Ne déléguer que sur demande explicite.
 - **Stratégie de merge proposée** : merge commit, sous réserve de la politique GitHub configurée.
 
 Les skills portent les procédures des étapes ; les règles suivantes précisent leurs limites ici :
-commit, push, PR, merge et opérations distantes seulement sur demande, aucun changement de tâche
+dans la boucle de développement, invoquer `implementer-demande` autorise les commits locaux
+des cartes confiées et de leurs corrections ; invoquer `verifier-demande` autorise le commit
+documentaire des verdicts humains, sans autoriser leur invention. Le découpage est autonome
+et prévoit la branche dédiée `demands/<identifiant>`, créée à la reconstitution, même pour
+une seule couche ; ne pas utiliser une branche de couche pour réunir une demande.
+Invoquer `livrer-demande` autorise la livraison complète en autonomie : commits documentaires
+nécessaires, vérification distante et fetch, push sans forcer, création ou mise à jour de la PR
+vers `develop`, fusion après contrôles et protections satisfaits, puis suivi et réalignement
+sans perte des seules branches libres. Ne pas redemander une autorisation pour chacune de ces
+opérations. Une demande limitée explicitement à une PR reste limitée à cette PR.
+Hors de ce périmètre, les autres opérations Git nécessitent une demande explicite. Aucun changement de tâche
 sur l’intégration ou la production. Préserver le travail existant et les `.env` ; pas de stash,
 reset --hard, force-push ou suppression de worktree pour résoudre une situation.
 Vérifier la branche et l’état Git dans le worktree absolu affecté ; un arbre propre ne prouve pas
@@ -84,8 +94,8 @@ accompagnent et consignent les décisions humaines sans les remplacer.
 | --- | --- |
 | 01 Interview | `interviewer-demande` |
 | 02 Découpage | `decouper-demande` |
-| 03 Implémentation | `implementer-tache` |
-| 04 Vérification | `verifier-tache` |
+| 03 Implémentation | `implementer-demande` |
+| 04 Vérification | `verifier-demande` |
 | 05 Reconstitution | `reconstituer-demande` |
 | 06 Livraison | `livrer-demande` |
 
@@ -101,12 +111,18 @@ accompagnent et consignent les décisions humaines sans les remplacer.
 | 06 Livraison | `livrer-consolidation` |
 
 `etat-des-lanes` et `configurer-worktrees-aide` sont les deux outils hors des boucles.
-Chaque skill de vérification prend en charge le commit distinct après validation humaine et
-autorisation. Chaque skill de livraison prend en charge directement push, PR, fusion et suivi
-après fusion lorsque ces opérations sont demandées, sans skill transversal supplémentaire.
+En développement, l’implémentation produit les commits distincts des cartes avant vérification ;
+la vérification recueille le verdict dans le chat et commet uniquement sa trace documentaire.
+Une carte commitée reste à vérifier ; une carte validée reste à livrer. Les corrections produisent
+de nouveaux commits d’implémentation. La reconstitution réunit les SHA validés et leur trace de verdict.
+En consolidation, les autorisations propres aux skills et au projet continuent à s’appliquer.
+En développement, invoquer la livraison autorise push, PR, fusion et suivi sans confirmation
+intermédiaire, dans le périmètre validé et sous réserve des contrôles et protections.
 Les skills doivent être disponibles et vérifiés dans la session avant la livraison.
 Les tests et la documentation pertinents accompagnent l’implémentation avant présentation.
-Commit, push, PR et merge restent soumis aux demandes explicites prévues ci-dessus.
+Les autorisations accordées par les invocations des étapes sont définies ci-dessus.
+Toute évolution d’un skill qui modifie ces autorisations doit mettre à jour les présentes
+consignes et les guides concernés dans le même changement ; vérifier leur cohérence avant présentation.
 
 ## Référence graphique à conserver
 
