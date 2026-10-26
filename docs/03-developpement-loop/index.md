@@ -14,3 +14,9 @@ La boucle applique le cadre existant. **Elle ne modifie aucun élément de `code
 | [06 — Livraison](06-livraison.md) | IA, avec décisions humaines requises |
 
 Une correction revient à l’implémentation puis à la vérification humaine. Chaque tâche validée produit un commit ; la livraison présente les contrôles exécutés et leurs limites.
+
+Le [workspace de développement](../02-cadre/couches.md#suivre-les-couches-dans-le-workspace)
+regroupe le dépôt principal et les worktrees des couches pour naviguer entre les
+missions et consulter leurs changements. Sa [préparation](../../SETUP.md#préparer-le-workspace-de-développement)
+fait partie de l’installation ; chaque intervention reste attachée au worktree et
+à la branche prévus par sa mission.

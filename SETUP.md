@@ -8,6 +8,44 @@ Git et Python 3.12 ou supérieur pour l’outillage. Pour les applications fourn
 
 Docker et Compose servent uniquement à la recette d’isolation ; les applications tournent sur l’hôte.
 
+## Préparer le workspace de développement
+
+Pour travailler avec VS Code, ouvrir le fichier versionné `aide.code-workspace`
+depuis le dépôt principal, après avoir créé les worktrees des couches nécessaires.
+Depuis la racine du dépôt principal, créer chaque worktree manquant avec la commande
+suivante, en remplaçant `api` par `backoffice`, `web`, `design` ou `devops` selon le besoin :
+
+```sh
+python3 codebase-integrity/scripts/worktrees.py add --layer api --branch layers/api --base develop
+code aide.code-workspace
+```
+
+Le dépôt doit déjà posséder un premier commit et une branche locale `develop`.
+Vérifier les worktrees existants avec `git worktree list` avant toute création.
+
+Le workspace regroupe le dossier principal et les cinq couches dans une fenêtre.
+Ses chemins sont relatifs au fichier : `.` pour le dépôt principal et
+`worktree/<couche>` pour chaque couche. Conserver le fichier à la racine du dépôt
+principal ; adapter la liste `folders` si les couches ou leur disposition changent.
+Une entrée dont le worktree n’existe pas encore restera indisponible.
+
+La configuration masque `worktree/` dans la vue du dossier principal et les recherches,
+tout en exposant chaque couche comme dossier distinct. Elle active la détection des
+dépôts Git et une confirmation VS Code avant un commit sur `develop`, `master` ou
+`main`. Ces réglages accompagnent les consignes de travail ; les protections distantes
+restent à configurer séparément.
+
+Un alias personnel peut faciliter l’ouverture, en adaptant le chemin absolu du clone :
+
+```sh
+alias aide-code-workspace='code /chemin/absolu/du/projet/aide.code-workspace'
+```
+
+Ajouter cette ligne à `~/.bash_aliases`, puis recharger ce fichier avec
+`source ~/.bash_aliases`. Le fichier d’alias reste personnel et extérieur au dépôt.
+Le [guide des couches](docs/02-cadre/couches.md#suivre-les-couches-dans-le-workspace)
+décrit l’utilisation du workspace pendant la boucle de développement.
+
 ## Lancer les applications de démonstration
 
 Depuis la racine du clone ou du worktree :
