@@ -30,3 +30,6 @@ Les noms et emplacements personnels sont affichés comme texte pour rester utili
 seul ce dossier est servi. Les skills restent hors du dépôt et doivent être disponibles avant livraison.
 Les couleurs continuent à identifier l’acteur de l’étape ; un skill de vérification ne remplace
 pas le verdict humain.
+
+Dans la vue interactive, les éléments IA et la légende utilisent le bleu `#1B6EAE`,
+conformément à [l’adaptation graphique AIDE](../../design/charte-graphique.md).
