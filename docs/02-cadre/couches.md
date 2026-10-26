@@ -18,7 +18,7 @@ Les contributions échangent des contrats et des commits identifiés. Un worktre
 | Design | `design/` | `layers/design` | UX | Relecture visuelle des parcours |
 | Devops | `infra/`, instructions, documentation et outillage du cadre | `layers/devops` | OPS | Configuration ou contrôle adapté au changement |
 
-Les worktrees se trouvent sous `worktree/<couche>`. La configuration de routage est dans `codebase-integrity/scripts/aiod.json` ; l’adapter avec cette table lors de l’adoption.
+Les worktrees se trouvent sous `worktree/<couche>`. La configuration de routage est dans `config/layers.json` ; l’adapter avec cette table lors de l’adoption.
 
 ## Suivre les couches dans le workspace
 
