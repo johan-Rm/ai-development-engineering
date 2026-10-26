@@ -1,13 +1,13 @@
 services:
   witness:
-    image: ${AIOD_IMAGE:?}
+    image: ${PROCESS_CHECK_IMAGE:?}
     command: [httpd, -f, -p, '8080', -h, /proof]
     read_only: true
     ports:
-      - '127.0.0.1:${AIOD_PORT:?}:8080'
+      - '127.0.0.1:${PROCESS_CHECK_PORT:?}:8080'
     volumes:
       - type: bind
-        source: ${AIOD_PROOF_DIR:?}
+        source: ${PROCESS_CHECK_PROOF_DIR:?}
         target: /proof
         read_only: true
         bind:
@@ -16,7 +16,7 @@ services:
     tmpfs:
       - /tmp
     healthcheck:
-      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:8080/]
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:8080/identity.json]
       interval: 2s
       timeout: 2s
       retries: 15

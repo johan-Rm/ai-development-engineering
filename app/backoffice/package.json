@@ -1,0 +1,26 @@
+{
+  "name": "aide-dashboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --host 127.0.0.1 --port 3001",
+    "build": "nuxt build",
+    "preview": "nuxt preview --host 127.0.0.1 --port 3001",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "nuxt": "4.6.2",
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "vue-tsc": "^3.0.0",
+    "@playwright/test": "^1.61.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

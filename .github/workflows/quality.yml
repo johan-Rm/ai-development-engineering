@@ -1,0 +1,50 @@
+name: Qualité
+on:
+  pull_request:
+  push:
+    branches: [develop, master]
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: pdo_sqlite, sqlite3, mbstring, xml
+          tools: composer:v2
+          coverage: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: python3 codebase-integrity/scripts/apps.py install all
+      - run: python3 codebase-integrity/scripts/quality.py
+      - name: Installer Chromium
+        working-directory: app/web/targets/app
+        run: npx playwright install --with-deps chromium
+      - name: Parcours navigateur avec API locale
+        shell: bash
+        run: |
+          python3 codebase-integrity/scripts/apps.py serve api > "$RUNNER_TEMP/aiod-api.log" 2>&1 &
+          api_pid=$!
+          trap 'kill "$api_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for attempt in {1..60}; do
+            if curl --fail --silent http://127.0.0.1:8000/api/articles > /dev/null; then
+              ready=true
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" != true ]; then
+            cat "$RUNNER_TEMP/aiod-api.log"
+            exit 1
+          fi
+          (cd app/web/targets/app && npm run test:e2e)
+          (cd app/backoffice && npm run test:e2e)

@@ -1,4 +1,4 @@
 /worktree/*
 !/worktree/README.md
 __pycache__/
-/.aiod/
+/.local/process-check/

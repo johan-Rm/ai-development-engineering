@@ -1,9 +1,133 @@
 # Consignes des agents
 
-Avant toute écriture, lire [la gouvernance commune](docs/aiod/gouvernance.md),
-[les couches](docs/aiod/couches.md) et la carte de la tâche demandée.
-Ces règles s’appliquent à ce dépôt ; les instructions explicites de l’utilisateur priment.
+Lire [les couches](docs/02-cadre/couches.md), la carte demandée et les README applicables avant d’écrire.
+Les instructions explicites de l’utilisateur priment. Une mission précise son worktree absolu,
+sa branche, ses chemins autorisés, ses dépendances par commit et sa preuve attendue.
+Ne déléguer que sur demande explicite.
 
-Pour Codex, une mission se donne avec le chemin absolu du worktree, sa branche, les chemins
-autorisés et la preuve attendue. Les profils `.claude/agents/` ne sont pas automatiquement
-chargés comme sous-agents Codex. Ne déléguer que sur demande explicite.
+## Conventions de workflow
+
+- **Cartes de tâches** : `dev-book/tasks/`, préfixes et routage dans [les couches](docs/02-cadre/couches.md).
+- **Branche d’intégration** : `develop` ; **production** : `master` ; `main` reste historique.
+- **Branches de travail** : `layers/<couche>` ; **arbres de travail** : `worktree/<couche>`.
+- **Maintenance du cadre** : devops, `layers/devops`, préfixe `OPS`.
+- **Créer un arbre** : `python3 codebase-integrity/scripts/worktrees.py add --layer <couche> --branch layers/<couche> --base develop` (base locale explicite, sans fetch).
+- **Qualité avant PR** : `python3 codebase-integrity/scripts/quality.py` ; **tests de l’outillage** : `python3 codebase-integrity/scripts/check.py`.
+- **Stratégie de merge proposée** : merge commit, sous réserve de la politique GitHub configurée.
+
+Les skills portent les procédures des étapes ; les règles suivantes précisent leurs limites ici :
+dans la boucle de développement, invoquer `implementer-demande` autorise les commits locaux
+des cartes confiées et de leurs corrections ; invoquer `verifier-demande` autorise le commit
+documentaire des verdicts humains, sans autoriser leur invention. Le découpage est autonome
+et prévoit la branche dédiée `demands/<identifiant>`, créée à la reconstitution, même pour
+une seule couche ; ne pas utiliser une branche de couche pour réunir une demande.
+Invoquer `livrer-demande` autorise la livraison complète en autonomie : commits documentaires
+nécessaires, vérification distante et fetch, push sans forcer, création ou mise à jour de la PR
+vers `develop`, fusion après contrôles et protections satisfaits, puis suivi et réalignement
+sans perte des seules branches libres. Ne pas redemander une autorisation pour chacune de ces
+opérations. Une demande limitée explicitement à une PR reste limitée à cette PR.
+Hors de ce périmètre, les autres opérations Git nécessitent une demande explicite. Aucun changement de tâche
+sur l’intégration ou la production. Préserver le travail existant et les `.env` ; pas de stash,
+reset --hard, force-push ou suppression de worktree pour résoudre une situation.
+Vérifier la branche et l’état Git dans le worktree absolu affecté ; un arbre propre ne prouve pas
+qu’une couche est libre. Les dépendances et la reconstitution reposent sur des commits identifiés,
+jamais sur la copie du travail non commité d’une autre mission. Ne pas rebaser une branche
+partagée ou occupée sans coordination. Après merge, réaligner seulement les branches libres,
+sans perte de données ; signaler les divergences.
+
+Un worktree n’isole pas les services : ports, volumes, bases, caches et destinations d’écriture
+restent à isoler et à vérifier avant d’en annoncer l’isolation. Les outils excluent `worktree/`.
+La [documentation d’infrastructure](infra/README.md) décrit les témoins Docker ; aucun déploiement
+applicatif n’est configuré. Les changements de conventions techniques et contrôles passent par la
+consolidation selon [Codebase Integrity](codebase-integrity/README.md).
+
+## Documentation et README
+
+- [docs/index.md](docs/index.md) est l’index des guides et références durables du projet.
+- [dev-book/README.md](dev-book/README.md) décrit les demandes, cartes de tâches, procédures et preuves.
+- Les `**/README.md`, y compris `**/**/README.md`, portent les règles locales de leurs dossiers.
+  Avant toute écriture, lire les README existants sur le chemin concerné, de la racine au dossier
+  modifié. Le plus proche précise les responsabilités et conventions techniques du parent, dans le respect
+  des présentes consignes. Ne pas parcourir tous les README pour une mission locale.
+- Si une règle locale change, mettre à jour le README concerné avec le changement.
+
+Un README de sous-dossier d’un projet applicatif contient uniquement cette structure :
+
+```markdown
+# Nom du dossier
+
+Description courte.
+
+## Rôle et responsabilités
+
+## Conventions techniques
+```
+
+Aucun autre chapitre. Cette structure ne s’impose pas au README racine du dépôt, aux index
+documentaires ni aux README du cadre AIDE. Les README applicatifs existants ne sont pas
+migrés automatiquement.
+
+## Code Review Rules
+
+Les conventions techniques sont définies dans le chapitre `## Conventions techniques` des
+README de chaque dossier concerné. La revue de code vérifie leur application, ainsi que le
+respect du chapitre `## Rôle et responsabilités`. Lire les README applicables avant la revue ;
+ils constituent la référence locale, sans recopier leurs conventions techniques dans AGENTS.md.
+Signaler les contradictions avec ces consignes et les écarts observés avec leurs fichiers
+concernés. Une convention technique modifiée doit être documentée dans son README et vérifiée par les
+contrôles pertinents.
+
+## Skills à privilégier pour les boucles AIDE
+
+La [vue AIDE](dev-book/resources/vue-d-ensemble-ai-development-engineering.html) définit les
+briques des deux boucles. Les skills ci-dessous sont des procédures recommandées lorsqu’ils
+sont disponibles ; leur mention ne les installe pas et ne déclenche aucune étape automatiquement.
+Les skills sont personnels, hors du dépôt. Si un skill manque dans la session, suivre la carte
+et les instructions du projet ; signaler la procédure manquante sans inventer son contenu.
+
+Les deux boucles ont chacune six skills indépendants. Les skills de vérification et d’arbitrage
+accompagnent et consignent les décisions humaines sans les remplacer.
+
+### Boucle de développement
+
+| Étape | Skill |
+| --- | --- |
+| 01 Interview | `interviewer-demande` |
+| 02 Découpage | `decouper-demande` |
+| 03 Implémentation | `implementer-demande` |
+| 04 Vérification | `verifier-demande` |
+| 05 Reconstitution | `reconstituer-demande` |
+| 06 Livraison | `livrer-demande` |
+
+### Boucle de consolidation
+
+| Étape | Skill |
+| --- | --- |
+| 01 Interview | `interviewer-constat` |
+| 02 Analyse globale | `analyser-convention` |
+| 03 Arbitrage | `arbitrer-convention` |
+| 04 Implémentation | `implementer-consolidation` |
+| 05 Vérification | `verifier-consolidation` |
+| 06 Livraison | `livrer-consolidation` |
+
+`etat-des-lanes` et `configurer-worktrees-aide` sont les deux outils hors des boucles.
+En développement, l’implémentation produit les commits distincts des cartes avant vérification ;
+la vérification recueille le verdict dans le chat et commet uniquement sa trace documentaire.
+Une carte commitée reste à vérifier ; une carte validée reste à livrer. Les corrections produisent
+de nouveaux commits d’implémentation. La reconstitution réunit les SHA validés et leur trace de verdict.
+En consolidation, les autorisations propres aux skills et au projet continuent à s’appliquer.
+En développement, invoquer la livraison autorise push, PR, fusion et suivi sans confirmation
+intermédiaire, dans le périmètre validé et sous réserve des contrôles et protections.
+Les skills doivent être disponibles et vérifiés dans la session avant la livraison.
+Les tests et la documentation pertinents accompagnent l’implémentation avant présentation.
+Les autorisations accordées par les invocations des étapes sont définies ci-dessus.
+Toute évolution d’un skill qui modifie ces autorisations doit mettre à jour les présentes
+consignes et les guides concernés dans le même changement ; vérifier leur cohérence avant présentation.
+
+## Référence graphique à conserver
+
+Pour tout travail graphique, lire la charte officielle du dépôt :
+[Brand Guidelines — Graines Digitales](<design/Brand Guidelines - Graines Digitales (standalone).html>).
+Ne pas lui substituer une copie externe. La [synthèse opérationnelle](design/charte-graphique.md)
+rappelle ses règles et les adaptations explicitement demandées pour AIDE : humain/cadre en olive,
+IA en terre cuite `#C07040`, couleurs dans les fonds/textes/bordures, sans traits décoratifs de rôle.
