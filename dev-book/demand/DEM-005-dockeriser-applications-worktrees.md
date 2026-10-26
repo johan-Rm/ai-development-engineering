@@ -1,7 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
 - Date : 2026-10-26.
-- État : cadrage confirmé ; découpée, dépendances à résoudre avant les cartes consommatrices.
+- État : implémentée et commitée, à vérifier par l’humain.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -104,10 +104,11 @@ si elles changent, avec leurs contrôles pertinents.
 
 ## Questions ouvertes et choix d’implémentation
 
-Aucune décision de besoin bloquante après confirmation. Restent à déterminer au
-découpage et à l’implémentation : ports exacts, noms des commandes, images adaptées
-aux runtimes existants, ressources persistantes et méthode de réparation des liens Git.
-Ces choix doivent respecter les critères confirmés et préserver l’existant.
+Aucune question de besoin ouverte. Choix réalisés : ports 19301 à 19305 suivant les
+identifiants des couches, lanceur `infra/apps.py`, images PHP 8.4 et Node 22 avec les
+locks existants, Caddy local et SQLite dans des volumes privés. Les liens Git ont été
+réparés avec `git worktree repair`. Les runbooks détaillent les commandes et ressources.
+Les cinq stacks et leur isolation ont été observées, sans changement de périmètre.
 
 ## Tâches issues du découpage
 
@@ -115,9 +116,9 @@ Découpage du 2026-10-26, sans implémentation ni commit.
 
 | Ordre | Carte | Critères DEM-005 couverts | Dépendances et état |
 | --- | --- | --- | --- |
-| 1 | [OPS-050 — Réparer les liens Git](../tasks/OPS-050-reparer-liens-worktrees.md) | 1, 7 | Prête ; réparation locale à exécuter et preuve à committer sous autorisation |
-| 2 | [OPS-051 — Stack applicative commune](../tasks/OPS-051-stack-applicative-worktree.md) | 2 à 7, documentation | Non prête : OPS-050 sans SHA, liens et divergence à traiter |
-| 3 | [OPS-052 — Recette des cinq stacks](../tasks/OPS-052-recette-cinq-stacks.md) | 1 à 8, preuves finales | Non prête : OPS-050 et OPS-051 sans SHA, mise à disposition par commits à autoriser |
+| 1 | [OPS-050 — Réparer les liens Git](../tasks/OPS-050-reparer-liens-worktrees.md) | 1, 7 | Implémentée et commitée : `b041cab`, à vérifier |
+| 2 | [OPS-051 — Stack applicative commune](../tasks/OPS-051-stack-applicative-worktree.md) | 2 à 7, documentation | Implémentée et commitée : `d076aec`, `ec0e27b`, `c709754`, à vérifier |
+| 3 | [OPS-052 — Recette des cinq stacks](../tasks/OPS-052-recette-cinq-stacks.md) | 1 à 8, preuves finales | Implémentée et commitée, à vérifier ; dépendances et copies identifiées dans la carte |
 
 Les trois cartes sont séquentielles et relèvent de devops. Aucune mission d’écriture
 applicative ni délégation n’est créée. Les Dockerfiles, le lanceur et leurs tests propres
@@ -152,6 +153,29 @@ déduit pas de la seule propreté Git. `develop` observée à
 `layers/devops` est de 1 commit côté develop et 25 côté devops ; aucun rebase ni merge
 implicite. La base commune est `7c35e0292f2cd3b2e5f2e46a5864a086ae5dd85d`.
 
-Les dépendances futures sans SHA sont volontairement non résolues ; aucune copie de
-travail non commité d’une autre mission ne peut les remplacer. L’implémentation et les
-opérations Git nécessaires restent des étapes ultérieures selon leurs autorisations.
+Au découpage, les dépendances futures sans SHA restaient volontairement non résolues ;
+aucune copie de travail non commité ne pouvait les remplacer. Elles ont ensuite été
+réalisées et commitées pendant l’implémentation confiée, selon le bilan ci-dessous.
+
+
+## Bilan d’implémentation — 2026-10-26
+
+Les trois cartes sont implémentées et commitées avant vérification humaine. Les huit
+critères sont couverts par les preuves d’OPS-050/051/052 : cinq liens Git réparés,
+cinq stacks autonomes réellement testées successivement et deux simultanément,
+CRUD navigateur, lecture web, rechargement automatique, isolation et persistance.
+Les bases Docker étaient vides au premier contrôle et sont revenues à zéro article
+après les recettes ; les `.env` et le travail local ont été préservés.
+
+Les commits propres à la demande ont été appliqués aux quatre autres couches par
+cherry-pick identifié, sans reprendre l’historique divergent de devops. La table des
+SHA source/consommateur est dans OPS-052 ; le contenu de stack est identique partout.
+Les neuf tests de stack et la qualité complète existante passent, sans changement
+des applications, de leurs locks ou du Codebase Integrity.
+
+Les [commandes quotidiennes](../runbooks/stacks-applicatives.md) et la
+[procédure de recette](../runbooks/recette-stacks-applicatives.md) sont documentées.
+Les stacks API et web restent disponibles sur les ports 19302 et 19303 avec leurs
+deux interfaces ; les trois autres sont arrêtées, leurs volumes conservés.
+Aucun push, PR, merge, fetch ou début de reconstitution. La branche et le worktree
+de réunion restent seulement prévus. Aucun verdict humain n’est déduit des tests.

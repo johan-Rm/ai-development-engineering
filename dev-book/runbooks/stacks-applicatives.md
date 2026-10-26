@@ -100,6 +100,9 @@ Le lanceur navigateur utilise le réseau hôte Linux ; les captures sont sous
 Ne pas utiliser `down -v`
 ou un nettoyage global de Docker pour résoudre un problème.
 
+La [recette des cinq stacks](recette-stacks-applicatives.md) détaille les passages
+successifs et la vérification de deux stacks simultanées.
+
 ## Arrêt en cas d’erreur et retour arrière
 
 En cas d’échec de build, installation, migration ou santé, conserver le diagnostic et
