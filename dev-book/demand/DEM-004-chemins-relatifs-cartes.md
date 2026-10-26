@@ -124,3 +124,39 @@ Branche `layers/devops` et arbre propre vérifiés avant consignation, en désig
 explicitement les métadonnées Git actuelles. Seules DEM-004 et OPS-049 sont modifiées
 pour ce verdict et son commit documentaire. Aucun code modifié, aucune réparation Git,
 aucun push, PR ou merge. Reconstitution et livraison restent à lancer séparément.
+
+## Preuve de reconstitution — 2026-10-26
+
+Branche dédiée `demands/DEM-004`, worktree `worktree/DEM-004`, créés à la tête
+`083dcbee81570fd8770bb211cee2dfb46a881284`, après vérification de leur absence.
+Base locale de la carte : `ce9fca295d748188c03f65e0d056011a036a621b`.
+Les seuls commits de contribution au-dessus de cette base sont, dans cet ordre :
+
+1. `60ccb2acdc9436eefc709845b49a6174c96ac181` : implémentation validée d’OPS-049.
+2. `083dcbee81570fd8770bb211cee2dfb46a881284` : trace du verdict humain.
+
+Leur ascendance dans la branche dédiée est vérifiée par `git merge-base --is-ancestor`.
+Les commits étaient déjà réunis : aucun rejeu, cherry-pick, conflit ni copie de fichiers
+non commités. Aucune branche existante déplacée ; intégration et production inchangées.
+La base locale et son historique sont conservés, sans fetch ni affirmation de synchronisation
+distante. La référence locale `origin/develop` est absente au moment de cette étape ;
+la comparaison avec la cible distante restera à faire lors de la livraison autorisée.
+
+Contrôles dans le worktree de réunion :
+
+- branche `demands/DEM-004`, index et arbre propres avant la preuve ;
+- `git diff ce9fca295d748188c03f65e0d056011a036a621b HEAD --check` réussi ;
+- recherches des anciens chemins personnels dans cartes et demandes : aucune occurrence ;
+- liens réciproques de DEM-004 et OPS-049 valides ;
+- `python3 codebase-integrity/scripts/check.py` : 23 tests réussis hors sandbox,
+  nécessaire pour le test HTTP local.
+
+La qualité complète a réussi sur le même contenu d’implémentation dans le worktree
+source ; elle n’est pas relancée dans ce nouvel arbre sans dépendances applicatives
+installées. Aucun changement applicatif ou de contrat n’est ajouté par la reconstitution.
+Aucune preview, aucun service applicatif démarré ni environnement Docker modifié.
+Les anciens liens Git cassés des autres worktrees restent hors périmètre ; le nouveau
+worktree de réunion fonctionne avec les commandes Git ordinaires.
+
+Demande reconstituée et prête pour l’étape de livraison ; aucun push, PR ou merge effectué.
+La présente preuve est conservée dans un commit documentaire sur la branche dédiée.
