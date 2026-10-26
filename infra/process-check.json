@@ -1,0 +1,6 @@
+{
+  "process": {
+    "port_base": 18100,
+    "image": "busybox:1.37.0"
+  }
+}

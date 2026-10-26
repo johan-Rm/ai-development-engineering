@@ -21,13 +21,15 @@ class Process(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
-        p = self.root / 'codebase-integrity/scripts/aiod.json'
+        p = self.root / 'config/layers.json'
         self.config = json.loads(p.read_text())
-        self.config['process'] = {'port_base': 18100, 'image': 'busybox:1.37.0'}
+        (self.root / 'infra').mkdir()
+        (self.root / 'infra/process-check.json').write_text(json.dumps({
+            'process': {'port_base': 18100, 'image': 'busybox:1.37.0'}}))
         self.config['layers']['api']['id'] = 2
         self.config['layers']['web']['id'] = 3
         p.write_text(json.dumps(self.config))
-        self.fixture.git('add', 'codebase-integrity/scripts/aiod.json')
+        self.fixture.git('add', 'config/layers.json', 'infra/process-check.json')
         self.fixture.git('commit', '-m', 'configuration témoin')
         self.fixture.sha = self.fixture.git('rev-parse', 'HEAD')
 
@@ -103,9 +105,42 @@ class Process(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     process.verify(info)
 
+    def test_secondary_reads_both_configurations_from_its_worktree(self):
+        api, _ = self.fixture.add()
+        (self.root / 'config/layers.json').unlink()
+        (self.root / 'infra/process-check.json').unlink()
+        path = api / 'infra/process-check.json'
+        recipe = json.loads(path.read_text())
+        recipe['process'].update(port_base=19100, image='local-witness:custom')
+        path.write_text(json.dumps(recipe))
+        info = process.settings(api)
+        self.assertEqual(info['port'], 19102)
+        self.assertEqual(info['image'], 'local-witness:custom')
+        self.assertEqual(info['layer'], 'api')
+
+    def test_missing_or_invalid_configurations_do_not_fall_back_or_write_artifacts(self):
+        api, _ = self.fixture.add()
+        legacy = api / 'codebase-integrity/scripts/aiod.json'
+        legacy.parent.mkdir(parents=True)
+        legacy.write_text(json.dumps(dict(self.config, process={
+            'port_base': 18100, 'image': 'busybox:1.37.0'})))
+        for relative in ('config/layers.json', 'infra/process-check.json'):
+            path = api / relative
+            original = path.read_text()
+            for content in (None, '{invalid', '{}'):
+                with self.subTest(path=relative, content=content):
+                    if content is None:
+                        path.unlink()
+                    else:
+                        path.write_text(content)
+                    with self.assertRaises((OSError, ValueError, KeyError)):
+                        process.settings(api)
+                    self.assertFalse((api / '.local').exists())
+                    path.write_text(original)
+
     def test_duplicate_ids_refused(self):
         api, _ = self.fixture.add()
-        p = api / 'codebase-integrity/scripts/aiod.json'
+        p = api / 'config/layers.json'
         c = json.loads(p.read_text())
         c['layers']['web']['id'] = 2
         p.write_text(json.dumps(c))

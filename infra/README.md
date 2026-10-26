@@ -20,7 +20,13 @@ un `.env`. Le script et le fichier Compose utilisent les mêmes noms, sans alias
 anciens paramètres. Aucune migration de `.env` n’est nécessaire pour les commandes
 pilotées par le script.
 
-Les identifiants stables sont dans `codebase-integrity/scripts/aiod.json` ; leur ordre dans le fichier ne change
+La recette possède `infra/process-check.json` : son enveloppe `process` contient
+`image` et `port_base`. Les couches, branches, rôles et identifiants stables
+appartiennent au cadre, dans [`config/layers.json`](../config/layers.json).
+`process.py` lit les deux fichiers depuis le worktree appelant et exige leur présence
+et leur validité, sans création implicite ni repli sur l’ancien fichier.
+
+L’ordre des identifiants dans le fichier ne change
 pas les ports. Les noms des projets incluent un hash du chemin du dépôt principal et la couche.
 Deux clones ont des noms distincts ; leurs ports doivent aussi être configurés avec des bases
 différentes s’ils tournent sur le même hôte. Changer `process.port_base` avant le premier démarrage.

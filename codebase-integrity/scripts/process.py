@@ -17,8 +17,8 @@ def settings(cwd):
     if not any(Path(item['worktree']).resolve() == tree for item in records):
         raise ValueError('Arbre Git non enregistré')
     branch = worktrees.git(tree, 'branch', '--show-current')
-    config = json.loads((tree / 'codebase-integrity/scripts/aiod.json').read_text())
-    layers = config['layers']
+    layers = json.loads((tree / 'config/layers.json').read_text())['layers']
+    recipe = json.loads((tree / 'infra/process-check.json').read_text())['process']
     ids = [item['id'] for item in layers.values() if 'id' in item]
     if any(type(item) is not int or item < 1 for item in ids) or len(ids) != len(set(ids)):
         raise ValueError('Identifiants de couche invalides ou dupliqués')
@@ -26,7 +26,7 @@ def settings(cwd):
     if len(matches) != 1:
         raise ValueError('Exécuter depuis le worktree d’une des cinq couches')
     layer, item = matches[0]
-    port_base = config['process']['port_base']
+    port_base = recipe['port_base']
     if type(port_base) is not int or not 1024 <= port_base + item['id'] <= 65535:
         raise ValueError('Base de ports invalide')
     project = 'aiod-' + hashlib.sha256(str(root).encode()).hexdigest()[:8] + '-' + layer
@@ -34,7 +34,7 @@ def settings(cwd):
         if candidate.is_symlink():
             raise ValueError('Lien symbolique inattendu dans les artefacts locaux')
     return dict(root=str(root), worktree=str(tree), branch=branch, layer=layer,
-                project=project, port=port_base + item['id'], image=config['process']['image'])
+                project=project, port=port_base + item['id'], image=recipe['image'])
 
 
 def prepare(info):
