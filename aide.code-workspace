@@ -1,0 +1,46 @@
+{
+  "folders": [
+    {
+      "name": "◆ principal",
+      "path": "."
+    },
+    {
+      "name": "backoffice",
+      "path": "worktree/backoffice"
+    },
+    {
+      "name": "api",
+      "path": "worktree/api"
+    },
+    {
+      "name": "web",
+      "path": "worktree/web"
+    },
+    {
+      "name": "design",
+      "path": "worktree/design"
+    },
+    {
+      "name": "devops",
+      "path": "worktree/devops"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "worktree": true
+    },
+    "search.exclude": {
+      "worktree": true
+    },
+    "search.useIgnoreFiles": true,
+    "git.autoRepositoryDetection": true,
+    "git.openRepositoryInParentFolders": "never",
+    "git.branchProtection": [
+      "develop",
+      "master",
+      "main"
+    ],
+    "git.branchProtectionPrompt": "alwaysPrompt",
+    "explorer.compactFolders": false
+  }
+}

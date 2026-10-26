@@ -20,10 +20,35 @@ Les contributions échangent des contrats et des commits identifiés. Un worktre
 
 Les worktrees se trouvent sous `worktree/<couche>`. La configuration de routage est dans `codebase-integrity/scripts/aiod.json` ; l’adapter avec cette table lors de l’adoption.
 
+## Suivre les couches dans le workspace
+
+Le fichier `aide.code-workspace`, à la racine du dépôt principal, fournit une vue
+commune du dépôt et des worktrees dans VS Code. Le [guide d’installation](../../SETUP.md#préparer-le-workspace-de-développement)
+explique sa préparation. Ses chemins relatifs permettent de conserver cette
+configuration dans le projet sans imposer un chemin personnel.
+
+Pendant la boucle de développement :
+
+1. Au découpage, identifier le worktree absolu et la branche de chaque mission.
+2. À l’implémentation, ouvrir les fichiers dans le dossier de la couche affectée.
+   Dans le terminal, vérifier `pwd` et `git status --short --branch` avant toute écriture.
+   Le dossier « ◆ principal » sert de repère pour l’intégration ; les changements de
+   tâche sont réalisés dans les worktrees des couches.
+3. À la vérification, consulter les changements Git du dépôt de la couche concernée
+   et exécuter ses commandes de preuve depuis ce même worktree.
+4. À la reconstitution et à la livraison, suivre les commits identifiés et la branche
+   de réunion autorisée selon les étapes de la boucle.
+
+Le workspace facilite la navigation et la lecture des changements de plusieurs
+couches. Il ne crée pas les worktrees, n’affecte pas les missions et ne synchronise
+pas les branches. Les recherches excluent `worktree/` sous le dossier principal
+pour éviter les résultats en double. L’isolation des services et la coordination
+des missions restent à vérifier séparément.
+
 ## Coordonner les dépendances
 
 Un fichier partagé se rattache à sa couche consommatrice et nécessite une coordination si une autre mission le touche. Plusieurs sites peuvent partager la couche web tant que les tâches restent séquentielles ; les écrivains simultanés demandent des périmètres distincts.
 
 La reconstitution réunit les commits validés sur une branche explicitement choisie. Elle ne copie jamais le travail non commité d’un autre worktree.
 
-La [recette Docker](../../dev-book/runbooks/recette-aiod.md) vérifie séparément les identités et ressources des témoins. Elle ne prouve pas l’isolation des applications de démonstration.
+La [documentation d’infrastructure](../../infra/README.md) décrit les témoins Docker et leurs ressources. Leur isolation ne prouve pas celle des applications de démonstration.
