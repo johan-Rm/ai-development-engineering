@@ -1,6 +1,6 @@
 # OPS-047 — Passer les éléments IA du schéma AIDE en bleu
 
-- État : implémentée et commitée, à vérifier sur SHA ; verdict humain antérieur conservé ci-dessous.
+- État : validée par l’humain ; commit d’implémentation identifié, livraison non effectuée.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-002](../demand/DEM-002-couleur-ia-schema-aide.md).
 - Couche : devops, maintenance du schéma du cadre et de ses références partagées.
@@ -123,3 +123,26 @@ et son verdict « validé » sont conservés sans inventer de captures automatis
 Le présent commit contient réalisation, demande, documentation et preuves. Son SHA sera
 rapporté dans le chat et pourra être consigné lors de la vérification sur commit.
 Aucune reconstitution, opération distante ou livraison lancée par cette invocation.
+
+## Vérification du commit — 2026-10-26
+
+Commit d’implémentation vérifié : `8db9d9bd436d835d6119ea55eac461b4d463cb19`.
+Le verdict humain explicite « validé », déjà exprimé pour OPS-047, est associé à ce SHA :
+le contrôle de correspondance établit que le schéma commité est identique au résultat local
+présenté et accepté. Aucun nouveau verdict n’est déduit des seuls contrôles.
+
+Couverture des critères :
+
+1. Les éléments IA utilisent la variable `--ia:#1B6EAE`, actions des deux boucles et légende comprises.
+2. L’ancienne couleur est absente du schéma et des consignes graphiques actives modifiées.
+3. AGENTS.md, la synthèse graphique et le README des ressources portent la même couleur finale.
+4. La comparaison exacte avec le parent du commit ne montre dans le HTML que la substitution
+   de couleur et le renommage de variable : textes, structure et scripts conservés.
+5. Contraste mesuré à 5,162:1 ; l’humain a examiné l’aperçu puis accepté le résultat.
+
+`git show --format= --check HEAD` et les assertions Python de correspondance ont réussi.
+Arbre et index propres avant la trace documentaire. Aucun autre changement observé.
+Les captures ordinateur/mobile et le contrôle automatisé du plein écran restent non réalisés,
+Chromium ne démarrant pas faute de `libnspr4.so`. La validation humaine est conservée avec
+cette limite ; aucun test navigateur n’est présenté comme réussi.
+La vérification ne lance ni reconstitution ni livraison.

@@ -91,3 +91,13 @@ Après instruction explicite de toujours committer à l’implémentation, OPS-0
 pour produire son commit unique avec les six fichiers du périmètre. Le blocage d’autorisation
 précédent est levé. Le verdict humain déjà exprimé est conservé ; l’association au SHA
 pourra être consignée à la vérification. Aucune autre étape lancée ici.
+
+## Vérification sur commit — 2026-10-26
+
+DEM-002 est validée par l’humain pour son unique carte OPS-047.
+Verdict explicite antérieur : « validé ». Commit d’implémentation associé après contrôle
+de correspondance avec le résultat présenté : `8db9d9bd436d835d6119ea55eac461b4d463cb19`.
+Les quatre critères de la demande sont couverts par la carte et les consignes alignées.
+Les limites navigateur demeurent documentées dans OPS-047 ; aucun contrôle non exécuté
+n’est déclaré réussi. Le blocage pour absence de commit est levé.
+La reconstitution et la livraison restent des étapes distinctes, non exécutées ici.
