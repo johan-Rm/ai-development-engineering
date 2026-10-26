@@ -113,3 +113,10 @@ Le SHA de ce commit sera référencé par OPS-052 et dans le bilan final.
 Correction documentaire OPS-051 : les responsabilités et conventions de la nouvelle stack
 utilisent les chapitres `## Rôle et responsabilités` et `## Conventions techniques`
 attendus pour la revue locale. `git diff --check` réussi ; aucun changement exécutable.
+
+Correction OPS-051 pendant OPS-052 : le worktree web sans `.env` a révélé un point
+de montage impossible sous le bind source en lecture seule. Suppression de ce montage ;
+le runtime Symfony existant supporte `APP_RUNTIME_OPTIONS` JSON et `dotenv_path`,
+maintenant fixé à `.env.example`. Aucun `.env` hôte créé ou modifié. Les 15 résolutions
+Compose et le test de préparation sans `.env` couvrent ce cas. La recette réelle des
+cinq couches sera rejouée sur ce commit de correction et consignée dans OPS-052.

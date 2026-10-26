@@ -82,6 +82,8 @@ Le serveur PHP de développement désactive explicitement OPcache pour refléter
 Les sources restent en lecture seule ; les volumes de données, dépendances et sorties
 sont privés au projet dépôt/couche. Les services applicatifs utilisent l’UID/GID hôte.
 Le lanceur ne lit ni n’écrit les `.env` Compose et n’efface jamais les volumes à l’arrêt.
+Symfony utilise `.env.example` via `APP_RUNTIME_OPTIONS.dotenv_path`, y compris quand
+aucun `.env` n’existe sur l’hôte ; aucun point de montage `.env` n’est nécessaire.
 Les ports sont liés exclusivement à `127.0.0.1`. La recette BusyBox demeure indépendante.
 Les dépendances applicatives utilisent leurs locks existants. Les images suivent les tags
 PHP 8.4 CLI Bookworm, Composer 2, Node 22 Bookworm slim, Caddy 2.10 Alpine et BusyBox 1.37.0 ;

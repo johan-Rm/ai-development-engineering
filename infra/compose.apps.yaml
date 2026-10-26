@@ -55,6 +55,7 @@ services:
     environment:
       APP_ENV: dev
       APP_SECRET: local-docker-development-only
+      APP_RUNTIME_OPTIONS: '{"dotenv_path":".env.example"}'
       DATABASE_URL: sqlite:////app/var/app.db
       DEFAULT_URI: http://api.${AIDE_APP_DOMAIN:?}:${AIDE_APP_PORT:?}
       COMPOSER_HOME: /tmp/composer
@@ -66,7 +67,6 @@ services:
         read_only: true
         bind:
           create_host_path: false
-      - ${AIDE_APP_ROOT:?}/app/api/app/.env.example:/app/.env:ro
       - ${AIDE_APP_ROOT:?}/infra/api-start.sh:/infra/api-start.sh:ro
       - api_vendor:/app/vendor
       - api_var:/app/var
