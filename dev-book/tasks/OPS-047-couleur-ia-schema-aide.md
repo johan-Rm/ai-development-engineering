@@ -5,7 +5,7 @@
 - Demande d’origine : [DEM-002](../demand/DEM-002-couleur-ia-schema-aide.md).
 - Couche : devops, maintenance du schéma du cadre et de ses références partagées.
 - Session : identifiant fiable indisponible.
-- Worktree : `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Worktree : `worktree/devops`.
 - Branche : `layers/devops`, existante et conservée sans rebase.
 - Base locale observée : `6477c51f6428bccdd81c08be20edf644e94fee31`.
 - Dépendances par commit : aucune tâche amont distincte ; les décisions graphiques sont

@@ -5,7 +5,7 @@
 - **Statut** : ✅ fait le 2026-10-23.
 - **Type** : docs.
 - **Demande** : analyser puis rectifier le rangement de `docs/`, les cartes qui y figurent et les traces de l’ancienne couche de maintenance ; cadrage accepté dans la conversation.
-- **Mission** : couche devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : couche devops, branche `layers/devops`, worktree `worktree/devops`.
 - **Dépendance par SHA** : `e90631fc77fae1a7519f1059f58c0c396c5473c9`, état local commun à `develop` et `layers/devops` lors du cadrage.
 - **Tests** : inventaire avant/après des cartes, vérification des liens locaux et des références aux anciens chemins, `python3 codebase-quality-control/scripts/check.py` et `git diff --check`. Pas de nouveaux tests applicatifs : aucun code exécutable ni comportement applicatif modifié.
 - **Réf** : OPS-001, OPS-023 ; `docs/README.md`, `docs/boilerplate/README.md`, `docs/aiod/adoption.md`, `dev-book/README.md`, `docs/aiod/couches.md`.

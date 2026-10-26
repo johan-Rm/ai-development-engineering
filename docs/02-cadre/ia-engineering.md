@@ -15,7 +15,7 @@ AGENTS.md indique les skills à privilégier sans recopier leurs procédures. Un
 
 ## Donner une mission précise
 
-Une mission indique le worktree absolu, la branche, les chemins autorisés et le résultat à prouver. Les dépendances sont identifiées par commit. Le travail reste dans ce périmètre ; une ambiguïté ou un besoin supplémentaire est signalé.
+Une mission indique le worktree relatif à la racine du dépôt principal, la branche, les chemins autorisés et le résultat à prouver. Le chemin absolu est résolu et vérifié localement à l’exécution, avec la branche et l’état Git ; il n’est pas inscrit dans les cartes versionnées. Les dépendances sont identifiées par commit. Le travail reste dans ce périmètre ; une ambiguïté ou un besoin supplémentaire est signalé.
 
 Les instructions explicites de l’utilisateur priment. Dans ce dépôt, la délégation n’est autorisée que sur demande explicite. La validation d’un plan ne remplace pas les verdicts humains prévus par les boucles.
 

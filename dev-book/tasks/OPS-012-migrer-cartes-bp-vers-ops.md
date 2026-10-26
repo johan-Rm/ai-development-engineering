@@ -5,7 +5,7 @@
 - **Statut** : ✅ fait le 2026-10-23.
 - **Type** : docs.
 - **Demande** : « bp doit etre migrer dans ops » ; cette instruction remplace la conservation antérieure des identifiants BP.
-- **Mission** : devops, `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : devops, `layers/devops`, worktree `worktree/devops`.
 - **Dépendance** : `e624ad92e8d5268e7cba65f0c881a73082da7578`.
 - **Chemins autorisés** : cartes `dev-book/tasks/`, `dev-book/README.md`, `docs/couches.md`, `docs/adoption.md`, `ia-engineering/gouvernance.md`, README entrants concernés.
 - **Tests** : inventaire des 21 migrations, absence de collision, comparaison du contenu avec substitution des identifiants, liens locaux et `git diff --check`. Aucun nouveau test exécutable : renommage documentaire uniquement.

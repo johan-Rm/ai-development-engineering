@@ -9,7 +9,7 @@
 - **Réf** : OPS-040 ; `app/api/README.md` ; `docs/02-cadre/couches.md`.
 - **Demande d’origine** : harmonisation des identifiants AIOD restants dans `app/`, découpage et vérifications validés par l’utilisateur le 2026-10-24.
 - **Couche et branche** : `api`, `layers/api`.
-- **Worktree absolu** : `/home/johan/www/lab/ai-orchestrated-development/worktree/api`.
+- **Worktree** : `worktree/api`.
 - **Chemins autorisés** : `app/api/app/tests/smoke.py`, présente carte.
 - **Dépendances par commit** : base `ed715efb57b780305138ee814891bcb1e0334077` incluant OPS-040 ; aucune dépendance entre BO-002, WEB-002 et API-002, aucun aval requis.
 

@@ -5,7 +5,7 @@
 - **Type** : docs.
 - **Couche** : devops.
 - **Session** : non disponible (Codex).
-- **Mission** : `layers/devops`, `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : `layers/devops`, `worktree/devops`.
 - **Demande d’origine** : échange du 2026-10-26 ; intégrer le workspace au projet, documenter son rôle dans la boucle de développement et son installation, puis créer la carte et committer.
 - **Dépendances par commit** : base locale `a100043dcc7bc0ebca7c44296b4c3b7b46c8ea34` ; aucune dépendance au travail non commité d’une autre mission.
 - **Tests** : sans objet — documentation et configuration déclarative VS Code, aucun code exécutable ajouté. Vérifications ponctuelles du JSON, des chemins et des liens documentaires.

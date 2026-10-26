@@ -8,7 +8,7 @@
   si celui-ci change. Aucun test applicatif : aucun code applicatif produit.
 - **Réf** : OPS-015 ; commit develop contenant codebase-quality-control/scripts/worktrees.py et codebase-quality-control/scripts/aiod.json ; `docs/aiod/couches.md`, `docs/aiod/gouvernance.md`.
 - **Rattachement** : maintenance du cadre, sur la branche historique de maintenance, préfixe BP.
-- **Dossier de coordination** : `<depot>`.
+- **Dossier de coordination** : `.`.
 - **Affectation d’exécution** : non attribuée ; à vérifier au démarrage.
 
 ## Contexte
@@ -19,7 +19,7 @@ pour chaque couche, ainsi que les branches `master` et `develop`.
 
 ## Périmètre
 
-Créer ou réutiliser le worktree `<depot>/worktree/web` sur `layers/web` depuis un SHA identifié
+Créer ou réutiliser le worktree `worktree/web` sur `layers/web` depuis un SHA identifié
 de `develop`. Ajouter ou compléter `web/README.md` dans ce worktree pour décrire
 le rôle de la couche : socle partagé et construction de plusieurs sites/webapps. Décrire `web/shared/` et `app/web/targets/<nom>/`, sans installer de runtime ni générer de cible.
 
@@ -75,7 +75,7 @@ Vérifier OPS-015, la disponibilité de web, les arbres enregistrés et le SHA d
 
 Vérification du 2026-10-06 :
 
-- Worktree : `<depot>/worktree/web` ; branche `layers/web` ; dépôt commun `<depot>/.git`.
+- Worktree : `worktree/web` ; branche `layers/web` ; dépôt commun `.git`.
 - Base identifiée : `c6e3302ffd6e71449d0bac22ccfc0773f034cd69` (develop, contient OPS-013, OPS-015 et OPS-021).
 - Relance du créateur : même chemin, aucun fichier modifié.
 - Endpoint local : `http://127.0.0.1:18103/`, identité `web` observée.

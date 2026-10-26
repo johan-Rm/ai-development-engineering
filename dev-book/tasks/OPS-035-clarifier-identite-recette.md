@@ -4,7 +4,7 @@
 - Statut : ✅ fait le 2026-10-24.
 - Type : refactor.
 - Session : non disponible (Codex).
-- Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Mission : devops, branche `layers/devops`, worktree `worktree/devops`.
 - Décision humaine : remplacer `.aiod/runtime/index.html` contenant du JSON par `.local/process-check/identity.json`, servi à `/identity.json`.
 - Périmètre : scripts de recette, tests, Compose, exclusions et documentation associée.
 - Hors périmètre : changements OPS-034 conservés sans modification, applications, migration ou suppression des anciens artefacts locaux, volumes et conteneurs actifs.

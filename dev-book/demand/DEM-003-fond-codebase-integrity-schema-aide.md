@@ -59,7 +59,7 @@ Une seule carte : schéma et adaptation graphique associée appartiennent à la 
 ## Réunion prévue
 
 - Branche dédiée : `demands/DEM-003`.
-- Worktree : `/home/johan/www/lab/ai-orchestrated-development/worktree/DEM-003`.
+- Worktree : `worktree/DEM-003`.
 - Création à la reconstitution, à partir des commits validés ; aucune création à cette étape.
 
 ## Preuve du découpage
@@ -77,7 +77,7 @@ Aucun changement de schéma, commit, rebase ou opération distante réalisé.
 Cadrage confirmé dans le chat le 2026-10-26. Historique des chemins de demandes de toutes
 les références Git locales et fichiers des worktrees examinés sans fetch : maximum DEM-002.
 DEM-002 porte sur les éléments IA en bleu ; le présent besoin est distinct.
-Enregistrement dans `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`,
+Enregistrement dans `worktree/devops`,
 branche `layers/devops`, arbre propre avant écriture. Aucun commit, branche, carte ou
 changement du schéma créé à cette étape.
 
@@ -94,7 +94,7 @@ PR, fusion ou opération distante n’est lancée par cette étape.
 ## Preuve de reconstitution — 2026-10-26
 
 Branche dédiée `demands/DEM-003`, worktree
-`/home/johan/www/lab/ai-orchestrated-development/worktree/DEM-003`.
+`worktree/DEM-003`.
 Base locale explicite `f2fd74382cbcf74132ced8211ffe2cc665107046` (`origin/develop`
 observée sans fetch), contenant déjà OPS-047. Le `develop` local divergent est préservé.
 Le commit documentaire hors demande `2c9aeb3` de la couche devops est exclu.

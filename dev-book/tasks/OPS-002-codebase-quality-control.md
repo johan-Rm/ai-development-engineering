@@ -4,7 +4,7 @@
 
 - Statut : réalisée, non commitée.
 - Date : 2026-10-21.
-- Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Mission : devops, branche `layers/devops`, worktree `worktree/devops`.
 - Demande : intégrer le texte validé et remplacer le nom de la brique dans le schéma interactif AIDE.
 - Périmètre : page de référence, liens documentaires, contenu de la brique dans la vue interactive et vérification navigateur.
 - Dépendance : OPS-001, préparée dans ce même worktree sans commit.

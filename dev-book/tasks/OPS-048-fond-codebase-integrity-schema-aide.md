@@ -5,7 +5,7 @@
 - Demande d’origine : [DEM-003](../demand/DEM-003-fond-codebase-integrity-schema-aide.md).
 - Couche : devops, maintenance du schéma du cadre.
 - Session : référence de session indisponible ; mission confiée dans ce chat.
-- Worktree : `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Worktree : `worktree/devops`.
 - Branche : `layers/devops`, conservée à `2c9aeb348af37e9858df4144e00576ee3425bf3b`.
 
 ## Objectif et périmètre autorisé

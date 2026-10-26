@@ -5,7 +5,7 @@
 - Demande : rendre les documents AIOD plus faciles à intégrer depuis un dépôt GitHub public.
 - Rattachement historique : maintenance du cadre
 - Affectation : session Codex, sur la branche historique de maintenance, dossier
-  `<depot>`.
+  `.`.
 - Dépendance : socle initial `9a60e1c`.
 
 ## Périmètre

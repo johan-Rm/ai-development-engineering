@@ -42,7 +42,7 @@ ne vaut pas validation du résultat implémenté et ne déclenche pas l’étape
 
 Identifiant et titre ; état (à cadrer, prête, en cours, bloquée, implémentée et commitée à vérifier, validée, livrée) ; date ; demande d’origine ;
 couche ; périmètre et exclusions ; critères d’acceptation ; dépendances par commit ; affectation
-(session, branche, chemin absolu) ; réalisation ; preuves et commandes ; documentation mise à jour.
+(session, branche, chemin relatif à la racine du dépôt principal) ; réalisation ; preuves et commandes ; documentation mise à jour.
 
 La carte accompagne le commit d’implémentation de sa tâche avec les tests et preuves.
 La vérification consigne le verdict humain et les SHA acceptés dans un commit documentaire.
@@ -63,7 +63,15 @@ dans `tasks/`, sans sous-dossier d’archives. Leur statut indique le travail re
 Les cartes clôturées sont des traces historiques, jamais des tâches à reprendre automatiquement.
 Les preuves datées et les mentions d’état Git décrivent le moment de leur rédaction ; elles ne
 constituent pas une vérification de l’état actuel. Les chemins personnels historiques sont
-remplacés par des placeholders ; les originaux restent consultables dans Git.
+remplacés par des chemins relatifs à la racine du dépôt principal lorsqu’ils désignent
+le dépôt ; les références hors dépôt peuvent utiliser des placeholders explicites.
+Le placeholder `<skills-personnels>` désigne le dossier local des skills hors dépôt.
+Les originaux restent consultables dans Git.
+
+Les chemins des cartes et demandes partent toujours de la racine du dépôt principal,
+même lors d’une lecture depuis un worktree de couche : `worktree/devops`, par exemple.
+Le chemin absolu est résolu localement à l’exécution, puis vérifié avec la branche
+et l’état Git ; il n’est pas enregistré dans les affectations ou preuves versionnées.
 
 La maintenance du cadre appartient à devops (cartes `OPS`). Les anciennes cartes BP utilisent désormais des identifiants OPS. Leurs affectations et
 preuves restent historiques ; les commits antérieurs conservent leurs anciens identifiants.

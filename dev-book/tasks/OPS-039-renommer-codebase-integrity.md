@@ -7,7 +7,7 @@
 - **Type** : refactor.
 - **Tests** : inventaire des références avant/après, vérification des liens et ancres, tests existants de l’outillage, contrôle navigateur du schéma AIDE et commande qualité existante depuis les nouveaux chemins ; `git diff --check`. Adapter les tests affectés sans affaiblir leurs assertions. Aucun nouveau contrôle de domaine demandé.
 - **Demande** : nom `codebase-integrity` retenu par l’utilisateur ; périmètre complet de renommage validé le 2026-10-24 dans la conversation.
-- **Mission** : devops, `layers/devops`, `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : devops, `layers/devops`, `worktree/devops`.
 - **Dépendances par commit** : base locale `7bf59d6ef3cd2307ba7a9a20acd8a4591ae65c7e`, commune à `develop` et `layers/devops` au cadrage ; aucun autre commit amont requis, aucune tâche aval imposée.
 - **Réf** : `README.md`, `codebase-quality-control/README.md`, `docs/01-codebase-quality-control/`, `docs/02-cadre/couches.md`, `.github/workflows/quality.yml`.
 
