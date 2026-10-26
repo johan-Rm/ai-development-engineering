@@ -80,3 +80,13 @@ DEM-002 porte sur les éléments IA en bleu ; le présent besoin est distinct.
 Enregistrement dans `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`,
 branche `layers/devops`, arbre propre avant écriture. Aucun commit, branche, carte ou
 changement du schéma créé à cette étape.
+
+## Vérification humaine — 2026-10-26
+
+Demande validée par l’humain : réponse explicite « validé » dans le chat après présentation
+d’OPS-048, unique carte couvrant les critères 1 à 5.
+Commit d’implémentation accepté : `4930bc99d7678d80f6ddeb2ed6a64b224f5a572a`.
+Couleurs et interactions vérifiées dans Chromium ; documentation graphique alignée.
+Limites présentées et conservées : contraste 3,563:1, mobile et plein écran non exercés.
+Aucune correction demandée. La validation ne vaut pas livraison ; aucune reconstitution,
+PR, fusion ou opération distante n’est lancée par cette étape.

@@ -1,6 +1,6 @@
 # OPS-048 — Recolorer le bloc Codebase Integrity du schéma AIDE
 
-- État : implémentée et commitée, à vérifier.
+- État : validée.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-003](../demand/DEM-003-fond-codebase-integrity-schema-aide.md).
 - Couche : devops, maintenance du schéma du cadre.
@@ -130,3 +130,15 @@ redemander d’autorisation. Le blocage d’autorisation précédent est levé.
 Commit de la carte avec DEM-003, le schéma et la synthèse graphique ; SHA communiqué
 dans le chat après création du commit. Contrôles ciblés et limites ci-dessus conservés.
 Aucun verdict humain inventé ; vérification humaine à lancer séparément.
+
+## Verdict humain — 2026-10-26
+
+Verdict explicite dans le chat : « validé », après présentation du résultat et de ses limites.
+Commit d’implémentation accepté : `4930bc99d7678d80f6ddeb2ed6a64b224f5a572a`.
+Les cinq critères de DEM-003 sont acceptés pour cette carte unique : couleurs effectives,
+conservation du contenu et des autres blocs, documentation et preuves de rendu/interactions.
+Le contraste mesuré de 3,563:1 et l’absence de tests mobile et plein écran ont été présentés
+avant le verdict ; aucune conformité supplémentaire n’est déduite de cette validation.
+Branche `layers/devops`, worktree affecté et index propres vérifiés avant écriture.
+Seuls la carte et DEM-003 sont mis à jour pour tracer le verdict ; aucun changement de code.
+La reconstitution et la livraison restent à lancer séparément.
