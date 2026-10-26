@@ -101,3 +101,22 @@ Les quatre critères de la demande sont couverts par la carte et les consignes a
 Les limites navigateur demeurent documentées dans OPS-047 ; aucun contrôle non exécuté
 n’est déclaré réussi. Le blocage pour absence de commit est levé.
 La reconstitution et la livraison restent des étapes distinctes, non exécutées ici.
+
+## Preuve de reconstitution — 2026-10-26
+
+Branche `demands/DEM-002`, worktree
+`/home/johan/www/lab/ai-orchestrated-development/worktree/DEM-002`, créés à la tête
+`efa1a1ee63830a260884f242260cc3b0bbc4e722`.
+Commits réunis, ascendance vérifiée sans rejeu :
+
+- `8db9d9bd436d835d6119ea55eac461b4d463cb19` : implémentation OPS-047.
+- `efa1a1ee63830a260884f242260cc3b0bbc4e722` : trace du verdict humain.
+
+Base locale : `6477c51f6428bccdd81c08be20edf644e94fee31`, égale à la référence locale
+`origin/develop` observée sans fetch. Le diff depuis cette base comprend uniquement les six
+fichiers prévus pour DEM-002. Le `develop` local divergent est conservé sans modification ;
+aucune synchronisation distante n’est annoncée.
+Contrôle du diff des commits et comparaison exacte du HTML avec la base après les deux
+substitutions autorisées réussis. Aucun contrat applicatif modifié, aucun conflit ou fichier
+non commité transféré. Les limites de vérification Chromium de OPS-047 subsistent.
+La qualité avant PR reste à exécuter à la livraison. Aucun push, PR, merge ou nouveau serveur.
