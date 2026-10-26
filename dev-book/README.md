@@ -95,3 +95,9 @@ Les références des cartes ont été actualisées ; les SHA, statuts et mission
 | BP-019 | [OPS-031](tasks/OPS-031-textes-process-developpement.md) |
 | BP-020 | [OPS-032](tasks/OPS-032-definir-themes-cadre.md) |
 | BP-021 | [OPS-033](tasks/OPS-033-etapes-consolidation.md) |
+
+## Fin de livraison
+
+La livraison finale exige les fusions contrôlées vers `develop` puis `master`, branche par défaut.
+Les preuves rapportent les deux PR, leurs SHA et les branches temporaires effectivement supprimées
+localement et à distance. Conserver les couches locales `layers/*`, les branches occupées et les worktrees.
