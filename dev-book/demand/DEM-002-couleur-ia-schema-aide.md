@@ -120,3 +120,14 @@ Contrôle du diff des commits et comparaison exacte du HTML avec la base après 
 substitutions autorisées réussis. Aucun contrat applicatif modifié, aucun conflit ou fichier
 non commité transféré. Les limites de vérification Chromium de OPS-047 subsistent.
 La qualité avant PR reste à exécuter à la livraison. Aucun push, PR, merge ou nouveau serveur.
+
+## Préparation de livraison — 2026-10-26
+
+Qualité complète réussie au commit `90f866e` dans le worktree de réunion après installation
+des dépendances verrouillées : 23 tests d’outillage, contrat API, conteneur, mapping et OpenAPI,
+types et builds web/backoffice. Commande : `python3 codebase-integrity/scripts/quality.py`.
+Exécution hors sandbox nécessaire aux serveurs localhost des tests ; aucune règle modifiée.
+Journal local : `/tmp/DEM-002-quality.log`. Les parcours navigateur restent à la CI GitHub ;
+la limite Chromium locale demeure documentée. Validation humaine associée à `8db9d9b`.
+Fetch effectué : `origin/develop` observé à `6477c51`. Six fichiers dans le périmètre,
+arbre propre avant cette trace documentaire. PR prévue vers `develop`, stratégie merge commit.
