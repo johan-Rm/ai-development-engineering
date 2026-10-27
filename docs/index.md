@@ -10,13 +10,13 @@ La pierre angulaire d’AIDE : des conventions techniques humaines et des contr�
 - [Conventions techniques et domaines](01-codebase-integrity/conventions-et-domaines.md)
 - [Points de contrôle et commandes](01-codebase-integrity/points-de-controle.md)
 
-## 02 — Cadre
+## 02 — Les quatre piliers
 
 - [Consolidation](02-cadre/consolidation.md)
 - [Couches](02-cadre/couches/index.md)
+  - [Environnements de développement locaux](02-cadre/couches/dockerisation.md)
 - [IA Engineering](02-cadre/ia-engineering.md)
 - [Documentation](02-cadre/documentation.md)
-- [Environnements de développement locaux](02-cadre/couches/dockerisation.md)
 
 ## 03 — Boucle de développement
 
