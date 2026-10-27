@@ -21,12 +21,12 @@ class Worktrees(unittest.TestCase):
         self.git('init', '-b', 'main')
         self.git('config', 'user.name', 'AIOD Test')
         self.git('config', 'user.email', 'test@example.invalid')
-        (self.root / 'config').mkdir(parents=True)
-        (self.root / 'config/layers.json').write_text(json.dumps({'layers': {
+        (self.root / 'infra/config').mkdir(parents=True)
+        (self.root / 'infra/config/layers.json').write_text(json.dumps({'layers': {
             'api': {'branch': 'layers/api'}, 'web': {'branch': 'layers/web'}}}))
         (self.root / '.gitignore').write_text('/worktree/*\n!/worktree/README.md\n')
         (self.root / 'reference').write_text('base connue')
-        self.git('add', 'config/layers.json', '.gitignore', 'reference')
+        self.git('add', 'infra/config/layers.json', '.gitignore', 'reference')
         self.git('commit', '-m', 'base')
         self.sha = self.git('rev-parse', 'HEAD')
 
@@ -59,7 +59,7 @@ class Worktrees(unittest.TestCase):
 
     def test_secondary_uses_its_config_when_main_layout_differs(self):
         api, _ = self.add()
-        (self.root / 'config/layers.json').unlink()
+        (self.root / 'infra/config/layers.json').unlink()
         web, _ = self.add('web', api)
         self.assertEqual(web, self.root / 'worktree/web')
 
@@ -70,7 +70,7 @@ class Worktrees(unittest.TestCase):
         self.assertEqual(wt.git(path, 'branch', '--show-current'), 'layers/api')
 
     def test_missing_or_invalid_layers_do_not_fall_back_or_create_worktree(self):
-        path = self.root / 'config/layers.json'
+        path = self.root / 'infra/config/layers.json'
         legacy = self.root / 'codebase-integrity/scripts/aiod.json'
         legacy.parent.mkdir(parents=True)
         legacy.write_text(path.read_text())

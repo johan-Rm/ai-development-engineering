@@ -21,15 +21,15 @@ class Process(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
-        p = self.root / 'config/layers.json'
+        p = self.root / 'infra/config/layers.json'
         self.config = json.loads(p.read_text())
-        (self.root / 'infra').mkdir()
+        (self.root / 'infra').mkdir(exist_ok=True)
         (self.root / 'infra/process-check.json').write_text(json.dumps({
             'process': {'port_base': 18100, 'image': 'busybox:1.37.0'}}))
         self.config['layers']['api']['id'] = 2
         self.config['layers']['web']['id'] = 3
         p.write_text(json.dumps(self.config))
-        self.fixture.git('add', 'config/layers.json', 'infra/process-check.json')
+        self.fixture.git('add', 'infra/config/layers.json', 'infra/process-check.json')
         self.fixture.git('commit', '-m', 'configuration témoin')
         self.fixture.sha = self.fixture.git('rev-parse', 'HEAD')
 
@@ -107,7 +107,7 @@ class Process(unittest.TestCase):
 
     def test_secondary_reads_both_configurations_from_its_worktree(self):
         api, _ = self.fixture.add()
-        (self.root / 'config/layers.json').unlink()
+        (self.root / 'infra/config/layers.json').unlink()
         (self.root / 'infra/process-check.json').unlink()
         path = api / 'infra/process-check.json'
         recipe = json.loads(path.read_text())
@@ -124,7 +124,7 @@ class Process(unittest.TestCase):
         legacy.parent.mkdir(parents=True)
         legacy.write_text(json.dumps(dict(self.config, process={
             'port_base': 18100, 'image': 'busybox:1.37.0'})))
-        for relative in ('config/layers.json', 'infra/process-check.json'):
+        for relative in ('infra/config/layers.json', 'infra/process-check.json'):
             path = api / relative
             original = path.read_text()
             for content in (None, '{invalid', '{}'):
@@ -140,7 +140,7 @@ class Process(unittest.TestCase):
 
     def test_duplicate_ids_refused(self):
         api, _ = self.fixture.add()
-        p = api / 'config/layers.json'
+        p = api / 'infra/config/layers.json'
         c = json.loads(p.read_text())
         c['layers']['web']['id'] = 2
         p.write_text(json.dumps(c))
