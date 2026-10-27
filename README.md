@@ -1,4 +1,4 @@
-# AIDE — AI Development Engineering
+# AIDE — AI-powered Development Engineering
 
 **Des conventions techniques humaines, des contributions isolées et des résultats vérifiables.**
 
