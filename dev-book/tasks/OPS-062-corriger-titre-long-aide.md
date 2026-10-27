@@ -1,7 +1,7 @@
 # OPS-062 — Corriger le titre long AIDE dans les supports actuels
 
 - Date : 2026-10-27.
-- État : validée par l’humain avec réserve navigateur ; commit local en cours.
+- État : validée et commitée avec réserve navigateur ; non livrée.
 - Identifiant de session de création : `01a17e4d-043f-7c71-9aa5-3754c3794e18`.
 - Demande : DEM-010, cadrage confirmé dans le chat.
 - Brouillon de référence : `tmp/demande-corriger-titre-long-aide.md`, depuis la racine du dépôt principal (hors worktrees).
@@ -139,3 +139,6 @@ base `13d69361ae061a1fec27f039bb199160d4f5db30` : quatre fichiers suivis modifi�
 et cette carte. Les cinq empreintes SHA-256 ont été revérifiées identiques avant
 l’ajout de cette trace. La réserve navigateur demeure ; aucun test navigateur
 réussi ni contrôle visuel ne sont déduits de ce verdict. La carte reste à livrer.
+
+Commit local d’OPS-062 créé après ce verdict : `5737c74570b124c7d92cbefa0d3d36b22700b22a`.
+La trace de ce SHA est consignée dans un commit documentaire complémentaire.
