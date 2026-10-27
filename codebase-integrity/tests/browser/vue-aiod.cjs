@@ -70,7 +70,7 @@ const { chromium } = requireApp('playwright');
     const legend = await page.locator('.role-legend').boundingBox();
     assert.ok(legend.x < 100 && legend.y > 800, 'Légende en bas à gauche');
     const before = await page.locator('.workspace').boundingBox();
-    assert.match(await page.locator('.signature').innerText(), /AIDE\s*AI Development Engineering/);
+    assert.match(await page.locator('.signature').innerText(), /AIDE\s*AI-powered Development Engineering/);
     assert.equal(await page.locator('header h1').count(), 0);
     assert.equal(await page.locator('.signature p').count(),1);
     const equalFrameBands = async () => page.evaluate(() => {
