@@ -1,6 +1,6 @@
 # OPS-052 — Mettre à disposition et vérifier les cinq stacks
 
-- État : bloquée — nouvelle recette après correction Make d’OPS-051.
+- État : implémentée et commitée, à vérifier — recette Make directe.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
@@ -188,3 +188,75 @@ les procédures, la matrice et les preuves de recette. Les preuves existantes re
 datées du 2026-10-26 et ne prouvent pas encore cette nouvelle interface de commande.
 Dépendance sans SHA à ce stade : correction Make d’OPS-051 ; ne pas consommer de
 travail non commité. Aucun code ni service modifié lors de la consignation du verdict.
+
+
+## Reprise après correction Make — 2026-10-27
+
+L’humain a précisé que Make doit appeler Docker directement, sans Python interne.
+Le commit source de correction OPS-051 est
+`a46ac38f1445fb98d81bd30b076f22a67c2b1503`. La trace du verdict `b911578`
+a d’abord été appliquée aux quatre branches, puis ce commit a été consommé par
+cherry-pick, sans copie de travail non commité et sans conflit.
+Les copies OPS-051 sont `05d6015` pour API/web/backoffice et `5160ff8` pour design ;
+les SHA complets et les preuves actualisées seront consignés après la recette.
+Les données existantes ne sont pas vidées pour vérifier la correction Make.
+
+
+## Preuves de la correction Make — 2026-10-27
+
+Le Makefile appelle directement Docker Compose. Les quatre scripts Python de la
+stack sont supprimés ; aucun appel à Python ne figure dans le Makefile ou dans
+son fichier de contexte. Les outils du Codebase Integrity sont inchangés.
+
+| Couche | Commit Make consommé | Port | up + navigateur/CRUD + rechargement + persistance + down |
+| --- | --- | --- | --- |
+| devops | `a46ac38f1445fb98d81bd30b076f22a67c2b1503` | 19304 | réussi |
+| api | `05d6015a7c54a891f3e1efcdfab11f5a626de422` | 19302 | réussi |
+| web | `05d6015a7c54a891f3e1efcdfab11f5a626de422` | 19303 | réussi |
+| backoffice | `05d6015a7c54a891f3e1efcdfab11f5a626de422` | 19301 | réussi |
+| design | `5160ff8753c5808b0c514c685edd01072bf6d94d` | 19305 | réussi |
+
+Les patches de la source et des deux variantes de copies ont le même patch-id stable.
+Chaque stack a été testée successivement avec `make up INTERFACE=both`,
+`make test-browser RELOAD=1`, `make test-runtime`, puis `make down`.
+Les recettes ont restauré les octets des sources et préservé les empreintes des
+.env, les utilisateurs et les droits des fichiers générés. Les collections comptaient
+zéro article au début des recettes ; elles ont conservé leur état après suppression
+des seuls articles de preuve. Les bases et les volumes existants n’ont pas été réinitialisés.
+Les trois modes réels web/backoffice/both, `prepare` et `status` ont aussi été
+vérifiés sur devops.
+
+Les stacks API et web ont ensuite fonctionné simultanément : projets et ports
+inchangés, neuf volumes privés et un réseau distinct par stack, montages source
+en lecture seule dans leur propre worktree. Les articles sont restés dans leur
+stack ; une modification temporaire du composant web côté API est apparue seulement
+sur son rendu, sans changement du fichier ou du rendu de la couche web. La source
+a été restaurée exactement et les deux articles temporaires supprimés. Les deux
+recettes navigateur ont ensuite repassé le CRUD et la lecture avec les stacks actives.
+
+`make test` passe sept groupes de contrôles, dont les quinze résolutions Compose,
+le routage JSON compact, les paramètres invalides, les collisions réelles, les
+montages symboliques et un `make -n` sans commande Docker exécutée. Un exécutable
+Python factice qui échoue s’il est appelé est placé dans le PATH de ces tests :
+le pilotage passe sans l’invoquer. La qualité complète existante passe aussi, sans
+modification ni affaiblissement des contrôles. Les prérequis Make/Bash/Git/Perl et
+Linux/WSL sont explicités ; Node hôte n’est requis que pour les assertions runtime.
+Les Dockerfiles et les locks applicatifs sont inchangés par cette correction.
+
+Les procédures quotidiennes et de recette, le README infra, SETUP et le guide des
+couches présentent les cibles Make. La commande de démarrage est désormais
+`make up`, avec `INTERFACE=backoffice` ou `INTERFACE=both` selon le besoin.
+Les deux stacks API/web restent actives pour vérification humaine, les trois autres
+sont arrêtées avec leurs volumes conservés. Les services étrangers n’ont pas été modifiés.
+
+Les journaux actualisés sont `/tmp/DEM-005-make-test.log`,
+`/tmp/DEM-005-make-quality.log`, `/tmp/DEM-005-make-modes.log`,
+`/tmp/DEM-005-make-sequential.log`,
+`/tmp/DEM-005-make-verify-<couche>-{up,browser,runtime,stop}.log`,
+`/tmp/DEM-005-make-runtime-<couche>.json` et
+`/tmp/DEM-005-make-isolation.json`. Captures dans
+`/tmp/DEM-005-make-browser-artifacts/`. Les procédures durables permettent de
+rejouer les commandes sans les orchestrateurs temporaires.
+Aucun push, PR, merge, fetch ou reconstitution. Aucun verdict favorable déduit des tests ;
+la correction de DEM-005 reste à vérifier par l’humain. Le SHA de ce commit documentaire
+sera fourni dans le bilan et reste consultable dans l’historique de cette carte.
