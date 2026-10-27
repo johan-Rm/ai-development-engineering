@@ -1,7 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
 - Date : 2026-10-26.
-- État : validée, prête pour reconstitution.
+- État : validée et reconstituée, prête pour livraison.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -316,3 +316,62 @@ documentaire à conserver. Aucune validation ne s’étend à une autre demande.
 DEM-005 est validée et prête pour sa reconstitution autorisée sur
 `demands/DEM-005`, dans `worktree/DEM-005`, à partir du develop local identifié.
 La validation ne constitue pas une livraison ; aucun push, PR ou merge demandé ici.
+
+## Reconstitution — 2026-10-27
+
+Branche : `demands/DEM-005` ; worktree : `worktree/DEM-005`.
+Base locale explicite : `develop` à `aa8b856587058a5f71ec35c13d3cd319fb58b1ce`.
+Les onze commits ci-dessous sont réunis dans l’ordre de leurs dépendances par
+cherry-pick avec provenance `-x`. Aucun historique divergent de `layers/devops`
+hors DEM-005 n’est importé. La validation humaine est conservée dans le dernier
+commit documentaire de cette liste.
+
+| SHA source | SHA réuni sur demands/DEM-005 |
+| --- | --- |
+| `b041cab9031eee89d7cd40e8c2b7a90bbeb17a7c` | `a0861cb81b2ca2bacd205736e94de40b6ae96f96` |
+| `d076aecd78c7bfe110758ef35055b42e0af35084` | `7d54c1623442e285a9dfbb5b23e0beea00c18b48` |
+| `ec0e27bd1b8e19bddf073139fcc6b95ede035136` | `d7af1fec47d6dcc611bdb812937906a6b40d3fc7` |
+| `c70975474d656c74fb3f88ec7419953221a38922` | `84330bf596f145ccd03bd1be3928285f894f53dc` |
+| `61797d678c4425f710554f7b2f221d60f2459eee` | `a21da7b67630d58de694bedf2feafff27502ee4c` |
+| `b911578e8e39caac49e957085d0074813cbacfb0` | `c0da6eca443ffc1ba71e878612d8b3a4daac6f8b` |
+| `a46ac38f1445fb98d81bd30b076f22a67c2b1503` | `590a0158e44b6773e9a76e2cbb8f86eb922f99c2` |
+| `df5ac29be74825922df62639675b6dd362846d80` | `56d1b73ca6fec1b83517740f2fe9a2a3e9d0aa84` |
+| `8c1482eb1d1025e18b3f2b67ec592751f886da0c` | `4e7247d687fc9876545554a1ebd705865baa0e73` |
+| `9d3cf0bc87485b13688b68fdfd6420141de391ce` | `ec7f99a580a438f2c82904774ff8d69cacd14e3f` |
+| `41fad53b1ea6159d8991debdb4898225c0336735` | `681fa6d36f1f9532203fd43e144e8d24f044d6f8` |
+
+L’ascendance des onze commits réunis et les mentions de provenance ont été vérifiées.
+Les conflits AGENTS/SETUP ne concernaient que le contexte des liens déplacés :
+les consignes préexistantes de develop sont préservées et les liens des couches
+pointent vers `docs/02-cadre/couches/index.md`. Aucun arbitrage de comportement
+ni changement des règles de workflow n’a été introduit.
+
+Contrôles sur la branche réunie :
+
+- `make test` : sept groupes historiques, quinze configurations Compose et tests
+  des raccourcis des cinq couches réussis ; aucun Python dans le pilotage Docker.
+- `python3 codebase-integrity/scripts/quality.py` : code 0, 23 tests d’outillage,
+  contrat API CRUD/validation/pagination/docs, lint Symfony, mapping Doctrine,
+  comparaison OpenAPI, types et builds Nuxt des deux interfaces.
+- Le premier contrôle applicatif avait signalé les dépendances absentes dans ce
+  worktree neuf. Installation avec les locks existants via `apps.py install all`,
+  puis réussite du contrôle complet, sans changement des locks ou des vérificateurs.
+  Le seul .env créé est celui du worktree neuf, depuis son .env.example, par la
+  création exclusive déjà prévue par l’outil d’installation du cadre.
+- Applications, Codebase Integrity, `config/layers.json` et `.codex/` identiques
+  à develop. Makefile, fichiers infra et guide de dockerisation identiques à la
+  version validée dans devops. Liens locaux et `git diff --check` vérifiés.
+- `make docker-status-api` et `make docker-status-web` depuis la branche réunie
+  consultent les environnements de couches autorisés. Leurs quatre interfaces
+  répondent en HTTP 200. Aucune stack ni preview créée pour la branche de réunion.
+  Les preuves détaillées des parcours et de l’isolation restent dans OPS-052.
+
+Journaux locaux : `/tmp/DEM-005-reconstitution-make.log`,
+`/tmp/DEM-005-reconstitution-install.log`, `/tmp/DEM-005-reconstitution-quality.log`
+et `/tmp/DEM-005-reconstitution-access.log`. La table ci-dessus conserve durablement
+la correspondance des SHA ; les mentions `cherry picked from commit` sont dans Git.
+
+Les trois cartes sont validées ; DEM-005 est reconstituée, prête pour livraison,
+non livrée. develop reste propre et inchangée. Les environnements API/web existants
+restent actifs ; aucune donnée ou configuration d’une autre couche n’a été copiée.
+Aucun fetch, push, PR, merge ou réalignement des branches de couches réalisé ici.
