@@ -1,7 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
 - Date : 2026-10-26.
-- État : implémentée et commitée, à vérifier — correction Make directe.
+- État : implémentée et commitée, à vérifier — commandes Docker contextualisées et guide des couches.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -289,3 +289,18 @@ Les deux autres procédures restent à leurs emplacements d’origine. Les tests
 et la qualité complète passent. La correction est préparée sur `layers/devops`,
 puis OPS-052 vérifie et référence son commit dans les cinq couches.
 Aucun verdict humain favorable acquis ; la demande reste à vérifier.
+
+## Bilan des dernières corrections
+
+OPS-051 est commitée dans `8c1482eb1d1025e18b3f2b67ec592751f886da0c` et appliquée
+aux quatre autres couches par commits identifiés (table dans OPS-052). Les noms
+Docker contextualisés et le guide `couches/dockerisation.md` sont en place dans
+les cinq worktrees. Les deux autres procédures sont conservées à leur emplacement
+initial, sans modification de contenu.
+
+OPS-052 a vérifié les nouveaux raccourcis sur les cinq couches successivement :
+démarrage, état, HTTP 200 sur les deux interfaces et arrêt. API/web fonctionnent
+ensuite ensemble, avec quatre accès HTTP à 200. Les tests Make et la qualité complète
+passent ; les env et les fichiers applicatifs sont préservés. Les commandes courtes
+depuis la racine principale seront disponibles après intégration du Makefile.
+Les trois cartes restent sans validation humaine ; DEM-005 est à vérifier.
