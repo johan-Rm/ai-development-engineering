@@ -7,7 +7,9 @@
 Git et Python 3.12 ou supérieur pour l’outillage. Pour les applications fournies : PHP 8.4 ou supérieur avec PDO SQLite, SQLite3, mbstring et XML, Composer 2, Node.js 22.12 ou supérieur et npm. Un accès aux registres est nécessaire à l’installation.
 
 Docker et Compose permettent aussi de lancer les applications dans chaque worktree de couche,
-sans installer les runtimes sur l’hôte. Le lancement sur l’hôte reste disponible ci-dessous.
+sans installer les runtimes sur l’hôte. Le pilotage direct utilise GNU Make, Bash, Git,
+Perl/JSON::PP et les outils Linux/WSL décrits dans le runbook, sans Python.
+Le lancement sur l’hôte reste disponible ci-dessous.
 
 ## Préparer le workspace de développement
 
@@ -52,12 +54,12 @@ décrit l’utilisation du workspace pendant la boucle de développement.
 Depuis un worktree de couche équipé de la stack :
 
 ```sh
-python3 infra/apps.py up --interface web
-python3 infra/apps.py status
-python3 infra/apps.py down
+make up INTERFACE=web
+make status
+make down
 ```
 
-Choisir `backoffice` ou `both` pour les autres interfaces. Chaque stack possède son API,
+Choisir `INTERFACE=backoffice` ou `INTERFACE=both` pour les autres interfaces. Chaque stack possède son API,
 sa base SQLite persistante et ses domaines locaux derrière Caddy. Le [runbook des stacks](dev-book/runbooks/stacks-applicatives.md)
 donne les cinq ports, les adresses, les prérequis et les procédures de préparation et diagnostic.
 Les témoins BusyBox restent une recette distincte. Les worktrees ne démarrent aucun service

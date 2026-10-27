@@ -2,34 +2,44 @@
 
 ## Objectif et préconditions
 
-Consulter le code d’une couche dans une stack Docker autonome. Docker Engine local,
-Compose v2 ou supérieur, Git et Python 3 sont nécessaires ; PHP, Composer et Node
-sur l’hôte ne sont pas nécessaires pour lancer cette stack. Les registres Docker,
-Composer et npm doivent être accessibles au premier démarrage.
+Consulter le code d’une couche dans une stack Docker autonome. Sous Linux/WSL,
+prévoir GNU Make 4+, Bash, Git, Docker Engine local avec Compose v2+, Perl avec son
+module standard JSON::PP, les outils usuels coreutils et `ss` (iproute2).
+Les registres Docker, Composer et npm doivent être accessibles au premier démarrage.
+Python, PHP, Composer et Node ne sont pas nécessaires sur l’hôte pour le pilotage.
 
 Vérifier la disponibilité de la couche, sa branche `layers/<couche>` et l’état Git.
-Réparer les liens si le dépôt a été déplacé, selon le runbook dédié. Les commandes
-suivantes s’exécutent depuis la racine du worktree concerné, équipé du commit de stack.
+Réparer les liens si le dépôt a été déplacé selon le runbook dédié. Exécuter les
+commandes depuis la racine du worktree équipé des commits de stack.
 
 ## Préparer et démarrer
 
 ```sh
-python3 infra/apps.py info
-python3 infra/apps.py config --interface both
-python3 infra/apps.py prepare
-python3 infra/apps.py up --interface web
+make help
+make info
+make config INTERFACE=both
+make prepare
+make up INTERFACE=web
 ```
 
+Le Makefile appelle directement Docker Compose ; aucun lanceur Python n’intervient.
+`infra/stack-env.sh` prépare seulement le contexte Git, l’identité et les paramètres.
 `prepare` construit l’image PHP et télécharge les images communes. `up` effectue
-également le build nécessaire ; les dépendances verrouillées sont installées au
-premier démarrage et quand leur lock change. Les migrations SQLite sont appliquées.
-La base Docker est indépendante de la base utilisée par PHP sur l’hôte et démarre vide.
+le build nécessaire ; les dépendances verrouillées sont installées au premier
+démarrage et quand leur lock change. Les migrations SQLite sont appliquées.
+La base Docker est indépendante de celle utilisée sur l’hôte et démarre vide.
 
-`--interface backoffice` sélectionne l’administration et `--interface both` les deux
-interfaces. Sans option, la couche backoffice choisit son interface, les autres le web.
+```sh
+make up INTERFACE=backoffice
+make up INTERFACE=both
+make status
+make down
+```
+
+Sans `INTERFACE`, la couche backoffice choisit son interface, les autres le web.
 Un second `up` conserve une interface déjà lancée : pour passer à un mode plus léger,
-faire `down` puis `up` avec le choix voulu. Cela conserve la base et les dépendances.
-Le premier lancement peut prendre plusieurs minutes ; `up` attend la santé des services.
+faire `make down` puis `make up` avec le choix voulu. La base et les dépendances restent.
+Le premier lancement peut prendre plusieurs minutes ; `up` attend les services.
 
 ## Adresses et isolation
 
@@ -43,72 +53,65 @@ Le premier lancement peut prendre plusieurs minutes ; `up` attend la santé des 
 
 Remplacer `web` par `backoffice` pour l’administration ou par `api` avec `/api/docs`
 pour la documentation API. Seules les interfaces démarrées répondent ; une interface
-éteinte peut répondre 502 sans empêcher les autres de fonctionner.
-Le proxy gère aussi les WebSockets du rechargement automatique.
+éteinte peut répondre 502 sans gêner les autres. Caddy gère aussi les WebSockets.
+Les domaines `*.localhost` visent la boucle locale ; un outil sans cette résolution
+peut utiliser une résolution explicite vers `127.0.0.1`. Aucun DNS public n’est modifié.
+Seul Caddy publie un port, lié à `127.0.0.1`.
 
-Les domaines `*.localhost` visent la boucle locale ; en cas de résolution absente dans
-un outil, utiliser une résolution explicite vers `127.0.0.1`. Aucun DNS public n’est modifié.
-Seul Caddy publie un port, lié à `127.0.0.1`. Le nom de projet inclut un hash du chemin
-principal et la couche. Un déplacement du clone change cette identité : observer les
-anciennes ressources avant de déplacer un dépôt utilisé par Docker.
+Les projets conservent l’identité dépôt/couche et les volumes de la première version.
+Un déplacement du clone change cette identité : observer les anciennes ressources
+avant de déplacer un dépôt utilisé par Docker.
 
-En cas de port occupé, le lanceur refuse sans arrêter le service tiers. Pour un autre
-clone ou une collision locale, définir une autre base dans l’environnement appelant :
-`AIDE_APP_PORT_BASE=20300 python3 infra/apps.py up --interface web`. Garder cette même
-base pour toutes les commandes ultérieures de cette stack. Vérifier l’absence de collision
-avec les autres clones et services ; les noms de projet distincts ne suffisent pas.
+En cas de port occupé, `make up` refuse sans arrêter le service tiers. Pour un autre
+clone ou une collision locale : `make up AIDE_APP_PORT_BASE=20300 INTERFACE=web`.
+La base peut aussi venir de l’environnement ; garder la même valeur pour toutes
+les commandes de cette stack. Les noms de projets distincts ne suffisent pas à
+éviter les collisions entre clones. Les connexions récemment fermées ne sont pas
+assimilées à une écoute active ; un Caddy du même projet peut déjà tenir son port.
 
-Le lanceur crée les répertoires de montage ignorés manquants sous l’utilisateur hôte,
-pour éviter leur création par Docker en root ; il ne remplace pas les répertoires existants.
-Les sources sont montées en lecture seule dans les conteneurs. Les volumes privés
-contiennent SQLite/var, vendor/Composer et, pour chaque interface, node_modules,
-.nuxt et .output. L’initialisation attribue ces volumes à l’UID/GID de l’utilisateur
-appelant ; les applications ne tournent pas en root. Les `.env` hôte ne sont jamais
-écrits ou copiés. L’API utilise explicitement les valeurs locales Docker et sélectionne
-`.env.example` avec `APP_RUNTIME_OPTIONS.dotenv_path`, sans montage ni création de `.env` ;
-les paramètres de base sont donc
-indépendants des secrets et connexions de l’hôte. Les options internes Compose sont
-fournies par le lanceur, qui ignore les `.env` Compose et les variables `COMPOSE_*` héritées.
+Les sources sont montées en lecture seule. Les volumes privés contiennent SQLite/var,
+vendor/Composer et, pour chaque interface, node_modules, .nuxt et .output.
+Les répertoires de montage ignorés manquants sont créés sous l’utilisateur hôte,
+sans remplacer les répertoires existants ; les liens symboliques sont refusés.
+L’initialisation attribue les volumes à l’UID/GID appelant et les applications
+ne tournent pas en root. Aucun `.env` n’est écrit ou copié. Symfony lit `.env.example`
+via `APP_RUNTIME_OPTIONS.dotenv_path`, avec les valeurs locales Docker explicites.
+Compose ignore les `.env` et les variables `COMPOSE_*` héritées.
 
 ## Vérifier et arrêter
 
 ```sh
-python3 infra/apps.py status
-python3 infra/test_apps.py
-python3 infra/apps.py down
+make test
+make test-browser RELOAD=1
+make test-runtime EXPECT_EMPTY=1
+make down
 ```
 
-`down` retire les conteneurs et le réseau du projet, sans supprimer les volumes.
-Les données et dépendances restent disponibles à la relance.
-Pour une recette réelle sur une stack de test avec les deux interfaces lancées :
+`test` vérifie les identités, les 15 configurations, les paramètres et les collisions
+sans démarrer les applications ; il fonctionne avec un exécutable Python factice
+qui échoue s’il est appelé. `test-browser` exige les deux interfaces et utilise une
+image Chromium construite depuis `infra/Dockerfile.browser`, sans paquet système hôte.
+Il crée/modifie/supprime son article. `RELOAD=1` modifie temporairement trois fichiers
+ciblés pour vérifier leur rechargement et restaure exactement les sources, y compris
+en cas d’échec. Réserver la couche pendant cette recette. Sans cette option, aucun
+code n’est modifié. Les montages de test restent limités ; aucun `.env` n’est exposé.
+Les captures sont dans `/tmp/DEM-005-make-browser-artifacts/`.
 
-```sh
-python3 infra/test-runtime.py --expect-empty
-python3 infra/browser.py --reload
-```
+`test-runtime` nécessite Node 22+ sur l’hôte pour les assertions de recette, pas pour
+le pilotage quotidien. Il appelle Make pour l’arrêt/relance, observe les ressources,
+vérifie la persistance et supprime son seul article temporaire. `EXPECT_EMPTY=1`
+exige une collection initialement vide ; omettre cette option pour une base existante.
+Les observations sont dans `/tmp/DEM-005-make-runtime-<couche>.json`.
 
-La première exige une base vide, vérifie les montages et la persistance par arrêt/relance,
-puis supprime son article. Omettre `--expect-empty` pour une base existante.
-La seconde construit une image Chromium depuis `infra/Dockerfile.browser`, teste le CRUD
-et la lecture dans le navigateur, puis le rechargement automatique. Elle ne monte que
-le script de recette et les captures, plus les trois fichiers source concernés avec
-`--reload`. Cette option modifie temporairement ces fichiers et les restaure exactement ;
-réserver la couche à cette recette pendant l’exécution. Sans `--reload`, aucun code n’est modifié.
-Le lanceur navigateur utilise le réseau hôte Linux ; les captures sont sous
-`/tmp/DEM-005-browser-artifacts/`. Les dépendances système restent dans l’image.
-
-Ne pas utiliser `down -v`
-ou un nettoyage global de Docker pour résoudre un problème.
-
-La [recette des cinq stacks](recette-stacks-applicatives.md) détaille les passages
-successifs et la vérification de deux stacks simultanées.
+`down` retire les conteneurs et le réseau du projet sans supprimer les volumes.
+Les données et dépendances restent disponibles à la relance. Ne pas utiliser un
+nettoyage global de Docker ou une suppression de volumes pour résoudre une panne.
+La [recette des cinq stacks](recette-stacks-applicatives.md) détaille la vérification.
 
 ## Arrêt en cas d’erreur et retour arrière
 
-En cas d’échec de build, installation, migration ou santé, conserver le diagnostic et
-inspecter les journaux du seul projet annoncé par `info` avec Docker Compose. Vérifier
-l’accès au moteur local, aux registres et les droits, sans changer les locks ni les contrôles.
-Arrêter seulement cette stack avec `down` ; les sources et `.env` n’ont pas été modifiés.
-Les modifications de code pour vérifier le rechargement doivent être temporaires,
-coordonnées et restaurées exactement, sans reset global. Aucun démarrage implicite
-n’accompagne la création Git d’un worktree.
+Conserver le diagnostic et inspecter uniquement le projet annoncé par `make info`.
+Vérifier le moteur, les registres et les droits sans changer les locks ni les contrôles.
+Arrêter cette seule stack avec `make down` ; les sources et `.env` restent préservés.
+Les modifications temporaires de test doivent être restaurées exactement, sans reset.
+La création Git d’un worktree ne démarre aucun service.

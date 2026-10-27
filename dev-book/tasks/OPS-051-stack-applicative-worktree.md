@@ -1,6 +1,6 @@
 # OPS-051 — Fournir la stack applicative autonome par worktree
 
-- État : prête — corrections humaines demandées, retour à l’implémentation.
+- État : implémentée et commitée, à vérifier — correction Make directe.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
@@ -135,3 +135,45 @@ au périmètre de correction par cette demande explicite ; actualiser la documen
 et les preuves concernées sans modifier le Codebase Integrity.
 De nouveaux commits d’implémentation sont nécessaires avant une nouvelle vérification.
 Aucun code modifié à l’étape de consignation du verdict.
+
+
+## Clarification et réalisation Make — 2026-10-27
+
+L’humain demande explicitement de supprimer Python du pilotage et de faire appeler
+Docker directement par Make ; la possibilité précédente de conserver Python comme
+lanceur interne ne s’applique plus. Le Makefile racine contient les appels Compose,
+la préparation et l’exécution Docker de Chromium. `infra/stack-env.sh` prépare
+seulement les paramètres, les vérifications Git et les points de montage, avec Git,
+Bash, Perl/JSON::PP et les outils Linux existants. Il ne distribue pas d’actions Docker.
+Les anciens `apps.py`, `browser.py`, `test-runtime.py` et `test_apps.py` de `infra/`
+sont supprimés. Les tests Make remplacent les tests du lanceur ; la recette de
+persistance Node appelle Make pour le cycle de vie. Aucun changement de Compose,
+contrat, lock, configuration de couche ou Codebase Integrity n’est nécessaire.
+
+
+Preuves de la correction Make sur devops, 2026-10-27 :
+
+- `make test` : sept groupes de contrôles réussis, dont les cinq identités et quinze
+  configurations, le routage compact JSON, les paramètres invalides, la préservation
+  des `.env`, les collisions réelles, le port détenu par Caddy, les montages symboliques,
+  les cibles prepare/status/up/down et un `make -n` sans effet. Un faux exécutable
+  Python échoue s’il est invoqué ; ces contrôles passent sans l’appeler.
+- `make prepare`, `make status` et les démarrages réels web/backoffice/both réussis.
+  Projets, ports et volumes conservent exactement leur identité précédente.
+- `make test-browser RELOAD=1` : CRUD navigateur, lecture web, rechargement PHP/Nuxt
+  réussis, avec restauration exacte des fichiers testés.
+- `make test-runtime EXPECT_EMPTY=1` : cycle down/up via Make, article conservé puis
+  supprimé, `.env` préservés, montages et UID/GID corrects, aucun fichier généré root.
+  La recette utilise des connexions HTTP neuves après relance plutôt qu’une connexion
+  persistante liée au conteneur arrêté.
+- Qualité complète existante réussie, sans modification du Codebase Integrity.
+  Syntaxes Bash/Node et `git diff --check` vérifiés ; aucun diff applicatif.
+
+Les procédures quotidiennes et de recette, SETUP, le guide des couches et le README
+infra présentent Make. Prérequis de pilotage Linux/WSL : GNU Make, Bash, Git, Docker
+Compose, Perl/JSON::PP, coreutils et ss ; aucun Python ni Node hôte pour le pilotage.
+Seule la recette d’assertions runtime utilise Node sur l’hôte.
+Les journaux sont `/tmp/DEM-005-make-{test,prepare,status,modes,quality}.log`,
+`/tmp/DEM-005-make-browser-devops.log` et `/tmp/DEM-005-make-runtime-devops.log`.
+Cette correction reste à vérifier par l’humain ; OPS-052 vérifiera ses copies dans
+les cinq couches après identification du nouveau SHA.

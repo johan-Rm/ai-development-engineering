@@ -56,8 +56,8 @@ La [documentation d’infrastructure](../../infra/README.md) décrit les témoin
 ## Consulter les applications d’une couche
 
 La stack applicative autonome décrite dans le [runbook](../../dev-book/runbooks/stacks-applicatives.md)
-se lance depuis chaque worktree équipé avec `python3 infra/apps.py up --interface web`,
-`backoffice` ou `both`. Chaque couche utilise son API et sa base SQLite, ses domaines
+se lance depuis chaque worktree équipé avec `make up INTERFACE=web`,
+`INTERFACE=backoffice` ou `INTERFACE=both`. Chaque couche utilise son API et sa base SQLite, ses domaines
 `web.wt-<couche>.localhost`, `backoffice.wt-<couche>.localhost` et `api.wt-<couche>.localhost`.
 Les ports locaux par défaut vont de 19301 à 19305 selon les identifiants des couches.
 `down` conserve les volumes. Ce fonctionnement complète la recette BusyBox ; sa preuve
