@@ -198,3 +198,12 @@ n’est modifiée. Les contrôles qualité du projet et les checks GitHub resten
 requis. Aucun nouveau test ni changement général de Codebase Integrity n’est
 inclus dans cette livraison. Le résultat validé et le remplacement textuel
 minimal dans l’assertion du titre sont conservés.
+
+## Rattachement des sources avant PR
+
+Le merge `b85c728` rattache layers/devops et ses deux commits sources validés.
+Le conflit add/add de la carte a été résolu après vérification que son contenu
+source est un préfixe intégral de la carte enrichie de preuves. Le diff du merge
+par rapport à son premier parent est vide ; le résultat validé est inchangé.
+Toutes les branches de couche sont désormais ancêtres de la livraison et
+pourront avancer rapidement après fusion, sous réserve d’être libres et propres.
