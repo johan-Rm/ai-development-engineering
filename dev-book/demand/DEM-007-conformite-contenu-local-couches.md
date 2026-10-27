@@ -1,7 +1,7 @@
 # DEM-007 — Vérifier la conformité du contenu local des couches
 
 - Date : 2026-10-27.
-- État : périmètre corrigé validé ; reconstitution en cours, non livrée.
+- État : périmètre corrigé validé et reconstitué ; non livrée.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -204,3 +204,19 @@ L’humain confirme « c’est validé » pour le nettoyage présenté au commit
 OPS-056 est sans suite. Cette décision remplace les anciens blocages de
 consolidation, abandonnés avec l’extension de périmètre. Reconstitution autorisée
 sur `demands/DEM-007` dans `worktree/DEM-007`, depuis le develop local `98932aa`.
+
+## Preuve de reconstitution — 2026-10-27
+
+Branche `demands/DEM-007`, worktree `worktree/DEM-007`, créée depuis le develop
+local `98932aa`. Merge sans conflit de `layers/devops` au commit `865d1da` ;
+commit de réunion `c277f063e9ccaf7c2d6387171852794f6977963c`.
+Ascendance vérifiée pour `e7e0c4f`, `8044599`, `0729ff4`, `9b10d96` et `865d1da`.
+Aucun fichier non commité copié. Diff face à develop limité aux cinq documents
+DEM-007 ; les contributions DEM-006 de develop sont préservées.
+
+Vérifications : `git diff develop --check`, liens locaux des cinq documents et
+ascendance des SHA acceptés réussis. Le changement réuni est documentaire ; aucun
+code applicatif ou contrôle modifié, aucune preview ni test applicatif exécuté.
+Les suppressions de caches sont des opérations locales déjà réalisées et validées,
+non des suppressions Git à propager. Aucun push, PR, fusion vers develop ni
+réalignement de couche effectué. Contrôles de livraison restant à exécuter à cette étape.
