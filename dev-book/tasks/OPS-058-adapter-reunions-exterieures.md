@@ -1,6 +1,6 @@
 # OPS-058 — Adapter les procédures aux réunions extérieures
 
-- État : implémentée et commitée, à vérifier.
+- État : validée ; non livrée.
 - Date : 2026-10-27.
 - Demande : [DEM-008](../demand/DEM-008-reserver-noms-demandes.md).
 - Couche : devops.
@@ -50,7 +50,7 @@ changement des autorisations Git ou des couches n’a été introduit.
 Mettre à jour cette carte et DEM-008 avec les preuves et SHA avant vérification.
 Lire les README applicables avant écriture. Aucun stash, reset destructif,
 force-push ni rebase implicite. Aucun changement direct de tâche sur develop.
-Non commencée ; aucun commit de réalisation ni verdict humain.
+Réalisation décrite dans les preuves ci-dessous ; verdict humain consigné en fin de carte.
 
 ## Preuve OPS-058 — 2026-10-27
 
@@ -72,3 +72,11 @@ est un emplacement extérieur persistant, conservé à travers les interruptions
 et non /tmp. Aucun skill ou contrôle modifié. L’incident et ses limites de
 récupération sont détaillés dans la preuve OPS-060, sans masquer la perte possible
 de contenus ignorés de la copie 002.
+
+## Verdict humain — 2026-10-27
+
+L’humain répond « oui validé » après présentation des trois cartes et demande
+explicite d’acceptation de la réserve OPS-060. Commits présentés et acceptés : `caf3ad1` et sa correction `073ada7`.
+Validation des procédures de rangement et du stockage de mission extérieur persistant.
+Aucune correction fonctionnelle demandée. Ancienne mention « Non commencée »
+rectifiée dans cette trace documentaire. Livraison non effectuée.

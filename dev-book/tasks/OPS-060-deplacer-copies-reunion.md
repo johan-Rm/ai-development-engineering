@@ -1,6 +1,6 @@
 # OPS-060 — Déplacer les anciennes copies et vérifier le rangement
 
-- État : partiellement implémentée et commitée, à vérifier ; conservation locale de 002 non prouvée.
+- État : validée avec réserve acceptée ; non livrée.
 - Date : 2026-10-27.
 - Demande : [DEM-008](../demand/DEM-008-reserver-noms-demandes.md).
 - Couche : devops.
@@ -62,7 +62,7 @@ Ne pas créer de vérificateur permanent supplémentaire.
 Mettre à jour cette carte et DEM-008 avec les preuves et SHA avant vérification.
 Lire les README applicables avant écriture. Aucun stash, reset destructif,
 force-push ni rebase implicite. Aucun changement direct de tâche sur develop.
-Non commencée ; aucun commit de réalisation ni verdict humain.
+Réalisation décrite dans les preuves ci-dessous ; verdict humain consigné en fin de carte.
 
 ## Réalisation et limite — 2026-10-27
 
@@ -80,3 +80,11 @@ Le stockage extérieur est corrigé vers un répertoire de mission persistant.
 Les noms non conformes suivis du principal et des autres couches seront corrigés
 à la livraison par le commit OPS-059 ; aucun changement direct de leur contenu.
 Aucun verdict humain, push, PR, merge ou alignement à cette étape.
+
+## Verdict humain — 2026-10-27
+
+L’humain répond « oui validé » après présentation des trois cartes et demande
+explicite d’acceptation de la réserve OPS-060. Commits présentés et acceptés : `e0d030945ab1fe3e96074b0c840b63b61fb762df`.
+Validation avec réserve explicitement acceptée : la conservation des anciens fichiers locaux ou ignorés de 002 reste non démontrée. Cette acceptation permet de poursuivre, sans transformer la récupération des seuls fichiers suivis en preuve de conservation intégrale.
+Aucune correction fonctionnelle demandée. Ancienne mention « Non commencée »
+rectifiée dans cette trace documentaire. Livraison non effectuée.

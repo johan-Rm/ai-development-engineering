@@ -1,6 +1,6 @@
 # OPS-059 — Renommer les rapports et corriger leurs liens
 
-- État : implémentée et commitée, à vérifier.
+- État : validée ; non livrée.
 - Date : 2026-10-27.
 - Demande : [DEM-008](../demand/DEM-008-reserver-noms-demandes.md).
 - Couche : devops.
@@ -44,7 +44,7 @@ pas de test artificiel reproduisant le texte documentaire.
 Mettre à jour cette carte et DEM-008 avec les preuves et SHA avant vérification.
 Lire les README applicables avant écriture. Aucun stash, reset destructif,
 force-push ni rebase implicite. Aucun changement direct de tâche sur develop.
-Non commencée ; aucun commit de réalisation ni verdict humain.
+Réalisation décrite dans les preuves ci-dessous ; verdict humain consigné en fin de carte.
 
 ## Preuve OPS-059 — 2026-10-27
 
@@ -54,3 +54,11 @@ hors demand, le rapport d’audit. Renommé en `audit-contenu-local-007.md` sans
 modification de contenu ; SHA-256 avant/après : `e369c7dd13330902cd5480860ba1aa801684cb918c788324cfad301281c72283`.
 Références locales des demandes et cartes corrigées ; demandes non renommées.
 Les autres copies sont traitées par OPS-060 ou propagées à la livraison.
+
+## Verdict humain — 2026-10-27
+
+L’humain répond « oui validé » après présentation des trois cartes et demande
+explicite d’acceptation de la réserve OPS-060. Commits présentés et acceptés : `619a84d`.
+Validation du renommage du rapport avec contenu préservé et liens corrigés.
+Aucune correction fonctionnelle demandée. Ancienne mention « Non commencée »
+rectifiée dans cette trace documentaire. Livraison non effectuée.

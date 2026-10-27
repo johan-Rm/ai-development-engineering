@@ -1,7 +1,7 @@
 # DEM-008 — Réserver les noms DEM-* aux documents de demande
 
 - Date : 2026-10-27.
-- État : OPS-058 et OPS-059 implémentées à vérifier ; OPS-060 partielle, réserve de conservation 002.
+- État : validée avec réserve de conservation 002 acceptée ; à reconstituer, non livrée.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -175,3 +175,16 @@ conservation par empreintes. La règle de stockage a été corrigée pour résis
 aux interruptions. Les références des rapports du principal et des autres couches
 attendent la propagation du commit à la livraison ; aucune édition directe.
 Aucun verdict humain d’implémentation ni livraison de DEM-008 effectué.
+
+## Verdict humain de vérification — 2026-10-27
+
+Après présentation d’OPS-058 (`caf3ad1`, correction `073ada7`), OPS-059 (`619a84d`)
+et OPS-060 (`e0d030945ab1fe3e96074b0c840b63b61fb762df`), l’humain répond
+« oui validé ». La question sollicitait explicitement l’acceptation de la réserve
+sur la conservation des anciens fichiers locaux ou ignorés de la copie 002.
+Les trois cartes sont validées, OPS-060 avec cette réserve acceptée pour poursuivre.
+La conservation intégrale de 002 reste non démontrée ; aucun résultat n’est inventé.
+La propagation des renommages aux autres couches reste attendue à la livraison.
+Les mentions documentaires « Non commencée » sont rectifiées dans les cartes.
+Aucune nouvelle implémentation, reconstitution, livraison ou étape suivante lancée
+par cette vérification.
