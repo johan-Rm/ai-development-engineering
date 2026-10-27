@@ -40,8 +40,10 @@ Un écart de périmètre ou une contribution non validée reste à résoudre ; l
 n’autorise pas à intégrer du travail étranger. Toute modification de cette procédure et du skill
 met à jour AGENTS.md et les guides concernés ensemble.
 
-Le worktree de réunion reste à son emplacement temporaire extérieur au projet,
-sous un nom sans préfixe `DEM-*`. Après fusion vérifiée, conserver son contenu,
-le détacher sur le commit livré puis supprimer uniquement la branche temporaire
-libre. Ne pas recréer de copie de réunion dans `worktree/`. Le rangement suit
-[les instructions du projet](../../AGENTS.md#rangement-des-demandes-et-réunions).
+La branche de demande utilise un worktree existant. Après fusion distante vérifiée,
+le rendre à sa branche de couche d’origine lorsqu’il est libre et propre, puis
+avancer cette branche par avance rapide comme les autres couches. Conserver le
+worktree, ses .env, données et fichiers locaux. Une copie de réunion n’est ni
+créée ni supprimée. Après alignement vérifié, supprimer seulement les branches
+temporaires livrées, sans autre PR ouverte ou commit inédit et sans forcer les
+références. Consigner le résultat dans la demande ou les cartes, sans rapport séparé.

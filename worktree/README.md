@@ -12,6 +12,6 @@ La création ne lance rien, ne copie pas de secrets et conserve les fichiers exi
 Un dossier non enregistré ou une branche inattendue déclenche une erreur.
 Lire [le guide des couches](../docs/02-cadre/couches/index.md).
 
-Les réunions utilisent un temporaire extérieur au dépôt, avec un nom comme
-`<projet>-reunion-008`. Aucun dossier de réunion ni nom `DEM-*` dans ce dossier.
+La reconstitution utilise une branche de demande dans un worktree existant libre
+et propre. Aucun dossier de réunion supplémentaire ni nom `DEM-*` dans ce dossier.
 Voir [la reconstitution](../docs/03-developpement-loop/05-reconstitution.md).
