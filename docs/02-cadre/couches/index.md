@@ -18,9 +18,9 @@ Les contributions échangent des contrats et des commits identifiés. Un worktre
 | Design | `design/` | `layers/design` | UX | Relecture visuelle des parcours |
 | Devops | `infra/`, instructions, documentation et outillage du cadre | `layers/devops` | OPS | Configuration ou contrôle adapté au changement |
 
-Les worktrees des couches se trouvent sous `worktree/<couche>`. Les copies de réunion
-utilisent un temporaire extérieur, avec un nom sans préfixe `DEM-*` ; voir
-[la reconstitution](../../03-developpement-loop/05-reconstitution.md). La configuration de routage est dans `infra/config/layers.json` ; l’adapter avec cette table lors de l’adoption.
+Les worktrees des couches se trouvent sous `worktree/<couche>`. La
+[reconstitution](../../03-developpement-loop/05-reconstitution.md) utilise une
+branche dédiée dans un worktree existant libre et propre, sans copie supplémentaire. La configuration de routage est dans `infra/config/layers.json` ; l’adapter avec cette table lors de l’adoption.
 
 ## Suivre les couches dans le workspace
 

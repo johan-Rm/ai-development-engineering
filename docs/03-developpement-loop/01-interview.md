@@ -30,3 +30,8 @@ pas un résultat implémenté.
 ## Procédure associée
 
 `interviewer-demande`.
+
+Avant d’enregistrer une nouvelle demande, renseigner son identifiant de session
+réel, issu du contexte ou d’une source locale fiable. Sans cet identifiant,
+signaler le blocage et ne pas créer le document avec une mention d’indisponibilité.
+Une reprise conserve l’identifiant de création et ajoute la session intervenante.

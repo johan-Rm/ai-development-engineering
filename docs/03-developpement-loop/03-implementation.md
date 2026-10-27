@@ -10,12 +10,23 @@ Demande découpée en cartes prêtes, couches disponibles et dépendances prése
 
 L’IA suit les dépendances des cartes et, pour chacune, vérifie la branche et le worktree, lit les README applicables, puis réalise le changement. Elle applique les conventions techniques, exécute les contrôles pertinents et prépare les tests et la documentation associés.
 
+Avant une nouvelle mission, vérifier `git status --porcelain=v1 --untracked-files=all`
+dans le worktree affecté et l’index : une couche sale ou occupée bloque le démarrage,
+sans nettoyage ni commit pour contourner le blocage. Une reprise de la même mission
+peut conserver ses changements non commités identifiés, sans travail étranger.
+Un arbre propre ne suffit pas à établir la disponibilité de la couche.
+
+Une carte amont peut être réalisée puis présentée à la vérification, mais son
+consommateur attend le commit issu de sa validation. Aucun transfert de travail
+non commité entre missions.
+
 ## Sortie
 
-Un commit local distinct par carte, avec tests, documentation et preuves, prêt pour vérification
-humaine. L’invocation autorise ces commits dans ce projet, après vérification de l’index et du
-périmètre ; les changements étrangers restent préservés. Un commit ne vaut pas validation.
-Chaque correction produit un nouveau commit de la même carte. Aucun push, PR ou merge implicite.
+Des changements non commités par carte, avec tests, documentation et preuves,
+prêts pour vérification humaine. Aucun commit de code, cadrage, carte ou correction
+à cette étape. Identifier le HEAD de base, les fichiers modifiés ou non suivis et
+le diff soumis pour retrouver le contenu présenté. Les commits distincts sont
+créés à l’étape 04 après validation explicite. Aucun push, PR ou merge implicite.
 
 ## Procédure associée
 
