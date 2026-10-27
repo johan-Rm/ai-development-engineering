@@ -158,3 +158,11 @@ contourner cet échec. Verdict humain antérieur conservé ; livraison bloquée
 avant push et PR tant que ce contrôle requis ne réussit pas.
 
 Contrôle qualité final de livraison : réussite (code 0), sortie /tmp/dem010-quality.log.
+
+## Clarification humaine après présentation du blocage
+
+L’humain indique ne pas avoir demandé de tester le schéma et refuse d’en faire
+une contrainte excessive pour cette correction. Le test complet du schéma ne
+conditionne plus la livraison de DEM-010 ; il reste inchangé hors du titre et
+son échec de couleur préexistant reste documenté. Aucun nouveau test ajouté.
+Le contrôle qualité et les checks GitHub conservent leur caractère requis.

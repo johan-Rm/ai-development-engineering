@@ -1,7 +1,7 @@
 # DEM-010 — Corriger le titre long AIDE
 
 - Date : 2026-10-27.
-- État : reconstituée et validée ; livraison bloquée par une assertion navigateur préexistante, non livrée.
+- État : reconstituée et validée ; livraison en cours après clarification des contrôles.
 - Identifiant de session de création : `01a17e4d-043f-7c71-9aa5-3754c3794e18`.
 - Carte externe : aucune fournie.
 
@@ -186,3 +186,15 @@ Contrôle final `python3 codebase-integrity/scripts/quality.py` : réussite,
 code 0, sortie /tmp/dem010-quality.log. `git diff --check` : réussite.
 La demande définitive et les preuves de préparation sont commitées localement ;
 aucun code supplémentaire ni correction du test hors périmètre.
+
+## Clarification humaine des contrôles de livraison
+
+L’humain précise : « j'ai jamais demande à tester le schema. pour le moment
+le dossier codebase-integrity ne doit pas comporter des tests trop contraignant ».
+Le test complet du schéma, ajouté à tort comme exigence bloquante pour cette
+correction éditoriale, ne conditionne donc pas DEM-010. Son échec préexistant est
+conservé comme constat ; aucune assertion de couleur, configuration ou règle
+n’est modifiée. Les contrôles qualité du projet et les checks GitHub restent
+requis. Aucun nouveau test ni changement général de Codebase Integrity n’est
+inclus dans cette livraison. Le résultat validé et le remplacement textuel
+minimal dans l’assertion du titre sont conservés.
