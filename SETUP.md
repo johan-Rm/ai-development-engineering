@@ -46,10 +46,17 @@ alias aide-code-workspace='code /chemin/absolu/du/projet/aide.code-workspace'
 
 Ajouter cette ligne à `~/.bash_aliases`, puis recharger ce fichier avec
 `source ~/.bash_aliases`. Le fichier d’alias reste personnel et extérieur au dépôt.
-Le [guide des couches](docs/02-cadre/couches.md#suivre-les-couches-dans-le-workspace)
+Le [guide des couches](docs/02-cadre/couches/index.md#suivre-les-couches-dans-le-workspace)
 décrit l’utilisation du workspace pendant la boucle de développement.
 
 ## Lancer les applications avec Docker
+
+Pour démarrer une couche depuis la racine équipée du Makefile, utiliser
+`make docker-up-api`, `make docker-up-web`, `make docker-up-backoffice`,
+`make docker-up-design` ou `make docker-up-devops`. Chaque commande lance
+son API et ses deux interfaces. `make docker-status-api` consulte la couche API ;
+`make docker-stop-api` l’arrête en conservant les données. Ces commandes concernent
+uniquement les environnements locaux de développement.
 
 Depuis un worktree de couche équipé de la stack :
 
@@ -60,7 +67,7 @@ make down
 ```
 
 Choisir `INTERFACE=backoffice` ou `INTERFACE=both` pour les autres interfaces. Chaque stack possède son API,
-sa base SQLite persistante et ses domaines locaux derrière Caddy. Le [runbook des stacks](dev-book/runbooks/stacks-applicatives.md)
+sa base SQLite persistante et ses domaines locaux derrière Caddy. Le [guide des environnements locaux](docs/02-cadre/couches/dockerisation.md)
 donne les cinq ports, les adresses, les prérequis et les procédures de préparation et diagnostic.
 Les témoins BusyBox restent une recette distincte. Les worktrees ne démarrent aucun service
 lors de leur création et doivent recevoir les commits nécessaires avant utilisation.
@@ -115,7 +122,7 @@ Ces tests créent puis suppriment des articles. Utiliser une API de développeme
 ## Adapter au projet
 
 1. Lire [AGENTS.md](AGENTS.md) et les README existants ; préserver les consignes, fichiers et environnements du projet d’accueil.
-2. Définir les [couches](docs/02-cadre/couches.md), leurs responsabilités, branches et chemins. Adapter ensemble cette table et `config/layers.json`. La recette Docker possède sa configuration distincte dans `infra/process-check.json` (`process.image` et `process.port_base`).
+2. Définir les [couches](docs/02-cadre/couches/index.md), leurs responsabilités, branches et chemins. Adapter ensemble cette table et `config/layers.json`. La recette Docker possède sa configuration distincte dans `infra/process-check.json` (`process.image` et `process.port_base`).
 3. Compléter les instructions et examiner `.codex/config.toml`. Les skills restent personnels, hors du dépôt ; vérifier leur disponibilité avant livraison.
 4. Définir les conventions techniques dans les README locaux, puis implémenter les contrôles par la consolidation autorisée.
 5. Adapter les commandes de qualité et la CI. Vérifier les protections GitHub si les tests doivent bloquer la fusion ; aucun déploiement n’est fourni.
