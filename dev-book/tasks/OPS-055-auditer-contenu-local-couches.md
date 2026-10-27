@@ -25,7 +25,7 @@ certitude, exceptions, liens symboliques, concurrence, accès refusés et protec
 ## Chemins autorisés
 
 Cette carte et DEM-007 ; rapport nouveau
-`dev-book/resources/DEM-007-audit-contenu-local.md`. Les six arbres sont des cibles
+`dev-book/resources/audit-contenu-local-007.md`. Les six arbres sont des cibles
 de lecture uniquement ; aucun fichier applicatif, cache ou environnement modifié.
 
 ## Dépendances et ordre
@@ -53,7 +53,7 @@ stash, reset destructif, force-push ou rebase implicite. Aucun verdict humain in
 ## Réalisation
 
 Audit effectué le 2026-10-27 :
-[rapport](../resources/DEM-007-audit-contenu-local.md), script reproductible inclus.
+[rapport](../resources/audit-contenu-local-007.md), script reproductible inclus.
 Cadrage et cartes commités en `e7e0c4f` avant l’audit. Devops ne présente aucun
 travail étranger non commité ; son dernier commit DEM-006 est ancêtre du develop
 local. Branche conservée ; aucune écriture concurrente observée pendant le relevé.
