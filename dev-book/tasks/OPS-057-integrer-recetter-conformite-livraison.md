@@ -1,0 +1,85 @@
+# OPS-057 — Intégrer la conformité locale au suivi de livraison
+
+- État : validée ; non livrée (périmètre corrigé : nettoyage ponctuel).
+- Date : 2026-10-27.
+- Demande : [DEM-007](../demand/DEM-007-conformite-contenu-local-couches.md).
+- Couche : devops.
+- Worktree : `worktree/devops`, relatif à la racine du dépôt principal.
+- Branche : `layers/devops`, existante conservée sans rebase.
+- Session : référence de session indisponible ; mission définie dans ce chat.
+
+Le chemin absolu est résolu et vérifié localement avant exécution. La disponibilité
+de la couche doit être confirmée ; aucun agent délégué ni travail concurrent autorisé.
+
+## Mission corrigée — décision humaine du 2026-10-27
+
+Cette section remplace le périmètre initial ci-dessous : retirer uniquement les
+dix caches sans source identifiés dans l’audit OPS-055 validé, ainsi que leurs
+parents devenus vides. Aucun contrôle réutilisable ni intégration à la livraison.
+L’instruction explicite de nettoyage autorise les suppressions locales ciblées
+sur le principal et les cinq couches. Préserver tous les autres fichiers.
+
+Réalisation : dix caches supprimés après revérification des sources absentes,
+des liens et de l’en-tête CPython 3.12. Dossiers racine `scripts/` et `tests/`
+du principal supprimés une fois vides ; les cinq `infra/` préservés.
+Preuve avant : rapport OPS-055 ; preuve après : absence des dix chemins et des
+deux dossiers racine, états Git sans suppression suivie. Aucun verdict humain
+sur ce nettoyage encore recueilli. La preuve documentaire est commitée avec DEM-007.
+
+## Périmètre initial abandonné
+
+## Objectif
+
+Documenter et raccorder le contrôle au suivi de livraison selon l’arbitrage.
+Recetter le principal et les cinq couches, nettoyer uniquement les résidus certains
+avec l’outil validé et conserver une preuve avant/après. Un doute ou une couche
+occupée bloque la conclusion de livraison. Vérifier la conservation des fichiers
+utiles et une seconde exécution sans changement. Le nettoyage local approuvé est
+une opération de recette traçable, pas un changement de tâche sur develop.
+
+## Chemins autorisés
+
+`docs/03-developpement-loop/06-livraison.md`,
+`docs/01-codebase-integrity/points-de-controle.md`,
+`docs/02-cadre/couches/index.md`, `SETUP.md`, README de l’outil,
+`dev-book/resources/DEM-007-recette-conformite.md`, cette carte et DEM-007.
+`AGENTS.md` seulement si une consigne du projet doit changer après arbitrage.
+Les six arbres ne sont des cibles de nettoyage que pour les chemins explicitement
+reconnus par les règles approuvées ; aucun changement de leurs fichiers suivis,
+.env, données ou travaux en cours. Ne pas modifier les skills personnels.
+
+## Dépendances et ordre
+
+Commit OPS-056 et trace de son verdict humain à identifier avant recette réelle ;
+aucun SHA disponible. Commit d’arbitrage de consolidation requis. Coordination
+explicite des six arbres avant toute mutation ; le SHA seul ne prouve pas leur
+disponibilité. Le mode d’accès à l’outil depuis les cibles doit être documenté,
+sans copie de travail non commité ni synchronisation Git implicite.
+
+## Critères, tests et preuve attendue
+
+Le guide de livraison exige le résultat de chaque arbre et interdit d’annoncer
+le suivi terminé si une cible reste incertaine ou occupée. Fournir l’inventaire
+avant/après, les actions exactes et leurs motifs, la préservation des contenus
+utiles et la seconde exécution sans changement. Rejouer les contrôles pertinents
+si leur raccordement évolue, vérifier liens et diff documentaire. Ne lancer ni
+push, PR, merge ni réalignement des branches dans cette carte.
+
+## Documentation et exclusions
+
+Conserver dans cette carte et DEM-007 les preuves, commandes, SHA et limites.
+Lire les README applicables avant chaque écriture. Préserver les travaux existants,
+.env, données et worktrees. Aucun nettoyage Git global, suppression de worktree,
+stash, reset destructif, force-push ou rebase implicite. Aucun verdict humain inventé.
+
+## Réalisation
+
+Non commencée. Aucun commit d’implémentation ni verdict humain.
+
+## Verdict humain — 2026-10-27
+
+L’humain répond « c’est validé » après présentation du nettoyage au commit
+`9b10d96`. Ce verdict accepte la suppression des dix caches et des parents vides,
+la disparition de scripts/ et tests/ du principal et la préservation des fichiers
+utiles. Le périmètre initial de contrôle et livraison reste abandonné.
+Aucune correction demandée ; livraison non effectuée.
