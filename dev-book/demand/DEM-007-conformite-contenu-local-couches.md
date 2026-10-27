@@ -1,7 +1,7 @@
 # DEM-007 — Vérifier la conformité du contenu local des couches
 
 - Date : 2026-10-27.
-- État : cadrage confirmé ; découpée, missions bloquées par leurs prérequis.
+- État : partiellement implémentée ; OPS-055 à vérifier, OPS-056 et OPS-057 bloquées.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -144,3 +144,17 @@ des instructions, des couches et des README applicables. État Git propre avant
 écriture ; DEM-006 et ses implémentations sont déjà commitées, dernier commit
 observé `a001fa1`. Leur contenu est préservé. L’état des couches relevé pendant
 l’interview est une observation datée et devra être revérifié avant toute action.
+
+## Implémentation partielle — 2026-10-27
+
+Cadrage et cartes : `e7e0c4f`. OPS-055 réalisée, preuve dans le
+[rapport d’audit](../resources/DEM-007-audit-contenu-local.md) : six arbres parcourus,
+dix caches sans source, contenus utiles préservés, deux familles de dossiers vides
+à expliquer. Aucun nettoyage. L’absence de modification est observée par deux
+relevés consécutifs de métadonnées, avec les limites décrites dans le rapport.
+
+OPS-056 reste bloquée par l’arbitrage humain et sa trace commitée en consolidation.
+OPS-057 reste bloquée par ce même arbitrage, le contrôle commité et validé et la
+coordination des cibles. Le cadrage général ne remplace pas cet arbitrage. Aucun
+contrôle affaibli ni nouveau contrôle implémenté. Demande non terminée ; aucune
+validation humaine du résultat, livraison ou étape de consolidation déclenchée.

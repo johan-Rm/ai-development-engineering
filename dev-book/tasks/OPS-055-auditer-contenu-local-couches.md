@@ -1,6 +1,6 @@
 # OPS-055 — Auditer le contenu local des six arbres
 
-- État : Bloquée : disponibilité devops et commit de cadrage à établir.
+- État : implémentée et commitée, à vérifier.
 - Date : 2026-10-27.
 - Demande : [DEM-007](../demand/DEM-007-conformite-contenu-local-couches.md).
 - Couche : devops.
@@ -52,4 +52,20 @@ stash, reset destructif, force-push ou rebase implicite. Aucun verdict humain in
 
 ## Réalisation
 
-Non commencée. Aucun commit d’implémentation ni verdict humain.
+Audit effectué le 2026-10-27 :
+[rapport](../resources/DEM-007-audit-contenu-local.md), script reproductible inclus.
+Cadrage et cartes commités en `e7e0c4f` avant l’audit. Devops ne présente aucun
+travail étranger non commité ; son dernier commit DEM-006 est ancêtre du develop
+local. Branche conservée ; aucune écriture concurrente observée pendant le relevé.
+
+Les six arbres, dépendances et caches compris, ont été parcourus deux fois :
+aucune erreur de lecture ni variation des métadonnées. Dix caches Python sans
+source correspondante proposés comme résidus. `.agents/` et `.aws/` restent à
+expliquer ; les dépendances, montages, données, preuves et environnements sont
+préservés. Aucun nettoyage effectué et aucune conformité globale annoncée.
+
+Vérification : script Python ponctuel en lecture seule, analyse des usages dans
+README, fichiers ignorés et pilotage Docker ; contrôle des liens documentaires et
+des espaces du diff. Aucun test de vérificateur ni outil durable modifié, donc
+pas de nouvelle suite de tests artificielle. Aucun verdict humain recueilli.
+La preuve et cette carte sont portées par le commit OPS-055, SHA relevé après commit.
