@@ -129,3 +129,22 @@ contrôlé par `git diff --exit-code layers/devops HEAD`. Liens locaux et
 `git diff develop --check` réussis ; chapitre Conventions techniques de dev-book
 vide. 23 tests d’outillage réussis avec `python3 codebase-integrity/scripts/check.py`.
 Aucun push, PR, merge de livraison ou alignement effectué. Livraison à venir.
+
+## Préparation de livraison — 2026-10-27
+
+Les deux commits sources validés de layers/devops ont été rattachés à la branche
+de livraison par `426da4a`, après comparaison des patch-id de chaque source avec
+son cherry-pick et vérification du contenu. Le seul conflit add/add portait sur
+la trace DEM-009 : sa version de livraison a été conservée. L’arbre complet est
+strictement identique avant et après ce rattachement. Aucun changement de
+comportement validé ; ce rattachement permet le retour et l’avance rapide de devops.
+
+`python3 codebase-integrity/scripts/quality.py` réussit : 23 tests d’outillage,
+contrat API, lint du conteneur, schéma et OpenAPI, typechecks et builds web/backoffice.
+Principal et cinq worktrees propres, sans contribution étrangère observée ; toutes
+les branches de couche sont ancêtres du changement à livrer. Empreintes des
+environnements et bases recensées en session pour contrôle après alignement.
+Aucun nouveau worktree, dossier de réunion ou rapport. Les six skills personnels
+restent hors Git, disponibles et validés dans la session. La CI GitHub et la fusion
+restent à vérifier lors de la livraison ; retour prévu de worktree/devops sur
+layers/devops, alignement de toutes les couches, puis suppression de demands/DEM-009.
