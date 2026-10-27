@@ -60,49 +60,40 @@ ne sont pas supprimées automatiquement. Relancer les témoins pour adopter le n
 
 ## Stack applicative par worktree
 
-`compose.apps.yaml`, `Dockerfile.api`, `Caddyfile.apps`, les deux scripts de démarrage
-et `apps.py` servent les applications existantes depuis chaque worktree de couche.
-Le [runbook](../dev-book/runbooks/stacks-applicatives.md) décrit préparation, commandes,
-adresses, ressources, arrêt et diagnostic. Aucun déploiement applicatif n’est configuré.
+Le Makefile racine appelle directement Docker Compose, sans Python pour le pilotage.
+`compose.apps.yaml`, `Dockerfile.api`, `Caddyfile.apps` et les deux scripts de démarrage
+servent les applications depuis chaque worktree. `stack-env.sh` prépare seulement
+les paramètres Git, l’identité et les points de montage ; aucune action Docker n’y est déléguée.
+Le [runbook](../dev-book/runbooks/stacks-applicatives.md) documente les prérequis,
+commandes, adresses, ressources et diagnostics. Aucun déploiement n’est configuré.
 
-Depuis un worktree : `python3 infra/apps.py up --interface web`, `backoffice` ou `both`.
-`info`, `config`, `prepare`, `status` et `down` complètent le lanceur. Le port vaut
-19300 + l’identifiant de couche de `config/layers.json`, surchargeable par
-`AIDE_APP_PORT_BASE` dans l’environnement appelant. Les ports sont vérifiés avant `up`.
+Depuis un worktree : `make up INTERFACE=web`, `INTERFACE=backoffice` ou `INTERFACE=both`.
+`make help`, `info`, `config`, `prepare`, `status` et `down` complètent le pilotage.
+Le port vaut 19300 + l’identifiant de couche, surchargeable par `AIDE_APP_PORT_BASE`.
+Les projets et volumes gardent leur identité de la première version Python.
 
 ## Rôle et responsabilités
 
-La stack sert à vérifier le code de la branche locale sans dépendre du service d’une
-couche voisine. L’API garde SQLite ; Caddy expose les trois domaines locaux de la couche.
-Les applications conservent leurs responsabilités et contrats existants.
-Le serveur PHP de développement désactive explicitement OPcache pour refléter les modifications.
+Chaque couche utilise son propre code, son API, sa base SQLite et ses domaines Caddy.
+Les applications conservent leurs contrats ; OPcache est désactivé dans le serveur PHP
+de développement. Les témoins BusyBox restent une recette indépendante et inchangée.
 
 ## Conventions techniques
 
 Les sources restent en lecture seule ; les volumes de données, dépendances et sorties
-sont privés au projet dépôt/couche. Les services applicatifs utilisent l’UID/GID hôte.
-Le lanceur ne lit ni n’écrit les `.env` Compose et n’efface jamais les volumes à l’arrêt.
-Symfony utilise `.env.example` via `APP_RUNTIME_OPTIONS.dotenv_path`, y compris quand
-aucun `.env` n’existe sur l’hôte ; aucun point de montage `.env` n’est nécessaire.
-Les ports sont liés exclusivement à `127.0.0.1`. La recette BusyBox demeure indépendante.
-Les dépendances applicatives utilisent leurs locks existants. Les images suivent les tags
+sont privés au projet dépôt/couche. Les applications utilisent l’UID/GID hôte.
+Make conserve les volumes à l’arrêt et ne lit ni n’écrit les `.env` Compose.
+Symfony utilise `.env.example` via `APP_RUNTIME_OPTIONS.dotenv_path`, sans créer de `.env`.
+Les ports sont liés exclusivement à `127.0.0.1`, avec contrôle des écoutes avant `up`.
+Le routage JSON existant est lu avec JSON::PP, module standard de Perl, sans dépendance Python.
+Les recettes Make utilisent Bash et les outils Linux/WSL documentés dans le runbook.
+Les dépendances applicatives utilisent leurs locks. Les images suivent les tags
 PHP 8.4 CLI Bookworm, Composer 2, Node 22 Bookworm slim, Caddy 2.10 Alpine et BusyBox 1.37.0 ;
-ces tags ne sont pas des digests immuables. Les tests de cette stack sont dans
-`infra/test_apps.py`, exécutables avec `python3 infra/test_apps.py` ; ils ne modifient
-pas les vérificateurs du Codebase Integrity.
+ces tags ne sont pas des digests immuables.
 
-Les recettes réelles `python3 infra/test-runtime.py --expect-empty` et
-`python3 infra/browser.py --reload` exigent les deux interfaces lancées. La première
-observe les ressources et vérifie la persistance par arrêt/relance, puis supprime son
-seul article temporaire. La seconde construit `Dockerfile.browser` depuis Node 22 Bookworm slim, avec
-Playwright 1.61.0 et Chromium headless uniquement, sans bibliothèque système sur l’hôte.
-Ce lanceur de recette monte seulement le script en lecture seule, les captures et,
-avec `--reload`, les trois fichiers ciblés en écriture ; aucun `.env` ni worktree entier
-n’est exposé. Il utilise le réseau hôte sous Linux et écrit ses captures dans
-`/tmp/DEM-005-browser-artifacts/`. Elle crée/modifie/supprime son seul article temporaire.
-L’option `--reload`, réservée à une couche disponible, modifie temporairement les deux
-composants racines et le routeur PHP pour observer leur rechargement, puis restaure
-exactement les sources dans un bloc de nettoyage, y compris en cas d’échec.
-Sans cette option, le test ne modifie pas le code. `node infra/test-browser.cjs <couche>
-<port>` permet aussi une exécution sur un hôte déjà équipé de Playwright et de ses
-bibliothèques système.
+`make test` exécute `infra/test-make.sh` : fixtures Git, 15 configurations Compose,
+préservation des `.env`, contrôles des paramètres, écoutes et points de montage.
+`make test-browser RELOAD=1` exécute Chromium via Docker avec les seuls montages ciblés ;
+`make test-runtime EXPECT_EMPTY=1` exécute les assertions Node de persistance et appelle
+Make pour le cycle de vie. Les quatre anciens scripts Python de cette stack sont supprimés.
+Les outils, règles et tests du Codebase Integrity restent inchangés.

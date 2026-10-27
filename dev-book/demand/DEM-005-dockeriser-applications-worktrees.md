@@ -1,7 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
 - Date : 2026-10-26.
-- État : corrections humaines demandées ; non validée.
+- État : correction Make en cours ; non validée.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -203,3 +203,20 @@ identification des nouveaux commits. OPS-050 reste sans verdict favorable explic
 aucune validation partielle n’est déduite de l’absence de correction à son sujet.
 Les preuves du 2026-10-26 restent historiques. La présente étape ne modifie pas le code,
 ne relance pas les services et n’enchaîne pas automatiquement l’implémentation.
+
+
+## Précision humaine et correction d’implémentation — 2026-10-27
+
+L’humain précise ensuite que Make doit appeler directement les commandes Docker,
+puis demande « supprime python du pilotage » et invoque `implementer-demande` pour
+DEM-005. Cette précision remplace la possibilité de garder un lanceur Python interne.
+Le Makefile porte les actions Docker Compose ; le contexte de couche est préparé en
+shell avec Git et le parseur JSON standard de Perl. Aucun lanceur Python ne participe
+au pilotage applicatif, y compris indirectement. Les outils du cadre hors de cette
+stack restent hors périmètre et inchangés.
+
+Les cibles prévues sont `help`, `info`, `config`, `prepare`, `up`, `status`, `down`,
+`test`, `test-browser` et `test-runtime`. `INTERFACE=web|backoffice|both` sélectionne
+les interfaces. Les recettes navigateur utilisent Docker et les assertions de
+persistance utilisent Node ; elles ne réintroduisent pas Python dans le pilotage.
+L’identité des projets, ports et volumes existants doit être conservée.
