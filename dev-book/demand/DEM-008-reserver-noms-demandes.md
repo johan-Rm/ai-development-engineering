@@ -146,3 +146,9 @@ Enregistrement limité à ce document dans `worktree/devops`, branche
 `layers/devops`, HEAD `cff25a1ac80533e634be9df3ebba725cb8950128`, état Git propre
 avant écriture. Instructions, couches et README applicables consultés.
 Aucun déplacement, renommage, nettoyage, commit, push, PR, merge ou découpage.
+
+## Implémentation OPS-058 — 2026-10-27
+
+Cadrage et cartes : `75b126e`. Règle de rangement et temporaire extérieur documentés
+dans les instructions et guides. Essai de création/reprise réussi dans un dépôt
+jetable ; aucun skill personnel ni contrôle modifié. Carte à vérifier humainement.

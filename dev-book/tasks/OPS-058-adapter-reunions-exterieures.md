@@ -1,6 +1,6 @@
 # OPS-058 — Adapter les procédures aux réunions extérieures
 
-- État : prête après enregistrement du cadrage et revérification de disponibilité.
+- État : implémentée et commitée, à vérifier.
 - Date : 2026-10-27.
 - Demande : [DEM-008](../demand/DEM-008-reserver-noms-demandes.md).
 - Couche : devops.
@@ -51,3 +51,15 @@ Mettre à jour cette carte et DEM-008 avec les preuves et SHA avant vérificatio
 Lire les README applicables avant écriture. Aucun stash, reset destructif,
 force-push ni rebase implicite. Aucun changement direct de tâche sur develop.
 Non commencée ; aucun commit de réalisation ni verdict humain.
+
+## Preuve OPS-058 — 2026-10-27
+
+Cadrage commité : `75b126e`. Instructions et guides adaptés, couches conservées,
+branches de réunion inchangées ; lien mort du README worktree corrigé. Trois skills
+personnels lus : ils prescrivent déjà de résoudre les chemins selon le projet,
+sans chemin de réunion interne imposé. Aucune édition de skill nécessaire et
+aucune autorisation Git changée. Aucun vérificateur modifié.
+
+Création d’un dépôt jetable develop et d’un worktree extérieur sur branche dédiée,
+puis reprise par consultation de son enregistrement et état Git : réussies.
+Aucun dossier de réunion interne créé. `git diff --check` réussi.
