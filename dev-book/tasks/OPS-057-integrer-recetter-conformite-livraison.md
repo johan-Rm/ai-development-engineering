@@ -1,6 +1,6 @@
 # OPS-057 — Intégrer la conformité locale au suivi de livraison
 
-- État : Bloquée : contrôle commité, arbitrage et disponibilité des cibles manquants.
+- État : nettoyage ponctuel réalisé, à vérifier.
 - Date : 2026-10-27.
 - Demande : [DEM-007](../demand/DEM-007-conformite-contenu-local-couches.md).
 - Couche : devops.
@@ -10,6 +10,23 @@
 
 Le chemin absolu est résolu et vérifié localement avant exécution. La disponibilité
 de la couche doit être confirmée ; aucun agent délégué ni travail concurrent autorisé.
+
+## Mission corrigée — décision humaine du 2026-10-27
+
+Cette section remplace le périmètre initial ci-dessous : retirer uniquement les
+dix caches sans source identifiés dans l’audit OPS-055 validé, ainsi que leurs
+parents devenus vides. Aucun contrôle réutilisable ni intégration à la livraison.
+L’instruction explicite de nettoyage autorise les suppressions locales ciblées
+sur le principal et les cinq couches. Préserver tous les autres fichiers.
+
+Réalisation : dix caches supprimés après revérification des sources absentes,
+des liens et de l’en-tête CPython 3.12. Dossiers racine `scripts/` et `tests/`
+du principal supprimés une fois vides ; les cinq `infra/` préservés.
+Preuve avant : rapport OPS-055 ; preuve après : absence des dix chemins et des
+deux dossiers racine, états Git sans suppression suivie. Aucun verdict humain
+sur ce nettoyage encore recueilli. La preuve documentaire est commitée avec DEM-007.
+
+## Périmètre initial abandonné
 
 ## Objectif
 

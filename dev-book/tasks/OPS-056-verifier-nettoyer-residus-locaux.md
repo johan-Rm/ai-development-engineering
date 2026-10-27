@@ -1,6 +1,6 @@
 # OPS-056 — Vérifier et nettoyer les résidus locaux certains
 
-- État : Bloquée : audit commité et arbitrage de consolidation manquants.
+- État : sans suite — extension de périmètre abandonnée par décision humaine.
 - Date : 2026-10-27.
 - Demande : [DEM-007](../demand/DEM-007-conformite-contenu-local-couches.md).
 - Couche : devops.
@@ -56,3 +56,9 @@ stash, reset destructif, force-push ou rebase implicite. Aucun verdict humain in
 ## Réalisation
 
 Non commencée. Aucun commit d’implémentation ni verdict humain.
+
+## Correction de périmètre — 2026-10-27
+
+L’humain demande uniquement le nettoyage des résidus évoqués. La création d’un
+contrôle réutilisable est abandonnée ; les objectifs précédents restent une trace
+historique et ne constituent plus une mission. Aucun code ni contrôle modifié.

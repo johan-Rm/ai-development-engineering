@@ -1,9 +1,22 @@
 # DEM-007 — Vérifier la conformité du contenu local des couches
 
 - Date : 2026-10-27.
-- État : partiellement implémentée ; OPS-055 validée, OPS-056 et OPS-057 bloquées.
+- État : nettoyage ponctuel effectué ; correction de périmètre documentée, à vérifier.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
+
+## Périmètre corrigé — décision humaine du 2026-10-27
+
+L’humain précise : « moi je veux simplement nettoyer et corriger ce qui à été
+évoqué, si il y a eu un malentendu il faut le corriger ». Le besoin courant est
+le nettoyage ponctuel des résidus identifiés par l’audit OPS-055 validé.
+L’extension à une convention, un nouveau contrôle réutilisable et son intégration
+à la livraison est abandonnée. Cette décision remplace les exigences et blocages
+correspondants dans les sections historiques ci-dessous. Aucun arbitrage technique
+supplémentaire n’est requis pour ce nettoyage explicitement demandé.
+
+OPS-056 est sans suite. OPS-057 est ramenée au nettoyage local et à sa preuve.
+Aucune modification de Codebase Integrity, des règles de livraison ou des skills.
 
 ## Besoin, contexte et utilisateurs
 
@@ -171,3 +184,15 @@ des contributions validées manque : OPS-056 et OPS-057 restent bloquées par le
 prérequis documentés. Aucune réunion partielle présentée comme complète ; branche
 `demands/DEM-007` et worktree `worktree/DEM-007` non créés à cette étape.
 Aucun contrôle de l’ensemble ni livraison annoncé ; aucune étape suivante lancée.
+
+## Nettoyage ponctuel réalisé — 2026-10-27
+
+Dix fichiers `.pyc` listés dans l’audit ont été revérifiés : sources absentes,
+fichiers et parents directs non symboliques, en-tête CPython 3.12 reconnu.
+Les dix fichiers sont supprimés, puis leurs seuls parents devenus vides.
+`scripts/` et `tests/` ont ainsi disparu du principal ; `infra/` est conservé dans
+chaque couche, seuls ses anciens `__pycache__/` vides sont retirés.
+Les caches des sources encore présentes, dépendances, données, environnements,
+`.agents/` et `.aws/` restent intacts. Aucun fichier suivi supprimé.
+Les suppressions sont locales : Git ne versionnait pas ces caches.
+L’audit initial est conservé comme preuve avant nettoyage, et non comme état actuel.
