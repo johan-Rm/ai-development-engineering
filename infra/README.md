@@ -43,7 +43,7 @@ Références : [projets Compose](https://docs.docker.com/compose/intro/compose-a
 - Dossier Git : le chemin absolu enregistré par `git worktree list`.
 - La [carte OPS-019](../dev-book/tasks/OPS-019-initialiser-worktree-devops.md)
   consigne l’initialisation, la base et les preuves.
-- Le [routage commun](../docs/02-cadre/couches.md) définit les responsabilités de cette couche.
+- Le [routage commun](../docs/02-cadre/couches/index.md) définit les responsabilités de cette couche.
 - Depuis ce worktree, `python3 codebase-integrity/scripts/process.py up` démarre le conteneur témoin ;
   `verify` observe son identité JSON et `down` arrête son environnement en conservant les volumes.
 - Le témoin sert uniquement à la recette AIDE ; la stack applicative ci-dessous est indépendante.
@@ -64,10 +64,14 @@ Le Makefile racine appelle directement Docker Compose, sans Python pour le pilot
 `compose.apps.yaml`, `Dockerfile.api`, `Caddyfile.apps` et les deux scripts de démarrage
 servent les applications depuis chaque worktree. `stack-env.sh` prépare seulement
 les paramètres Git, l’identité et les points de montage ; aucune action Docker n’y est déléguée.
-Le [runbook](../dev-book/runbooks/stacks-applicatives.md) documente les prérequis,
+Le [guide local](../docs/02-cadre/couches/dockerisation.md) documente les prérequis,
 commandes, adresses, ressources et diagnostics. Aucun déploiement n’est configuré.
 
 Depuis un worktree : `make up INTERFACE=web`, `INTERFACE=backoffice` ou `INTERFACE=both`.
+Depuis la racine équipée du Makefile, `make docker-up-api`, `make docker-up-web`, `make docker-up-backoffice`,
+`make docker-up-design` et `make docker-up-devops` démarrent la couche nommée avec les deux interfaces.
+`make docker-stop-api` et `make docker-status-api` arrêtent et consultent la couche API ; les mêmes
+préfixes existent pour les cinq couches. Aucun service ne démarre dans le dépôt principal.
 `make help`, `info`, `config`, `prepare`, `status` et `down` complètent le pilotage.
 Le port vaut 19300 + l’identifiant de couche, surchargeable par `AIDE_APP_PORT_BASE`.
 Les projets et volumes gardent leur identité de la première version Python.
@@ -86,7 +90,7 @@ Make conserve les volumes à l’arrêt et ne lit ni n’écrit les `.env` Compo
 Symfony utilise `.env.example` via `APP_RUNTIME_OPTIONS.dotenv_path`, sans créer de `.env`.
 Les ports sont liés exclusivement à `127.0.0.1`, avec contrôle des écoutes avant `up`.
 Le routage JSON existant est lu avec JSON::PP, module standard de Perl, sans dépendance Python.
-Les recettes Make utilisent Bash et les outils Linux/WSL documentés dans le runbook.
+Les recettes Make utilisent Bash et les outils Linux/WSL documentés dans le guide local.
 Les dépendances applicatives utilisent leurs locks. Les images suivent les tags
 PHP 8.4 CLI Bookworm, Composer 2, Node 22 Bookworm slim, Caddy 2.10 Alpine et BusyBox 1.37.0 ;
 ces tags ne sont pas des digests immuables.

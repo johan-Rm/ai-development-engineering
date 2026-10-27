@@ -6,10 +6,28 @@ STACK_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 export INTERFACE AIDE_APP_PORT_BASE RELOAD EXPECT_EMPTY
 CONTEXT = source "$(STACK_ROOT)/infra/stack-env.sh" "$(STACK_ROOT)"
 COMPOSE = docker compose --env-file /dev/null --project-directory "$${AIDE_APP_ROOT}" -p "$${stack_project}" -f "$${AIDE_APP_ROOT}/infra/compose.apps.yaml"
+LAYERS := api web backoffice design devops
+# Resolve siblings from Git, so aliases work from the main checkout after integration
+# and from a layer worktree while the change is being reviewed.
+MAIN_ROOT = $(shell dirname "$$(git -C "$(STACK_ROOT)" rev-parse --path-format=absolute --git-common-dir)")
+.PHONY: $(addprefix docker-up-,$(LAYERS)) $(addprefix docker-stop-,$(LAYERS)) $(addprefix docker-status-,$(LAYERS))
+
+$(addprefix docker-up-,$(LAYERS)):
+	+@$(MAKE) --no-print-directory -C "$(MAIN_ROOT)/worktree/$(patsubst docker-up-%,%,$@)" up INTERFACE=$(if $(INTERFACE),$(INTERFACE),both)
+
+$(addprefix docker-stop-,$(LAYERS)):
+	+@$(MAKE) --no-print-directory -C "$(MAIN_ROOT)/worktree/$(patsubst docker-stop-%,%,$@)" down
+
+$(addprefix docker-status-,$(LAYERS)):
+	+@$(MAKE) --no-print-directory -C "$(MAIN_ROOT)/worktree/$(patsubst docker-status-%,%,$@)" status
+
 .PHONY: help info config prepare up status down test test-browser test-runtime
 
 help:
-	@printf '%s\n' 'make prepare | up [INTERFACE=web|backoffice|both] | status | down' \
+	@printf '%s\n' 'make docker-up-api | docker-up-web | docker-up-backoffice | docker-up-design | docker-up-devops : démarrer une couche avec ses deux interfaces' \
+	  'make docker-stop-<couche> : arrêter une couche' \
+	  'make docker-status-<couche> : consulter une couche' \
+	  'make prepare | up [INTERFACE=web|backoffice|both] | status | down : worktree courant' \
 	  'make info | config [INTERFACE=...] | test | test-browser [RELOAD=1] | test-runtime [EXPECT_EMPTY=1]' \
 	  'AIDE_APP_PORT_BASE=19300 par défaut. down conserve les volumes.'
 
@@ -51,6 +69,7 @@ down:
 
 test:
 	@bash "$(STACK_ROOT)/infra/test-make.sh"
+	bash "$(STACK_ROOT)/infra/test-shortcuts.sh"
 
 test-browser:
 	@$(CONTEXT)

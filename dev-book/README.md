@@ -7,7 +7,7 @@ les ressources HTML, PDF et images sont dans `resources/`.
 | --- | --- |
 | `demand/` | Besoins, contexte et décisions de cadrage |
 | `tasks/` | Une carte par tâche, ses critères et sa preuve |
-| `runbooks/` | Procédures reproductibles avec préconditions et vérifications |
+| `runbooks/` | Mesures exceptionnelles lors des déploiements |
 | `resources/` | Ressources techniques utilisées pour réaliser ou vérifier |
 
 ## Rubriques d’une demande
