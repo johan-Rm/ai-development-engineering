@@ -1,6 +1,6 @@
 # UX-001 — Clarifier les responsabilités du dossier design
 
-- État : bloquée — transmission du cadrage par commit à résoudre.
+- État : implémentée et commitée, à vérifier.
 - Date : 2026-10-27.
 - Demande : [DEM-006](../demand/DEM-006-clarifier-responsabilites-dossiers-cadre.md).
 - Couche : design.
@@ -55,4 +55,10 @@ La validation humaine et la livraison restent des étapes distinctes.
 
 ## Réalisation et verdict
 
-Non implémentée. Aucun test exécuté à l’étape de découpage ; aucun verdict humain inventé.
+Réalisée le 2026-10-27 dans worktree/design après vérification de layers/design propre.
+Cadrage transmis depuis OPS-053 `56c8a954cc5ad2073b336e7d73b6622ebfcdb87f`
+par cherry-pick local `8dafce6`. Aucune copie de fichiers non commités.
+README conforme à la proposition retenue : texte non exhaustif, deux rubriques,
+conventions vides et limite avec les couches web/backoffice. Aucun lien à vérifier.
+Relecture du diff et `git diff --check` : réussis. Aucun test applicatif requis.
+Aucun verdict humain à ce stade.
