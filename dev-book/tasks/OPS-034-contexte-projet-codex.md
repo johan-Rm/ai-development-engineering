@@ -14,7 +14,7 @@ Le projet doit fournir à Codex un contexte explicite pour trouver ses règles, 
 ## Mission et affectation
 
 - Couche : devops ; branche : `layers/devops`.
-- Worktree : `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Worktree : `worktree/devops`.
 - Base observée : `72588b43f6aae4abbada33640c978894c7162f0c` ; aucune dépendance non commitée.
 - Chemins autorisés pour l'implémentation : `.codex/config.toml`, `AGENTS.md`, `CLAUDE.md`, `.claude/`, `README.md`, `ia-engineering/`, documentation active concernée sous `docs/`, cette carte et contrôles sous `codebase-quality-control/` uniquement si le retrait de Claude impose leur adaptation.
 - Preuve attendue : configuration lisible, navigation documentaire cohérente, correspondance explicite entre boucles AIDE et skills disponibles, contrôles du dépôt réussis.

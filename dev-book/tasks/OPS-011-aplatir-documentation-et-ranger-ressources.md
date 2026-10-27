@@ -5,7 +5,7 @@
 - **Statut** : ✅ fait le 2026-10-23.
 - **Type** : docs.
 - **Demande** : ne conserver que des fichiers `.md` dans `docs/`, retirer le niveau redondant `aiod/` et ranger les ressources dans le dossier prévu.
-- **Mission** : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : devops, branche `layers/devops`, worktree `worktree/devops`.
 - **Dépendance par SHA** : OPS-010, `10e158a1fcddd21cfd7345d0f63a9f32eb042186`.
 - **Tests** : inventaire avant/après et empreintes des ressources, contrôle des liens et références actives, `python3 codebase-quality-control/scripts/check.py`, test navigateur `codebase-quality-control/tests/browser/vue-aiod.cjs` et `git diff --check`. Aucun nouveau test applicatif : migration documentaire ; adapter uniquement les chemins du test existant.
 - **Réf** : `docs/README.md`, `docs/aiod/README.md`, `docs/aiod/sources/README.md`, `dev-book/resources/README.md`, `dev-book/README.md`.
@@ -99,7 +99,7 @@ La carte conserve les preuves ; les conventions durables sont écrites dans les 
 - Commande réussie hors bac à sable (celui-ci bloque le démarrage de Chromium) :
 
 ```sh
-LD_LIBRARY_PATH=/tmp/ops011-libs/root/usr/lib/x86_64-linux-gnu PLAYWRIGHT_BROWSERS_PATH=/tmp/ops011-playwright node codebase-quality-control/tests/browser/vue-aiod.cjs /home/johan/www/lab/ai-orchestrated-development/app/web/targets/app
+LD_LIBRARY_PATH=/tmp/ops011-libs/root/usr/lib/x86_64-linux-gnu PLAYWRIGHT_BROWSERS_PATH=/tmp/ops011-playwright node codebase-quality-control/tests/browser/vue-aiod.cjs app/web/targets/app
 ```
 
 - Résultat : 12 actions, ouverture au clic/clavier/tactile, fermeture, focus, dimensions bureau/mobile et panneau superposé vérifiés. Dépendances Playwright existantes de l’arbre principal utilisées en lecture seule ; aucun changement des dépendances du projet.

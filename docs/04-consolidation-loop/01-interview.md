@@ -16,4 +16,4 @@ Une proposition de convention technique documentée et des questions à examiner
 
 ## Procédure associée
 
-`evoquer-un-sujet` pour discuter ; `creer-tache` pour formaliser le besoin et préparer les cartes.
+`interviewer-constat`.

@@ -6,7 +6,7 @@
 - **Type** : feat.
 - **Tests** : typecheck, build, rendu SSR de la liste et états vide/erreur.
 - **Réf** : demande utilisateur, docs/aiod/couches.md.
-- **Mission** : couche `web`, branche `layers/web`, worktree `<depot>/worktree/web`.
+- **Mission** : couche `web`, branche `layers/web`, worktree `worktree/web`.
 - **Chemins autorisés** : `app/web/`, cette carte.
 - **Base vérifiée** : `c320053cc1e802386aa17322fd367a09dd3f0c45` ; aucune réécriture de branche.
 

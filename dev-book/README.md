@@ -12,15 +12,45 @@ les ressources HTML, PDF et images sont dans `resources/`.
 
 ## Rubriques d’une demande
 
-Contexte, problème observé, résultat attendu, contraintes, questions ouvertes et décisions humaines.
+Après confirmation humaine du cadrage, créer ou reprendre un fichier
+`dev-book/demand/DEM-NNN-<sujet>.md`. Rechercher d’abord une demande existante
+correspondant au besoin ; conserver son identifiant et son chemin lors de la reprise.
+Pour une nouvelle demande, examiner l’historique de toutes les références Git locales
+et les fichiers des worktrees concernés, sans fetch implicite. Choisir le numéro suivant
+le plus grand numéro DEM observé, sur au moins trois chiffres ; une collision ou une
+attribution concurrente doit être résolue avant l’écriture.
+
+Le fichier fait référence pour le besoin et les décisions humaines. Il contient :
+
+- identifiant, titre, date et état du cadrage ;
+- contexte, problème observé, résultat attendu et utilisateurs concernés ;
+- critères observables de réussite, contraintes, exclusions et questions ouvertes ;
+- décisions humaines, notamment la confirmation du cadrage ;
+- référence au chat si disponible, sinon mention explicite « référence de session indisponible » ;
+- lien facultatif vers une carte externe et références aux tâches issues du découpage.
+
+Le chat sert à construire et préciser la demande ; la carte externe sert à son suivi.
+Conserver son lien n’exige aucune connexion à l’outil tiers. Créer ou modifier cette carte
+requiert une instruction explicite. L’absence de référence au chat ou de carte externe
+n’empêche pas le cadrage ; ne jamais inventer ces références.
+
+Au découpage, ajouter les liens vers les cartes dans la demande et le lien vers la demande
+d’origine dans chaque carte. Les cartes restent dans `tasks/`. La confirmation du besoin
+ne vaut pas validation du résultat implémenté et ne déclenche pas l’étape suivante.
 
 ## Rubriques d’une carte
 
-Identifiant et titre ; état (à cadrer, prête, en cours, bloquée, clôturée) ; date ; demande d’origine ;
+Identifiant et titre ; état (à cadrer, prête, en cours, bloquée, implémentée et commitée à vérifier, validée, livrée) ; date ; demande d’origine ;
 couche ; périmètre et exclusions ; critères d’acceptation ; dépendances par commit ; affectation
-(session, branche, chemin absolu) ; réalisation ; preuves et commandes ; documentation mise à jour.
+(session, branche, chemin relatif à la racine du dépôt principal) ; réalisation ; preuves et commandes ; documentation mise à jour.
 
-Une carte clôturée voyage dans le commit de sa tâche. Les identifiants sont attribués après
+La carte accompagne le commit d’implémentation de sa tâche avec les tests et preuves.
+La vérification consigne le verdict humain et les SHA acceptés dans un commit documentaire.
+Une carte commitée n’est pas encore validée ; une carte validée n’est pas encore livrée.
+Les corrections produisent de nouveaux commits. Les anciens statuts « clôturée » restent historiques.
+Le découpage prévoit la branche de réunion `demands/<identifiant>` et son worktree.
+La reconstitution crée cette branche dédiée, même pour une seule couche ; une branche
+de couche ne sert jamais de branche de réunion. Les identifiants sont attribués après
 vérification des branches concernées. Une carte découverte ne constitue pas une autorisation de travail.
 
 ## Rubriques d’une procédure
@@ -33,7 +63,15 @@ dans `tasks/`, sans sous-dossier d’archives. Leur statut indique le travail re
 Les cartes clôturées sont des traces historiques, jamais des tâches à reprendre automatiquement.
 Les preuves datées et les mentions d’état Git décrivent le moment de leur rédaction ; elles ne
 constituent pas une vérification de l’état actuel. Les chemins personnels historiques sont
-remplacés par des placeholders ; les originaux restent consultables dans Git.
+remplacés par des chemins relatifs à la racine du dépôt principal lorsqu’ils désignent
+le dépôt ; les références hors dépôt peuvent utiliser des placeholders explicites.
+Le placeholder `<skills-personnels>` désigne le dossier local des skills hors dépôt.
+Les originaux restent consultables dans Git.
+
+Les chemins des cartes et demandes partent toujours de la racine du dépôt principal,
+même lors d’une lecture depuis un worktree de couche : `worktree/devops`, par exemple.
+Le chemin absolu est résolu localement à l’exécution, puis vérifié avec la branche
+et l’état Git ; il n’est pas enregistré dans les affectations ou preuves versionnées.
 
 La maintenance du cadre appartient à devops (cartes `OPS`). Les anciennes cartes BP utilisent désormais des identifiants OPS. Leurs affectations et
 preuves restent historiques ; les commits antérieurs conservent leurs anciens identifiants.

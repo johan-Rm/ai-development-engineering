@@ -4,7 +4,7 @@
 
 - Statut : réalisée.
 - Date : 2026-10-21.
-- Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Mission : devops, branche `layers/devops`, worktree `worktree/devops`.
 - Demande : fusionner tout le travail dans `develop` et mettre à jour les cinq couches.
 - Périmètre : réunion de l’historique design, README de design et carte historique OPS-020.
 - Dépendances : devops `c5067aa` et design `8ce031f`.

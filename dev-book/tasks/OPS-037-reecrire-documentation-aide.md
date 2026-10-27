@@ -5,7 +5,7 @@
 - **Statut** : ✅ fait le 2026-10-24.
 - **Type** : docs.
 - **Tests** : sans objet pour de nouveaux tests exécutables — contenu Markdown ; vérification des liens, des chapitres, de la terminologie et du diff. Les tests existants de l’outillage seront exécutés pour le lot accumulé.
-- **Mission** : devops, `layers/devops`, `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : devops, `layers/devops`, `worktree/devops`.
 - **Périmètre** : README racine, SETUP.md, docs/, sauvegarde docs_save/, AGENTS.md et liens documentaires entrants ; cohérence des textes du schéma AIDE si obsolètes.
 - **Dépendances** : décisions OPS-034 et OPS-036 ; aucune copie de travail d’une autre session.
 

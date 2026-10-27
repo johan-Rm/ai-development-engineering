@@ -5,7 +5,7 @@
 - **Statut** : clôturée — ✅ fait le 2026-10-26. Configurations séparées, consommateurs, tests et documentation adaptés.
 - **Type** : refactor.
 - **Tests** : tests de création et préservation des worktrees ; lecture des configurations depuis le worktree appelant ; tests de l’outillage via `python3 codebase-integrity/scripts/check.py` ; comparaison JSON complète de la configuration Compose avant/après sans démarrage ; `git diff --check`.
-- **Mission** : devops, `layers/devops`, `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- **Mission** : devops, `layers/devops`, `worktree/devops`.
 - **Demande d’origine** : échange du 2026-10-24, séparation des responsabilités proposée puis validée par l’utilisateur.
 - **Réf** : OPS-041, OPS-042 ; `docs/02-cadre/couches.md`, `codebase-integrity/README.md`, `infra/README.md`.
 - **Dépendances par commit** : base locale `a100043dcc7bc0ebca7c44296b4c3b7b46c8ea34` (OPS-042), sur `develop` au commit `bd95c1c` ; aucune dépendance non commitée, aucun aval imposé.

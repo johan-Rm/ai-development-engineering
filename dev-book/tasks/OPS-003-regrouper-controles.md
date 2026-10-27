@@ -4,7 +4,7 @@
 
 - Statut : réalisée.
 - Date : 2026-10-21.
-- Mission : devops, branche `layers/devops`, worktree `/home/johan/www/lab/ai-orchestrated-development/worktree/devops`.
+- Mission : devops, branche `layers/devops`, worktree `worktree/devops`.
 - Demande : rassembler les dossiers racine `scripts/` et `tests/` sous `codebase-quality-control/`.
 - Périmètre : déplacement des deux dossiers, résolution des chemins, commandes CI et références documentaires.
 - Dépendances : OPS-001 et OPS-002 préparées dans le même worktree.

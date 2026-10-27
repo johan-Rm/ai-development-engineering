@@ -1,19 +1,22 @@
 # Implémentation
 
-> Réaliser la tâche dans sa couche et présenter un résultat vérifiable.
+> Réaliser les cartes d’une demande dans leurs couches et présenter des résultats vérifiables.
 
 ## Entrée
 
-Carte prête et couche disponible.
+Demande découpée en cartes prêtes, couches disponibles et dépendances présentes par commits identifiés. Une carte seule peut limiter le périmètre.
 
 ## Déroulement
 
-L’IA vérifie la branche et le worktree, lit les README applicables, puis réalise le changement. Elle applique les conventions techniques, exécute les contrôles pertinents et prépare les tests et la documentation associés.
+L’IA suit les dépendances des cartes et, pour chacune, vérifie la branche et le worktree, lit les README applicables, puis réalise le changement. Elle applique les conventions techniques, exécute les contrôles pertinents et prépare les tests et la documentation associés.
 
 ## Sortie
 
-Un changement accompagné de preuves, prêt pour la vérification humaine. En cas de correction, la même tâche revient à cette étape.
+Un commit local distinct par carte, avec tests, documentation et preuves, prêt pour vérification
+humaine. L’invocation autorise ces commits dans ce projet, après vérification de l’index et du
+périmètre ; les changements étrangers restent préservés. Un commit ne vaut pas validation.
+Chaque correction produit un nouveau commit de la même carte. Aucun push, PR ou merge implicite.
 
 ## Procédure associée
 
-`demarrer-tache` ; aucun élément de `codebase-integrity/` ne peut être modifié dans cette boucle.
+`implementer-demande`.

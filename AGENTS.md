@@ -1,7 +1,7 @@
 # Consignes des agents
 
 Lire [les couches](docs/02-cadre/couches/index.md), la carte demandée et les README applicables avant d’écrire.
-Les instructions explicites de l’utilisateur priment. Une mission précise son worktree absolu,
+Les instructions explicites de l’utilisateur priment. Une mission précise son worktree relatif à la racine du dépôt principal,
 sa branche, ses chemins autorisés, ses dépendances par commit et sa preuve attendue.
 Ne déléguer que sur demande explicite.
 
@@ -16,7 +16,17 @@ Ne déléguer que sur demande explicite.
 - **Stratégie de merge proposée** : merge commit, sous réserve de la politique GitHub configurée.
 
 Les skills portent les procédures des étapes ; les règles suivantes précisent leurs limites ici :
-commit, push, PR, merge et opérations distantes seulement sur demande, aucun changement de tâche
+dans la boucle de développement, invoquer `implementer-demande` autorise les commits locaux
+des cartes confiées et de leurs corrections ; invoquer `verifier-demande` autorise le commit
+documentaire des verdicts humains, sans autoriser leur invention. Le découpage est autonome
+et prévoit la branche dédiée `demands/<identifiant>`, créée à la reconstitution, même pour
+une seule couche ; ne pas utiliser une branche de couche pour réunir une demande.
+Invoquer `livrer-demande` autorise la livraison complète en autonomie : commits documentaires
+nécessaires, vérification distante et fetch, push sans forcer, création ou mise à jour de la PR
+vers `develop`, fusion après contrôles et protections satisfaits, puis suivi et réalignement
+sans perte des seules branches libres. Ne pas redemander une autorisation pour chacune de ces
+opérations. Une demande limitée explicitement à une PR reste limitée à cette PR.
+Hors de ce périmètre, les autres opérations Git nécessitent une demande explicite. Aucun changement de tâche
 sur l’intégration ou la production. Préserver le travail existant et les `.env` ; pas de stash,
 reset --hard, force-push ou suppression de worktree pour résoudre une situation.
 Vérifier la branche et l’état Git dans le worktree absolu affecté ; un arbre propre ne prouve pas
@@ -72,37 +82,47 @@ contrôles pertinents.
 La [vue AIDE](dev-book/resources/vue-d-ensemble-ai-development-engineering.html) définit les
 briques des deux boucles. Les skills ci-dessous sont des procédures recommandées lorsqu’ils
 sont disponibles ; leur mention ne les installe pas et ne déclenche aucune étape automatiquement.
-Ils restent personnels, hors du dépôt. Si un skill manque, suivre la carte, les instructions
-ci-dessus et les [commandes de qualité](docs/01-codebase-integrity/points-de-controle.md) ; signaler toute procédure manquante
-plutôt que supposer le skill installé ou inventer ses étapes.
+Les skills sont personnels, hors du dépôt. Si un skill manque dans la session, suivre la carte
+et les instructions du projet ; signaler la procédure manquante sans inventer son contenu.
+
+Les deux boucles ont chacune six skills indépendants. Les skills de vérification et d’arbitrage
+accompagnent et consignent les décisions humaines sans les remplacer.
 
 ### Boucle de développement
 
-| Brique AIDE | Skill ou intervention à privilégier |
+| Étape | Skill |
 | --- | --- |
-| Avant le cadrage, sujet à discuter | `evoquer-un-sujet` : discuter sans écrire ni ouvrir une tâche |
-| 01 Interview | `creer-tache` : clarifier le besoin |
-| 02 Découpage | `creer-tache` : écrire les cartes par couche et préparer la branche |
-| 03 Implémentation | `demarrer-tache` : réaliser la carte, produire la preuve, les tests pertinents et la documentation |
-| 04 Vérification | Verdict humain sur le résultat ; aucun skill ne le remplace |
-| 05 Reconstitution | Aucun skill dédié : rassembler uniquement les commits autorisés après identification des dépendances et de la branche de réunion |
-| 06 Livraison | `commit-tache` pour clôturer la carte et committer ; `creer-pr` pour les contrôles de livraison et la PR |
-| Après fusion | `apres-pr-mergee` pour vérifier le merge et réaligner les branches libres |
+| 01 Interview | `interviewer-demande` |
+| 02 Découpage | `decouper-demande` |
+| 03 Implémentation | `implementer-demande` |
+| 04 Vérification | `verifier-demande` |
+| 05 Reconstitution | `reconstituer-demande` |
+| 06 Livraison | `livrer-demande` |
 
 ### Boucle de consolidation
 
-| Brique AIDE | Skill ou intervention à privilégier |
+| Étape | Skill |
 | --- | --- |
-| 01 Interview | `evoquer-un-sujet` si la règle est encore à discuter, puis `creer-tache` pour formaliser la décision |
-| 02 Analyse globale | Aucun skill dédié : examiner toute la base concernée par la convention technique pour relever ses applications et écarts ; ne pas confondre avec le simple état Git |
-| 03 Arbitrage | Décision humaine sur la règle et les corrections à retenir |
-| 04 Implémentation | `demarrer-tache` sur les cartes cadrées : corriger les écarts et automatiser les contrôles adaptés |
-| 05 Vérification | Vérification humaine de l’application de la règle, appuyée par les preuves et contrôles exécutés |
-| 06 Livraison | `commit-tache`, puis `creer-pr` ; `apres-pr-mergee` après fusion demandée |
+| 01 Interview | `interviewer-constat` |
+| 02 Analyse globale | `analyser-convention` |
+| 03 Arbitrage | `arbitrer-convention` |
+| 04 Implémentation | `implementer-consolidation` |
+| 05 Vérification | `verifier-consolidation` |
+| 06 Livraison | `livrer-consolidation` |
 
-`etat-des-lanes` sert à lire l’état des branches sans choisir ni démarrer une tâche.
-Les tests et la documentation pertinents accompagnent l’implémentation avant sa présentation.
-Commit, push, PR et merge restent soumis aux demandes explicites prévues ci-dessus.
+`etat-des-lanes` et `configurer-worktrees-aide` sont les deux outils hors des boucles.
+En développement, l’implémentation produit les commits distincts des cartes avant vérification ;
+la vérification recueille le verdict dans le chat et commet uniquement sa trace documentaire.
+Une carte commitée reste à vérifier ; une carte validée reste à livrer. Les corrections produisent
+de nouveaux commits d’implémentation. La reconstitution réunit les SHA validés et leur trace de verdict.
+En consolidation, les autorisations propres aux skills et au projet continuent à s’appliquer.
+En développement, invoquer la livraison autorise push, PR, fusion et suivi sans confirmation
+intermédiaire, dans le périmètre validé et sous réserve des contrôles et protections.
+Les skills doivent être disponibles et vérifiés dans la session avant la livraison.
+Les tests et la documentation pertinents accompagnent l’implémentation avant présentation.
+Les autorisations accordées par les invocations des étapes sont définies ci-dessus.
+Toute évolution d’un skill qui modifie ces autorisations doit mettre à jour les présentes
+consignes et les guides concernés dans le même changement ; vérifier leur cohérence avant présentation.
 
 ## Référence graphique à conserver
 
@@ -110,4 +130,4 @@ Pour tout travail graphique, lire la charte officielle du dépôt :
 [Brand Guidelines — Graines Digitales](<design/Brand Guidelines - Graines Digitales (standalone).html>).
 Ne pas lui substituer une copie externe. La [synthèse opérationnelle](design/charte-graphique.md)
 rappelle ses règles et les adaptations explicitement demandées pour AIDE : humain/cadre en olive,
-IA en terre cuite `#C07040`, couleurs dans les fonds/textes/bordures, sans traits décoratifs de rôle.
+IA en bleu `#1B6EAE`, couleurs dans les fonds/textes/bordures, sans traits décoratifs de rôle.

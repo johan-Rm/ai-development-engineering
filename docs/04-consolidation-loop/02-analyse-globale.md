@@ -16,4 +16,4 @@ Un état des lieux, les corrections proposées et les points de contrôle à cr�
 
 ## Procédure associée
 
-Aucun skill dédié dans le jeu actuel. `etat-des-lanes` renseigne l’état Git, sans remplacer l’analyse du code.
+`analyser-convention`.

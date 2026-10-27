@@ -24,3 +24,12 @@ Le fonctionnement actuel est décrit dans la [documentation AIDE](../../docs/ind
 
 Ces ressources sont référencées par les guides Markdown de `docs/`. La vue synthétique
 conserve l’ancien nom AIOD ; la vue interactive présente le cadre AIDE actuel.
+
+La vue interactive associe chacune des douze étapes à son skill propre dans les détails.
+Les noms et emplacements personnels sont affichés comme texte pour rester utilisables lorsque
+seul ce dossier est servi. Les skills restent hors du dépôt et doivent être disponibles avant livraison.
+Les couleurs continuent à identifier l’acteur de l’étape ; un skill de vérification ne remplace
+pas le verdict humain.
+
+Dans la vue interactive, les éléments IA et la légende utilisent le bleu `#1B6EAE`,
+conformément à [l’adaptation graphique AIDE](../../design/charte-graphique.md).
