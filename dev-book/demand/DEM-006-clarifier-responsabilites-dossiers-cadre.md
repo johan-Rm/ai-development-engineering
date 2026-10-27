@@ -1,7 +1,7 @@
 # DEM-006 — Clarifier les responsabilités des dossiers du cadre AIDE
 
 - Date : 2026-10-27.
-- État : validée humainement ; non livrée.
+- État : validée et reconstituée ; prête pour livraison, non livrée.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -212,3 +212,36 @@ historique jusqu’à reconstitution par les commits identifiés. Aucun changeme
 code, nouvelle exécution de tests, reconstitution ou livraison à cette étape.
 La demande DEM-007 non suivie, présente avant cette consignation, reste intacte et
 exclue du commit documentaire de DEM-006.
+
+## Preuve de reconstitution — 2026-10-27
+
+Branche `demands/DEM-006`, worktree `worktree/DEM-006`, créés depuis la base locale
+`779ce88da0a8e1945061cd2805bd0005ce01c13b`. Aucun fetch ni modification de develop.
+Deux merges conservent l’ascendance des commits validés :
+
+- `6c57c93` réunit devops jusqu’au verdict `7511267` ;
+- `b40f8de` réunit design jusqu’au verdict `fc3a24b`.
+
+Ascendance vérifiée pour `56c8a95`, `d17b1af`, `396e014`, `7511267` et `fc3a24b`.
+Le cherry-pick antérieur `8dafce6` est également conservé dans l’historique design.
+Les conflits add/add des seuls documents de cadrage ont été résolus depuis les
+versions commitées : demande et cartes OPS de `7511267`, carte UX de `fc3a24b`.
+Aucun conflit de comportement, aucune copie de travail non commité.
+Les quatre README et le JSON ont été comparés aux versions validées : identiques.
+Les cartes réunies contiennent les trois verdicts humains.
+
+Contrôles de l’ensemble dans le worktree de réunion :
+
+- `python3 codebase-integrity/scripts/check.py` : 23 tests réussis ;
+- `make test` : tous les contrôles réussis, 5 identités et 15 configurations Compose,
+  préservation des .env, collisions et paramètres invalides refusés ;
+- liens locaux de l’index documentaire et du README de configuration : valides ;
+- `git diff --check` : réussi ; état propre avant ajout de cette preuve.
+
+Les contrôles à sockets locales ont été exécutés avec les permissions nécessaires.
+Pas de preview ni de démarrage de stack applicative : cette branche de réunion ne
+correspond pas à une couche d’exécution. quality.py reste requis avant PR lors de la
+livraison avec ses prérequis. Les parcours applicatifs ne sont pas modifiés par DEM-006.
+
+DEM-007 non suivie dans devops reste intacte et absente de la réunion. Design reste
+propre. Aucun push, PR, merge vers develop ou réalignement des couches à cette étape.
