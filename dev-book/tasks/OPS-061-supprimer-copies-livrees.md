@@ -92,3 +92,5 @@ L’essai de reconstitution jetable et les liens sont vérifiés. Aucun changeme
 fonctionnel supplémentaire introduit pendant la consignation de ce verdict.
 Commit local de carte créé à cette étape 04 ; reconstitution et livraison restent
 à effectuer. Aucun push, PR ou merge autorisé par cette seule vérification.
+
+Commit de carte validée créé à l’étape 04 : `5d69599f86b0ac1ea84be16761f1ed6cba082fdd`.
