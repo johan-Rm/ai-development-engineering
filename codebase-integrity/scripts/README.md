@@ -4,7 +4,7 @@
 `check.py` exécute seulement les tests de l’outillage.
 `worktrees.py` gère les arbres Git ; `process.py` et `check_docker.py` vérifient la recette Docker.
 Les scripts consomment les configurations depuis le worktree appelant :
-`worktrees.py` lit `config/layers.json` (couches, branches, rôles et identifiants),
+`worktrees.py` lit `infra/config/layers.json` (couches, branches, rôles et identifiants),
 sans dépendre de Docker ; `process.py` lit aussi `infra/process-check.json`
 (image et base des ports de la recette). Les deux fichiers conservent respectivement
 les enveloppes JSON `layers` et `process`. Un fichier absent ou invalide provoque

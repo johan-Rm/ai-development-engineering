@@ -5,10 +5,10 @@ trial=$(mktemp -d /tmp/aide-make-test-XXXXXX)
 listener=''
 trap '[[ -z "$listener" ]] || kill "$listener" 2>/dev/null || :; rm -rf -- "$trial"' EXIT
 main="$trial/main"
-mkdir -p "$main/config" "$trial/bin"
+mkdir -p "$main" "$trial/bin"
 cp "$source_root/Makefile" "$main/Makefile"
 cp -R "$source_root/infra" "$main/infra"
-cp "$source_root/config/layers.json" "$main/config/layers.json"
+cp "$source_root/infra/config/layers.json" "$main/infra/config/layers.json"
 mkdir -p "$main/app/api/app" "$main/app/web/targets/app" "$main/app/backoffice"
 touch "$main/app/api/app/.fixture" "$main/app/web/targets/app/.fixture" "$main/app/backoffice/.fixture"
 printf 'APP_ENV=dev\n' > "$main/app/api/app/.env.example"
@@ -59,12 +59,12 @@ expect_failure make --no-print-directory -C "$api" info INTERFACE=foreign
 expect_failure make --no-print-directory -C "$api" test-browser RELOAD=bad
 expect_failure make --no-print-directory -C "$api" test-runtime EXPECT_EMPTY=bad
 # Compact/reordered JSON remains valid; duplicate identifiers are refused.
-perl -0777 -MJSON::PP -i -pe '$_=encode_json(decode_json($_))' "$api/config/layers.json"
+perl -0777 -MJSON::PP -i -pe '$_=encode_json(decode_json($_))' "$api/infra/config/layers.json"
 make --no-print-directory -C "$api" info >/dev/null
-cp "$api/config/layers.json" "$trial/routing"
-perl -0777 -MJSON::PP -i -pe '$c=decode_json($_);$c->{layers}{api}{id}=1;$_=encode_json($c)' "$api/config/layers.json"
+cp "$api/infra/config/layers.json" "$trial/routing"
+perl -0777 -MJSON::PP -i -pe '$c=decode_json($_);$c->{layers}{api}{id}=1;$_=encode_json($c)' "$api/infra/config/layers.json"
 expect_failure make --no-print-directory -C "$api" info
-cp "$trial/routing" "$api/config/layers.json"
+cp "$trial/routing" "$api/infra/config/layers.json"
 git -C "$api" checkout --quiet --detach
 expect_failure make --no-print-directory -C "$api" info
 git -C "$api" checkout --quiet layers/api

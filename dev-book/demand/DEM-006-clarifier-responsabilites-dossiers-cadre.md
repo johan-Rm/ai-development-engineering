@@ -133,8 +133,8 @@ coordination des couches avant toute implémentation.
 
 | Besoin | Carte | Couche | État au découpage |
 | --- | --- | --- | --- |
-| README du cadre, runbooks et index | [OPS-053](../tasks/OPS-053-clarifier-readme-cadre-index.md) | devops | Prête |
-| Configuration dans infra, consommateurs et tests | [OPS-054](../tasks/OPS-054-deplacer-config-infra.md) | devops | Commit OPS-053 à identifier |
+| README du cadre, runbooks et index | [OPS-053](../tasks/OPS-053-clarifier-readme-cadre-index.md) | devops | Implémentée et commitée, à vérifier (OPS-053) |
+| Configuration dans infra, consommateurs et tests | [OPS-054](../tasks/OPS-054-deplacer-config-infra.md) | devops | Implémentée et commitée, à vérifier (OPS-054) |
 | README design | [UX-001](../tasks/UX-001-clarifier-readme-design.md) | design | Transmission du cadrage par commit à résoudre |
 
 Ordre : OPS-053 puis OPS-054, séquentiellement en devops. UX-001 peut être réalisée
@@ -173,3 +173,11 @@ des instructions et README applicables et vérification de l’état Git. Les de
 présentes dans les worktrees et l’historique de toutes les références Git locales
 ont été examinés, sans fetch : plus grand numéro observé, DEM-005 ; aucun doublon
 correspondant à ce besoin identifié. DEM-006 est attribué à cette demande.
+
+## Implémentation devops — 2026-10-27
+
+OPS-053 : `56c8a954cc5ad2073b336e7d73b6622ebfcdb87f`.
+OPS-054 est réalisée dans le commit portant sa carte et cette preuve ; SHA à relever
+après commit. 23 tests d’outillage et tous les contrôles Make réussissent.
+UX-001 reçoit le cadrage par cherry-pick identifié dans sa carte, sans copie non commitée.
+Les verdicts humains et la réunion restent à effectuer aux étapes correspondantes.

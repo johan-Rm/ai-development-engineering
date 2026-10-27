@@ -1,6 +1,6 @@
 # OPS-054 — Déplacer la configuration des couches dans infra
 
-- État : bloquée — commit OPS-053 à identifier.
+- État : implémentée et commitée, à vérifier.
 - Date : 2026-10-27.
 - Demande : [DEM-006](../demand/DEM-006-clarifier-responsabilites-dossiers-cadre.md).
 - Couche : devops.
@@ -68,4 +68,19 @@ La validation humaine et la livraison restent des étapes distinctes.
 
 ## Réalisation et verdict
 
-Non implémentée. Aucun test exécuté à l’étape de découpage ; aucun verdict humain inventé.
+Réalisée le 2026-10-27. Configuration déplacée et consommateurs/fixtures adaptés,
+sans modification des assertions ni des valeurs JSON (identité octet par octet vérifiée).
+Liens relatifs du README déplacé : valides. Recherche des références : tous les usages
+actifs utilisent infra/config/layers.json ; les occurrences historiques de dev-book
+restent historiques, notamment OPS-043 et DEM-005.
+`python3 codebase-integrity/scripts/check.py` : 23 tests réussis.
+`make test` : tous les contrôles réussis, dont 5 identités, 15 configurations Compose,
+préservation .env, refus des collisions et paramètres invalides.
+Première exécution : fixture de dossier corrigée ; restriction sandbox sur les sockets
+locales résolue en relançant avec les permissions nécessaires, sans affaiblir les tests.
+`git diff --check` : réussi. Aucun déploiement ni recette applicative démarrée.
+quality.py reste à la livraison avec ses prérequis. Aucun verdict humain à ce stade.
+
+## Dépendance résolue
+
+OPS-053 : `56c8a954cc5ad2073b336e7d73b6622ebfcdb87f`, présent sur layers/devops avant démarrage.
