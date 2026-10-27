@@ -1,6 +1,6 @@
 # OPS-051 — Fournir la stack applicative autonome par worktree
 
-- État : implémentée et commitée, à vérifier.
+- État : prête — corrections humaines demandées, retour à l’implémentation.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
@@ -120,3 +120,18 @@ le runtime Symfony existant supporte `APP_RUNTIME_OPTIONS` JSON et `dotenv_path`
 maintenant fixé à `.env.example`. Aucun `.env` hôte créé ou modifié. Les 15 résolutions
 Compose et le test de préparation sans `.env` couvrent ce cas. La recette réelle des
 cinq couches sera rejouée sur ce commit de correction et consignée dans OPS-052.
+
+
+## Corrections humaines demandées — 2026-10-27
+
+SHA présentés : `d076aecd78c7bfe110758ef35055b42e0af35084`,
+`ec0e27bd1b8e19bddf073139fcc6b95ede035136` et
+`c70975474d656c74fb3f88ec7419953221a38922`. Aucun de ces SHA n’est validé.
+L’humain demande des commandes `make` pour piloter la stack, à la place des appels
+explicites à `python3`. Fournir des cibles pour préparer, démarrer avec le choix
+d’interface, afficher les adresses et l’état, arrêter et exécuter les tests/recettes.
+Les scripts Python peuvent rester utilisés en interne. Le Makefile racine est ajouté
+au périmètre de correction par cette demande explicite ; actualiser la documentation
+et les preuves concernées sans modifier le Codebase Integrity.
+De nouveaux commits d’implémentation sont nécessaires avant une nouvelle vérification.
+Aucun code modifié à l’étape de consignation du verdict.
