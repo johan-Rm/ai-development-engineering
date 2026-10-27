@@ -142,3 +142,19 @@ réussi ni contrôle visuel ne sont déduits de ce verdict. La carte reste à li
 
 Commit local d’OPS-062 créé après ce verdict : `5737c74570b124c7d92cbefa0d3d36b22700b22a`.
 La trace de ce SHA est consignée dans un commit documentaire complémentaire.
+
+## Vérifications complémentaires à la livraison — 2026-10-27
+
+Chromium lancé grâce aux bibliothèques extraites localement dans
+/tmp/dem010-browser-deps (aucune installation système). Contrôle ciblé du titre
+visible, aria-label et débordements : réussite sur 1918 × 924 et 390 × 844 ;
+captures /tmp/dem010-desktop.png et /tmp/dem010-mobile.png relues, titre lisible.
+
+Le test complet vue-aiod.cjs échoue désormais sur la couleur de Codebase Integrity,
+ligne 42 : rgb(168, 185, 122) attendu, rgb(192, 112, 64) observé. Assertion
+préexistante identique dans develop, hors du remplacement textuel autorisé.
+Le terre cuite observé correspond à la charte. Aucun contrôle modifié pour
+contourner cet échec. Verdict humain antérieur conservé ; livraison bloquée
+avant push et PR tant que ce contrôle requis ne réussit pas.
+
+Contrôle qualité final de livraison : réussite (code 0), sortie /tmp/dem010-quality.log.
