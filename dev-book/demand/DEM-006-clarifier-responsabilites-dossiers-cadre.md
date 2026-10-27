@@ -245,3 +245,27 @@ livraison avec ses prérequis. Les parcours applicatifs ne sont pas modifiés pa
 
 DEM-007 non suivie dans devops reste intacte et absente de la réunion. Design reste
 propre. Aucun push, PR, merge vers develop ou réalignement des couches à cette étape.
+
+## Préparation de livraison — 2026-10-27
+
+Livraison complète demandée par invocation de livrer-demande. Cible origin/develop
+vérifiée à `779ce88`, branche par défaut develop, merge commit autorisé par GitHub.
+Historique limité aux contributions DEM-006 et verdicts validés ; branches de couche
+ancêtres de la réunion, sans divergence inédite identifiée.
+
+`python3 codebase-integrity/scripts/apps.py install all` puis
+`python3 codebase-integrity/scripts/quality.py` : réussis dans worktree/DEM-006,
+avec PHP, Composer et Node locaux ; 23 tests d’outillage, smoke API, lint conteneur,
+schéma et contrat OpenAPI, typechecks et builds web/backoffice. Aucun contrôle
+modifié pour obtenir ces résultats. Les contrôles Make de reconstitution restent
+réussis et couvrent les fichiers techniques inchangés depuis cette exécution.
+Index et diff vérifiés, aucun fichier étranger ni .env inclus.
+
+Avant PR, inventaire local : develop, API, web, backoffice et design propres ;
+devops contient DEM-007 non suivie. La règle impose de laisser cette couche intacte.
+La PR peut être livrée, mais le suivi restera incomplet tant que devops ne pourra
+pas être réalignée sans toucher à cette mission. Aucun stash, reset ou rebase prévu.
+
+Les installations et builds ne démarrent aucune stack applicative ni déploiement.
+Les contrôles GitHub de la PR restent à attendre avant fusion ; cette preuve ne
+prétend pas que la PR est déjà créée ou fusionnée.
