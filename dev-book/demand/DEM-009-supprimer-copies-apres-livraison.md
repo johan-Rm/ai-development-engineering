@@ -1,7 +1,7 @@
 # DEM-009 — Simplifier le workflow de développement
 
 - Date : 2026-10-27.
-- État : validée et commitée ; non livrée.
+- État : validée, commitée et reconstituée ; non livrée.
 - Identifiant de session : `01a17c9e-d8e8-7833-805b-fe7a84cfecd0`.
 - Carte externe : aucune fournie.
 
@@ -111,3 +111,21 @@ Commit local de carte créé à cette étape 04 ; reconstitution et livraison re
 à effectuer. Aucun push, PR ou merge autorisé par cette seule vérification.
 
 Commit de carte validée créé à l’étape 04 : `5d69599f86b0ac1ea84be16761f1ed6cba082fdd`.
+
+## Reconstitution — 2026-10-27
+
+Branche `demands/DEM-009` créée depuis develop local
+`da44ac36942165786b969c37e9b91de1f0158a23`, dans le worktree existant
+`worktree/devops`, libre et propre avant opération. Branche de retour : layers/devops.
+Aucun nouveau worktree ni dossier de réunion, aucun fetch implicite.
+
+Cherry-picks avec -x, sans conflit :
+
+- `5d69599f86b0ac1ea84be16761f1ed6cba082fdd` → `f94260f6c5022ce7976d4271b128a9e841ae276e`.
+- `f524cfd` → `9cfa94b7f1a238d515712a368154efb12afadf20`.
+
+Contenu final identique à layers/devops avant la présente trace documentaire,
+contrôlé par `git diff --exit-code layers/devops HEAD`. Liens locaux et
+`git diff develop --check` réussis ; chapitre Conventions techniques de dev-book
+vide. 23 tests d’outillage réussis avec `python3 codebase-integrity/scripts/check.py`.
+Aucun push, PR, merge de livraison ou alignement effectué. Livraison à venir.
