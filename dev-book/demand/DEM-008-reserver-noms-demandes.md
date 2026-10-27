@@ -18,7 +18,7 @@ La procédure actuelle les crée dans le projet puis les conserve après livrais
 Les dossiers `worktree/DEM-002` à `worktree/DEM-007` ont été observés ; les
 métadonnées des deux premiers pointent encore vers l’ancien emplacement du dépôt.
 Ces observations sont à revérifier avant déplacement. Un rapport tel que
-`dev-book/resources/DEM-007-audit-contenu-local.md` est également concerné.
+`dev-book/resources/audit-contenu-local-007.md` est également concerné.
 
 ## Résultat attendu et périmètre
 
@@ -152,3 +152,10 @@ Aucun déplacement, renommage, nettoyage, commit, push, PR, merge ou découpage.
 Cadrage et cartes : `75b126e`. Règle de rangement et temporaire extérieur documentés
 dans les instructions et guides. Essai de création/reprise réussi dans un dépôt
 jetable ; aucun skill personnel ni contrôle modifié. Carte à vérifier humainement.
+
+## Implémentation OPS-059 — 2026-10-27
+
+Dépendance OPS-058 : `caf3ad1`. Rapport d’audit renommé avec contenu identique et
+références corrigées. Aucun autre nom DEM-* hors demand observé dans devops.
+Les copies historiques et les autres couches restent à traiter selon OPS-060 et
+la livraison. Aucun verdict humain acquis.

@@ -1,6 +1,6 @@
 # OPS-059 — Renommer les rapports et corriger leurs liens
 
-- État : bloquée par le commit OPS-058.
+- État : implémentée et commitée, à vérifier.
 - Date : 2026-10-27.
 - Demande : [DEM-008](../demand/DEM-008-reserver-noms-demandes.md).
 - Couche : devops.
@@ -16,7 +16,7 @@ Aucune délégation. Préserver .env, données, travaux en cours et historiques.
 
 Inventorier les fichiers/dossiers DEM-* hors des demandes dans le contenu du
 dépôt, puis renommer les rapports avec un nom adapté à leur rôle. Le rapport
-`dev-book/resources/DEM-007-audit-contenu-local.md` est une occurrence connue,
+`dev-book/resources/audit-contenu-local-007.md` est une occurrence connue,
 non une liste exhaustive. Conserver son contenu et corriger tous ses liens actifs.
 Les mentions historiques restent identifiables comme historiques.
 
@@ -45,3 +45,12 @@ Mettre à jour cette carte et DEM-008 avec les preuves et SHA avant vérificatio
 Lire les README applicables avant écriture. Aucun stash, reset destructif,
 force-push ni rebase implicite. Aucun changement direct de tâche sur develop.
 Non commencée ; aucun commit de réalisation ni verdict humain.
+
+## Preuve OPS-059 — 2026-10-27
+
+Dépendance OPS-058 : `caf3ad1`. Parcours de tout le worktree devops, fichiers
+ignorés compris, hors métadonnées Git et copies imbriquées : un seul nom DEM-*
+hors demand, le rapport d’audit. Renommé en `audit-contenu-local-007.md` sans
+modification de contenu ; SHA-256 avant/après : `e369c7dd13330902cd5480860ba1aa801684cb918c788324cfad301281c72283`.
+Références locales des demandes et cartes corrigées ; demandes non renommées.
+Les autres copies sont traitées par OPS-060 ou propagées à la livraison.
