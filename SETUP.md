@@ -122,7 +122,7 @@ Ces tests créent puis suppriment des articles. Utiliser une API de développeme
 ## Adapter au projet
 
 1. Lire [AGENTS.md](AGENTS.md) et les README existants ; préserver les consignes, fichiers et environnements du projet d’accueil.
-2. Définir les [couches](docs/02-cadre/couches/index.md), leurs responsabilités, branches et chemins. Adapter ensemble cette table et `config/layers.json`. La recette Docker possède sa configuration distincte dans `infra/process-check.json` (`process.image` et `process.port_base`).
+2. Définir les [couches](docs/02-cadre/couches/index.md), leurs responsabilités, branches et chemins. Adapter ensemble cette table et `infra/config/layers.json`. La recette Docker possède sa configuration distincte dans `infra/process-check.json` (`process.image` et `process.port_base`).
 3. Compléter les instructions et examiner `.codex/config.toml`. Les skills restent personnels, hors du dépôt ; vérifier leur disponibilité avant livraison.
 4. Définir les conventions techniques dans les README locaux, puis implémenter les contrôles par la consolidation autorisée.
 5. Adapter les commandes de qualité et la CI. Vérifier les protections GitHub si les tests doivent bloquer la fusion ; aucun déploiement n’est fourni.

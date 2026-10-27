@@ -17,7 +17,7 @@ def settings(cwd):
     if not any(Path(item['worktree']).resolve() == tree for item in records):
         raise ValueError('Arbre Git non enregistré')
     branch = worktrees.git(tree, 'branch', '--show-current')
-    layers = json.loads((tree / 'config/layers.json').read_text())['layers']
+    layers = json.loads((tree / 'infra/config/layers.json').read_text())['layers']
     recipe = json.loads((tree / 'infra/process-check.json').read_text())['process']
     ids = [item['id'] for item in layers.values() if 'id' in item]
     if any(type(item) is not int or item < 1 for item in ids) or len(ids) != len(set(ids)):

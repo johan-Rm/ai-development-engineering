@@ -23,7 +23,7 @@ stack_record=$(STACK_BRANCH="$stack_branch" perl -0777 -MJSON::PP -e '
     }
     die "Branche de couche attendue ; HEAD détachée et intégration refusées\n" unless @matches == 1;
     print $matches[0];
-' "$stack_root/config/layers.json") || stack_fail 'Routage de couche invalide ou branche inattendue.'
+' "$stack_root/infra/config/layers.json") || stack_fail 'Routage de couche invalide ou branche inattendue.'
 mapfile -t stack_fields <<< "$stack_record"
 stack_layer=${stack_fields[0]}
 stack_id=${stack_fields[1]}
