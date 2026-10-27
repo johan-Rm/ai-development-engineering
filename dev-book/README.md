@@ -12,7 +12,3 @@ Le journal opérationnel du projet : besoins, tâches et traces de réalisation.
 Les guides et références durables du cadre AIDE sont dans `docs/`.
 
 ## Conventions techniques
-
-Les noms `DEM-*` sont réservés aux seuls documents de `demand/`. Les rapports
-et preuves restent dans `resources/` sous un nom décrivant leur rôle sans ce
-préfixe. Les identifiants de demande dans leur contenu restent conservés.

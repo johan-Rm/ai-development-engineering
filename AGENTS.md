@@ -16,20 +16,25 @@ Ne déléguer que sur demande explicite.
 - **Stratégie de merge proposée** : merge commit, sous réserve de la politique GitHub configurée.
 
 Les skills portent les procédures des étapes ; les règles suivantes précisent leurs limites ici :
-dans la boucle de développement, invoquer `implementer-demande` autorise les commits locaux
-des cartes confiées et de leurs corrections ; invoquer `verifier-demande` autorise le commit
-documentaire des verdicts humains, sans autoriser leur invention. Le découpage est autonome
+dans la boucle de développement, `implementer-demande` réalise les cartes sans commit,
+y compris leurs corrections. `verifier-demande` autorise les commits locaux distincts des
+cartes explicitement validées par l’humain, avec leur code, tests, documentation, preuves
+et verdict, puis les traces documentaires nécessaires. Aucun verdict ne peut être inventé. Le découpage est autonome
 et prévoit la branche dédiée `demands/<identifiant>`, créée à la reconstitution, même pour
-une seule couche ; ne pas utiliser une branche de couche pour réunir une demande.
+une seule couche ; ne pas utiliser une branche de couche pour porter une demande reconstituée.
 Invoquer `livrer-demande` autorise la livraison complète en autonomie : commits documentaires
 nécessaires, vérification distante et fetch, push sans forcer, création ou mise à jour de la PR
-vers `develop`, fusion après contrôles et protections satisfaits, puis suivi et réalignement
-sans perte des seules branches libres. Ne pas redemander une autorisation pour chacune de ces
+vers `develop`, fusion après contrôles et protections satisfaits, retour du worktree à sa branche
+de couche, réalignement des couches libres et suppression des seules branches
+temporaires livrées. Conserver les worktrees, .env et données. Ne pas redemander une autorisation pour chacune de ces
 opérations. Une demande limitée explicitement à une PR reste limitée à cette PR.
 Hors de ce périmètre, les autres opérations Git nécessitent une demande explicite. Aucun changement de tâche
 sur l’intégration ou la production. Préserver le travail existant et les `.env` ; pas de stash,
 reset --hard, force-push ou suppression de worktree pour résoudre une situation.
-Vérifier la branche et l’état Git dans le worktree absolu affecté ; un arbre propre ne prouve pas
+Vérifier la branche, l’index et l’état Git dans le worktree absolu affecté. Ne pas commencer
+une nouvelle mission si des modifications suivies, indexées ou des fichiers non suivis sont
+présents ; préserver cet état et signaler le blocage. Une reprise de la même mission peut
+conserver ses modifications non commitées identifiées, sans changement étranger ; un arbre propre ne prouve pas
 qu’une couche est libre. Les dépendances et la reconstitution reposent sur des commits identifiés,
 jamais sur la copie du travail non commité d’une autre mission. Ne pas rebaser une branche
 partagée ou occupée sans coordination. La livraison complète inclut le réalignement
@@ -48,32 +53,27 @@ La [documentation d’infrastructure](infra/README.md) décrit les témoins Dock
 applicatif n’est configuré. Les changements de conventions techniques et contrôles passent par la
 consolidation selon [Codebase Integrity](codebase-integrity/README.md).
 
-## Rangement des demandes et réunions
+## Rangement des demandes
 
 Les noms de fichiers et dossiers `DEM-*` sont réservés aux documents de demande
-dans `dev-book/demand/`, dans chaque copie du dépôt. Les rapports utilisent un
-nom décrivant leur rôle, sans ce préfixe. Les identifiants dans le texte et les
-branches `demands/<identifiant>` sont conservés.
+situés dans `dev-book/demand/`. Les rapports éventuels ont un nom décrivant leur rôle.
 
-Les worktrees de réunion sont créés dès le départ hors du dépôt et de ses couches,
-sous `<temp>/aide-reunions/<projet>-reunion-<numero>` ; par exemple un nom terminé
-par `reunion-008`, jamais `DEM-008`. Résoudre `<temp>` selon l’environnement et
-l’identité du dépôt localement, sans chemin personnel versionné. Vérifier que la
-destination est extérieure, accessible et sans collision. Réutiliser une copie
-existante seulement après vérification de son enregistrement Git, de sa branche
-et de sa disponibilité ; ne jamais l’écraser. La branche dédiée est créée à la
-reconstitution, pas au découpage.
-
-Le temporaire doit rester disponible pendant la mission et les interruptions :
-utiliser un répertoire de mission persistant extérieur au dépôt, configurable,
-jamais un `/tmp` susceptible d’être purgé. Le terme temporaire désigne la durée
-de la mission, pas un stockage éphémère. Ne pas confier une copie conservée
-à une purge automatique. Conserver les fichiers locaux,
-.env et données lors des déplacements et après livraison ; détacher le worktree
-livré avant suppression de sa seule branche temporaire. Les couches restent dans
-`worktree/<couche>` ; aucune copie de réunion dans ce dossier.
+La reconstitution consiste à créer `demands/<identifiant>` depuis le develop local
+vérifié, dans un worktree existant libre et propre, puis à y cherry-pick les commits
+validés avec `git cherry-pick -x`, dans l’ordre des dépendances. Aucune copie ou
+dossier de réunion supplémentaire. Noter la branche de couche à retrouver après
+livraison ; conserver le worktree et ses fichiers locaux. Consigner les SHA sources
+et obtenus dans la demande ou les cartes, sans nouveau rapport séparé.
 
 ## Documentation et README
+
+Toute nouvelle demande et toute nouvelle carte doivent renseigner l’identifiant réel de la
+session qui les crée. Le relever depuis le contexte de session ou une source locale fiable
+(par exemple `CODEX_THREAD_ID` ou `CODEX_SESSION_ID`), jamais le déduire du numéro DEM/OPS.
+Si l’identifiant est absent ou contradictoire, signaler le blocage avant création au lieu
+d’écrire « référence de session indisponible ». À la reprise dans une autre session,
+conserver l’identifiant d’origine et ajouter celui de la session intervenante.
+
 
 - [docs/index.md](docs/index.md) est l’index des guides et références durables du projet.
 - [dev-book/README.md](dev-book/README.md) décrit les demandes, cartes de tâches, procédures et preuves.
@@ -143,10 +143,12 @@ accompagnent et consignent les décisions humaines sans les remplacer.
 | 06 Livraison | `livrer-consolidation` |
 
 `etat-des-lanes` et `configurer-worktrees-aide` sont les deux outils hors des boucles.
-En développement, l’implémentation produit les commits distincts des cartes avant vérification ;
-la vérification recueille le verdict dans le chat et commet uniquement sa trace documentaire.
-Une carte commitée reste à vérifier ; une carte validée reste à livrer. Les corrections produisent
-de nouveaux commits d’implémentation. La reconstitution réunit les SHA validés et leur trace de verdict.
+En développement, l’implémentation prépare des changements non commités avec leurs preuves.
+La vérification recueille le verdict dans le chat puis crée un commit distinct par carte validée,
+avec l’implémentation et sa trace de verdict. Les corrections restent non commitées jusqu’à leur
+nouvelle validation à cette étape, puis produisent de nouveaux commits sans réécriture.
+Une dépendance amont attend son commit après validation avant que son consommateur démarre.
+Une carte validée et commitée reste à livrer. La reconstitution réunit ces SHA et leurs verdicts.
 En consolidation, les autorisations propres aux skills et au projet continuent à s’appliquer.
 En développement, invoquer la livraison autorise push, PR, fusion et suivi sans confirmation
 intermédiaire, dans le périmètre validé et sous réserve des contrôles et protections.

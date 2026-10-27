@@ -1,52 +1,30 @@
 # Reconstitution
 
-> Réunir les commits validés pour obtenir le changement complet demandé.
+Créer une branche depuis develop et y cherry-pick les commits validés de la demande.
 
 ## Entrée
 
-Toutes les tâches attendues sont validées et possèdent leur commit.
+Demande, cartes validées et SHA de leurs commits, verdicts compris.
 
 ## Déroulement
 
-L’IA vérifie la complétude, les dépendances et la branche de réunion définie au découpage, sans redemander un choix déjà autorisé. Elle rassemble les commits, traite les conflits et vérifie les échanges entre les contributions. Une preview peut aider à observer l’ensemble.
+1. Vérifier les commits attendus et l’ordre de leurs dépendances.
+2. Choisir le worktree existant prévu pour la demande, libre et propre ; noter sa branche de couche.
+3. Y créer `demands/<identifiant>` depuis le develop local vérifié avec `git switch -c demands/<identifiant> develop`.
+4. Appliquer les commits avec `git cherry-pick -x <sha>`, dans l’ordre.
+5. Vérifier le diff et les contrôles pertinents ; noter les SHA sources et obtenus dans la demande ou les cartes.
 
-Créer la branche dédiée `demands/<identifiant>` si elle n’existe pas, même pour une seule couche.
-Si les SHA validés et la trace documentaire des verdicts sont déjà
-présents sur cette branche, vérifier leur ascendance et constater la réunion sans rejouer les commits.
+Aucune copie ou dossier de réunion à créer. Une reprise vérifie les cherry-picks
+déjà présents pour ne pas les rejouer ; une branche existante n’est pas déplacée.
+Ne copier aucun travail non commité. Un conflit qui change le résultat validé
+nécessite une décision humaine. Ne pas modifier develop ou une branche de couche
+pour porter directement la reconstitution.
 
 ## Sortie
 
-Une branche réunissant la demande initiale, prête pour les vérifications de livraison.
+Branche de demande prête pour livraison. Le worktree sera rendu à sa branche de
+couche après la fusion distante et conservé avec ses fichiers locaux.
 
 ## Procédure associée
 
 `reconstituer-demande`.
-
-## Emplacement de réunion
-
-Les noms de fichiers et dossiers `DEM-*` sont réservés aux documents de demande
-dans `dev-book/demand/`, dans chaque copie du dépôt. Les rapports utilisent un
-nom décrivant leur rôle, sans ce préfixe. Les identifiants dans le texte et les
-branches `demands/<identifiant>` sont conservés.
-
-Les worktrees de réunion sont créés dès le départ hors du dépôt et de ses couches,
-sous `<temp>/aide-reunions/<projet>-reunion-<numero>` ; par exemple un nom terminé
-par `reunion-008`, jamais `DEM-008`. Résoudre `<temp>` selon l’environnement et
-l’identité du dépôt localement, sans chemin personnel versionné. Vérifier que la
-destination est extérieure, accessible et sans collision. Réutiliser une copie
-existante seulement après vérification de son enregistrement Git, de sa branche
-et de sa disponibilité ; ne jamais l’écraser. La branche dédiée est créée à la
-reconstitution, pas au découpage.
-
-Le temporaire doit rester disponible pendant la mission et les interruptions :
-utiliser un répertoire de mission persistant extérieur au dépôt, configurable,
-jamais un `/tmp` susceptible d’être purgé. Le terme temporaire désigne la durée
-de la mission, pas un stockage éphémère. Ne pas confier une copie conservée
-à une purge automatique. Conserver les fichiers locaux,
-.env et données lors des déplacements et après livraison ; détacher le worktree
-livré avant suppression de sa seule branche temporaire. Les couches restent dans
-`worktree/<couche>` ; aucune copie de réunion dans ce dossier.
-
-Créer la copie avec `git worktree add -b demands/<identifiant> <destination> <base>`
-après vérification de la base locale explicite. Si la branche existe déjà, vérifier
-son affectation avant de la reprendre ; ne pas recréer ou déplacer sa référence.
