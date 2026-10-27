@@ -1,7 +1,7 @@
 # DEM-008 — Réserver les noms DEM-* aux documents de demande
 
 - Date : 2026-10-27.
-- État : cadrage confirmé et découpé ; non implémentée.
+- État : OPS-058 et OPS-059 implémentées à vérifier ; OPS-060 partielle, réserve de conservation 002.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -159,3 +159,19 @@ Dépendance OPS-058 : `caf3ad1`. Rapport d’audit renommé avec contenu identiq
 références corrigées. Aucun autre nom DEM-* hors demand observé dans devops.
 Les copies historiques et les autres couches restent à traiter selon OPS-060 et
 la livraison. Aucun verdict humain acquis.
+
+## Réalisation OPS-060 et réserve — 2026-10-27
+
+OPS-058 `caf3ad1`, OPS-059 `619a84d`, correction de conservation OPS-058 `073ada7`.
+Les six copies sont déplacées ou restaurées dans un répertoire de mission
+persistant extérieur, sans préfixe DEM-. Il n’y a plus de dossier worktree/DEM-*.
+Preuve : [migration des réunions](../resources/migration-reunions-008.md).
+
+La purge de /tmp pendant l’interruption a emporté la copie 002 déjà déplacée.
+Ses fichiers suivis sont récupérés au HEAD d’origine ; les éventuels contenus
+ignorés ou locaux restent non récupérés ou non vérifiables. La conformité sans
+perte n’est donc pas acquise. Les cinq autres déplacements ont une preuve de
+conservation par empreintes. La règle de stockage a été corrigée pour résister
+aux interruptions. Les références des rapports du principal et des autres couches
+attendent la propagation du commit à la livraison ; aucune édition directe.
+Aucun verdict humain d’implémentation ni livraison de DEM-008 effectué.

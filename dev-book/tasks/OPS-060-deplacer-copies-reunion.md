@@ -1,6 +1,6 @@
 # OPS-060 — Déplacer les anciennes copies et vérifier le rangement
 
-- État : bloquée par les commits OPS-058 et OPS-059.
+- État : partiellement implémentée et commitée, à vérifier ; conservation locale de 002 non prouvée.
 - Date : 2026-10-27.
 - Demande : [DEM-008](../demand/DEM-008-reserver-noms-demandes.md).
 - Couche : devops.
@@ -63,3 +63,20 @@ Mettre à jour cette carte et DEM-008 avec les preuves et SHA avant vérificatio
 Lire les README applicables avant écriture. Aucun stash, reset destructif,
 force-push ni rebase implicite. Aucun changement direct de tâche sur develop.
 Non commencée ; aucun commit de réalisation ni verdict humain.
+
+## Réalisation et limite — 2026-10-27
+
+Dépendances : OPS-058 `caf3ad1`, correction `073ada7`, OPS-059 `619a84d`.
+[Preuve détaillée](../resources/migration-reunions-008.md).
+Six copies désormais extérieures sous un nom sans DEM-. Métadonnées anciennes
+réparées. Contenus de 003 à 007 identiques au déplacement, preuves SHA-256
+persistantes ; rapport et deux liens normalisés ensuite dans 007, diff local
+explicite sans commit ni changement de son HEAD. Aucun worktree supprimé.
+
+Incident : /tmp a été purgé pendant l’interruption, après déplacement de 002.
+Ses fichiers suivis sont restaurés et Git fonctionne, mais la préservation des
+anciens contenus ignorés ou locaux n’est pas démontrable. Ce critère reste ouvert.
+Le stockage extérieur est corrigé vers un répertoire de mission persistant.
+Les noms non conformes suivis du principal et des autres couches seront corrigés
+à la livraison par le commit OPS-059 ; aucun changement direct de leur contenu.
+Aucun verdict humain, push, PR, merge ou alignement à cette étape.
