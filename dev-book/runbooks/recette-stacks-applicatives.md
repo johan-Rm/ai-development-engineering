@@ -6,7 +6,7 @@ Vérifier DEM-005 sur les cinq branches puis sur deux stacks simultanément, ave
 les commits de stack identifiés dans OPS-052. Coordonner les couches : le test de
 rechargement modifie temporairement trois fichiers puis les restaure exactement.
 Préserver les fichiers locaux, les données et les services étrangers à la recette.
-Vérifier le moteur Docker local, les registres et les ports avec `infra/apps.py info`.
+Vérifier le moteur Docker local, les registres et les ports avec `make info`.
 
 ## Recette successive
 
@@ -15,15 +15,15 @@ backoffice et design :
 
 ```sh
 git status --short --branch
-python3 infra/apps.py up --interface both
-python3 infra/browser.py --reload
-python3 infra/test-runtime.py --expect-empty
-python3 infra/apps.py down
+make up INTERFACE=both
+make test-browser RELOAD=1
+make test-runtime EXPECT_EMPTY=1
+make down
 git status --short --branch
 ```
 
 Ne lancer la couche suivante qu’après succès et arrêt de la précédente. Sur une
-base déjà utilisée, omettre `--expect-empty` ; ne pas effacer ses données pour satisfaire
+base déjà utilisée, omettre `EXPECT_EMPTY=1` ; ne pas effacer ses données pour satisfaire
 une assertion. La preuve de base vide exige une première observation sur une base neuve.
 Comparer l’état Git final à l’état initial, qui peut inclure les documents de la mission.
 
@@ -35,7 +35,7 @@ Les `.env` et le diff applicatif initiaux sont comparés après exécution.
 
 ## Deux stacks simultanées
 
-1. Démarrer `up --interface both` depuis `worktree/api` puis `worktree/web`.
+1. Démarrer `make up INTERFACE=both` depuis `worktree/api` puis `worktree/web`.
    Les ports attendus par défaut sont 19302 et 19303.
 2. Observer avec Docker les deux projets annoncés par `info` : réseaux, volumes,
    ports et sources des montages distincts. Les montages `/app` doivent viser
@@ -59,13 +59,13 @@ le DNS ou les fichiers de résolution de l’hôte.
 
 ## Contrôles et preuves
 
-Exécuter `python3 infra/test_apps.py`, puis les contrôles existants
+Exécuter `make test`, puis les contrôles existants
 `python3 codebase-integrity/scripts/check.py` et
 `python3 codebase-integrity/scripts/quality.py` depuis devops avec leurs dépendances.
 Consigner la matrice des cinq couches et la paire simultanée, les résultats navigateur,
 les observations des ressources et les limites. Les captures sont sous
-`/tmp/DEM-005-browser-artifacts/` et les observations runtime sous
-`/tmp/DEM-005-runtime-<couche>.json` ; les preuves durables sont dans la carte.
+`/tmp/DEM-005-make-browser-artifacts/` et les observations runtime sous
+`/tmp/DEM-005-make-runtime-<couche>.json` ; les preuves durables sont dans la carte.
 Le succès technique ne constitue pas le verdict humain.
 
 ## Arrêt en cas d’erreur et retour arrière
