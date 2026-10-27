@@ -1,15 +1,13 @@
-# design
+# Design
 
-## Couche design — initialisation AIDE
+Les références visuelles, maquettes et prototypes du projet.
 
-- Branche : `layers/design` ; préfixe des futures tâches : `UX`.
-- Dossier Git : le chemin absolu enregistré par `git worktree list`.
-- La [carte OPS-020](../dev-book/tasks/OPS-020-initialiser-worktree-design.md)
-  consigne l’initialisation, la base et les preuves.
-- Le [routage commun](../docs/02-cadre/couches/index.md) définit les responsabilités de cette couche.
-- Depuis ce worktree, `python3 codebase-integrity/scripts/process.py up` démarre le conteneur témoin ;
-  `verify` observe sa page et `down` arrête son environnement en conservant les volumes.
-- Aucun framework ni application : cet environnement sert uniquement à la recette AIDE.
-- Vérifier la disponibilité de la couche avant une mission, même si Git affiche un arbre propre.
+## Rôle et responsabilités
 
-Les maquettes et prototypes peuvent être relus au navigateur. Les composants livrés appartiennent au consommateur web ou backoffice.
+- Définir et maintenir les références graphiques du projet.
+- Concevoir les maquettes et prototypes des interfaces.
+- Permettre la vérification visuelle des parcours.
+
+Les composants applicatifs sont implémentés dans les couches web et backoffice.
+
+## Conventions techniques
