@@ -1,7 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
 - Date : 2026-10-26.
-- État : validée et reconstituée, prête pour livraison.
+- État : validée, en livraison vers develop.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -375,3 +375,31 @@ Les trois cartes sont validées ; DEM-005 est reconstituée, prête pour livrais
 non livrée. develop reste propre et inchangée. Les environnements API/web existants
 restent actifs ; aucune donnée ou configuration d’une autre couche n’a été copiée.
 Aucun fetch, push, PR, merge ou réalignement des branches de couches réalisé ici.
+
+## Préparation de livraison et alignement des couches
+
+L’humain invoque `livrer-demande` et demande de corriger son skill si toutes les
+couches ne sont pas alignées après livraison. La cible distante observée est
+`origin/develop` à `ffd216fb6997f8e8e78a4e89b153c8b02653a780`, plus récente que
+le develop local. Elle est intégrée à la branche de livraison par le merge
+`f1c70b1`, sans retirer les livraisons DEM-002 à DEM-004 déjà présentes à distance.
+Les consignes distantes et les liens déplacés sont conservés ensemble.
+
+Les divergences des cinq couches ne contiennent que les commits validés de DEM-005
+et leurs copies identifiées, sans autre mission active détectée ni modification locale.
+Les merges de convergence `43f34e3` (devops), `d8edec0` (API/web/backoffice) et
+`9d79f11` (design) conservent exactement le même arbre que `f1c70b1`, vérifié par
+diff vide après chaque merge. Tous les HEAD des couches sont désormais ancêtres
+de la branche de livraison. Après fusion distante, develop et les cinq couches
+pourront être réalignés par avance rapide, sans reset, rebase ni suppression.
+
+Le skill personnel `livrer-demande` est modifié sur demande explicite : la livraison
+complète exige la vérification de l’égalité des SHA de develop et de toutes les couches.
+Les copies déjà validées sont rattachées avant livraison après audit, sans changement
+du résultat ; une couche occupée ou avec du travail inédit bloque le suivi complet et
+reste préservée. AGENTS et les guides de livraison et des couches portent la même règle.
+Le skill personnel reste hors du dépôt ; aucune copie n’est embarquée dans la PR.
+
+Les cartes sont clôturées après leur validation explicite ; la livraison effective
+reste conditionnée à la réussite des contrôles du HEAD final et à la fusion de la PR
+vers develop. La présente préparation ne prétend pas qu’une PR est déjà fusionnée.

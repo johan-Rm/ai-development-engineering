@@ -57,6 +57,11 @@ La [documentation d’infrastructure](../../../infra/README.md) décrit les tém
 
 ## Consulter les applications d’une couche
 
+Après chaque livraison complète, develop et les cinq branches de couche doivent
+pointer sur le même commit livré. Les worktrees, .env et données sont conservés.
+La [procédure de livraison](../../03-developpement-loop/06-livraison.md) décrit
+le traitement des divergences et des couches occupées avant de déclarer ce suivi terminé.
+
 La stack applicative autonome décrite dans le [guide local](dockerisation.md)
 se lance aussi par couche : `make docker-up-api`, `make docker-up-web`,
 `make docker-up-backoffice`, `make docker-up-design` ou `make docker-up-devops`.

@@ -1,6 +1,6 @@
 # OPS-052 — Mettre à disposition et vérifier les cinq stacks
 
-- État : validée, à livrer.
+- État : clôturée — validée, livraison portée par DEM-005.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.

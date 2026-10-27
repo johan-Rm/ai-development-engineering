@@ -1,6 +1,6 @@
 # OPS-051 — Fournir la stack applicative autonome par worktree
 
-- État : validée, à livrer.
+- État : clôturée — validée, livraison portée par DEM-005.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
