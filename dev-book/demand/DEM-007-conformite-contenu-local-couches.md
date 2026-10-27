@@ -220,3 +220,22 @@ code applicatif ou contrôle modifié, aucune preview ni test applicatif exécut
 Les suppressions de caches sont des opérations locales déjà réalisées et validées,
 non des suppressions Git à propager. Aucun push, PR, fusion vers develop ni
 réalignement de couche effectué. Contrôles de livraison restant à exécuter à cette étape.
+
+## Préparation de livraison — 2026-10-27
+
+Qualité exécutée avec succès sur la branche réunie `771da3d` :
+`python3 codebase-integrity/scripts/quality.py --root <depot>/worktree/devops`.
+23 tests d’outillage, test du contrat API, lint du conteneur, validation du schéma,
+comparaison OpenAPI, typecheck et build web/backoffice réussis (code retour 0).
+Les dépendances applicatives sont celles de devops ; égalité du code `app/` avec
+la branche réunie vérifiée par `git diff --exit-code layers/devops HEAD -- app`.
+Les contrôles d’outillage proviennent du worktree de réunion. Parcours navigateur
+prévus par la CI GitHub ; leur résultat sera vérifié avant fusion.
+
+Principal et cinq couches propres, sans mission concurrente observée ; toutes
+leurs têtes sont ancêtres de la réunion. Aucun commit étranger à rattacher.
+Le distant develop observé est `98932aa154eb92f82b9b8583d72c67fe5e154959`.
+Le diff à livrer se limite aux cinq documents DEM-007. Les caches supprimés
+étaient ignorés : la PR conserve la preuve du nettoyage, sans suppression Git.
+Fusion prévue par merge commit, puis avances rapides et suppression de la seule
+branche temporaire DEM-007 ; worktrees et fichiers locaux conservés.
