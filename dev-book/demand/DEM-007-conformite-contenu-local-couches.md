@@ -1,7 +1,7 @@
 # DEM-007 — Vérifier la conformité du contenu local des couches
 
 - Date : 2026-10-27.
-- État : nettoyage ponctuel effectué ; correction de périmètre documentée, à vérifier.
+- État : périmètre corrigé validé ; reconstitution en cours, non livrée.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -196,3 +196,11 @@ Les caches des sources encore présentes, dépendances, données, environnements
 `.agents/` et `.aws/` restent intacts. Aucun fichier suivi supprimé.
 Les suppressions sont locales : Git ne versionnait pas ces caches.
 L’audit initial est conservé comme preuve avant nettoyage, et non comme état actuel.
+
+## Validation du périmètre corrigé — 2026-10-27
+
+L’humain confirme « c’est validé » pour le nettoyage présenté au commit
+`9b10d96`, après validation de l’audit `8044599`. OPS-055 et OPS-057 sont validées ;
+OPS-056 est sans suite. Cette décision remplace les anciens blocages de
+consolidation, abandonnés avec l’extension de périmètre. Reconstitution autorisée
+sur `demands/DEM-007` dans `worktree/DEM-007`, depuis le develop local `98932aa`.

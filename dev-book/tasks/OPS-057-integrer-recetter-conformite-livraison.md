@@ -1,6 +1,6 @@
 # OPS-057 — Intégrer la conformité locale au suivi de livraison
 
-- État : nettoyage ponctuel réalisé, à vérifier.
+- État : validée ; non livrée (périmètre corrigé : nettoyage ponctuel).
 - Date : 2026-10-27.
 - Demande : [DEM-007](../demand/DEM-007-conformite-contenu-local-couches.md).
 - Couche : devops.
@@ -75,3 +75,11 @@ stash, reset destructif, force-push ou rebase implicite. Aucun verdict humain in
 ## Réalisation
 
 Non commencée. Aucun commit d’implémentation ni verdict humain.
+
+## Verdict humain — 2026-10-27
+
+L’humain répond « c’est validé » après présentation du nettoyage au commit
+`9b10d96`. Ce verdict accepte la suppression des dix caches et des parents vides,
+la disparition de scripts/ et tests/ du principal et la préservation des fichiers
+utiles. Le périmètre initial de contrôle et livraison reste abandonné.
+Aucune correction demandée ; livraison non effectuée.
