@@ -38,8 +38,11 @@ existante seulement après vérification de son enregistrement Git, de sa branch
 et de sa disponibilité ; ne jamais l’écraser. La branche dédiée est créée à la
 reconstitution, pas au découpage.
 
-Le temporaire doit rester disponible pendant la mission : ne pas confier une
-contribution active à une purge automatique. Conserver les fichiers locaux,
+Le temporaire doit rester disponible pendant la mission et les interruptions :
+utiliser un répertoire de mission persistant extérieur au dépôt, configurable,
+jamais un `/tmp` susceptible d’être purgé. Le terme temporaire désigne la durée
+de la mission, pas un stockage éphémère. Ne pas confier une copie conservée
+à une purge automatique. Conserver les fichiers locaux,
 .env et données lors des déplacements et après livraison ; détacher le worktree
 livré avant suppression de sa seule branche temporaire. Les couches restent dans
 `worktree/<couche>` ; aucune copie de réunion dans ce dossier.

@@ -63,3 +63,12 @@ aucune autorisation Git changée. Aucun vérificateur modifié.
 Création d’un dépôt jetable develop et d’un worktree extérieur sur branche dédiée,
 puis reprise par consultation de son enregistrement et état Git : réussies.
 Aucun dossier de réunion interne créé. `git diff --check` réussi.
+
+## Correction de conservation — 2026-10-27
+
+L’interruption pendant OPS-060 a révélé la purge de /tmp, après déplacement de
+la copie 002. Les instructions précisent désormais que le temporaire de mission
+est un emplacement extérieur persistant, conservé à travers les interruptions,
+et non /tmp. Aucun skill ou contrôle modifié. L’incident et ses limites de
+récupération sont détaillés dans la preuve OPS-060, sans masquer la perte possible
+de contenus ignorés de la copie 002.
