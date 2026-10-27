@@ -1,6 +1,6 @@
 # OPS-052 — Mettre à disposition et vérifier les cinq stacks
 
-- État : implémentée et commitée, à vérifier.
+- État : bloquée — nouvelle recette après correction Make d’OPS-051.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
@@ -176,3 +176,15 @@ Aucune branche de réunion créée, aucun push, PR, merge ou fetch. Les divergen
 historiques des branches sont conservées et restent à traiter selon les autorisations
 ultérieures de reconstitution/livraison. Les trois cartes restent à vérifier par l’humain.
 Le SHA du commit documentaire OPS-052 se lit dans son historique et dans le bilan final.
+
+
+## Corrections humaines demandées — 2026-10-27
+
+SHA présenté : `61797d678c4425f710554f7b2f221d60f2459eee`. Aucun verdict favorable.
+L’humain demande de piloter la stack avec `make` à la place de `python3`.
+Après les nouveaux commits d’OPS-051, identifier leurs SHA et les mettre à disposition
+selon le périmètre autorisé, puis vérifier les points d’entrée Make et actualiser
+les procédures, la matrice et les preuves de recette. Les preuves existantes restent
+datées du 2026-10-26 et ne prouvent pas encore cette nouvelle interface de commande.
+Dépendance sans SHA à ce stade : correction Make d’OPS-051 ; ne pas consommer de
+travail non commité. Aucun code ni service modifié lors de la consignation du verdict.

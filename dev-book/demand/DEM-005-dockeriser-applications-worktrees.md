@@ -1,7 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
 - Date : 2026-10-26.
-- État : implémentée et commitée, à vérifier par l’humain.
+- État : corrections humaines demandées ; non validée.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -179,3 +179,27 @@ Les stacks API et web restent disponibles sur les ports 19302 et 19303 avec leur
 deux interfaces ; les trois autres sont arrêtées, leurs volumes conservés.
 Aucun push, PR, merge, fetch ou début de reconstitution. La branche et le worktree
 de réunion restent seulement prévus. Aucun verdict humain n’est déduit des tests.
+
+
+## Verdict humain — 2026-10-27
+
+Après présentation des trois cartes, l’humain répond « je demande des corrections »,
+puis demande des commandes `make` pour piloter la stack « à la place de python3 ».
+La demande n’est pas validée sur les SHA présentés : OPS-050 `b041cab`,
+OPS-051 `d076aec`, `ec0e27b`, `c709754` et OPS-052 `61797d6`.
+
+La correction porte sur l’interface de commande d’OPS-051 : fournir des cibles Make
+pour préparer, démarrer (web, backoffice ou les deux), afficher les informations et
+l’état, arrêter la stack et lancer ses recettes/tests. Les commandes à saisir et la
+documentation doivent utiliser `make` ; les scripts Python peuvent rester internes.
+Cette demande ne requiert pas de réécrire le lanceur dans un autre langage ni de
+modifier les contrôles du Codebase Integrity. Le Makefile racine rejoint le périmètre
+explicitement demandé pour cette correction ; les noms exacts des cibles seront
+choisis à l’implémentation et documentés avec les paramètres d’interface.
+
+OPS-051 retourne à l’implémentation et produira de nouveaux commits avec ses preuves.
+OPS-052 devra vérifier et documenter ces commandes Make dans les cinq couches après
+identification des nouveaux commits. OPS-050 reste sans verdict favorable explicite ;
+aucune validation partielle n’est déduite de l’absence de correction à son sujet.
+Les preuves du 2026-10-26 restent historiques. La présente étape ne modifie pas le code,
+ne relance pas les services et n’enchaîne pas automatiquement l’implémentation.
