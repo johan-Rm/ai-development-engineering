@@ -177,3 +177,68 @@ Les journaux sont `/tmp/DEM-005-make-{test,prepare,status,modes,quality}.log`,
 `/tmp/DEM-005-make-browser-devops.log` et `/tmp/DEM-005-make-runtime-devops.log`.
 Cette correction reste à vérifier par l’humain ; OPS-052 vérifiera ses copies dans
 les cinq couches après identification du nouveau SHA.
+
+## Corrections supplémentaires — raccourcis et documentation locale
+
+L’humain demande des commandes simples par couche, sans `cd` ni option `-C`.
+Le Makefile propose `make api`, `make web`, `make backoffice`, `make design` et
+`make devops`, avec les deux interfaces par défaut, ainsi que `stop-<couche>` et
+`status-<couche>`. Les appels sont transmis au Makefile du worktree cible, dont
+les vérifications Git et Docker restent actives. Aucun environnement n’est lancé
+sur develop. La racine du dépôt principal disposera de ces cibles après intégration ;
+pendant la correction, elles sont vérifiables depuis le worktree devops.
+
+L’humain précise aussi que `runbooks/` est réservé aux mesures exceptionnelles
+lors des déploiements. Les trois procédures de DEM-005 sont déplacées dans
+`docs/02-cadre/`, avec actualisation des liens et de l’index. Elles concernent
+uniquement le développement local. Aucun déploiement distant n’est configuré.
+
+`infra/test-shortcuts.sh` vérifie les cinq destinations, leurs commandes de démarrage,
+arrêt et état, l’interface par défaut et sa surcharge, ainsi que l’absence d’action
+avec `make -n`. Aucun verdict favorable n’est déduit de ces contrôles.
+
+## Verdict sur les raccourcis et la structure documentaire
+
+Corrections humaines demandées : les cibles `make api|web|backoffice|design|devops`
+manquent de contexte. Les noms doivent expliciter la dockerisation locale des
+couches, y compris pour l’arrêt et l’état. Le guide d’utilisation doit rejoindre
+un sous-dossier `docs/02-cadre/couches/` remplaçant `couches.md`, avec conservation
+du contenu général et mise à jour des liens. Les deux autres documents de recette
+et de réparation restent à leur emplacement d’origine ; annuler leur déplacement.
+Version concernée : modifications non commitées sur HEAD `df5ac29`, sans nouveau
+SHA d’implémentation. Aucune validation ; corrections à réaliser à l’implémentation.
+
+Nom du guide précisé par l’humain :
+`docs/02-cadre/couches/dockerisation.md` ; abandonner le nom proposé
+`dockerisation-locale.md`. Ce fichier reste à créer lors de la correction de structure.
+
+## Réalisation de la correction de contexte
+
+Les commandes deviennent `make docker-up-<couche>`, `make docker-stop-<couche>`
+et `make docker-status-<couche>` pour api, web, backoffice, design et devops.
+Le démarrage sélectionne les deux interfaces par défaut ; `INTERFACE=web` ou
+`INTERFACE=backoffice` reste possible. Les anciennes cibles sans contexte ne sont
+pas conservées. Le routage appelle le Makefile du worktree cible ; Compose reste
+appelé directement par ses recettes, sans Python dans le pilotage.
+
+`docs/02-cadre/couches.md` devient `docs/02-cadre/couches/index.md`, avec
+adaptation des chemins relatifs. Le guide d’usage est
+`docs/02-cadre/couches/dockerisation.md`. Les deux autres procédures de recette
+et de réparation sont conservées, octet pour octet, à leurs emplacements initiaux
+dans `dev-book/runbooks/`. Les liens actifs de SETUP, AGENTS, des README et des
+index sont actualisés ; les règles et contrôles du Codebase Integrity sont inchangés.
+Les modifications des README config/design et d’AGENTS portent uniquement sur
+le lien du document déplacé, sans changement de responsabilité ou de convention.
+
+Preuves : `make test` réussi (sept groupes existants dont quinze configurations
+Compose, plus les tests des cinq raccourcis, arrêt/état, interface et aperçu).
+`git diff --check` et syntaxe Bash réussis. Journaux locaux :
+`/tmp/DEM-005-corrections-tests.log` et `/tmp/DEM-005-corrections-quality.log`.
+La disponibilité depuis la racine principale attend l’intégration du Makefile ;
+aucune modification sur develop. OPS-052 vérifie ensuite le commit identifié.
+
+Qualité complète réussie (code 0) : outillage, contrat API, lint Symfony,
+mapping Doctrine, comparaison OpenAPI, types et builds Nuxt. Les tests refusent
+aussi les anciennes cibles sans contexte et une couche inconnue. Vérification des
+liens locaux des guides et points d’entrée modifiés réussie. Les deux procédures
+conservées ont été comparées avec HEAD par `cmp`, sans différence.

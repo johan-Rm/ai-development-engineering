@@ -1,6 +1,6 @@
-# Lancer les applications d’un worktree
+# Utiliser la dockerisation des couches
 
-## Objectif et préconditions
+## Préparer l’environnement local
 
 Consulter le code d’une couche dans une stack Docker autonome. Sous Linux/WSL,
 prévoir GNU Make 4+, Bash, Git, Docker Engine local avec Compose v2+, Perl avec son
@@ -9,10 +9,30 @@ Les registres Docker, Composer et npm doivent être accessibles au premier déma
 Python, PHP, Composer et Node ne sont pas nécessaires sur l’hôte pour le pilotage.
 
 Vérifier la disponibilité de la couche, sa branche `layers/<couche>` et l’état Git.
-Réparer les liens si le dépôt a été déplacé selon le runbook dédié. Exécuter les
+Réparer les liens si le dépôt a été déplacé selon le
+[guide de réparation](../../../dev-book/runbooks/reparer-liens-worktrees.md). Exécuter les
 commandes depuis la racine du worktree équipé des commits de stack.
 
-## Préparer et démarrer
+## Démarrer une couche
+
+Depuis la racine du dépôt principal équipé de ce Makefile :
+
+```sh
+make docker-up-api
+make docker-up-web
+make docker-up-backoffice
+make docker-up-design
+make docker-up-devops
+make docker-status-api
+make docker-stop-api
+```
+
+Chaque nom démarre uniquement la stack de cette couche, avec API et les deux
+interfaces. `docker-stop-<couche>` conserve ses données ; `docker-status-<couche>` affiche son état.
+`INTERFACE=web` ou `INTERFACE=backoffice` reste disponible pour limiter les interfaces.
+Ces raccourcis fonctionnent aussi depuis un worktree équipé du Makefile.
+Avant intégration de DEM-005, le dépôt principal ne dispose pas encore du Makefile :
+utiliser celui de `worktree/devops` pour vérifier les raccourcis.
 
 ```sh
 make help
@@ -106,9 +126,9 @@ Les observations sont dans `/tmp/DEM-005-make-runtime-<couche>.json`.
 `down` retire les conteneurs et le réseau du projet sans supprimer les volumes.
 Les données et dépendances restent disponibles à la relance. Ne pas utiliser un
 nettoyage global de Docker ou une suppression de volumes pour résoudre une panne.
-La [recette des cinq stacks](recette-stacks-applicatives.md) détaille la vérification.
+La [recette des cinq stacks](../../../dev-book/runbooks/recette-stacks-applicatives.md) détaille la vérification.
 
-## Arrêt en cas d’erreur et retour arrière
+## Diagnostiquer une erreur
 
 Conserver le diagnostic et inspecter uniquement le projet annoncé par `make info`.
 Vérifier le moteur, les registres et les droits sans changer les locks ni les contrôles.

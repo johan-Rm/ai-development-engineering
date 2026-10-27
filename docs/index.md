@@ -13,9 +13,10 @@ La pierre angulaire d’AIDE : des conventions techniques humaines et des contr�
 ## 02 — Cadre
 
 - [Consolidation](02-cadre/consolidation.md)
-- [Couches](02-cadre/couches.md)
+- [Couches](02-cadre/couches/index.md)
 - [IA Engineering](02-cadre/ia-engineering.md)
 - [Documentation](02-cadre/documentation.md)
+- [Environnements de développement locaux](02-cadre/couches/dockerisation.md)
 
 ## 03 — Boucle de développement
 

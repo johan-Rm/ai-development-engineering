@@ -173,7 +173,7 @@ SHA source/consommateur est dans OPS-052 ; le contenu de stack est identique par
 Les neuf tests de stack et la qualité complète existante passent, sans changement
 des applications, de leurs locks ou du Codebase Integrity.
 
-Les [commandes quotidiennes](../runbooks/stacks-applicatives.md) et la
+Les [commandes quotidiennes](../../docs/02-cadre/couches/dockerisation.md) et la
 [procédure de recette](../runbooks/recette-stacks-applicatives.md) sont documentées.
 Les stacks API et web restent disponibles sur les ports 19302 et 19303 avec leurs
 deux interfaces ; les trois autres sont arrêtées, leurs volumes conservés.
@@ -241,3 +241,51 @@ Les corrections retournent à la vérification humaine ; aucun verdict favorable
 présumé, y compris pour OPS-050 qui reste sans validation explicite. Aucune opération
 distante de livraison ou de réunion n’a été engagée. API et web restent consultables
 sur 19302 et 19303 avec les deux interfaces ; les autres stacks sont arrêtées.
+
+## Corrections complémentaires demandées
+
+L’humain réserve `dev-book/runbooks/` aux mesures exceptionnelles lors des déploiements.
+Les guides locaux de DEM-005 rejoignent `docs/02-cadre/`. Il demande également
+le démarrage d’une couche sans `cd` et sans `make -C` : les cibles courtes
+`make api|web|backoffice|design|devops`, `make stop-<couche>` et
+`make status-<couche>` sont ajoutées au Makefile porté par OPS-051.
+Elles seront accessibles depuis la racine principale après intégration du Makefile.
+Ces corrections restent à vérifier ; les précédentes preuves ne constituent pas
+une validation humaine de cette version.
+
+## Corrections humaines lors de la vérification des raccourcis
+
+L’humain indique : « les noms de commandes manque de contexte » à propos de
+`make api`, `make web`, `make backoffice`, `make design` et `make devops`.
+Remplacer ces noms par des commandes exprimant explicitement le pilotage Docker
+local des couches, et appliquer ce vocabulaire au démarrage, à l’arrêt et à l’état.
+
+L’humain refuse également le placement des trois fichiers dans `docs/02-cadre/` :
+« tu dois laisser les 2 autres qui ne concernent pas cette tache ».
+Conserver `recette-stacks-applicatives.md` et `reparer-liens-worktrees.md` à leurs
+emplacements d’origine dans `dev-book/runbooks/`, en annulant leurs déplacements
+sans perdre leur contenu. La correction de structure porte sur le guide d’usage.
+Transformer `docs/02-cadre/couches.md` en sous-dossier `docs/02-cadre/couches/`,
+conserver le contenu général des couches dans son point d’entrée et y ranger
+un guide pour utiliser la dockerisation locale des couches. Mettre à jour les liens
+concernés sans étendre la réorganisation aux deux autres procédures.
+
+Version examinée : HEAD `df5ac29`, avec corrections non commitées des raccourcis
+et de la documentation. Aucun SHA nouveau ne correspond à cette version de travail.
+Verdict : corrections demandées ; aucune validation globale ou partielle acquise.
+Retour à l’implémentation, sans modification de code ni déplacement supplémentaire
+pendant cette vérification.
+
+Précision humaine sur le nom du guide : utiliser
+`docs/02-cadre/couches/dockerisation.md`, et non `dockerisation-locale.md`.
+Le contenu reste consacré à l’environnement de développement local des couches.
+
+## Résultat de la correction de contexte
+
+Les cibles retenues sont `docker-up-<couche>`, `docker-stop-<couche>` et
+`docker-status-<couche>`. Le guide est `docs/02-cadre/couches/dockerisation.md` ;
+le contenu général des couches est conservé dans `docs/02-cadre/couches/index.md`.
+Les deux autres procédures restent à leurs emplacements d’origine. Les tests Make
+et la qualité complète passent. La correction est préparée sur `layers/devops`,
+puis OPS-052 vérifie et référence son commit dans les cinq couches.
+Aucun verdict humain favorable acquis ; la demande reste à vérifier.
