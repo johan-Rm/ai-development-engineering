@@ -1,7 +1,7 @@
 # DEM-006 — Clarifier les responsabilités des dossiers du cadre AIDE
 
 - Date : 2026-10-27.
-- État : cadrage confirmé ; découpée, dépendances de missions à résoudre.
+- État : implémentée et commitée, à vérifier humainement.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -135,7 +135,7 @@ coordination des couches avant toute implémentation.
 | --- | --- | --- | --- |
 | README du cadre, runbooks et index | [OPS-053](../tasks/OPS-053-clarifier-readme-cadre-index.md) | devops | Implémentée et commitée, à vérifier (OPS-053) |
 | Configuration dans infra, consommateurs et tests | [OPS-054](../tasks/OPS-054-deplacer-config-infra.md) | devops | Implémentée et commitée, à vérifier (OPS-054) |
-| README design | [UX-001](../tasks/UX-001-clarifier-readme-design.md) | design | Transmission du cadrage par commit à résoudre |
+| README design | [UX-001](../tasks/UX-001-clarifier-readme-design.md) | design | Implémentée et commitée, à vérifier (UX-001) |
 
 Ordre : OPS-053 puis OPS-054, séquentiellement en devops. UX-001 peut être réalisée
 séparément après transmission par commit identifié du cadrage et de sa carte ;
@@ -181,3 +181,17 @@ OPS-054 est réalisée dans le commit portant sa carte et cette preuve ; SHA à 
 après commit. 23 tests d’outillage et tous les contrôles Make réussissent.
 UX-001 reçoit le cadrage par cherry-pick identifié dans sa carte, sans copie non commitée.
 Les verdicts humains et la réunion restent à effectuer aux étapes correspondantes.
+
+## Couverture et SHA d’implémentation — 2026-10-27
+
+- OPS-053 : `56c8a954cc5ad2073b336e7d73b6622ebfcdb87f` sur layers/devops.
+- OPS-054 : `d17b1af9ecc673dcee4839c3bff5b4a326ea87f1` sur layers/devops.
+- Transmission d’OPS-053 sur design : `8dafce6` (cherry-pick du commit identifié).
+- UX-001 : `396e014a5f5742ef7114c93e6abfd220de3323e2` sur layers/design.
+
+Toutes les cartes sont implémentées et commitées, à vérifier. La preuve UX-001
+est dans sa version commitée sur design ; la copie de sa carte sur devops reste
+celle du cadrage jusqu’à la réunion autorisée, sans copie de travail non commité.
+Les deux worktrees sont propres après leurs commits d’implémentation.
+La branche demands/DEM-006 n’est pas créée à cette étape ; ni réunion, ni push,
+ni PR, ni merge effectué. La vérification humaine n’a pas encore eu lieu.
