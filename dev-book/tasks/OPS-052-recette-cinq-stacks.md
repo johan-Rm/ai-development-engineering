@@ -1,6 +1,6 @@
 # OPS-052 — Mettre à disposition et vérifier les cinq stacks
 
-- État : implémentée et commitée, à vérifier — recette Make directe.
+- État : implémentée et commitée, à vérifier — recette des raccourcis Docker.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
@@ -144,7 +144,7 @@ les deux stacks restaient actives. Elles ont aussi supprimé leurs articles de p
   lint Symfony, mapping Doctrine, comparaison OpenAPI, types et builds des deux interfaces.
   Les applications et les contrôles sont inchangés ; aucune règle affaiblie.
 - Syntaxes Python/shell/JavaScript et `git diff --check` vérifiés.
-- [Runbook quotidien](../runbooks/stacks-applicatives.md) et
+- [Guide local](../../docs/02-cadre/couches/dockerisation.md) et
   [recette reproductible](../runbooks/recette-stacks-applicatives.md) disponibles.
 
 Les tests localhost et Docker ont nécessité l’exécution autorisée hors sandbox.
@@ -260,3 +260,54 @@ rejouer les commandes sans les orchestrateurs temporaires.
 Aucun push, PR, merge, fetch ou reconstitution. Aucun verdict favorable déduit des tests ;
 la correction de DEM-005 reste à vérifier par l’humain. Le SHA de ce commit documentaire
 sera fourni dans le bilan et reste consultable dans l’historique de cette carte.
+
+## Vérification de la correction de contexte des commandes
+
+Commit source OPS-051 : `8c1482eb1d1025e18b3f2b67ec592751f886da0c`.
+Application locale par cherry-pick sur les quatre autres branches, après vérification
+de leur propreté et de leurs branches. Les conflits de contexte d’AGENTS ont été
+résolus en conservant les instructions propres à chaque couche et en changeant
+uniquement les deux liens vers `couches/index.md` ; aucune règle importée de devops.
+Les versions historiques du texte général des couches restent également préservées.
+
+| Couche | Commit de correction consommé | Port | docker-up / docker-status / HTTP web + backoffice / docker-stop |
+| --- | --- | --- | --- |
+| devops | `8c1482eb1d1025e18b3f2b67ec592751f886da0c` | 19304 | réussi, HTTP 200 / 200 |
+| api | `fb2e8f20067414b9e02de0e324b6c8d3abb2fc51` | 19302 | réussi, HTTP 200 / 200 |
+| web | `fb2e8f20067414b9e02de0e324b6c8d3abb2fc51` | 19303 | réussi, HTTP 200 / 200 |
+| backoffice | `fb2e8f20067414b9e02de0e324b6c8d3abb2fc51` | 19301 | réussi, HTTP 200 / 200 |
+| design | `7cfc76a61d0613687918f9bc7e8b6f423b7c5b6e` | 19305 | réussi, HTTP 200 / 200 |
+
+Recette successive depuis devops, après arrêt des stacks API/web :
+`make docker-up-<couche>`, `make docker-status-<couche>`, contrôle HTTP des deux
+interfaces, puis `make docker-stop-<couche>`, dans l’ordre devops/api/web/backoffice/design.
+Les cibles démarrent bien les deux interfaces par défaut et conservent les volumes
+à l’arrêt. API et web ont ensuite été relancées avec les nouveaux raccourcis :
+les quatre accès HTTP ont été vérifiés à 200 pendant leur fonctionnement simultané.
+Les trois autres stacks restent arrêtées et leurs volumes sont conservés.
+
+L’entrée depuis la racine principale est vérifiée sans modification de develop :
+`make -f worktree/devops/Makefile docker-status-api` sélectionne bien le worktree API.
+Après intégration, `make docker-status-api` suffira. Le Makefile principal n’est pas
+installé sur develop pendant cette implémentation.
+
+Les cinq worktrees ont un Makefile, un guide dockerisation et un test de raccourcis
+identiques. `infra/test-shortcuts.sh` passe dans chacun ; il vérifie aussi le refus des
+anciens noms sans contexte, le choix d’interface et l’aperçu sans effet. Les tests Make
+complets (dont quinze configurations Compose) et la qualité complète passent sur devops.
+Les fichiers env ont été inventoriés et comparés avant/après par empreinte et existence :
+aucun changement. Applications, configuration des couches et Codebase Integrity inchangés.
+Les deux procédures de recette et réparation restent à leur emplacement d’origine,
+avec un contenu identique à celui précédant les corrections.
+
+La présente recette porte sur les nouveaux points d’entrée et la structure documentaire.
+Le CRUD, le rechargement et l’isolation des données ont déjà été observés dans la recette
+Make précédente sur le runtime Docker inchangé ; ces scénarios ne sont pas annoncés
+comme rejoués dans cette nouvelle recette de raccourcis.
+
+Journaux locaux : `/tmp/DEM-005-context-runtime.log`,
+`/tmp/DEM-005-context-main-entry.log`, `/tmp/DEM-005-corrections-tests.log` et
+`/tmp/DEM-005-corrections-quality.log`. Empreintes locales avant/après :
+`/tmp/DEM-005-context-{before,after}-env.sha256`. Aucun push, PR, merge, fetch,
+réalignement de branche ou création de branche de réunion. develop reste propre
+à `aa8b856587058a5f71ec35c13d3cd319fb58b1ce`. Aucun verdict humain favorable acquis.
