@@ -207,3 +207,18 @@ source est un préfixe intégral de la carte enrichie de preuves. Le diff du mer
 par rapport à son premier parent est vide ; le résultat validé est inchangé.
 Toutes les branches de couche sont désormais ancêtres de la livraison et
 pourront avancer rapidement après fusion, sous réserve d’être libres et propres.
+
+## Publication de la PR
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/10,
+source demands/DEM-010, cible develop. Push sans forcer via l’authentification
+gh active. Le contrôle qualité local sur `436bcb4` réussit, code 0, sortie
+/tmp/dem010-quality-final.log ; aucune modification de code depuis ce contrôle.
+Les règles effectives de develop exigent une PR et la résolution des fils de
+revue ; aucune approbation GitHub supplémentaire n’est imposée. La CI qualité
+et les parcours applicatifs restent attendus avant fusion, sans contournement.
+
+La fermeture distante de la PR et son merge commit feront référence pour la
+fusion ; le suivi local (SHA final, alignement et suppression des seules branches
+temporaires) sera consigné dans le brouillon de cette même demande conservé dans
+tmp, afin de ne pas recréer une livraison documentaire après la fusion.
