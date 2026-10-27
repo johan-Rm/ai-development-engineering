@@ -1,7 +1,7 @@
 # DEM-008 — Réserver les noms DEM-* aux documents de demande
 
 - Date : 2026-10-27.
-- État : validée avec réserve de conservation 002 acceptée ; à reconstituer, non livrée.
+- État : reconstituée, validée avec réserve de conservation 002 acceptée ; non livrée.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -188,3 +188,21 @@ La propagation des renommages aux autres couches reste attendue à la livraison.
 Les mentions documentaires « Non commencée » sont rectifiées dans les cartes.
 Aucune nouvelle implémentation, reconstitution, livraison ou étape suivante lancée
 par cette vérification.
+
+## Preuve de reconstitution — 2026-10-27
+
+Branche `demands/DEM-008`, worktree extérieur persistant
+`<parent-du-depot>/ai-development-engineering-reunions/ai-development-engineering-reunion-008`.
+Création depuis develop local `cff25a1`, puis merge sans conflit de layers/devops
+à `ba9c87b`. Commit de réunion : `66e5755657a7fc0abda6f71e03182b1aba7a090b`.
+Ascendance vérifiée pour cadrage `75b126e`, OPS-058 `caf3ad1` et `073ada7`,
+OPS-059 `619a84d`, OPS-060 `e0d0309` et verdict `ba9c87b`.
+
+Diff documentaire uniquement, rapport renommé sans changement de contenu.
+`git diff develop --check`, résolution des liens locaux des documents modifiés,
+inventaire des noms DEM-* dans la copie de réunion et 23 tests d’outillage
+(`python3 codebase-integrity/scripts/check.py`) réussis. Aucun nom DEM-* hors
+`dev-book/demand/` dans la réunion ; aucun worktree de réunion créé dans le projet.
+Aucun fichier non commité copié ; réserve 002 conservée telle qu’acceptée.
+Les rapports des autres couches attendent toujours la propagation à la livraison.
+Aucun push, PR, merge vers develop ni réalignement effectué à cette étape.
