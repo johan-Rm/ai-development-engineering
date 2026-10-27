@@ -1,6 +1,6 @@
 # OPS-063 — Cadrer la concision dans le dépôt
 
-- Date : 2026-10-27 ; état : validée par l’humain ; commit local à réaliser.
+- Date : 2026-10-27 ; état : validée et commitée localement ; à livrer.
 - Session de création : `01a17e56-dc43-76f2-83fb-d8006838ac17`.
 - Demande : [DEM-011](../demand/DEM-011-concision-reponses-documents.md).
 - Couche : devops ; worktree : `worktree/devops` ; branche : `layers/devops`.
@@ -60,3 +60,5 @@ depuis develop local vérifié dans un worktree existant libre et propre, confor
 
 Le 2026-10-27, validation globale explicite dans le chat : « validé », couvrant
 OPS-063 et OPS-064 présentées ensemble. Contenu vérifié inchangé avant commit.
+
+Commit local de la carte : `ec1e373471dd3de353badc1a87938f787b318f1b`.
