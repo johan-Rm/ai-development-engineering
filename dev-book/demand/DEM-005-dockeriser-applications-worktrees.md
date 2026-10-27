@@ -1,7 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
 - Date : 2026-10-26.
-- État : implémentée et commitée, à vérifier — commandes Docker contextualisées et guide des couches.
+- État : validée, prête pour reconstitution.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -304,3 +304,15 @@ ensuite ensemble, avec quatre accès HTTP à 200. Les tests Make et la qualité 
 passent ; les env et les fichiers applicatifs sont préservés. Les commandes courtes
 depuis la racine principale seront disponibles après intégration du Makefile.
 Les trois cartes restent sans validation humaine ; DEM-005 est à vérifier.
+
+## Validation globale explicite — 2026-10-27
+
+À la question présentant OPS-050 `b041cab`, OPS-051 jusqu’à `8c1482e` et
+OPS-052 jusqu’à `9d3cf0b`, l’humain répond « validé ». Les trois cartes présentées
+sont validées, y compris leurs commits et corrections identifiés dans leurs traces
+de verdict. La trace de correction humaine `b911578` fait partie de l’historique
+documentaire à conserver. Aucune validation ne s’étend à une autre demande.
+
+DEM-005 est validée et prête pour sa reconstitution autorisée sur
+`demands/DEM-005`, dans `worktree/DEM-005`, à partir du develop local identifié.
+La validation ne constitue pas une livraison ; aucun push, PR ou merge demandé ici.

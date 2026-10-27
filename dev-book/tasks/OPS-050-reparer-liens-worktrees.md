@@ -1,6 +1,6 @@
 # OPS-050 — Réparer les liens Git des cinq worktrees
 
-- État : implémentée et commitée, à vérifier.
+- État : validée, à livrer.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
@@ -60,3 +60,10 @@ Aucune branche déplacée, aucun service démarré ni fichier applicatif modifi�
 Le runbook `dev-book/runbooks/reparer-liens-worktrees.md` conserve la procédure.
 La réparation locale n’est pas transmissible par commit : ce commit conserve uniquement
 la demande, la procédure et la preuve. Le SHA se lit dans l’historique de cette carte.
+
+## Validation humaine — 2026-10-27
+
+Après présentation des trois cartes de DEM-005, l’humain répond explicitement
+« validé ». Cette validation globale couvre OPS-050 sur
+`b041cab9031eee89d7cd40e8c2b7a90bbeb17a7c`, avec les preuves de réparation et
+préservation décrites dans cette carte. Carte validée, non livrée.
