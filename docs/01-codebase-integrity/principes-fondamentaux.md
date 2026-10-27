@@ -1,6 +1,6 @@
 # Principes fondamentaux
 
-> Le **Codebase Integrity est la pierre angulaire de l’écosystème AIDE — AI Development Engineering**, un cadre d’ingénierie pour concevoir, développer et faire évoluer des logiciels avec l’assistance de l’IA. Les conventions techniques humaines guident la conception ; les contrôles vérifient leur application.
+> Le **Codebase Integrity est la pierre angulaire de l’écosystème AIDE — AI-powered Development Engineering**, un cadre d’ingénierie pour concevoir, développer et faire évoluer des logiciels avec l’assistance de l’IA. Les conventions techniques humaines guident la conception ; les contrôles vérifient leur application.
 
 ## Préambule
 
