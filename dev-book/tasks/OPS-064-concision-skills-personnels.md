@@ -1,6 +1,6 @@
 # OPS-064 — Cadrer la concision dans les skills personnels
 
-- Date : 2026-10-27 ; état : validée par l’humain ; commit local à réaliser.
+- Date : 2026-10-27 ; état : validée et commitée localement ; à livrer.
 - Session de création : `01a17e56-dc43-76f2-83fb-d8006838ac17`.
 - Demande : [DEM-011](../demand/DEM-011-concision-reponses-documents.md).
 - Couche de suivi : devops ; worktree : `worktree/devops` ; branche : `layers/devops`.
@@ -79,3 +79,5 @@ personnels restent hors dépôt et font l’objet d’une vérification locale s
 
 Le 2026-10-27, validation globale explicite dans le chat : « validé », couvrant
 OPS-063 et OPS-064 présentées ensemble. Contenu vérifié inchangé avant commit.
+
+Commit local de la carte : `30aa12d2387bc9647af470e639c1419df583f5d9`.
