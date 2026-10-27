@@ -5,6 +5,14 @@ Les instructions explicites de l’utilisateur priment. Une mission précise son
 sa branche, ses chemins autorisés, ses dépendances par commit et sa preuve attendue.
 Ne déléguer que sur demande explicite.
 
+## Réponses et documents
+
+Rédiger des réponses et documents strictement concis et précis, sans répétitions ni
+détails superflus. Conserver les informations, preuves et décisions nécessaires.
+Si davantage de détails ou une présentation exhaustive paraît nécessaire, fournir
+d’abord une synthèse concise, demander l’accord de l’humain et attendre sa validation
+explicite avant de développer la réponse ou le document. Le silence ne vaut pas accord.
+
 ## Conventions de workflow
 
 - **Cartes de tâches** : `dev-book/tasks/`, préfixes et routage dans [les couches](docs/02-cadre/couches/index.md).
