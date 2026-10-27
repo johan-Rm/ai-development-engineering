@@ -23,7 +23,7 @@ Les worktrees se trouvent sous `worktree/<couche>`. La configuration de routage 
 ## Suivre les couches dans le workspace
 
 Le fichier `aide.code-workspace`, à la racine du dépôt principal, fournit une vue
-commune du dépôt et des worktrees dans VS Code. Le [guide d’installation](../../SETUP.md#préparer-le-workspace-de-développement)
+commune du dépôt et des worktrees dans VS Code. Le [guide d’installation](../../../SETUP.md#préparer-le-workspace-de-développement)
 explique sa préparation. Ses chemins relatifs permettent de conserver cette
 configuration dans le projet sans imposer un chemin personnel.
 
@@ -53,4 +53,24 @@ Un fichier partagé se rattache à sa couche consommatrice et nécessite une coo
 
 La reconstitution réunit les commits validés sur une branche explicitement choisie. Elle ne copie jamais le travail non commité d’un autre worktree.
 
-La [documentation d’infrastructure](../../infra/README.md) décrit les témoins Docker et leurs ressources. Leur isolation ne prouve pas celle des applications de démonstration.
+La [documentation d’infrastructure](../../../infra/README.md) décrit les témoins Docker et leurs ressources. Leur isolation ne prouve pas celle des applications de démonstration.
+
+## Consulter les applications d’une couche
+
+Après chaque livraison complète, develop et les cinq branches de couche doivent
+pointer sur le même commit livré. Les worktrees, .env et données sont conservés.
+La [procédure de livraison](../../03-developpement-loop/06-livraison.md) décrit
+le traitement des divergences et des couches occupées avant de déclarer ce suivi terminé.
+
+La stack applicative autonome décrite dans le [guide local](dockerisation.md)
+se lance aussi par couche : `make docker-up-api`, `make docker-up-web`,
+`make docker-up-backoffice`, `make docker-up-design` ou `make docker-up-devops`.
+Ces commandes utilisent le worktree cible ; aucune stack n’est créée sur develop.
+`docker-status-<couche>` consulte l’état et `docker-stop-<couche>` conserve les données.
+Le pilotage du worktree courant
+se lance depuis chaque worktree équipé avec `make up INTERFACE=web`,
+`INTERFACE=backoffice` ou `INTERFACE=both`. Chaque couche utilise son API et sa base SQLite, ses domaines
+`web.wt-<couche>.localhost`, `backoffice.wt-<couche>.localhost` et `api.wt-<couche>.localhost`.
+Les ports locaux par défaut vont de 19301 à 19305 selon les identifiants des couches.
+`down` conserve les volumes. Ce fonctionnement complète la recette BusyBox ; sa preuve
+exige l’observation des applications et de leurs ressources réelles.

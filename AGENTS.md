@@ -1,13 +1,13 @@
 # Consignes des agents
 
-Lire [les couches](docs/02-cadre/couches.md), la carte demandée et les README applicables avant d’écrire.
+Lire [les couches](docs/02-cadre/couches/index.md), la carte demandée et les README applicables avant d’écrire.
 Les instructions explicites de l’utilisateur priment. Une mission précise son worktree relatif à la racine du dépôt principal,
 sa branche, ses chemins autorisés, ses dépendances par commit et sa preuve attendue.
 Ne déléguer que sur demande explicite.
 
 ## Conventions de workflow
 
-- **Cartes de tâches** : `dev-book/tasks/`, préfixes et routage dans [les couches](docs/02-cadre/couches.md).
+- **Cartes de tâches** : `dev-book/tasks/`, préfixes et routage dans [les couches](docs/02-cadre/couches/index.md).
 - **Branche d’intégration** : `develop` ; **production** : `master` ; `main` reste historique.
 - **Branches de travail** : `layers/<couche>` ; **arbres de travail** : `worktree/<couche>`.
 - **Maintenance du cadre** : devops, `layers/devops`, préfixe `OPS`.
@@ -32,8 +32,15 @@ reset --hard, force-push ou suppression de worktree pour résoudre une situation
 Vérifier la branche et l’état Git dans le worktree absolu affecté ; un arbre propre ne prouve pas
 qu’une couche est libre. Les dépendances et la reconstitution reposent sur des commits identifiés,
 jamais sur la copie du travail non commité d’une autre mission. Ne pas rebaser une branche
-partagée ou occupée sans coordination. Après merge, réaligner seulement les branches libres,
-sans perte de données ; signaler les divergences.
+partagée ou occupée sans coordination. La livraison complète inclut le réalignement
+de toutes les couches configurées sur le même SHA que develop après fusion vérifiée.
+Avant la PR, examiner les divergences : les copies de contributions déjà validées peuvent
+être rattachées par merges ciblés à la branche de livraison, après vérification de leur
+équivalence et sans changement du résultat validé, pour permettre les avances rapides finales.
+Après fusion, avancer develop et toutes les couches confirmées libres et propres par
+avance rapide, préserver les worktrees et les .env, puis vérifier les SHA et états Git.
+Une couche occupée, sale ou contenant du travail inédit reste intacte : signaler le blocage
+et ne pas annoncer le suivi de livraison terminé tant que toutes les couches ne sont pas alignées.
 
 Un worktree n’isole pas les services : ports, volumes, bases, caches et destinations d’écriture
 restent à isoler et à vérifier avant d’en annoncer l’isolation. Les outils excluent `worktree/`.

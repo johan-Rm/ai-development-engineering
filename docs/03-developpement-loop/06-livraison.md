@@ -23,7 +23,19 @@ documentaires nécessaires, vérification distante, push, création ou mise à j
 `develop`, fusion et suivi après fusion. Aucune confirmation intermédiaire n’est nécessaire.
 Une instruction explicitement limitée à une PR conserve cette limite. Les validations humaines
 acquises, les contrôles bloquants et les protections GitHub restent nécessaires ; ne pas les contourner.
-Seules les branches confirmées libres sont réalignées sans perte de données.
+La livraison complète inclut l’alignement de toutes les couches configurées sur le
+même SHA que develop après fusion vérifiée. Avant la PR, inventorier les branches,
+leurs missions et les modifications locales. Une divergence composée uniquement de
+copies des contributions validées peut être résolue par des merges ciblés dans la
+branche de livraison : vérifier les commits et l’équivalence du résultat, et conserver
+le contenu validé. Cela rend les couches ancêtres du résultat livré et permet leur
+avance rapide finale, sans reset ni réécriture.
+
+Après fusion distante vérifiée, avancer develop et chaque couche libre et propre
+par avance rapide, puis contrôler leur égalité de SHA et l’état de leurs worktrees.
+Préserver les .env, les données et les commits. Les branches de couche restent locales.
+Une couche occupée, sale ou avec du travail inédit reste intacte ; ce blocage signifie
+que le suivi de livraison n’est pas terminé, même si la PR est déjà fusionnée.
 Un écart de périmètre ou une contribution non validée reste à résoudre ; l’autonomie de livraison
 n’autorise pas à intégrer du travail étranger. Toute modification de cette procédure et du skill
 met à jour AGENTS.md et les guides concernés ensemble.

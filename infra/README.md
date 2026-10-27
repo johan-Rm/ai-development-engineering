@@ -1,4 +1,4 @@
-# Infrastructure de recette AIDE
+# Infrastructure locale AIDE
 
 `compose.process.yaml` fournit un conteneur témoin BusyBox par couche, sans application.
 Il sert un fichier `/identity.json` décrivant sa couche et monte un volume privé pour vérifier les écritures.
@@ -43,10 +43,10 @@ Références : [projets Compose](https://docs.docker.com/compose/intro/compose-a
 - Dossier Git : le chemin absolu enregistré par `git worktree list`.
 - La [carte OPS-019](../dev-book/tasks/OPS-019-initialiser-worktree-devops.md)
   consigne l’initialisation, la base et les preuves.
-- Le [routage commun](../docs/02-cadre/couches.md) définit les responsabilités de cette couche.
+- Le [routage commun](../docs/02-cadre/couches/index.md) définit les responsabilités de cette couche.
 - Depuis ce worktree, `python3 codebase-integrity/scripts/process.py up` démarre le conteneur témoin ;
   `verify` observe son identité JSON et `down` arrête son environnement en conservant les volumes.
-- Aucun framework ni application : cet environnement sert uniquement à la recette AIDE.
+- Le témoin sert uniquement à la recette AIDE ; la stack applicative ci-dessous est indépendante.
 - Vérifier la disponibilité de la couche avant une mission, même si Git affiche un arbre propre.
 
 ## Maintenance du cadre
@@ -57,3 +57,47 @@ Ces travaux utilisent la branche `layers/devops` et le préfixe de tâche `OPS`,
 Les artefacts générés sont dans `.local/process-check/identity.json`, exclus de Git, de la
 recherche et du contexte Docker. L’ancien dossier `.aiod/` n’est plus utilisé ; ses données
 ne sont pas supprimées automatiquement. Relancer les témoins pour adopter le nouvel endpoint.
+
+## Stack applicative par worktree
+
+Le Makefile racine appelle directement Docker Compose, sans Python pour le pilotage.
+`compose.apps.yaml`, `Dockerfile.api`, `Caddyfile.apps` et les deux scripts de démarrage
+servent les applications depuis chaque worktree. `stack-env.sh` prépare seulement
+les paramètres Git, l’identité et les points de montage ; aucune action Docker n’y est déléguée.
+Le [guide local](../docs/02-cadre/couches/dockerisation.md) documente les prérequis,
+commandes, adresses, ressources et diagnostics. Aucun déploiement n’est configuré.
+
+Depuis un worktree : `make up INTERFACE=web`, `INTERFACE=backoffice` ou `INTERFACE=both`.
+Depuis la racine équipée du Makefile, `make docker-up-api`, `make docker-up-web`, `make docker-up-backoffice`,
+`make docker-up-design` et `make docker-up-devops` démarrent la couche nommée avec les deux interfaces.
+`make docker-stop-api` et `make docker-status-api` arrêtent et consultent la couche API ; les mêmes
+préfixes existent pour les cinq couches. Aucun service ne démarre dans le dépôt principal.
+`make help`, `info`, `config`, `prepare`, `status` et `down` complètent le pilotage.
+Le port vaut 19300 + l’identifiant de couche, surchargeable par `AIDE_APP_PORT_BASE`.
+Les projets et volumes gardent leur identité de la première version Python.
+
+## Rôle et responsabilités
+
+Chaque couche utilise son propre code, son API, sa base SQLite et ses domaines Caddy.
+Les applications conservent leurs contrats ; OPcache est désactivé dans le serveur PHP
+de développement. Les témoins BusyBox restent une recette indépendante et inchangée.
+
+## Conventions techniques
+
+Les sources restent en lecture seule ; les volumes de données, dépendances et sorties
+sont privés au projet dépôt/couche. Les applications utilisent l’UID/GID hôte.
+Make conserve les volumes à l’arrêt et ne lit ni n’écrit les `.env` Compose.
+Symfony utilise `.env.example` via `APP_RUNTIME_OPTIONS.dotenv_path`, sans créer de `.env`.
+Les ports sont liés exclusivement à `127.0.0.1`, avec contrôle des écoutes avant `up`.
+Le routage JSON existant est lu avec JSON::PP, module standard de Perl, sans dépendance Python.
+Les recettes Make utilisent Bash et les outils Linux/WSL documentés dans le guide local.
+Les dépendances applicatives utilisent leurs locks. Les images suivent les tags
+PHP 8.4 CLI Bookworm, Composer 2, Node 22 Bookworm slim, Caddy 2.10 Alpine et BusyBox 1.37.0 ;
+ces tags ne sont pas des digests immuables.
+
+`make test` exécute `infra/test-make.sh` : fixtures Git, 15 configurations Compose,
+préservation des `.env`, contrôles des paramètres, écoutes et points de montage.
+`make test-browser RELOAD=1` exécute Chromium via Docker avec les seuls montages ciblés ;
+`make test-runtime EXPECT_EMPTY=1` exécute les assertions Node de persistance et appelle
+Make pour le cycle de vie. Les quatre anciens scripts Python de cette stack sont supprimés.
+Les outils, règles et tests du Codebase Integrity restent inchangés.

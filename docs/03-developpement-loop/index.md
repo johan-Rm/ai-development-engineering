@@ -15,7 +15,7 @@ La boucle applique le cadre existant. **Elle ne modifie aucun élément de `code
 
 Une correction revient à l’implémentation puis à la vérification humaine. Chaque tâche implémentée produit un commit avant vérification ; le verdict humain est conservé dans un commit documentaire ; la livraison présente les contrôles exécutés et leurs limites.
 
-Le [workspace de développement](../02-cadre/couches.md#suivre-les-couches-dans-le-workspace)
+Le [workspace de développement](../02-cadre/couches/index.md#suivre-les-couches-dans-le-workspace)
 regroupe le dépôt principal et les worktrees des couches pour naviguer entre les
 missions et consulter leurs changements. Sa [préparation](../../SETUP.md#préparer-le-workspace-de-développement)
 fait partie de l’installation ; chaque intervention reste attachée au worktree et
