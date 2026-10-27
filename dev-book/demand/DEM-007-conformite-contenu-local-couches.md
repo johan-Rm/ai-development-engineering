@@ -1,7 +1,7 @@
 # DEM-007 — Vérifier la conformité du contenu local des couches
 
 - Date : 2026-10-27.
-- État : partiellement implémentée ; OPS-055 à vérifier, OPS-056 et OPS-057 bloquées.
+- État : partiellement implémentée ; OPS-055 validée, OPS-056 et OPS-057 bloquées.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -158,3 +158,16 @@ OPS-057 reste bloquée par ce même arbitrage, le contrôle commité et validé 
 coordination des cibles. Le cadrage général ne remplace pas cet arbitrage. Aucun
 contrôle affaibli ni nouveau contrôle implémenté. Demande non terminée ; aucune
 validation humaine du résultat, livraison ou étape de consolidation déclenchée.
+
+## Vérification humaine et reconstitution — 2026-10-27
+
+Validation explicite « oui » de l’audit OPS-055 seul, au commit
+`804459950e226d125736dfb07f71e94b40c1193b`, avec ses limites présentées.
+Aucune correction demandée. OPS-056 et OPS-057 ne sont pas implémentées ni validées.
+DEM-007 n’est donc pas entièrement validée.
+
+L’invocation de reconstitution est examinée après ce verdict. La liste complète
+des contributions validées manque : OPS-056 et OPS-057 restent bloquées par les
+prérequis documentés. Aucune réunion partielle présentée comme complète ; branche
+`demands/DEM-007` et worktree `worktree/DEM-007` non créés à cette étape.
+Aucun contrôle de l’ensemble ni livraison annoncé ; aucune étape suivante lancée.

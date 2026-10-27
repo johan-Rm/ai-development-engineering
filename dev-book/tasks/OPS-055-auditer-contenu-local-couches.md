@@ -1,6 +1,6 @@
 # OPS-055 — Auditer le contenu local des six arbres
 
-- État : implémentée et commitée, à vérifier.
+- État : validée ; non livrée.
 - Date : 2026-10-27.
 - Demande : [DEM-007](../demand/DEM-007-conformite-contenu-local-couches.md).
 - Couche : devops.
@@ -69,3 +69,13 @@ README, fichiers ignorés et pilotage Docker ; contrôle des liens documentaires
 des espaces du diff. Aucun test de vérificateur ni outil durable modifié, donc
 pas de nouvelle suite de tests artificielle. Aucun verdict humain recueilli.
 La preuve et cette carte sont portées par le commit OPS-055, SHA relevé après commit.
+
+## Verdict humain — 2026-10-27
+
+L’humain répond « oui » à la présentation explicite de l’audit OPS-055 seul.
+Commit d’implémentation accepté : `804459950e226d125736dfb07f71e94b40c1193b`.
+Le verdict couvre l’inventaire des six arbres, les dix caches sans source proposés
+comme résidus, le classement et les limites annoncées (comparaison des métadonnées,
+sans vérification intégrale des contenus). Aucune correction demandée.
+Il ne valide ni une règle technique de suppression, ni OPS-056, ni OPS-057.
+Aucun nettoyage effectué ; livraison à venir.
