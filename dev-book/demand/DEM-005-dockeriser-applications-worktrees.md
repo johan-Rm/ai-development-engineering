@@ -1,7 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
 - Date : 2026-10-26.
-- État : correction Make en cours ; non validée.
+- État : implémentée et commitée, à vérifier — correction Make directe.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.
 - Session : référence de session indisponible.
 - Carte externe : aucune.
@@ -117,7 +117,7 @@ Découpage du 2026-10-26, sans implémentation ni commit.
 | Ordre | Carte | Critères DEM-005 couverts | Dépendances et état |
 | --- | --- | --- | --- |
 | 1 | [OPS-050 — Réparer les liens Git](../tasks/OPS-050-reparer-liens-worktrees.md) | 1, 7 | Implémentée et commitée : `b041cab`, à vérifier |
-| 2 | [OPS-051 — Stack applicative commune](../tasks/OPS-051-stack-applicative-worktree.md) | 2 à 7, documentation | Implémentée et commitée : `d076aec`, `ec0e27b`, `c709754`, à vérifier |
+| 2 | [OPS-051 — Stack applicative commune](../tasks/OPS-051-stack-applicative-worktree.md) | 2 à 7, documentation | Correction Make directe implémentée et commitée : `a46ac38`, à vérifier |
 | 3 | [OPS-052 — Recette des cinq stacks](../tasks/OPS-052-recette-cinq-stacks.md) | 1 à 8, preuves finales | Implémentée et commitée, à vérifier ; dépendances et copies identifiées dans la carte |
 
 Les trois cartes sont séquentielles et relèvent de devops. Aucune mission d’écriture
@@ -220,3 +220,24 @@ Les cibles prévues sont `help`, `info`, `config`, `prepare`, `up`, `status`, `d
 les interfaces. Les recettes navigateur utilisent Docker et les assertions de
 persistance utilisent Node ; elles ne réintroduisent pas Python dans le pilotage.
 L’identité des projets, ports et volumes existants doit être conservée.
+
+
+## Bilan de correction — 2026-10-27
+
+Python est supprimé du pilotage applicatif. Le Makefile appelle directement Docker
+Compose ; le contexte Git et JSON est préparé en shell avec Perl/JSON::PP.
+`make up`, `make status`, `make down`, `make prepare` et les recettes
+Make remplacent les anciens appels. Les quatre scripts Python propres à cette stack
+sont supprimés ; les outils du cadre hors pilotage Docker sont inchangés.
+
+OPS-051 est corrigée dans `a46ac38f1445fb98d81bd30b076f22a67c2b1503` et distribuée par commits identifiés.
+OPS-052 a vérifié les cinq couches successivement puis API/web simultanément, avec
+CRUD navigateur, rechargement, isolation et persistance. Les mêmes noms de projets,
+ports et volumes sont réutilisés, sans perte des données ou fichiers locaux.
+Les sept groupes de contrôles Make et la qualité complète passent ; les commandes
+et prérequis sont documentés. Les tables de SHA et preuves sont dans OPS-052.
+
+Les corrections retournent à la vérification humaine ; aucun verdict favorable n’est
+présumé, y compris pour OPS-050 qui reste sans validation explicite. Aucune opération
+distante de livraison ou de réunion n’a été engagée. API et web restent consultables
+sur 19302 et 19303 avec les deux interfaces ; les autres stacks sont arrêtées.
