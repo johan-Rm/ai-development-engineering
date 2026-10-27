@@ -206,3 +206,20 @@ inventaire des noms DEM-* dans la copie de réunion et 23 tests d’outillage
 Aucun fichier non commité copié ; réserve 002 conservée telle qu’acceptée.
 Les rapports des autres couches attendent toujours la propagation à la livraison.
 Aucun push, PR, merge vers develop ni réalignement effectué à cette étape.
+
+## Préparation de livraison — 2026-10-27
+
+Qualité réussie (code retour 0) sur la branche réunie :
+`python3 codebase-integrity/scripts/quality.py --root <depot>/worktree/devops`.
+23 tests d’outillage, contrat API, lint du conteneur, validation du schéma,
+comparaison OpenAPI, typechecks et builds web/backoffice réussis. L’outillage
+provient de la copie de réunion ; les applications utilisent leurs dépendances
+devops après vérification de l’identité du contenu app/ avec la réunion.
+Trace complète conservée dans l’espace extérieur persistant `.migration-008/`.
+
+Principal et cinq couches propres et ancêtres du changement réuni ; aucune
+contribution étrangère à rattacher. Environnements et bases recensés par empreintes
+avant suivi. La copie historique 007 et son diff local documenté sont préservés,
+les anciennes copies extérieures ne sont pas réalignées comme des couches.
+Réserve 002 acceptée inchangée. Diff livré documentaire, avec renommage du rapport.
+CI GitHub, fusion et alignement restent à vérifier lors de l’exécution de livraison.
