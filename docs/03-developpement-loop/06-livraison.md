@@ -39,3 +39,9 @@ que le suivi de livraison n’est pas terminé, même si la PR est déjà fusion
 Un écart de périmètre ou une contribution non validée reste à résoudre ; l’autonomie de livraison
 n’autorise pas à intégrer du travail étranger. Toute modification de cette procédure et du skill
 met à jour AGENTS.md et les guides concernés ensemble.
+
+Le worktree de réunion reste à son emplacement temporaire extérieur au projet,
+sous un nom sans préfixe `DEM-*`. Après fusion vérifiée, conserver son contenu,
+le détacher sur le commit livré puis supprimer uniquement la branche temporaire
+libre. Ne pas recréer de copie de réunion dans `worktree/`. Le rangement suit
+[les instructions du projet](../../AGENTS.md#rangement-des-demandes-et-réunions).
