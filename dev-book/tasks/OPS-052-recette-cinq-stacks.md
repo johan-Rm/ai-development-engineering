@@ -1,6 +1,6 @@
 # OPS-052 — Mettre à disposition et vérifier les cinq stacks
 
-- État : implémentée et commitée, à vérifier — recette des raccourcis Docker.
+- État : validée, à livrer.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
@@ -311,3 +311,12 @@ Journaux locaux : `/tmp/DEM-005-context-runtime.log`,
 `/tmp/DEM-005-context-{before,after}-env.sha256`. Aucun push, PR, merge, fetch,
 réalignement de branche ou création de branche de réunion. develop reste propre
 à `aa8b856587058a5f71ec35c13d3cd319fb58b1ce`. Aucun verdict humain favorable acquis.
+
+## Validation humaine — 2026-10-27
+
+Après présentation des trois cartes de DEM-005, l’humain répond explicitement
+« validé ». Cette validation globale couvre OPS-052 et ses preuves successives :
+`61797d678c4425f710554f7b2f221d60f2459eee`,
+`df5ac29be74825922df62639675b6dd362846d80` et
+`9d3cf0bc87485b13688b68fdfd6420141de391ce`, avec les dépendances OPS-050/051
+identifiées dans cette carte. Carte validée, non livrée.

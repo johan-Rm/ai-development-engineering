@@ -1,6 +1,6 @@
 # OPS-051 — Fournir la stack applicative autonome par worktree
 
-- État : implémentée et commitée, à vérifier — correction Make directe.
+- État : validée, à livrer.
 - Date : 2026-10-26.
 - Demande d’origine : [DEM-005](../demand/DEM-005-dockeriser-applications-worktrees.md).
 - Couche : devops.
@@ -242,3 +242,16 @@ mapping Doctrine, comparaison OpenAPI, types et builds Nuxt. Les tests refusent
 aussi les anciennes cibles sans contexte et une couche inconnue. Vérification des
 liens locaux des guides et points d’entrée modifiés réussie. Les deux procédures
 conservées ont été comparées avec HEAD par `cmp`, sans différence.
+
+## Validation humaine — 2026-10-27
+
+Après présentation des trois cartes de DEM-005, l’humain répond explicitement
+« validé ». Cette validation globale couvre OPS-051 et ses corrections :
+`d076aecd78c7bfe110758ef35055b42e0af35084`,
+`ec0e27bd1b8e19bddf073139fcc6b95ede035136`,
+`c70975474d656c74fb3f88ec7419953221a38922`,
+`a46ac38f1445fb98d81bd30b076f22a67c2b1503` et
+`8c1482eb1d1025e18b3f2b67ec592751f886da0c`.
+Le verdict porte sur la version finale contextualisant les commandes Docker et
+plaçant le guide dans `docs/02-cadre/couches/dockerisation.md`.
+Carte validée, non livrée.
