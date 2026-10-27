@@ -1,6 +1,6 @@
 # OPS-054 — Déplacer la configuration des couches dans infra
 
-- État : implémentée et commitée, à vérifier.
+- État : validée ; non livrée.
 - Date : 2026-10-27.
 - Demande : [DEM-006](../demand/DEM-006-clarifier-responsabilites-dossiers-cadre.md).
 - Couche : devops.
@@ -84,3 +84,9 @@ quality.py reste à la livraison avec ses prérequis. Aucun verdict humain à ce
 ## Dépendance résolue
 
 OPS-053 : `56c8a954cc5ad2073b336e7d73b6622ebfcdb87f`, présent sur layers/devops avant démarrage.
+
+## Verdict humain — 2026-10-27
+
+Validation globale explicite dans le chat : « validé », après présentation des trois
+cartes de DEM-006. Commit accepté pour cette carte : `d17b1af9ecc673dcee4839c3bff5b4a326ea87f1`.
+Aucune correction demandée. La livraison reste à effectuer.

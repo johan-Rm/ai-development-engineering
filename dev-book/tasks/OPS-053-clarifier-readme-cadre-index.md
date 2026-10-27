@@ -1,6 +1,6 @@
 # OPS-053 — Clarifier les README du cadre et la hiérarchie documentaire
 
-- État : implémentée et commitée, à vérifier.
+- État : validée ; non livrée.
 - Date : 2026-10-27.
 - Demande : [DEM-006](../demand/DEM-006-clarifier-responsabilites-dossiers-cadre.md).
 - Couche : devops.
@@ -63,3 +63,9 @@ le cadrage. Relecture du diff, vérification des cibles locales de docs/index.md
 `git diff --check` : réussis. Aucun test applicatif requis pour ces textes.
 Le cadrage et les trois cartes sont enregistrés avec ce commit pour permettre leur
 transmission par commit identifié. Aucun verdict humain à ce stade.
+
+## Verdict humain — 2026-10-27
+
+Validation globale explicite dans le chat : « validé », après présentation des trois
+cartes de DEM-006. Commit accepté pour cette carte : `56c8a954cc5ad2073b336e7d73b6622ebfcdb87f`.
+Aucune correction demandée. La livraison reste à effectuer.

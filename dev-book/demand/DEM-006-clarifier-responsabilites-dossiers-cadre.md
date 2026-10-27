@@ -1,7 +1,7 @@
 # DEM-006 — Clarifier les responsabilités des dossiers du cadre AIDE
 
 - Date : 2026-10-27.
-- État : implémentée et commitée, à vérifier humainement.
+- État : validée humainement ; non livrée.
 - Référence de session : référence de session indisponible.
 - Carte externe : aucune fournie.
 
@@ -133,9 +133,9 @@ coordination des couches avant toute implémentation.
 
 | Besoin | Carte | Couche | État au découpage |
 | --- | --- | --- | --- |
-| README du cadre, runbooks et index | [OPS-053](../tasks/OPS-053-clarifier-readme-cadre-index.md) | devops | Implémentée et commitée, à vérifier (OPS-053) |
-| Configuration dans infra, consommateurs et tests | [OPS-054](../tasks/OPS-054-deplacer-config-infra.md) | devops | Implémentée et commitée, à vérifier (OPS-054) |
-| README design | [UX-001](../tasks/UX-001-clarifier-readme-design.md) | design | Implémentée et commitée, à vérifier (UX-001) |
+| README du cadre, runbooks et index | [OPS-053](../tasks/OPS-053-clarifier-readme-cadre-index.md) | devops | Validée (OPS-053) |
+| Configuration dans infra, consommateurs et tests | [OPS-054](../tasks/OPS-054-deplacer-config-infra.md) | devops | Validée (OPS-054) |
+| README design | [UX-001](../tasks/UX-001-clarifier-readme-design.md) | design | Validée (UX-001) |
 
 Ordre : OPS-053 puis OPS-054, séquentiellement en devops. UX-001 peut être réalisée
 séparément après transmission par commit identifié du cadrage et de sa carte ;
@@ -195,3 +195,20 @@ celle du cadrage jusqu’à la réunion autorisée, sans copie de travail non co
 Les deux worktrees sont propres après leurs commits d’implémentation.
 La branche demands/DEM-006 n’est pas créée à cette étape ; ni réunion, ni push,
 ni PR, ni merge effectué. La vérification humaine n’a pas encore eu lieu.
+
+## Verdict humain — 2026-10-27
+
+Après présentation des trois cartes, des résultats observables, des preuves et de
+la limite quality.py avant PR, l’humain a répondu « validé » dans le chat.
+Cette validation globale couvre explicitement :
+
+- OPS-053 : `56c8a954cc5ad2073b336e7d73b6622ebfcdb87f` ;
+- OPS-054 : `d17b1af9ecc673dcee4839c3bff5b4a326ea87f1` ;
+- UX-001 : `396e014a5f5742ef7114c93e6abfd220de3323e2`.
+
+Aucune correction demandée. Couverture : trois cartes validées sur trois.
+La trace UX-001 est commitée dans son worktree design ; sa copie sur devops reste
+historique jusqu’à reconstitution par les commits identifiés. Aucun changement de
+code, nouvelle exécution de tests, reconstitution ou livraison à cette étape.
+La demande DEM-007 non suivie, présente avant cette consignation, reste intacte et
+exclue du commit documentaire de DEM-006.
