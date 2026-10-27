@@ -1,6 +1,6 @@
 # UX-001 — Clarifier les responsabilités du dossier design
 
-- État : implémentée et commitée, à vérifier.
+- État : validée ; non livrée.
 - Date : 2026-10-27.
 - Demande : [DEM-006](../demand/DEM-006-clarifier-responsabilites-dossiers-cadre.md).
 - Couche : design.
@@ -62,3 +62,9 @@ README conforme à la proposition retenue : texte non exhaustif, deux rubriques,
 conventions vides et limite avec les couches web/backoffice. Aucun lien à vérifier.
 Relecture du diff et `git diff --check` : réussis. Aucun test applicatif requis.
 Aucun verdict humain à ce stade.
+
+## Verdict humain — 2026-10-27
+
+Validation globale explicite dans le chat : « validé », après présentation des trois
+cartes de DEM-006. Commit accepté : `396e014a5f5742ef7114c93e6abfd220de3323e2`.
+Aucune correction demandée. La livraison reste à effectuer.
