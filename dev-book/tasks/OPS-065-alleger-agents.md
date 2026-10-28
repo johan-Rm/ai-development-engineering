@@ -2,10 +2,7 @@
 
 - Date : 2026-10-28 ; état : validée et commitée localement ; à reconstituer et livrer.
 - Session de création : `01a1820d-ecd1-7600-8d49-1422ef8b8f1b`.
-- Demande : DEM-012 ; référence actuelle depuis le dépôt principal :
-  `tmp/demande-alleger-agents.md` (brouillon local, non copié ici).
-- Lien définitif prévu à la reconstitution : `../demand/DEM-012-alleger-agents.md`
-  (fichier inexistant au découpage).
+- Demande : [DEM-012](../demand/DEM-012-alleger-agents.md).
 - Couche : devops ; worktree : `worktree/devops` ; branche : `layers/devops`.
 - Base locale vérifiée : `2bd2a014dbfb41643a2ad8bc42c1cebb12fd5f74` ; aucun fetch.
 - Dépendances : aucune carte amont ; une seule contribution atomique.
