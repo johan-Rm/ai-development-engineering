@@ -1,7 +1,7 @@
 # OPS-066 — Alléger SETUP
 
 - Date : 2026-10-28.
-- État : validée ; commit local en cours.
+- État : validée et commitée ; à livrer.
 - Session de création : `01a182d3-1898-7e92-8fdc-c16b502fecbf`.
 - Demande : DEM-013 ; source actuelle `tmp/demande-alleger-setup.md`, relative au dépôt principal.
 - Demande définitive prévue : `dev-book/demand/DEM-013-alleger-setup.md` ; absente avant reconstitution. Ajouter alors le lien relatif.
@@ -73,3 +73,5 @@ Verdict humain du 2026-10-28 : « validé », après présentation de la correct
 Dernières corrections humaines appliquées : titre et références alignés, nom complet
 et description du blueprint sous le H1, prérequis sans puces. Décisions dans le
 brouillon ; contenu de SETUP conforme, empreinte ci-dessus revérifiée.
+
+Commit local créé après validation : `1d2c5bb9031e5237260d3ae4a2fb42d5a6b7f3ee`.
