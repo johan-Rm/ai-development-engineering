@@ -22,6 +22,12 @@ Les worktrees des couches se trouvent sous `worktree/<couche>`. La
 [reconstitution](../../03-developpement-loop/05-reconstitution.md) utilise une
 branche dédiée dans un worktree existant libre et propre, sans copie supplémentaire. La configuration de routage est dans `infra/config/layers.json` ; l’adapter avec cette table lors de l’adoption.
 
+Créer un worktree depuis une base locale explicite, sans fetch :
+
+```sh
+python3 codebase-integrity/scripts/worktrees.py add --layer <couche> --branch layers/<couche> --base develop
+```
+
 ## Suivre les couches dans le workspace
 
 Le fichier `aide.code-workspace`, à la racine du dépôt principal, fournit une vue

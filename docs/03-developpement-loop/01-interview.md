@@ -11,7 +11,7 @@ Demande humaine et contexte du projet.
 L’IA clarifie le problème, le résultat attendu, les utilisateurs concernés et les contraintes. Elle expose les ambiguïtés ; l’humain tranche les choix et les exclusions.
 
 Après confirmation humaine du cadrage, l’IA crée ou reprend la demande sous
-`dev-book/demand/DEM-NNN-<sujet>.md`, selon les [règles du dev-book](../../dev-book/README.md#rubriques-dune-demande).
+`dev-book/demand/DEM-NNN-<sujet>.md`, selon les [règles de rangement](../../AGENTS.md#demandes-et-cartes).
 Elle recherche d’abord le fichier existant pour éviter les doublons ; une nouvelle identité
 est attribuée après examen des références locales et des worktrees concernés, sans fetch implicite.
 
@@ -31,7 +31,4 @@ pas un résultat implémenté.
 
 `interviewer-demande`.
 
-Avant d’enregistrer une nouvelle demande, renseigner son identifiant de session
-réel, issu du contexte ou d’une source locale fiable. Sans cet identifiant,
-signaler le blocage et ne pas créer le document avec une mention d’indisponibilité.
-Une reprise conserve l’identifiant de création et ajoute la session intervenante.
+Avant création, appliquer les [règles de session](../../AGENTS.md#demandes-et-cartes).

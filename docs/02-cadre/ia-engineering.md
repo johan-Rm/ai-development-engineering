@@ -11,18 +11,17 @@
 | Skills disponibles dans la session | Procédures réutilisables pour les étapes des boucles. |
 | Carte de tâche | Objectif, périmètre, dépendances, affectation et preuves attendues. |
 
-AGENTS.md indique les skills à privilégier sans recopier leurs procédures. Une mention n’installe pas un skill et ne déclenche pas une étape automatiquement.
+Les étapes des deux boucles indiquent leur skill associé ; une mention n’installe
+pas un skill et ne déclenche aucune étape automatiquement.
 
 ## Donner une mission précise
 
-Les réponses et documents suivent la [règle de concision](../../AGENTS.md#réponses-et-documents) :
-informations utiles et précises, sans répétitions. Tout développement rédactionnel
-jugé nécessaire commence par une synthèse concise et attend l’accord humain explicite.
-Les preuves et validations requises restent nécessaires.
-
-Une mission indique le worktree relatif à la racine du dépôt principal, la branche, les chemins autorisés et le résultat à prouver. Le chemin absolu est résolu et vérifié localement à l’exécution, avec la branche et l’état Git ; il n’est pas inscrit dans les cartes versionnées. Les dépendances sont identifiées par commit. Le travail reste dans ce périmètre ; une ambiguïté ou un besoin supplémentaire est signalé.
-
-Les instructions explicites de l’utilisateur priment. Dans ce dépôt, la délégation n’est autorisée que sur demande explicite. La validation d’un plan ne remplace pas les verdicts humains prévus par les boucles.
+Une mission indique le worktree relatif à la racine du dépôt principal, la branche,
+les chemins autorisés, les dépendances par commits et le résultat à prouver.
+Résoudre le chemin absolu localement sans l’inscrire dans les cartes versionnées.
+Respecter les [consignes d’intervention](../../AGENTS.md#avant-dintervenir) et la
+[règle de rédaction](../../AGENTS.md#réponses-et-documents). Une ambiguïté ou un besoin
+supplémentaire est signalé ; valider un plan ne remplace pas les verdicts des boucles.
 
 ## Utiliser les skills
 
@@ -31,14 +30,14 @@ six skills pour le développement et six autres pour la consolidation. Chaque bo
 ses propres entrées, procédures et sorties, sans dépendance aux skills de l’autre.
 
 Les skills d’arbitrage et de vérification préparent les éléments et consignent le verdict humain.
-Les deux outils hors des boucles servent à configurer les worktrees et inventorier les couches.
-Les skills de vérification réalisent les commits autorisés après verdict humain ; les skills de
-livraison réalisent directement push, PR, fusion et suivi après fusion lorsque demandés.
-Ils ne déclenchent aucune autre étape automatiquement.
+Les [autorisations du projet](../../AGENTS.md#workflow-et-autorisations) encadrent
+les opérations Git ; les skills ne déclenchent pas automatiquement l’étape suivante.
 
-Les skills doivent être installés et vérifiés avant la livraison. Leur mention dans le dépôt
-ne prouve pas leur disponibilité ; consulter les skills réellement exposés par la session.
-Si un skill manque, signaler la procédure absente et suivre la carte et les instructions disponibles.
+Avant livraison, les skills nécessaires doivent être disponibles et vérifiés dans
+la session. Aux autres étapes, signaler un skill manquant et suivre la carte et
+les instructions disponibles, sans inventer sa procédure.
+
+Les outils hors des boucles sont `etat-des-lanes` et `configurer-worktrees-aide`.
 
 Les anciens `creer-tache` et `demarrer-tache` sont remplacés par les skills propres aux étapes.
 `configurer-worktrees-aiod` devient `configurer-worktrees-aide`. `etat-des-lanes` reste hors des boucles. Les anciennes procédures distinctes de discussion,

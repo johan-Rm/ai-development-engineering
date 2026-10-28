@@ -19,10 +19,11 @@ Une PR correspondant à la demande initiale. Sa validation exige la réussite de
 `livrer-demande`.
 
 L’invocation de `livrer-demande` autorise la livraison complète : contrôles, commits
-documentaires nécessaires, vérification distante, push, création ou mise à jour de la PR vers
+documentaires nécessaires, vérification distante et fetch, push, création ou mise à jour de la PR vers
 `develop`, fusion et suivi après fusion. Aucune confirmation intermédiaire n’est nécessaire.
 Une instruction explicitement limitée à une PR conserve cette limite. Les validations humaines
 acquises, les contrôles bloquants et les protections GitHub restent nécessaires ; ne pas les contourner.
+La stratégie proposée est un merge commit, sous réserve de la politique GitHub configurée.
 La livraison complète inclut l’alignement de toutes les couches configurées sur le
 même SHA que develop après fusion vérifiée. Avant la PR, inventorier les branches,
 leurs missions et les modifications locales. Une divergence composée uniquement de
