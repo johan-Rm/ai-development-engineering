@@ -99,3 +99,7 @@ des arbres identiques ; aucun changement du contenu validé.
 Dévelop distant vérifié à `884b0f53a005080bca2c1241122b4f2972e6cedb`.
 Les cinq couches sont propres ; devops porte uniquement les contributions validées
 de DEM-011, les autres sont au repos sur la base. Aucun travail étranger identifié.
+
+PR : [#11](https://github.com/johan-Rm/ai-development-engineering/pull/11),
+`demands/DEM-011` → `develop`. Publication sans force réalisée via les identifiants gh ;
+création via gh après refus 403 du connecteur. Fusion et alignement à vérifier.
