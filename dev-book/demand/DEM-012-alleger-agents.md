@@ -106,3 +106,13 @@ Historique source `layers/devops` rattaché par merge ciblé après vérificatio
 de l’égalité des arbres avec les cherry-picks ; aucun changement de contenu.
 Les cinq couches sont propres ; seules les contributions validées de DEM-012
 divergeaient sur devops. Leur rattachement permet les avances rapides finales.
+
+
+## Livraison
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/12
+Source : `demands/DEM-012` ; cible : `develop` ; stratégie : merge commit.
+Qualité complète de livraison réussie sur `f3dffef` (journal local
+`/tmp/dem012-delivery-quality.log`) ; aucune modification applicative depuis.
+Carte OPS-065 validée et commitée ; contrôles distants à vérifier avant fusion.
+Suivi réel après fusion consigné dans le brouillon conservé sous tmp/.
