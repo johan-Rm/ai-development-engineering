@@ -31,6 +31,6 @@ Depuis la racine du worktree :
 | `python3 codebase-integrity/scripts/apps.py check backoffice` | Types et build Nuxt. |
 | `python3 codebase-integrity/scripts/quality.py` | Ensemble des contrôles précédents, arrêt au premier échec. |
 
-L’option `--browser` des contrôles web et backoffice ajoute les parcours Playwright ; API de développement et Chromium requis. Installation : [SETUP.md](../../SETUP.md).
+L’option `--browser` des contrôles web et backoffice ajoute les parcours Playwright ; API de développement et Chromium requis. Pour les parcours conteneurisés, suivre le [guide Docker](../02-cadre/couches/dockerisation.md#vérifier-et-arrêter).
 
 La CI est définie dans `.github/workflows/quality.yml`. Le caractère obligatoire de ses résultats pour fusionner une PR dépend des protections GitHub effectivement configurées ; cette documentation ne les active pas.

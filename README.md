@@ -92,4 +92,4 @@ contrôles qui renforcent les cycles suivants.
 AIDE est indépendant des langages et frameworks du projet. Les applications de ce dépôt
 illustrent son utilisation et peuvent être remplacées par une autre stack.
 
-Installation et adaptation au projet : [SETUP.md](SETUP.md).
+Préparer son environnement de développement AIDE : [SETUP.md](SETUP.md).
