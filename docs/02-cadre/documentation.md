@@ -31,8 +31,18 @@ Description courte.
 
 Lire les README du chemin concerné avant d’écrire ou de relire le code. Le README le plus proche précise les règles du parent. Toute évolution d’une règle locale est documentée à cet endroit, sans duplication dans les guides centraux.
 
+Cette structure ne s’impose ni au README racine, ni aux index documentaires,
+ni aux README du cadre AIDE. Ne pas migrer automatiquement les README existants.
+
+## Relire le code
+
+Vérifier les chapitres « Rôle et responsabilités » et « Conventions techniques »
+des README applicables. Signaler les écarts avec leurs fichiers et les contradictions
+avec AGENTS.md. Toute convention technique modifiée est documentée dans son README
+et vérifiée par les contrôles pertinents, selon la boucle de consolidation.
+
 ## Écrire pour une lecture rapide
 
 Commencer chaque chapitre explicatif par une courte citation qui en donne l’idée principale. Utiliser des titres précis, des paragraphes courts et des liens vers les détails. Toujours employer « convention technique » pour désigner une règle technique du projet.
 
-La [charte officielle](<../../design/Brand Guidelines - Graines Digitales (standalone).html>) gouverne les travaux graphiques. Pour le schéma AIDE : humain en olive, IA en terre cuite `#C07040`, sans traits décoratifs de rôle.
+Pour les travaux graphiques, suivre la [référence graphique du projet](../../AGENTS.md#références-à-consulter-selon-la-tâche).
