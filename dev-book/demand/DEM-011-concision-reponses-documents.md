@@ -1,7 +1,7 @@
 # DEM-011 — Imposer la concision des réponses et documents
 
 - Date : 2026-10-27.
-- État : OPS-063 et OPS-064 validées et commitées localement ; à reconstituer puis livrer.
+- État : OPS-063 et OPS-064 validées et commitées localement ; reconstituées sur `demands/DEM-011`, à livrer.
 - Session de création : `01a17e56-dc43-76f2-83fb-d8006838ac17`.
 - Couche concernée : devops.
 
@@ -68,8 +68,34 @@ Le 2026-10-27, verdict humain global dans le chat : « validé ».
 
 | Carte | Commit source validé | Commit obtenu à la reconstitution |
 | --- | --- | --- |
-| OPS-063 | `ec1e373471dd3de353badc1a87938f787b318f1b` | À renseigner |
-| OPS-064 | `30aa12d2387bc9647af470e639c1419df583f5d9` | À renseigner |
+| OPS-063 | `ec1e373471dd3de353badc1a87938f787b318f1b` | `ad9761696ef20283492c88c00f728ca0ec475c10` |
+| OPS-064 | `30aa12d2387bc9647af470e639c1419df583f5d9` | `ab5cfe09ac40579cc40b5facb3ba4bba5a208a7d` |
 
 Les skills personnels sont validés dans leur état local ; seul leur suivi est commité.
 Aucun push, PR, reconstitution ou livraison réalisé à cette étape.
+
+## Reconstitution
+
+Le 2026-10-27, branche `demands/DEM-011` créée dans le principal (worktree `.`),
+depuis develop local `884b0f53a005080bca2c1241122b4f2972e6cedb`, libre et propre.
+Retour prévu sur `develop` après livraison ; les couches conservent leurs branches.
+Les trois commits ont été appliqués avec `git cherry-pick -x`, sans conflit.
+Trace documentaire : `a18dad305e2f2ae0b404c8af13fad535d6233b63` →
+`02fb039b0fa86300bf2e4dd78d04dd5a4cbfb5f2`.
+
+`git diff --exit-code layers/devops HEAD` confirme un résultat identique à la
+contribution validée. Contrôles qualité précédents conservés pour ce contenu ;
+liens locaux et `git diff --check` vérifiés à la reconstitution. Les 18 skills
+personnels correspondent toujours à leur état validé, hors du contenu Git.
+Seule cette trace de reconstitution reste non commitée pour la livraison.
+Aucun fetch, push ou PR réalisé.
+
+## Préparation de livraison
+
+Le 2026-10-28 : contrôle `python3 codebase-integrity/scripts/quality.py` terminé
+avec code 0 (journal local `/tmp/dem011-livraison-quality.log`).
+Historique source devops rattaché par merge ciblé `5cd9a67`, après vérification
+des arbres identiques ; aucun changement du contenu validé.
+Dévelop distant vérifié à `884b0f53a005080bca2c1241122b4f2972e6cedb`.
+Les cinq couches sont propres ; devops porte uniquement les contributions validées
+de DEM-011, les autres sont au repos sur la base. Aucun travail étranger identifié.
