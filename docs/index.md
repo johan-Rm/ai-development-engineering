@@ -29,7 +29,7 @@ La pierre angulaire d’AIDE : des conventions techniques humaines et des contr�
 ## Autres points d’entrée
 
 - [Présentation d’AIDE](../README.md)
-- [Installation et adaptation au projet](../SETUP.md)
+- [Préparer son environnement de développement AIDE](../SETUP.md)
 - [Instructions des agents](../AGENTS.md)
 - [Journal des tâches et preuves](../dev-book/README.md)
 - [Schéma interactif AIDE](../dev-book/resources/vue-d-ensemble-ai-development-engineering.html)
