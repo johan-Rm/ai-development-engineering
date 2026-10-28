@@ -31,6 +31,4 @@ Prévoir `demands/<identifiant>` depuis develop, dans un worktree existant libre
 propre, puis des cherry-picks des commits validés. Noter la branche de couche à
 retrouver après livraison. Aucune copie de réunion supplémentaire à prévoir.
 
-Chaque carte créée renseigne l’identifiant réel de la session de découpage.
-Son absence ou une contradiction entre sources bloque sa création. Une reprise
-conserve l’identifiant d’origine et ajoute celui de la session intervenante.
+Chaque carte applique les [règles de session](../../AGENTS.md#demandes-et-cartes).
