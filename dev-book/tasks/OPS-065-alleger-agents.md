@@ -1,6 +1,6 @@
 # OPS-065 — Alléger AGENTS.md et centraliser ses références
 
-- Date : 2026-10-28 ; état : validée par l’humain ; commit local à créer.
+- Date : 2026-10-28 ; état : validée et commitée localement ; à reconstituer et livrer.
 - Session de création : `01a1820d-ecd1-7600-8d49-1422ef8b8f1b`.
 - Demande : DEM-012 ; référence actuelle depuis le dépôt principal :
   `tmp/demande-alleger-agents.md` (brouillon local, non copié ici).
@@ -105,3 +105,5 @@ de la version corrigée et de sa réserve préexistante. Contenu vérifié incha
 avant commit ; README dev-book inchangé. Base : `2bd2a014dbfb41643a2ad8bc42c1cebb12fd5f74`.
 Empreinte du relevé présenté :
 `b2e5173a8f46aecadd74beda189304630b834d591faf4b2f75e742adc251276b`.
+
+Commit local de la carte validée : `b502f0d00e05b9f1f5e1ea1bb37a0239052ce785`.
