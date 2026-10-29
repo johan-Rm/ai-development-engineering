@@ -145,3 +145,8 @@ code 0 ; journal `/tmp/dem018-quality.log` : 30 tests d’outillage, contrat API
 types et builds web/backoffice. Aucun changement fonctionnel depuis ces contrôles ;
 seules les traces documentaires de livraison sont ajoutées. Réserve Ubuntu neuf
 acceptée maintenue. PR vers develop, fusion par merge commit après checks requis.
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/17 ; source
+`demands/DEM-018`, cible `develop`. Fusion par merge commit après checks et
+protections satisfaits ; SHA de fusion et alignement effectifs à consigner
+dans le brouillon conservé sous tmp/.
