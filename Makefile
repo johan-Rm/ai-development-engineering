@@ -2,6 +2,10 @@ SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
 .ONESHELL:
 .DEFAULT_GOAL := help
+.PHONY: setup-worktrees
+setup-worktrees:
+	@python3 codebase-integrity/scripts/setup_worktrees.py
+
 STACK_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 export INTERFACE AIDE_APP_PORT_BASE RELOAD EXPECT_EMPTY
 CONTEXT = source "$(STACK_ROOT)/infra/stack-env.sh" "$(STACK_ROOT)"
@@ -24,7 +28,8 @@ $(addprefix docker-status-,$(LAYERS)):
 .PHONY: help info config prepare up status down test test-browser test-runtime
 
 help:
-	@printf '%s\n' 'make docker-up-api | docker-up-web | docker-up-backoffice | docker-up-design | docker-up-devops : démarrer une couche avec ses deux interfaces' \
+	@printf '%s\n' 'make setup-worktrees : préparer les worktrees, le workspace et son alias Bash' \
+	  'make docker-up-api | docker-up-web | docker-up-backoffice | docker-up-design | docker-up-devops : démarrer une couche avec ses deux interfaces' \
 	  'make docker-stop-<couche> : arrêter une couche' \
 	  'make docker-status-<couche> : consulter une couche' \
 	  'make prepare | up [INTERFACE=web|backoffice|both] | status | down : worktree courant' \
