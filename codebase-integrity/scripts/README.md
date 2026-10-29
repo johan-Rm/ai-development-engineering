@@ -2,6 +2,7 @@
 
 `apps.py` installe, lance et vérifie les applications. `quality.py` regroupe les contrôles ;
 `check.py` exécute seulement les tests de l’outillage.
+`setup_worktrees.py` prépare les couches, le workspace et son alias Bash via `make setup-worktrees`.
 `worktrees.py` gère les arbres Git ; `process.py` et `check_docker.py` vérifient la recette Docker.
 Les scripts consomment les configurations depuis le worktree appelant :
 `worktrees.py` lit `infra/config/layers.json` (couches, branches, rôles et identifiants),
