@@ -1,6 +1,6 @@
 # OPS-068 — Renommer l’alias du workspace
 
-- Date : 2026-10-29 ; état : validée par l’humain, commit local à créer.
+- Date : 2026-10-29 ; état : validée et commitée ; à livrer.
 - Session de création : `01a1869b-17bd-7292-a890-d6785556af2c`.
 - Demande : DEM-015 ; besoin de référence : `tmp/demande-renommer-alias-workspace.md`, relatif au dépôt principal, hors de ce worktree.
 - Future demande : `dev-book/demand/DEM-015-renommer-alias-workspace.md` ; à créer à la reconstitution, absente à ce stade.
@@ -62,3 +62,5 @@ Avant commit, HEAD et index inchangés ; empreintes SHA-256 identiques à la pr�
 Syntaxe, définition exacte, absence de l’ancien alias et présence du workspace :
 contrôles réussis à la vérification. Seules les traces documentaires du verdict
 sont ajoutées au contenu présenté.
+
+Commit local des traces validées : `e885f489f1f542c8b1f3056dd77775854be90d1e`.
