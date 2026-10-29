@@ -3,8 +3,7 @@
 - Date : 2026-10-28.
 - État : validée et commitée ; à livrer.
 - Session de création : `01a182d3-1898-7e92-8fdc-c16b502fecbf`.
-- Demande : DEM-013 ; source actuelle `tmp/demande-alleger-setup.md`, relative au dépôt principal.
-- Demande définitive prévue : `dev-book/demand/DEM-013-alleger-setup.md` ; absente avant reconstitution. Ajouter alors le lien relatif.
+- Demande : [DEM-013](../demand/DEM-013-alleger-setup.md).
 - Mission : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base observée : `92c64ba`, commune avec develop ; index et arbre propres avant création de cette carte, aucune mission active identifiée après clôture de DEM-012.
 - Dépendances : aucune carte amont ni commit à importer.
