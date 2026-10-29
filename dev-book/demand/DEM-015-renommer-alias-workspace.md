@@ -70,3 +70,17 @@ liens locaux demande/carte résolus, `git diff --check` et `bash -n` réussis.
 Seules la demande matérialisée et l’actualisation du lien de la carte restent
 non commitées pour la livraison. Aucun contrôle applicatif exécuté : changement
 personnel et traces documentaires uniquement.
+
+## Livraison
+
+Qualité complète : `python3 codebase-integrity/scripts/quality.py`, code 0,
+journal `/tmp/dem015-quality.log` ; tests d’outillage, contrat API, types et builds
+web/backoffice réussis. Premier essai limité par le sandbox (socket HTTP refusée),
+puis réussite avec permissions adaptées, sans modifier les contrôles.
+
+Historique devops rattaché par `c1983643fb8259866e409fd361d2b23f9cf1c3a6` :
+seuls les deux commits validés d’OPS-068 étaient divergents. Conflit documentaire
+résolu en conservant la carte reconstituée ; arbre strictement identique au premier
+parent vérifié. Les cinq couches sont propres, sans nouvelle mission identifiée.
+Base distante develop vérifiée identique à la base locale ; merge commit permis.
+Le fichier personnel n’est pas livré par Git : seuls la demande et ses preuves le sont.
