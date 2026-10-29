@@ -1,6 +1,6 @@
 # OPS-070 — Préparer le dépôt par les commandes du SETUP
 
-- Date : 2026-10-29 ; état : validée avec réserve Ubuntu neuf ; commit local à effectuer.
+- Date : 2026-10-29 ; état : validée et commitée avec réserve Ubuntu neuf ; à reconstituer.
 - Session de création : `01a18808-fc0b-7aa0-b084-441015c3c7ad`.
 - Demande : DEM-018 ; référence actuelle `tmp/demande-setup-commandes.md`, relative
   au dépôt principal (hors du worktree). Contenu et décisions à cet emplacement.
@@ -127,3 +127,6 @@ La carte ne satisfait pas encore ce critère ; aucun verdict humain obtenu.
 Ubuntu neuf non exécuté. Validation avec cette réserve, sans déclarer la recette
 réussie. Huit empreintes identiques à l’état soumis, HEAD de base inchangé et
 index vide avant ajout de cette seule trace ; aucun changement fonctionnel.
+
+Commit local de la contribution validée : `856defdd41224150dc5a0c33d79cdbb135038576`.
+La réserve de recette reste ouverte ; aucun push, PR ni fusion.
