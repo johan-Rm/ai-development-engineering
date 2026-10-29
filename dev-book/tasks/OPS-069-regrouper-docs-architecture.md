@@ -1,6 +1,6 @@
 # OPS-069 — Regrouper la documentation du cadre sous architecture
 
-- Date : 2026-10-29 ; état : validée avec réserve ; commit local à effectuer.
+- Date : 2026-10-29 ; état : validée et commitée avec réserve ; à livrer.
 - Session de création : `01a18804-42eb-7d20-8dbc-7430446e4350`.
 - Demande : `tmp/demande-regrouper-docs-architecture.md`, relativement au dépôt principal ; référence du besoin et des critères d’acceptation.
 - Demande définitive prévue : `dev-book/demand/DEM-017-regrouper-docs-architecture.md`, absente avant reconstitution.
@@ -106,3 +106,5 @@ Réponse « validé », réitérée après la question explicite sur l’accepta
 liens cassés comme réserve : validation avec cette réserve conservée. Aucun correctif
 inclus. Avant commit : branche et HEAD inchangés, index vide ; comparaison des
 52 chemins au manifeste conforme, hors trace documentaire de vérification de cette carte.
+
+Commit local validé avec réserve : `c305cf2dffe8c562a04e112468dcdc87b701d859`.
