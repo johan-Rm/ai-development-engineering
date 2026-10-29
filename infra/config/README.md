@@ -1,6 +1,6 @@
 # Configuration du cadre
 
-Configuration commune des couches du projet AIDE.
+Configuration commune des couches du projet.
 
 ## Rôle et responsabilités
 

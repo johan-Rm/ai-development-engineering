@@ -1,4 +1,4 @@
-# Vérification de la vue AIDE
+# Vérification de la vue du cadre
 
 `vue-aiod.cjs` vérifie le panneau de détails de la vue HTML : souris, clic, clavier,
 focus, tactile et absence de débordement horizontal. Il ouvre le fichier local sans serveur.

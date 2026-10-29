@@ -1,6 +1,6 @@
-# Préparer son environnement de développement AIDE
+# Préparer son environnement de développement
 
-**AIDE — AI-powered Development Engineering**
+**AI-powered Development Engineering**
 
 Ce dépôt est un blueprint pour développer des applications avec l’aide d’agents IA, dans un cadre structuré et vérifiable.
 
@@ -10,7 +10,7 @@ Outils de développement : Git, Python 3.12+ pour créer les worktrees et VS Cod
 
 Environnement Docker : installer les [outils requis sous Linux/WSL](docs/02-cadre/couches/dockerisation.md#préparer-lenvironnement-local).
 
-Skills AIDE : les installer dans le répertoire personnel de skills de l’outil utilisé, puis vérifier qu’ils sont disponibles dans la session. Les [guides des étapes](docs/03-developpement-loop/index.md) indiquent leurs noms ; le [guide IA Engineering](docs/02-cadre/ia-engineering.md#utiliser-les-skills) précise leur organisation. Ils ne sont pas fournis dans ce dépôt.
+Skills du cadre : les installer dans le répertoire personnel de skills de l’outil utilisé, puis vérifier qu’ils sont disponibles dans la session. Les [guides des étapes](docs/03-developpement-loop/index.md) indiquent leurs noms ; le [guide IA Engineering](docs/02-cadre/ia-engineering.md#utiliser-les-skills) précise leur organisation. Ils ne sont pas fournis dans ce dépôt.
 
 ## 2. Créer les worktrees
 
