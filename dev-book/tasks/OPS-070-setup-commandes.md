@@ -2,10 +2,8 @@
 
 - Date : 2026-10-29 ; état : validée et commitée avec réserve Ubuntu neuf ; à reconstituer.
 - Session de création : `01a18808-fc0b-7aa0-b084-441015c3c7ad`.
-- Demande : DEM-018 ; référence actuelle `tmp/demande-setup-commandes.md`, relative
-  au dépôt principal (hors du worktree). Contenu et décisions à cet emplacement.
-- Référence future : `dev-book/demand/DEM-018-setup-commandes.md`, à créer dans
-  le principal uniquement à la reconstitution ; ce fichier n’existe pas encore.
+- Demande : [DEM-018](../demand/DEM-018-setup-commandes.md), matérialisée depuis
+  `tmp/demande-setup-commandes.md` du principal à la reconstitution.
 - Mission : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base locale : `57ae8c5623a9610e70a40f5589bcdaac977e1b21`, commune avec develop.
 - Dépendances : aucune contribution amont ; aucune importation de travail non commité.
