@@ -10,7 +10,7 @@ Python, PHP, Composer et Node ne sont pas nécessaires sur l’hôte pour le pil
 
 Vérifier la disponibilité de la couche, sa branche `layers/<couche>` et l’état Git.
 Réparer les liens si le dépôt a été déplacé selon le
-[guide de réparation](../../../dev-book/runbooks/reparer-liens-worktrees.md). Exécuter les
+[guide de réparation](../../../../dev-book/runbooks/reparer-liens-worktrees.md). Exécuter les
 commandes depuis la racine du worktree équipé des commits de stack.
 
 ## Démarrer une couche
@@ -126,7 +126,7 @@ Les observations sont dans `/tmp/DEM-005-make-runtime-<couche>.json`.
 `down` retire les conteneurs et le réseau du projet sans supprimer les volumes.
 Les données et dépendances restent disponibles à la relance. Ne pas utiliser un
 nettoyage global de Docker ou une suppression de volumes pour résoudre une panne.
-La [recette des cinq stacks](../../../dev-book/runbooks/recette-stacks-applicatives.md) détaille la vérification.
+La [recette des cinq stacks](../../../../dev-book/runbooks/recette-stacks-applicatives.md) détaille la vérification.
 
 ## Diagnostiquer une erreur
 

@@ -9,6 +9,6 @@ Le journal opérationnel du projet : besoins, tâches et traces de réalisation.
 - `runbooks/` décrit les opérations exceptionnelles et ponctuelles à appliquer après le déploiement d’une livraison précise. Ces procédures sont conservées avec leur état d’exécution et leur preuve.
 - `resources/` rassemble les ressources d’appui à la réalisation et à la vérification.
 
-Les guides et références durables du cadre sont dans `docs/`.
+Les guides et références durables du cadre sont dans [docs/architecture/](../docs/architecture/index.md).
 
 ## Conventions techniques

@@ -12,7 +12,7 @@ L’IA définit pour chaque tâche l’objectif, les chemins autorisés, les exc
 
 L’IA ajoute dans le fichier de demande les liens vers les cartes créées dans
 `dev-book/tasks/`. Chaque carte référence en retour la demande d’origine. Elle conserve
-l’identité du fichier de cadrage, selon les [règles du dev-book](../../dev-book/README.md).
+l’identité du fichier de cadrage, selon les [règles du dev-book](../../../dev-book/README.md).
 Le découpage prévoit la branche de demande et un worktree existant pour la reconstitution.
 Prévoir `demands/<identifiant>`, branche dédiée distincte des branches de couche, de
 l’intégration et de la production, même pour une seule couche. La reconstitution la crée. Ce découpage ne lance pas l’implémentation.
@@ -31,4 +31,4 @@ Prévoir `demands/<identifiant>` depuis develop, dans un worktree existant libre
 propre, puis des cherry-picks des commits validés. Noter la branche de couche à
 retrouver après livraison. Aucune copie de réunion supplémentaire à prévoir.
 
-Chaque carte applique les [règles de session](../../AGENTS.md#demandes-et-cartes).
+Chaque carte applique les [règles de session](../../../AGENTS.md#demandes-et-cartes).
