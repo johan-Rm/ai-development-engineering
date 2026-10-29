@@ -135,3 +135,13 @@ par GitHub, cible et branche par défaut develop.
 Les deux seuls commits divergents de devops sont ceux d’OPS-070 validée, appliqués
 par cherry-pick à la reconstitution. Rattachement ciblé de cet historique prévu
 pour permettre les avances rapides finales, avec contrôle d’égalité de l’arbre.
+
+Rattachement effectué : `435a3b9b3753ad1471d8657885ac775f28f21c90`. Conflit
+limité à la carte documentaire, résolu avec la version reconstituée ; arbre
+strictement identique au premier parent, vérifié avant commit.
+
+Qualité complète locale réussie : `python3 codebase-integrity/scripts/quality.py`,
+code 0 ; journal `/tmp/dem018-quality.log` : 30 tests d’outillage, contrat API,
+types et builds web/backoffice. Aucun changement fonctionnel depuis ces contrôles ;
+seules les traces documentaires de livraison sont ajoutées. Réserve Ubuntu neuf
+acceptée maintenue. PR vers develop, fusion par merge commit après checks requis.
