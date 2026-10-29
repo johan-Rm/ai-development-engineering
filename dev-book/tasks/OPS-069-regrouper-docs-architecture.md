@@ -2,8 +2,7 @@
 
 - Date : 2026-10-29 ; état : validée et commitée avec réserve ; à livrer.
 - Session de création : `01a18804-42eb-7d20-8dbc-7430446e4350`.
-- Demande : `tmp/demande-regrouper-docs-architecture.md`, relativement au dépôt principal ; référence du besoin et des critères d’acceptation.
-- Demande définitive prévue : `dev-book/demand/DEM-017-regrouper-docs-architecture.md`, absente avant reconstitution.
+- Demande : [DEM-017](../demand/DEM-017-regrouper-docs-architecture.md), matérialisée depuis le brouillon du principal à la reconstitution.
 - Mission : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base locale : `ec6efd5`, commune avec develop ; aucune dépendance amont ni import de commit.
 
