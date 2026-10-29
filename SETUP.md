@@ -1,44 +1,100 @@
-# Préparer son environnement de développement
+# Préparer son environnement de développement **AI-powered**
 
-**AI-powered Development Engineering**
+**AI-powered Development Engineering** est une méthode de développement logiciel avec des agents IA. Elle organise le travail, de la demande à la livraison, avec des étapes guidées, des contributions isolées et des contrôles automatiques. L’humain définit les règles et valide les résultats.
 
-Ce dépôt est un blueprint pour développer des applications avec l’aide d’agents IA, dans un cadre structuré et vérifiable.
+## 1. Installer les prérequis
 
-## 1. Prérequis
+Ubuntu 24.04 LTS avec interface graphique, accès `sudo`, compte Codex et accès GitHub au dépôt privé des skills.
 
-Outils de développement : Git, Python 3.12+ pour créer les worktrees et VS Code pour ouvrir le workspace.
+### Outils système
 
-Environnement Docker : installer les [outils requis sous Linux/WSL](docs/architecture/02-cadre/couches/dockerisation.md#préparer-lenvironnement-local).
+```bash
+sudo apt update
+sudo apt install -y git python3 make bash perl iproute2 \
+  coreutils curl ca-certificates snapd
 
-Skills du cadre : les installer dans le répertoire personnel de skills de l’outil utilisé, puis vérifier qu’ils sont disponibles dans la session. Les [guides des étapes](docs/architecture/03-developpement-loop/index.md) indiquent leurs noms ; le [guide IA Engineering](docs/architecture/02-cadre/ia-engineering.md#utiliser-les-skills) précise leur organisation. Ils ne sont pas fournis dans ce dépôt.
-
-## 2. Créer les worktrees
-
-Chaque couche possède un dossier de travail et une branche dédiés. Depuis le dépôt
-principal, consulter `git worktree list`, puis créer uniquement les worktrees
-manquants avec la [commande du guide des couches](docs/architecture/02-cadre/couches/index.md#couches-de-ce-dépôt).
-Le dépôt doit avoir un premier commit et une branche locale `develop`.
-
-## 3. Ouvrir le workspace
-
-Depuis le dépôt principal :
-
-```sh
-code aide.code-workspace
+git --version
+python3 --version
+make --version
+perl -MJSON::PP -e 'print "$JSON::PP::VERSION\n"'
 ```
 
-Le workspace regroupe le dépôt principal et les worktrees dans VS Code.
-Une couche dont le worktree n’existe pas reste indisponible.
-Voir [comment utiliser le workspace](docs/architecture/02-cadre/couches/index.md#suivre-les-couches-dans-le-workspace).
+### VS Code et Codex
 
-## 4. Démarrer les applications avec Docker
+```bash
+sudo snap install code --classic
+/snap/bin/code --install-extension openai.chatgpt
+```
 
-Choisir la couche à consulter, puis suivre le [guide de démarrage Docker](docs/architecture/02-cadre/couches/dockerisation.md#démarrer-une-couche).
-Il décrit les commandes, le choix des interfaces, les adresses et l’arrêt des applications.
-Les dépendances applicatives et la base sont gérées dans les conteneurs.
+### Docker
 
-## 5. Réaliser une demande
+```bash
+sudo apt install -y docker.io docker-compose-v2
+sudo systemctl enable --now docker
+sudo usermod -aG docker "$USER"
+```
 
-Commencer par l’[interview de la demande](docs/architecture/03-developpement-loop/01-interview.md),
-puis suivre la [boucle de développement](docs/architecture/03-developpement-loop/index.md).
-Chaque étape indique le skill à utiliser, les vérifications attendues et les décisions humaines nécessaires.
+Fermer puis rouvrir la session Ubuntu.
+
+```bash
+docker run --rm hello-world
+docker compose version
+```
+
+## 2. Cloner le dépôt
+
+```bash
+git clone --branch develop \
+  https://github.com/johan-Rm/ai-development-engineering.git
+
+cd ai-development-engineering
+git status --short --branch
+```
+
+## 3. Installer les skills
+
+Dans VS Code, ouvrir Codex et se connecter, puis envoyer :
+
+```text
+$skill-installer Installe tous les skills du dépôt
+https://github.com/johan-Rm/skills-ai-powered-development-engineering.
+Préserve les skills déjà installés et vérifie que les nouveaux sont disponibles.
+```
+
+## 4. Créer les worktrees par défaut
+
+```bash
+make setup-worktrees
+source ~/.bash_aliases
+```
+
+## 5. Ouvrir le workspace VS Code
+
+```bash
+vscode-worktree-ai-powered-development-engineering
+```
+
+## 6. Démarrer et vérifier les applications
+
+```bash
+make docker-up-devops
+make docker-status-devops
+```
+
+Ouvrir dans le navigateur :
+
+```text
+http://web.wt-devops.localhost:19304
+http://backoffice.wt-devops.localhost:19304
+http://api.wt-devops.localhost:19304/api/docs
+```
+
+## 7. Commencer une première demande
+
+Dans Codex, envoyer en remplaçant le texte entre crochets :
+
+```text
+$interviewer-demande [Décrire le besoin à réaliser]
+```
+
+Puis suivre la [boucle de développement](docs/architecture/03-developpement-loop/index.md).
