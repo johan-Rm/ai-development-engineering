@@ -1,6 +1,6 @@
 # OPS-067 — Retirer le sigle des supports actuels
 
-- Date : 2026-10-29 ; état : validée avec réserve navigateur ; commit local à créer.
+- Date : 2026-10-29 ; état : validée et commitée avec réserve navigateur ; à livrer.
 - Session de création : `01a18693-b0a7-7651-8d7c-9197f32ab602`.
 - Demande : DEM-014 ; référence du besoin : `tmp/demande-retirer-sigle.md`, relative au dépôt principal, hors de ce worktree.
 - Future demande : `dev-book/demand/DEM-014-retirer-sigle.md` dans le principal ; fichier à créer à la reconstitution, absent à ce stade.
@@ -109,3 +109,5 @@ L'humain répond « validé » à la restitution d'OPS-067 avec réserve explici
 test navigateur et rendu ordinateur/mobile non vérifiés, qualité complète
 restant requise avant PR. Empreinte des 17 fichiers revérifiée identique avant
 commit ; branche et HEAD conformes, index vide. Validation limitée à cette carte.
+
+Commit local de la carte validée : `700d22f51695598536ab274cc5cc316973da2e9f`.
