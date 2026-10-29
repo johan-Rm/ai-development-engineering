@@ -2,15 +2,14 @@
 
 - Date : 2026-10-29 ; état : validée et commitée ; à livrer.
 - Session de création : `01a1869b-17bd-7292-a890-d6785556af2c`.
-- Demande : DEM-015 ; besoin de référence : `tmp/demande-renommer-alias-workspace.md`, relatif au dépôt principal, hors de ce worktree.
-- Future demande : `dev-book/demand/DEM-015-renommer-alias-workspace.md` ; à créer à la reconstitution, absente à ce stade.
+- Demande de référence : [DEM-015](../demand/DEM-015-renommer-alias-workspace.md), matérialisée à la reconstitution depuis le brouillon du principal.
 - Mission : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base locale vérifiée : `69a709acb15f10a5390867380a88b9cd11fade75`, commune avec develop.
 - Dépendances : aucune carte amont ni commit à importer.
 
 ## Objectif et périmètre
 
-Réaliser tous les critères de DEM-015 ; le brouillon fait référence pour les noms,
+Réaliser tous les critères de DEM-015 ; la demande fait référence pour les noms,
 la commande attendue et les exclusions.
 
 Chemins autorisés : `/home/johan/.bash_aliases` pour le seul renommage confirmé,
