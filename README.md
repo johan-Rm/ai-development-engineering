@@ -1,8 +1,8 @@
-# AIDE — AI-powered Development Engineering
+# AI-powered Development Engineering
 
 **Des conventions techniques humaines, des contributions isolées et des résultats vérifiables.**
 
-AIDE organise le développement logiciel assisté par IA autour de conventions techniques humaines,
+Ce cadre organise le développement logiciel assisté par IA autour de conventions techniques humaines,
 de contributions isolées et de résultats vérifiables.
 
 Sa brique centrale est le **Codebase Integrity** : les contrôles déterministes qui
@@ -21,7 +21,7 @@ et la documentation. L’humain définit les règles, arbitre les choix et valid
 
 ## Codebase Integrity
 
-Le Codebase Integrity est la brique la plus importante d’AIDE. Il rend les exigences
+Le Codebase Integrity est la brique la plus importante du cadre. Il rend les exigences
 du projet vérifiables par des tests et des vérificateurs exécutables sans IA, en CI/CD ou
 à la demande.
 
@@ -42,7 +42,7 @@ nécessitent une interprétation restent soumis au jugement humain.
 
 ## Les quatre piliers
 
-| Pilier | Rôle dans AIDE |
+| Pilier | Rôle dans le cadre |
 | --- | --- |
 | **Consolidation** | Transformer les constats en corrections globales, conventions techniques validées et contrôles durables. |
 | **Couches** | Définir les responsabilités, isoler les contributions et expliciter les contrats et dépendances. |
@@ -75,21 +75,21 @@ corrige le code concerné et ajoute les vérifications retenues. Après vérific
 et contrôles réussis, la livraison produit les PRs de consolidation et les règles et
 contrôles qui renforcent les cycles suivants.
 
-[Consulter le schéma interactif AIDE](dev-book/resources/vue-d-ensemble-ai-development-engineering.html)
+[Consulter le schéma interactif](dev-book/resources/vue-d-ensemble-ai-development-engineering.html)
 
 ## Se repérer
 
 | Emplacement | Contenu |
 | --- | --- |
 | [codebase-integrity/](codebase-integrity/README.md) | Outillage commun et tests de ses vérificateurs ; les tests applicatifs restent dans les applications. |
-| [docs/](docs/index.md) | Explications du système AIDE et de ses boucles. |
+| [docs/](docs/index.md) | Explications du cadre et de ses boucles. |
 | [AGENTS.md](AGENTS.md) et [.codex/config.toml](.codex/config.toml) | Instructions du projet, skills recommandés et configuration Codex. |
 | [dev-book/](dev-book/README.md) | Demandes, tâches, procédures, ressources et preuves. |
 | `**/README.md` | Responsabilités et conventions techniques des dossiers concernés. |
 | [app/](app/README.md) | Applications de démonstration : API Symfony/API Platform, web et backoffice Nuxt. |
 | [design/](design/README.md) et [infra/](infra/README.md) | Références graphiques et infrastructure de recette. |
 
-AIDE est indépendant des langages et frameworks du projet. Les applications de ce dépôt
+Le cadre est indépendant des langages et frameworks du projet. Les applications de ce dépôt
 illustrent son utilisation et peuvent être remplacées par une autre stack.
 
-Préparer son environnement de développement AIDE : [SETUP.md](SETUP.md).
+Préparer son environnement de développement : [SETUP.md](SETUP.md).

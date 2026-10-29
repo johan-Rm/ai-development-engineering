@@ -6,7 +6,7 @@
 
 | Emplacement | Contenu |
 | --- | --- |
-| [README racine](../../README.md) | Présentation et vue d’ensemble d’AIDE. |
+| [README racine](../../README.md) | Présentation et vue d’ensemble du cadre. |
 | [SETUP.md](../../SETUP.md) | Préparation du dépôt et démarrage du travail. |
 | [docs/index.md](../index.md) | Explications et références, organisées par thème. |
 | [dev-book/](../../dev-book/README.md) | Demandes, cartes, procédures, ressources et preuves. |
@@ -32,7 +32,7 @@ Description courte.
 Lire les README du chemin concerné avant d’écrire ou de relire le code. Le README le plus proche précise les règles du parent. Toute évolution d’une règle locale est documentée à cet endroit, sans duplication dans les guides centraux.
 
 Cette structure ne s’impose ni au README racine, ni aux index documentaires,
-ni aux README du cadre AIDE. Ne pas migrer automatiquement les README existants.
+ni aux README du cadre. Ne pas migrer automatiquement les README existants.
 
 ## Relire le code
 
