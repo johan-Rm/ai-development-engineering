@@ -112,3 +112,8 @@ Qualité complète locale : `python3 codebase-integrity/scripts/quality.py`
 réussie (code 0), journal `/tmp/dem014-quality.log` : 23 tests d'outillage,
 contrat et contrôles API, types et builds web/backoffice. Réserve navigateur du
 schéma maintenue selon le verdict humain ; aucun contrôle affaibli.
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/14
+Source `demands/DEM-014`, cible `develop` ; fusion par merge commit après
+réussite des checks et protections distants. Suivi de fusion et d'alignement
+à consigner dans le brouillon conservé sous tmp/.
