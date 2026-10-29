@@ -6,8 +6,8 @@
 
 | Support | Rôle |
 | --- | --- |
-| [AGENTS.md](../../AGENTS.md) | Instructions propres au projet, limites d’autorisation et repères documentaires. |
-| [.codex/config.toml](../../.codex/config.toml) | Configuration Codex propre au projet. Le socle actuel ne fixe ni modèle ni permissions. |
+| [AGENTS.md](../../../AGENTS.md) | Instructions propres au projet, limites d’autorisation et repères documentaires. |
+| [.codex/config.toml](../../../.codex/config.toml) | Configuration Codex propre au projet. Le socle actuel ne fixe ni modèle ni permissions. |
 | Skills disponibles dans la session | Procédures réutilisables pour les étapes des boucles. |
 | Carte de tâche | Objectif, périmètre, dépendances, affectation et preuves attendues. |
 
@@ -19,8 +19,8 @@ pas un skill et ne déclenche aucune étape automatiquement.
 Une mission indique le worktree relatif à la racine du dépôt principal, la branche,
 les chemins autorisés, les dépendances par commits et le résultat à prouver.
 Résoudre le chemin absolu localement sans l’inscrire dans les cartes versionnées.
-Respecter les [consignes d’intervention](../../AGENTS.md#avant-dintervenir) et la
-[règle de rédaction](../../AGENTS.md#réponses-et-documents). Une ambiguïté ou un besoin
+Respecter les [consignes d’intervention](../../../AGENTS.md#avant-dintervenir) et la
+[règle de rédaction](../../../AGENTS.md#réponses-et-documents). Une ambiguïté ou un besoin
 supplémentaire est signalé ; valider un plan ne remplace pas les verdicts des boucles.
 
 ## Utiliser les skills
@@ -30,7 +30,7 @@ six skills pour le développement et six autres pour la consolidation. Chaque bo
 ses propres entrées, procédures et sorties, sans dépendance aux skills de l’autre.
 
 Les skills d’arbitrage et de vérification préparent les éléments et consignent le verdict humain.
-Les [autorisations du projet](../../AGENTS.md#workflow-et-autorisations) encadrent
+Les [autorisations du projet](../../../AGENTS.md#workflow-et-autorisations) encadrent
 les opérations Git ; les skills ne déclenchent pas automatiquement l’étape suivante.
 
 Avant livraison, les skills nécessaires doivent être disponibles et vérifiés dans

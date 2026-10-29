@@ -6,12 +6,12 @@
 
 | Emplacement | Contenu |
 | --- | --- |
-| [README racine](../../README.md) | Présentation et vue d’ensemble du cadre. |
-| [SETUP.md](../../SETUP.md) | Préparation du dépôt et démarrage du travail. |
-| [docs/index.md](../index.md) | Explications et références, organisées par thème. |
-| [dev-book/](../../dev-book/README.md) | Demandes, cartes, procédures, ressources et preuves. |
+| [README racine](../../../README.md) | Présentation et vue d’ensemble du cadre. |
+| [SETUP.md](../../../SETUP.md) | Préparation du dépôt et démarrage du travail. |
+| [docs/index.md](../../index.md) | Explications et références, organisées par thème. |
+| [dev-book/](../../../dev-book/README.md) | Demandes, cartes, procédures, ressources et preuves. |
 | `**/README.md` | Responsabilités et conventions techniques locales. |
-| [AGENTS.md](../../AGENTS.md) | Instructions de travail des agents. |
+| [AGENTS.md](../../../AGENTS.md) | Instructions de travail des agents. |
 
 Les index de `docs/` s’appellent `index.md`. Les cartes ne remplacent pas la documentation durable ; elles pointent vers les documents concernés.
 
@@ -45,4 +45,4 @@ et vérifiée par les contrôles pertinents, selon la boucle de consolidation.
 
 Commencer chaque chapitre explicatif par une courte citation qui en donne l’idée principale. Utiliser des titres précis, des paragraphes courts et des liens vers les détails. Toujours employer « convention technique » pour désigner une règle technique du projet.
 
-Pour les travaux graphiques, suivre la [référence graphique du projet](../../AGENTS.md#références-à-consulter-selon-la-tâche).
+Pour les travaux graphiques, suivre la [référence graphique du projet](../../../AGENTS.md#références-à-consulter-selon-la-tâche).

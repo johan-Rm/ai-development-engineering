@@ -6,7 +6,7 @@ Configuration commune des couches du projet.
 
 `layers.json` définit les couches : branches, rôles et identifiants stables.
 Le cadre possède cette définition ; les scripts la consomment depuis le worktree
-appelant. Adapter ensemble ce fichier et la table des [couches](../../docs/02-cadre/couches/index.md).
+appelant. Adapter ensemble ce fichier et la table des [couches](../../docs/architecture/02-cadre/couches/index.md).
 La recette Docker appartient à [infra/](../README.md), dans `process-check.json`.
 
 ## Conventions techniques

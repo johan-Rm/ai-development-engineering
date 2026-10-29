@@ -31,7 +31,7 @@ python3 codebase-integrity/scripts/worktrees.py add --layer <couche> --branch la
 ## Suivre les couches dans le workspace
 
 Le fichier `aide.code-workspace`, à la racine du dépôt principal, fournit une vue
-commune du dépôt et des worktrees dans VS Code. Le [guide d’installation](../../../SETUP.md#3-ouvrir-le-workspace)
+commune du dépôt et des worktrees dans VS Code. Le [guide d’installation](../../../../SETUP.md#3-ouvrir-le-workspace)
 explique sa préparation. Ses chemins relatifs permettent de conserver cette
 configuration dans le projet sans imposer un chemin personnel.
 
@@ -61,7 +61,7 @@ Un fichier partagé se rattache à sa couche consommatrice et nécessite une coo
 
 La reconstitution réunit les commits validés sur une branche explicitement choisie. Elle ne copie jamais le travail non commité d’un autre worktree.
 
-La [documentation d’infrastructure](../../../infra/README.md) décrit les témoins Docker et leurs ressources. Leur isolation ne prouve pas celle des applications de démonstration.
+La [documentation d’infrastructure](../../../../infra/README.md) décrit les témoins Docker et leurs ressources. Leur isolation ne prouve pas celle des applications de démonstration.
 
 ## Consulter les applications d’une couche
 
