@@ -97,3 +97,6 @@ Les cinq couches sont propres, sans mission concurrente identifiée ; leurs comm
 sont ancêtres de la branche de livraison. Distant vérifié, develop sur `ec6efd5`.
 PR et commit de fusion requis par la procédure ; protection distante sans contournement.
 La réserve acceptée dans OPS-069 reste applicable.
+
+PR : [#16](https://github.com/johan-Rm/ai-development-engineering/pull/16),
+`demands/DEM-017` → `develop`. Contrôles GitHub à attendre avant fusion.
