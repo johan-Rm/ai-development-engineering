@@ -84,3 +84,8 @@ résolu en conservant la carte reconstituée ; arbre strictement identique au pr
 parent vérifié. Les cinq couches sont propres, sans nouvelle mission identifiée.
 Base distante develop vérifiée identique à la base locale ; merge commit permis.
 Le fichier personnel n’est pas livré par Git : seuls la demande et ses preuves le sont.
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/15 ; source
+`demands/DEM-015`, cible `develop`. Fusion par merge commit après réussite des
+checks et protections distants. Suivi effectif de fusion et d’alignement à
+consigner dans le brouillon conservé sous tmp/.
