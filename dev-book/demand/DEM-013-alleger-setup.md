@@ -84,3 +84,6 @@ des arbres avec les cherry-picks ; aucun changement de contenu. Cette ascendance
 permet les avances rapides finales. Fusion GitHub par merge commit autorisée.
 
 Qualité complète locale réussie le 2026-10-29 : `python3 codebase-integrity/scripts/quality.py`, journal `/tmp/dem013-quality.log`. Contenu applicatif identique après rattachement ; seules les traces documentaires de livraison sont ajoutées ensuite.
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/13
+Source `demands/DEM-013`, cible `develop` ; merge commit après réussite des checks distants. Suivi réel après fusion dans le brouillon conservé sous tmp/.
