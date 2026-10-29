@@ -36,8 +36,8 @@ pour le schéma sont indiquées plus bas.
   chapô 16px en Inter 300 ; texte 15px en Inter 300 ; intitulé 12,5px avec espacement 0,14em.
 - Conserver les proportions des caractères. Agrandir un schéma ne doit pas étirer sa typographie.
 
-Dans le schéma AIDE, Rationale Regular est désormais intégrée au fichier HTML pour le titre
-AIDE et les titres des deux boucles. Sa licence SIL OFL est incluse dans le document.
+Dans le schéma, Rationale Regular est désormais intégrée au fichier HTML pour le titre
+du cadre et les titres des deux boucles. Sa licence SIL OFL est incluse dans le document.
 Inter reste utilisée pour les textes et les blocs.
 
 ## Logo et formes
@@ -49,7 +49,7 @@ Inter reste utilisée pour les textes et les blocs.
   uniquement en olive, olive pâle ou olive très pâle, à plat, sans contour, ombre ou dégradé.
 - Laisser du vide. Ne pas fabriquer des ornements pour signaler des rôles.
 
-## Adaptations explicites du schéma AIDE
+## Adaptations explicites du schéma
 
 Ces décisions viennent de l’utilisateur et priment sur la palette standard pour ce schéma :
 

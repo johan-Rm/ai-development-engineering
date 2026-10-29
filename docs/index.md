@@ -1,10 +1,10 @@
-# Documentation AIDE
+# Documentation — AI-powered Development Engineering
 
 > Comprendre le socle de vérification, les quatre piliers du cadre et les deux boucles de travail.
 
 ## 01 — Codebase Integrity
 
-La pierre angulaire d’AIDE : des conventions techniques humaines et des contrôles exécutables sans IA.
+La pierre angulaire du cadre : des conventions techniques humaines et des contrôles exécutables sans IA.
 
 - [Principes fondamentaux](01-codebase-integrity/principes-fondamentaux.md)
 - [Conventions techniques et domaines](01-codebase-integrity/conventions-et-domaines.md)
@@ -28,8 +28,8 @@ La pierre angulaire d’AIDE : des conventions techniques humaines et des contr�
 
 ## Autres points d’entrée
 
-- [Présentation d’AIDE](../README.md)
-- [Préparer son environnement de développement AIDE](../SETUP.md)
+- [Présentation du cadre](../README.md)
+- [Préparer son environnement de développement](../SETUP.md)
 - [Instructions des agents](../AGENTS.md)
 - [Journal des tâches et preuves](../dev-book/README.md)
-- [Schéma interactif AIDE](../dev-book/resources/vue-d-ensemble-ai-development-engineering.html)
+- [Schéma interactif](../dev-book/resources/vue-d-ensemble-ai-development-engineering.html)

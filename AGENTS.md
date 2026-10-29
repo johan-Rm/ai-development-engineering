@@ -19,7 +19,7 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 ## Workflow et autorisations
 
 - Intégration : `develop` ; production : `master` ; `main` reste historique. Aucune contribution de tâche sur intégration ou production.
-- Missions : `layers/<couche>` dans `worktree/<couche>` ; cadre AIDE : devops, préfixe OPS. [Routage et création des worktrees](docs/02-cadre/couches/index.md).
+- Missions : `layers/<couche>` dans `worktree/<couche>` ; cadre : devops, préfixe OPS. [Routage et création des worktrees](docs/02-cadre/couches/index.md).
 - Suivre l’étape demandée de la [boucle de développement](docs/03-developpement-loop/index.md) ou de [consolidation](docs/04-consolidation-loop/index.md), avec son skill disponible ; [disponibilité et limites des skills](docs/02-cadre/ia-engineering.md#utiliser-les-skills).
 - `implementer-demande` ne crée aucun commit, corrections comprises. `verifier-demande` autorise les commits locaux distincts des seules cartes explicitement validées, avec code, tests, documentation, preuves et verdict, puis leurs traces documentaires. Ne jamais inventer de verdict.
 - Le découpage est autonome. La reconstitution réunit les commits validés sur `demands/<identifiant>` ; jamais de copie de travail non commité. [Procédure de reconstitution](docs/03-developpement-loop/05-reconstitution.md).
@@ -45,5 +45,5 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 - Journal des demandes, cartes et preuves : [dev-book](dev-book/README.md).
 - Skills et définition des missions : [IA Engineering](docs/02-cadre/ia-engineering.md).
 - Isolation des services : [couches](docs/02-cadre/couches/index.md) ; un worktree seul n’isole pas ports, bases, volumes, caches et écritures.
-- Travail graphique : lire la [charte officielle du dépôt](<design/Brand Guidelines - Graines Digitales (standalone).html>) et ses [adaptations AIDE](design/charte-graphique.md), sans substituer de copie externe.
+- Travail graphique : lire la [charte officielle du dépôt](<design/Brand Guidelines - Graines Digitales (standalone).html>) et ses [adaptations au schéma](design/charte-graphique.md), sans substituer de copie externe.
 - Autres guides durables : [index documentaire](docs/index.md).

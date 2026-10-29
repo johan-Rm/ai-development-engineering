@@ -25,7 +25,7 @@ supplémentaire est signalé ; valider un plan ne remplace pas les verdicts des 
 
 ## Utiliser les skills
 
-Les skills AIDE sont conservés dans le répertoire personnel de skills de l’outil, hors du dépôt :
+Les skills du cadre sont conservés dans le répertoire personnel de skills de l’outil, hors du dépôt :
 six skills pour le développement et six autres pour la consolidation. Chaque boucle possède
 ses propres entrées, procédures et sorties, sans dépendance aux skills de l’autre.
 
