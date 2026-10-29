@@ -7,7 +7,7 @@
 | Emplacement | Contenu |
 | --- | --- |
 | [README racine](../../README.md) | Présentation et vue d’ensemble d’AIDE. |
-| [SETUP.md](../../SETUP.md) | Installation et adaptation au projet. |
+| [SETUP.md](../../SETUP.md) | Préparation du dépôt et démarrage du travail. |
 | [docs/index.md](../index.md) | Explications et références, organisées par thème. |
 | [dev-book/](../../dev-book/README.md) | Demandes, cartes, procédures, ressources et preuves. |
 | `**/README.md` | Responsabilités et conventions techniques locales. |
