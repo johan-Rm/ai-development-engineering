@@ -11,4 +11,4 @@ les enveloppes JSON `layers` et `process`. Un fichier absent ou invalide provoqu
 une erreur, sans création implicite ni repli vers l’ancien fichier de configuration.
 
 Les scripts utilisent leur dépôt comme référence et ne parcourent pas les worktrees imbriqués.
-Les commandes publiques et leurs préconditions sont documentées dans `SETUP.md` et `docs/01-codebase-integrity/points-de-controle.md`.
+Les commandes publiques et leurs préconditions sont documentées dans `SETUP.md` et `docs/architecture/01-codebase-integrity/points-de-controle.md`.
