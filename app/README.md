@@ -1,14 +1,12 @@
 # Applications
 
-Ce dossier rassemble les applications du projet :
+Les applications de démonstration du projet. Les exemples Symfony/API Platform et
+Nuxt peuvent être remplacés par les technologies du projet.
 
-- [api/](api/README.md) : services serveur et contrat API.
-- [backoffice/](backoffice/README.md) : interface d’administration.
-- [web/](web/README.md) : socle partagé et cibles web.
+## Rôle et responsabilités
 
-Le cadre est agnostique. Les exemples Symfony/API Platform et Nuxt fournis ici
-peuvent être remplacés par les technologies du projet.
+- Fournir les services serveur et le contrat API.
+- Présenter les articles dans une interface web.
+- Permettre l’administration des articles dans le backoffice.
 
-Depuis la racine du dépôt, les commandes de
-[Codebase Integrity](../codebase-integrity/README.md) installent, lancent
-et vérifient les applications. Les tests applicatifs restent dans leurs applications.
+## Conventions techniques

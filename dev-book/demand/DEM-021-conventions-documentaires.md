@@ -4,12 +4,12 @@
 - Date : 2026-10-30.
 - Session de création : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Session intervenante : `01a18c38-1b13-7953-9118-aadc8cde8794` ; ajout demandé des suppressions ci-dessous.
-- Étape : première carte vérifiée et validée ; cartes applicatives restantes.
-- Statut : OPS-073 validée et commitée localement ; suppressions applicatives non réalisées.
+- Étape : toutes les cartes vérifiées et validées ; commits des dernières cartes à créer.
+- Statut : toutes les cartes validées ; commits d’API-003, WEB-003 et BO-003 en cours.
 - Enregistrement demandé par l’humain dans la même session ; origine : interview conservée, sans nouvelle adoption de règle.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `b40faca917b01074d078e49ad1cad6f7fb2ff7b6`, arbre et index propres avant création ; livraison DEM-020 clôturée, aucune autre mission active identifiée.
-- Prochaine étape : implémentation d’API-003 après disponibilité des commits validés d’OPS-073.
+- Prochaine étape : livraison après consignation des commits locaux.
 
 ## Besoin et périmètre
 
@@ -233,5 +233,62 @@ n’est acquis ; aucun contrôle ni convention en vigueur n’est modifié à l�
 - [WEB-003](../tasks/WEB-003-migrer-documentation.md)
 - [BO-003](../tasks/BO-003-migrer-documentation.md)
 
-Ordre séquentiel indiqué par les dépendances des cartes ; attendre chaque commit validé
-avant la carte suivante. Les autres worktrees restent intacts.
+### Prise en charge globale des cartes restantes
+
+Instruction humaine du 2026-10-30, session intervenante : « implémente une demande,
+à toi de creer toutes les modifications des taches concernés », avec invocation
+d’`implementer-demande`. Le type consolidation reste inchangé ; aucun contrôle ni
+convention n’est modifié dans cette reprise.
+
+Cette instruction remplace le découpage séquentiel initial pour les seules cartes
+API-003, WEB-003 et BO-003 : mission documentaire unique dans `worktree/devops`,
+branche `layers/devops`, dépendant du commit validé d’OPS-073 déjà présent.
+Les autres worktrees restent intacts. Les anciennes dépendances entre interfaces
+organisaient l’édition des liens partagés ; elles ne décrivaient pas des dépendances
+de code et sont retirées. Les trois cartes seront présentées ensemble, sans commit
+intermédiaire ni présomption de validation humaine.
+
+Les informations communes aux interfaces sont centralisées dans un guide partagé,
+avec renvois depuis leurs guides respectifs. Après cette reprise, l’humain demande de mettre aussi `app/README.md` à la
+structure attendue : description, liste de responsabilités sans renvois, puis
+conventions techniques. Cette correction remplace le rétablissement antérieur ;
+la navigation vers les guides reste dans le sommaire des applications.
+Sur précision humaine, la section des conventions techniques reste vide pour le moment.
+
+### Preuves de la reprise documentaire
+
+Base de cette reprise : `cb3336b1389d32c0a3118c7870393a3d3f5349bc`.
+Contrôles exécutés le 2026-10-30 depuis `worktree/devops` :
+
+- `python3 codebase-integrity/scripts/check_docs.py` : conforme, aucun avis dynamique.
+- `python3 codebase-integrity/scripts/check_demands.py` : conforme.
+- `git diff --check` et vérification de forme des nouveaux guides : réussis.
+- Vérification des sources locales : trois suppressions confirmées ; scripts npm,
+  ports et prérequis cohérents avec les deux manifestes ; chemins des commandes API,
+  configuration de connexion et contrat OpenAPI présents et relus.
+
+Aucun lancement applicatif, installation ou test navigateur effectué pour cette
+migration documentaire. Aucune donnée ni configuration d’environnement modifiée.
+La qualité complète reste à exécuter avant PR ; aucune validation humaine des trois
+cartes restantes n’est déduite de ces contrôles. Aucun commit créé dans cette reprise.
+
+Contenu présenté : 14 chemins, dont quatre guides et un sommaire nouveaux sous
+`docs/applications/`, trois README supprimés et les adaptations de structure,
+de navigation et de suivi. Empreinte SHA-256 des chemins triés et contenus,
+suppressions marquées, hors demande et cartes de suivi :
+`88a945f26d0d0caba488fe3a02443361dc93603589f353b1f1feb994b694a5d5`. Index Git vide.
+
+### Verdict sur les trois cartes restantes
+
+Le 2026-10-30, même session intervenante : verdict humain exact « validé » en
+réponse à la présentation de vérification d’API-003, WEB-003 et BO-003.
+L’empreinte du contenu présenté ci-dessus a été revérifiée identique avant
+consignation. L’adoption couvre les trois suppressions, les guides, la navigation
+et la structure d’`app/README.md` avec conventions techniques vides.
+
+Répartition des fichiers partagés pour les commits distincts : API-003 porte la
+structure du README commun et l’entrée documentaire des applications ; WEB-003
+introduit la procédure commune des interfaces ; BO-003 complète sa navigation.
+Les fichiers de travail restent ceux validés ; seules les références disponibles
+à chaque commit sont indexées dans les sommaires intermédiaires.
+Aucun changement applicatif, contrôle, environnement ni travail étranger ajouté.
