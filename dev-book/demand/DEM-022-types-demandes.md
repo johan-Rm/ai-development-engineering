@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-10-30.
 - Session de création : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
-- État : OPS-072 validée et commitée localement le 2026-10-30 ; à livrer.
+- État : OPS-072 validée et commitée ; PR #19 ouverte vers develop, contrôles distants en attente.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Continuité documentaire de la même session : seule DEM-021 préexistait non commitée, identifiée et préservée ; index vide. Aucune mission d’implémentation ouverte.
 
@@ -97,3 +97,8 @@ conformes, sans DEM-021. Changements suivants limités aux consignes et traces.
 Couches propres et sans autre mission active identifiée : API, web, backoffice.
 Design contient trois `.gitkeep` non suivis ; devops contient DEM-021 non suivie.
 Ces deux couches restent intactes et bloqueront la clôture de leur alignement.
+
+PR : [#19](https://github.com/johan-Rm/ai-development-engineering/pull/19),
+`demands/DEM-022` → `develop`. Fusion par merge commit après contrôles satisfaits,
+sans contournement du ruleset actif « Protection develop ». Le connecteur refuse
+la création (403) ; PR créée par gh authentifié. Aucun déploiement demandé.
