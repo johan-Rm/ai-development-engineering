@@ -3,7 +3,7 @@
 - Demande : [DEM-023](../demand/DEM-023-harmoniser-boucles.md).
 - Session de création : `01a18c38-1b13-7953-9118-aadc8cde8794`.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
-- Statut : validée humainement le 2026-10-30 ; commit local à créer.
+- Statut : validée humainement et commitée localement le 2026-10-30.
 - Base : `6a527151f01c097ed39b5f67791a7d6d52f8440c` ; aucune dépendance de code.
 
 ## Mission
@@ -87,3 +87,10 @@ Périmètre du commit : 25 chemins de la carte, documentation, test et preuves i
 Le brief non suivi DEM-024 est explicitement exclu. Les douze skills personnels
 restent hors du dépôt ; leur installation effective est identifiée par l’empreinte
 ci-dessus. Leur suppression/création et leurs étapes ont été vérifiées.
+
+## Commit local
+
+Commit validé : `ce396be0d83f4d7d70ea4c94a645abc350aef1df`. Contenu vérifié : 25 chemins avant
+détection des renommages, regroupés en 22 entrées par Git. Seul le brief DEM-024
+reste non suivi après ce commit ; index vide. Les skills personnels sont déjà
+installés et restent identifiés par leur empreinte, hors Git.

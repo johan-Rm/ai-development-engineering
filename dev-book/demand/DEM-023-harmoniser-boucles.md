@@ -5,7 +5,7 @@
 - Session de création : `01a18c38-1b13-7953-9118-aadc8cde8794`.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `6a527151f01c097ed39b5f67791a7d6d52f8440c` ; arbre et index propres avant intervention.
-- Statut : validée humainement ; commit local d’OPS-074 à créer.
+- Statut : validée et commitée localement ; prête pour la reconstitution (étape 05).
 
 ## Décisions humaines
 
