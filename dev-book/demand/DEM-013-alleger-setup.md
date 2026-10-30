@@ -40,7 +40,7 @@ de skills ni de comportement des outils.
 Comparer avant/après pour vérifier la conservation des informations utiles et
 l’absence de répétitions évitables ; vérifier les cibles et ancres des liens.
 Exécuter les contrôles documentaires applicables selon les
-[points de contrôle](../../docs/01-codebase-integrity/points-de-controle.md#exécuter-dans-ce-dépôt).
+[points de contrôle](../../docs/architecture/01-codebase-integrity/points-de-controle.md#exécuter-dans-ce-dépôt).
 Résultat final explicitement validé par l’humain (« validé »).
 
 ## Questions ouvertes

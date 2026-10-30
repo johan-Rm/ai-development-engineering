@@ -1,10 +1,7 @@
 # Documentation — AI-powered Development Engineering
 
-> Comprendre le socle de vérification, les quatre piliers du cadre et les deux boucles de travail.
 
 ## 01 — Codebase Integrity
-
-La pierre angulaire du cadre : des conventions techniques humaines et des contrôles exécutables sans IA.
 
 - [Principes fondamentaux](01-codebase-integrity/principes-fondamentaux.md)
 - [Conventions techniques et domaines](01-codebase-integrity/conventions-et-domaines.md)
@@ -20,11 +17,11 @@ La pierre angulaire du cadre : des conventions techniques humaines et des contr�
 
 ## 03 — Boucle de développement
 
-[Parcourir les six étapes](03-developpement-loop/index.md), de la demande à la PR.
+- [Les six étapes](03-developpement-loop/index.md)
 
 ## 04 — Boucle de consolidation
 
-[Parcourir les six étapes](04-consolidation-loop/index.md), du constat aux corrections et contrôles durables.
+- [Les six étapes](04-consolidation-loop/index.md)
 
 ## Autres points d’entrée
 

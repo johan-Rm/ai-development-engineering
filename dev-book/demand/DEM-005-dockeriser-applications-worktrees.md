@@ -175,7 +175,7 @@ SHA source/consommateur est dans OPS-052 ; le contenu de stack est identique par
 Les neuf tests de stack et la qualité complète existante passent, sans changement
 des applications, de leurs locks ou du Codebase Integrity.
 
-Les [commandes quotidiennes](../../docs/02-cadre/couches/dockerisation.md) et la
+Les [commandes quotidiennes](../../docs/architecture/02-cadre/couches/dockerisation.md) et la
 [procédure de recette](../runbooks/recette-stacks-applicatives.md) sont documentées.
 Les stacks API et web restent disponibles sur les ports 19302 et 19303 avec leurs
 deux interfaces ; les trois autres sont arrêtées, leurs volumes conservés.

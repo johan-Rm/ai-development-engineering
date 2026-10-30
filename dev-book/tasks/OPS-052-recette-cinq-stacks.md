@@ -144,7 +144,7 @@ les deux stacks restaient actives. Elles ont aussi supprimé leurs articles de p
   lint Symfony, mapping Doctrine, comparaison OpenAPI, types et builds des deux interfaces.
   Les applications et les contrôles sont inchangés ; aucune règle affaiblie.
 - Syntaxes Python/shell/JavaScript et `git diff --check` vérifiés.
-- [Guide local](../../docs/02-cadre/couches/dockerisation.md) et
+- [Guide local](../../docs/architecture/02-cadre/couches/dockerisation.md) et
   [recette reproductible](../runbooks/recette-stacks-applicatives.md) disponibles.
 
 Les tests localhost et Docker ont nécessité l’exécution autorisée hors sandbox.

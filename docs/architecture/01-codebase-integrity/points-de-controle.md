@@ -22,4 +22,8 @@ La boucle de développement exécute ces contrôles sans modifier leur dossier. 
 ## Exécuter dans ce dépôt
 
 Depuis la racine du worktree : `python3 codebase-integrity/scripts/quality.py`.
-Voir l’[outillage](../../../codebase-integrity/scripts/README.md) pour les contrôles ciblés.
+Les tests de l’outillage se lancent séparément avec
+`python3 codebase-integrity/scripts/check.py`.
+
+Les [contrôles documentaires](../../README.md#références-et-vérifications)
+sont inclus dans cette commande ; leur vérificateur se lance aussi séparément.

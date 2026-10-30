@@ -1,0 +1,237 @@
+# DEM-021 — Consolider les conventions documentaires
+
+- Type : consolidation
+- Date : 2026-10-30.
+- Session de création : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
+- Session intervenante : `01a18c38-1b13-7953-9118-aadc8cde8794` ; ajout demandé des suppressions ci-dessous.
+- Étape : première carte vérifiée et validée ; cartes applicatives restantes.
+- Statut : OPS-073 validée ; demandes de suppression applicatives non réalisées.
+- Enregistrement demandé par l’humain dans la même session ; origine : interview conservée, sans nouvelle adoption de règle.
+- Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
+- Base : `b40faca917b01074d078e49ad1cad6f7fb2ff7b6`, arbre et index propres avant création ; livraison DEM-020 clôturée, aucune autre mission active identifiée.
+- Prochaine étape : implémentation d’API-003 après disponibilité des commits validés d’OPS-073.
+
+## Besoin et périmètre
+
+Définir dans `docs/README.md` les conventions proposées :
+
+- Nommer sans numérotation les seuls dossiers de thématiques directement sous `docs/` ; voir l’ajustement de portée dans l’arbitrage.
+- Réserver les `index.md` aux tables des matières.
+- Commencer chaque chapitre explicatif par une courte citation résumant son idée principale.
+- Utiliser des titres précis et des paragraphes courts ; éviter répétitions, détails inutiles et formulations superflues.
+- Employer « convention technique » pour désigner une règle technique du projet.
+
+Ajouter dans `AGENTS.md` que les conventions techniques sont définies dans le
+README concerné et que la documentation apporte des explications complémentaires.
+Éliminer les doublons avec le guide documentaire en conservant une source de référence.
+Cette proposition reprend le périmètre reporté par [DEM-020](DEM-020-readme-documentation.md).
+
+Inclure la suppression des fichiers suivants :
+
+- `infra/config/README.md`
+- `dev-book/resources/README.md`
+- `app/web/README.md`
+- `app/api/README.md`
+- `app/backoffice/README.md`
+- `codebase-integrity/scripts/README.md` (ajout demandé dans la session intervenante).
+
+L’analyse précisera le devenir de leur contenu utile et les références à adapter.
+
+L’absence de numérotation vise uniquement les dossiers de thématiques directement
+sous `docs/`. La numérotation des niveaux inférieurs, des piliers et des étapes
+est conservée ; les identifiants des demandes et cartes le sont aussi. Les index doivent servir de tables des
+matières ; les citations concernent les chapitres explicatifs. La portée de ces
+règles hors de `docs/` reste à examiner, sans extension implicite.
+
+## Constats vérifiés
+
+- Lors de l’interview, le README était en cours dans OPS-071. À l’enregistrement,
+  [le README](../../docs/README.md) est livré avec ses conventions vides ;
+  les preuves restent dans [OPS-071](../tasks/OPS-071-readme-documentation.md).
+- `docs/architecture/01-codebase-integrity/` à `04-consolidation-loop/` et les
+  fichiers d’étapes portent des préfixes numériques.
+- L’[index des couches](../../docs/architecture/02-cadre/couches/index.md) contient
+  des explications, commandes et règles de coordination, au-delà d’un sommaire.
+- Le [guide documentaire](../../docs/README.md#rédaction-et-source-de-référence)
+  définit déjà citation introductive, rédaction et terminologie. Les recopier
+  dans le README laisserait deux sources normatives.
+
+Ces écarts appellent une migration globale, plutôt qu’un ajout isolé au README.
+
+## Migration et conformité proposées
+
+- Partir du README livré par DEM-020, déjà inclus dans la base identifiée ci-dessus.
+- Définir les conventions dans le README et remplacer leurs formulations normatives
+  dans le guide par des liens ; conserver seulement les explications complémentaires utiles.
+- Ajouter la consigne AGENTS.md prévue, sans y recopier les conventions documentaires.
+- Appliquer la portée des noms ajustée dans l’arbitrage, extraire les explications des index
+  vers des documents nommés par sujet, puis adapter les références actives et ancres.
+- Revoir les chapitres explicatifs, titres, paragraphes et occurrences de terminologie ;
+  supprimer les répétitions en conservant une source par information.
+
+## Analyse globale — 2026-10-30
+
+Analyse dans la session intervenante ci-dessus, sur
+`3fe38fca51bab7a2ea972e688601240344985f5a`, branche `layers/devops`.
+Reprise de DEM-021 : seule cette demande était non suivie, index vide ;
+aucun travail étranger identifié. Aucun code, contrôle ou règle modifié.
+
+### Couverture et limites
+
+Lecture des 25 fichiers Markdown suivis de `docs/`, des cinq README à supprimer,
+de leurs README parents, des instructions et de l’outillage documentaire concerné.
+Recherche des chemins concernés dans tous les fichiers texte suivis, fichiers
+cachés inclus : 52 fichiers, 126 lignes correspondantes avant cette mise à jour.
+Les correspondances incluent des chemins historiques, pas seulement des liens.
+Les ressources HTML, la CI et la configuration Codex ont été recherchées ; aucune
+dépendance directe supplémentaire aux chemins renommés n’y a été relevée.
+
+Exclusions : copies de worktrees, dépendances et fichiers ignorés, `.env`, binaires
+et sources graphiques originales. Les skills personnels hors dépôt ne sont pas
+audités globalement ; leurs liens éventuels restent à vérifier avant livraison.
+Pas de vérification réseau ni de recette applicative : aucun comportement modifié.
+
+### Écarts et corrections proposées
+
+| Sujet | État et périmètre de correction |
+| --- | --- |
+| Noms | 4 dossiers sous `docs/architecture/` et 12 fichiers d’étapes sont préfixés. Ces numéros sont conservés après l’ajustement humain ci-dessous. Le seul dossier thématique de premier niveau, `architecture/`, est déjà conforme ; aucun renommage requis. |
+| Index | Sur 5 index, seul `docs/index.md` est déjà un sommaire sans développement. Extraire les explications de l’index des couches et des deux boucles ; retirer ou déplacer le texte explicatif de l’index d’architecture. Conserver titres, liens, libellés brefs et tableaux de navigation. |
+| Citations | 22 documents sur 25 commencent par une citation après le titre principal. Exceptions actuelles : README de docs, dockerisation et reconstitution. Les 86 sections H2 montrent que « chapitre » doit être défini avant toute migration. |
+| Source normative | Le guide documentaire prescrit rédaction, terminologie et structure des README ; les principes du Codebase Integrity rappellent aussi l’emplacement des règles. Centraliser les règles documentaires dans `docs/README.md`, celles des README applicatifs dans `app/README.md`, et remplacer les prescriptions répétées par des liens. |
+| Rédaction | La terminologie « convention technique » est déjà largement employée. Revoir les doublons sur les autorisations et verdicts dans les guides d’étapes, et la mention dépassée « Avant intégration de DEM-005 » dans la dockerisation. La précision et la concision exigent une revue humaine, sans remplacement lexical aveugle. |
+
+La migration des références actives touche `AGENTS.md`, `SETUP.md`, les index et
+liens internes de `docs/`, le README de l’outillage et `worktree/README.md`.
+Ce dernier contient déjà deux liens absents vers `docs/02-cadre/couches/index.md`
+et `docs/03-developpement-loop/05-reconstitution.md` : les corriger vers les
+nouvelles destinations. Les ancres des explications extraites changent aussi de
+fichier ; maintenir une correspondance ancien chemin/ancre → nouvelle cible.
+
+Les demandes et cartes contiennent les autres références relevées, notamment
+DEM-005, DEM-017, OPS-043, OPS-044, OPS-051 et OPS-069. Proposition : migrer les
+liens de navigation, conserver les chemins littéraux décrivant une preuve passée.
+Ne pas réécrire les résultats, SHA ou verdicts historiques.
+
+### Suppressions : devenir des informations
+
+Les cinq suppressions demandées sont recensées dans le périmètre, sans nouvelle liste.
+Avant suppression, proposer les destinations suivantes, sans recopier les contenus :
+
+| Contenu actuel | Destination proposée |
+| --- | --- |
+| Configuration des couches | Conventions dans `infra/README.md` ; usage dans le document des couches extrait de son index. Le README de l’outillage renvoie à cette source. |
+| Ressources et originaux | Consigne de conservation et liens utiles dans `dev-book/README.md` ; règle graphique déjà présente dans `design/charte-graphique.md`. |
+| Contrat et démarrage des applications | Règles communes dans `app/README.md` ; contrat détaillé référencé via `app/api/app/openapi.json` ; explications distinctes par application sous un thème applicatif de `docs/`. Vérifier chaque commande lors de cette migration. |
+
+Adapter les trois liens de `app/README.md` vers les README supprimés et les renvois
+API des deux interfaces. Éviter de transférer les constats d’audit npm datés comme
+s’ils décrivaient l’état actuel ; conserver leur preuve historique dans les cartes.
+
+### Options d’arbitrage
+
+| Choix | Option recommandée | Alternative et coût |
+| --- | --- | --- |
+| Portée | Noms et index limités à `docs/`, identifiants DEM/OPS conservés ; suppressions explicitement demandées hors docs. | Étendre à tout le dépôt nécessiterait un nouvel inventaire des noms et exceptions. |
+| Citation | Une citation après le H1 de chaque document explicatif ; README et sommaires exemptés. Ajouter celle de dockerisation et reconstitution. | Une citation par section explicative H2/H3 : revue beaucoup plus large, risque de répétition ; qualification préalable de chaque section. |
+| Historique | Liens navigables migrés, littéraux probatoires conservés. | Réécriture exhaustive : coût élevé et altération possible des traces ; conservation de tous les anciens liens : navigation dégradée. |
+| Contrôle | Règles structurelles et liens locaux bloquants ; qualité rédactionnelle en revue humaine. | Structure seulement : coût moindre, références cassées non détectées. Tout automatiser : faux verdicts sur la qualité sémantique. |
+
+### Contrôles à créer après arbitrage
+
+`quality.py` exécute le typage des demandes, les tests de l’outillage et les contrôles
+applicatifs ; la CI appelle cette commande. Aucun vérificateur documentaire dédié
+n’a été trouvé dans les scripts et tests examinés. Les conventions de rédaction
+existantes sont donc documentées, sans contrôle automatisé spécifique.
+
+Proposer un vérificateur intégré à `quality.py`, avec tests dans l’outillage :
+
+- Noms : accepter `docs/architecture/03-developpement-loop/01-interview.md`,
+  rejeter `docs/01-architecture/` ; ne pas appliquer cette règle aux fichiers
+  ni aux niveaux inférieurs ou aux identifiants du dev-book.
+- Index : accepter listes/tableaux de liens et titres ; rejeter paragraphes
+  explicatifs et blocs de commandes. Définir précisément les libellés autorisés ;
+  leur pertinence reste humaine.
+- Citations : vérifier la présence après H1 selon l’option arbitrée ; ignorer les
+  blocs de code, exempter README et index. La justesse du résumé reste humaine.
+- Liens : vérifier les destinations locales Markdown et les ancres des contenus
+  actifs, y compris hors `docs/`. Tester accents, titres identiques, espaces,
+  parenthèses et liens entre chevrons ; accepter liens externes sans requête réseau.
+  Ajouter les liens par référence et HTML ou les signaler comme non couverts,
+  jamais comme vérifiés. Les chemins dynamiques nécessitent une revue.
+- Historique : inventorier les liens déjà cassés et autoriser uniquement des
+  exceptions explicites par fichier/cible ; aucune exclusion globale du dev-book.
+  Les chemins littéraux d’anciennes preuves ne sont pas des liens à résoudre.
+
+Un sondage exploratoire par expression régulière a reconnu 183 liens locaux dans
+145 Markdown suivis : deux cibles actives réellement absentes (ci-dessus), cinq
+occurrences historiques à qualifier et deux faux positifs dus aux parenthèses de
+la charte graphique. Ce sondage ne valide ni les ancres ni tous les liens ; il
+justifie un analyseur adapté plutôt qu’une simple expression régulière bloquante.
+
+### Impacts et vérification attendue
+
+Devops porte migration des guides, instructions et vérificateur. Les suppressions
+applicatives nécessitent des contributions API, web et backoffice coordonnées ;
+aucun transfert de fichiers non commités entre couches. Aucun changement graphique
+proposé. Coût principal : extraction des index et migration des liens/ancres ;
+les renommages seuls sont mécaniques. Aucune carte avant arbitrage.
+
+L’analyse est prête pour arbitrage avec les limites de couverture ci-dessus.
+Les vérifications futures restent celles de la section suivante ; aucun succès
+d’implémentation ou verdict humain n’est déduit de cet inventaire.
+
+## Arbitrage humain — 2026-10-30
+
+Session : session intervenante indiquée en tête. Verdict exact : « validé »,
+en réponse aux six points présentés avec `arbitrer-convention`.
+Adoption de l’ensemble, sans ajustement ni motif supplémentaire exprimé :
+
+- Noms et index : périmètre et corrections de l’analyse adoptés, limités à `docs/`.
+- Citations : option recommandée adoptée ; une après H1 par document explicatif,
+  README et sommaires exemptés, sans obligation par section H2/H3.
+- Conventions : centralisation dans les README concernés et remplacement des
+  doublons par des liens, selon les destinations proposées dans l’analyse.
+- Suppressions : les cinq README du périmètre seront supprimés après transfert
+  des informations utiles et adaptation de leurs références.
+- Historique : migration des liens navigables, conservation des chemins littéraux
+  probatoires, SHA, résultats et verdicts passés.
+- Contrôles : noms, structure des index, présence des citations et liens locaux
+  bloquants ; qualité rédactionnelle soumise à revue humaine, sans automatisation
+  sémantique retenue. Cas, exceptions et limites définis dans l’analyse ci-dessus.
+
+### Ajustement humain de la portée des noms
+
+Même session intervenante, 2026-10-30 : « la suppression des numéros ne s'appliquer
+que pour le premier niveau, le niveau des thématique documentaire », puis
+« par contre ce qui parle des 4 piliers ou des steps de loop, les numéros sont les bienvenue ».
+Cette précision remplace la portée générale des noms adoptée précédemment :
+seuls les dossiers directement sous `docs/` sont sans préfixe numérique.
+Les niveaux inférieurs et fichiers conservent leur numérotation, notamment les
+quatre rubriques sous `docs/architecture/` et les douze étapes. Le contrôle et
+ses tests appliquent cette limite ; les autres points de l’arbitrage restent acquis.
+
+Preuves requises : tests du vérificateur sur cas conformes, écarts et exceptions,
+contrôle des références migrées et commandes de la section suivante, avec résultats
+réels et limites explicites. Les exceptions historiques restent à inventorier par
+fichier/cible ; aucune dispense générale n’est adoptée. L’extension des règles de
+noms et d’index hors `docs/` reste exclue. Cet arbitrage ne valide aucun résultat
+d’implémentation et ne déclenche ni implémentation ni opération Git.
+
+## Vérification envisagée
+
+Après arbitrage et implémentation : contrôle des liens et références migrés,
+`git diff --check`, tests des vérificateurs via
+`python3 codebase-integrity/scripts/check.py` si adaptés, puis
+`python3 codebase-integrity/scripts/quality.py` avant PR. Aucun résultat futur
+n’est acquis ; aucun contrôle ni convention en vigueur n’est modifié à l’interview.
+
+## Cartes d’implémentation
+
+- [OPS-073](../tasks/OPS-073-conventions-documentaires.md)
+- [API-003](../tasks/API-003-migrer-documentation.md)
+- [WEB-003](../tasks/WEB-003-migrer-documentation.md)
+- [BO-003](../tasks/BO-003-migrer-documentation.md)
+
+Ordre séquentiel indiqué par les dépendances des cartes ; attendre chaque commit validé
+avant la carte suivante. Les autres worktrees restent intacts.
