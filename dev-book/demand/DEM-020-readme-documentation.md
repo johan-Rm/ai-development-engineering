@@ -65,7 +65,10 @@ restante avant PR.
 
 Après fetch autorisé, origin/develop confirme la base locale
 `907ffee98240ddefb6ada9fd0cba47d07d27d641`. Cible et branche par défaut : develop ;
-merge commit permis, branche non protégée selon GitHub. Aucune PR existante pour
+merge commit permis. L’API de protection classique renvoie 404, mais le ruleset
+actif « Protection develop » impose une PR, interdit suppression et non-avance
+rapide, et exige la résolution des discussions, sans revue approbatrice obligatoire.
+Aucune PR existante au début de la livraison pour
 demands/DEM-020. Les cinq couches sont propres et aucune autre mission active
 identifiée ; DEM-016 et DEM-019 seulement cadrées.
 
