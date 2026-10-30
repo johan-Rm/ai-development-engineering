@@ -12,7 +12,7 @@ L’IA précise le problème, le domaine concerné, la règle envisagée, son p�
 
 ## Sortie
 
-Une proposition de convention technique documentée et des questions à examiner.
+Une demande de type `consolidation` contenant la proposition de convention technique et les questions à examiner.
 
 ## Procédure associée
 

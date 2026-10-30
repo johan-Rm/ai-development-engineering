@@ -1,5 +1,7 @@
 # DEM-014 — Retirer le sigle des supports actuels
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-29.
 - État : validée et commitée avec réserve navigateur ; reconstituée, à livrer.
 - Session de création : `01a18693-b0a7-7651-8d7c-9197f32ab602`.

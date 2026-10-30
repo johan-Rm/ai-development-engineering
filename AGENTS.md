@@ -21,9 +21,9 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 - Intégration : `develop` ; production : `master` ; `main` reste historique. Aucune contribution de tâche sur intégration ou production.
 - Missions : `layers/<couche>` dans `worktree/<couche>` ; cadre : devops, préfixe OPS. [Routage et création des worktrees](docs/architecture/02-cadre/couches/index.md).
 - Suivre l’étape demandée de la [boucle de développement](docs/architecture/03-developpement-loop/index.md) ou de [consolidation](docs/architecture/04-consolidation-loop/index.md), avec son skill disponible ; [disponibilité et limites des skills](docs/architecture/02-cadre/ia-engineering.md#utiliser-les-skills).
-- `implementer-demande` ne crée aucun commit, corrections comprises. `verifier-demande` autorise les commits locaux distincts des seules cartes explicitement validées, avec code, tests, documentation, preuves et verdict, puis leurs traces documentaires. Ne jamais inventer de verdict.
+- `implementer-demande` ne crée aucun commit, corrections comprises. `verifier-demande` et `verifier-consolidation` créent les commits locaux distincts des cartes explicitement validées, avec code, tests, documentation, preuves et verdict, puis leurs traces documentaires. La validation autorise ces commits sans confirmation supplémentaire. Ne jamais inventer de verdict.
 - Le découpage est autonome. La reconstitution réunit les commits validés sur `demands/<identifiant>` ; jamais de copie de travail non commité. [Procédure de reconstitution](docs/architecture/03-developpement-loop/05-reconstitution.md).
-- Invoquer `livrer-demande` autorise commits documentaires nécessaires, vérification distante et fetch, push sans forcer, PR vers develop, fusion après contrôles et protections satisfaits, retour du worktree, alignement des couches libres et suppression des seules branches temporaires livrées. Pas de confirmation intermédiaire ; une instruction limitée à la PR garde cette limite. [Procédure et conditions de fin](docs/architecture/03-developpement-loop/06-livraison.md).
+- Invoquer `livrer-demande` ou `livrer-consolidation` autorise commits documentaires nécessaires, vérification distante et fetch, push sans forcer, PR vers develop, fusion après contrôles et protections satisfaits, retour du worktree, alignement des couches libres et suppression des seules branches temporaires livrées. Pas de confirmation intermédiaire ; une instruction limitée à la PR garde cette limite. [Procédure et conditions de fin](docs/architecture/03-developpement-loop/06-livraison.md).
 - Hors de ces autorisations, les autres opérations Git nécessitent une demande explicite. En consolidation, appliquer les autorisations propres aux skills et au projet.
 - Toute évolution d’un skill modifiant ces autorisations met à jour ce fichier et les guides concernés dans le même changement ; vérifier leur cohérence avant présentation.
 
@@ -37,6 +37,7 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 
 ## Demandes et cartes
 
+- Indiquer le type de chaque demande (`développement` ou `consolidation`).
 - Réserver les noms de fichiers et dossiers `DEM-*` aux demandes dans `dev-book/demand/` ; nommer les rapports selon leur rôle.
 - Toute demande ou carte indique sa session réelle de création, issue du contexte ou de `CODEX_THREAD_ID` / `CODEX_SESSION_ID`, jamais déduite du numéro DEM/OPS. Une source absente ou contradictoire bloque la création ; ne pas écrire de référence d’indisponibilité. Une reprise conserve la session d’origine et ajoute la session intervenante.
 

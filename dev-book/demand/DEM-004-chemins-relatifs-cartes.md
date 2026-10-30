@@ -1,5 +1,7 @@
 # DEM-004 — Utiliser des chemins relatifs dans les cartes
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-26.
 - État : validée.
 - Confirmation humaine : « oui, go », après restitution du cadrage dans le chat.

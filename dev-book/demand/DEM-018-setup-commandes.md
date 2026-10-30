@@ -1,5 +1,7 @@
 # DEM-018 — Préparer le dépôt par un SETUP exécutable
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-29.
 - Session de création : `01a18808-fc0b-7aa0-b084-441015c3c7ad`.
 - État : cadrage confirmé par « confirmé » ; reconstituée sur `demands/DEM-018` ; à livrer, avec réserve Ubuntu neuf.

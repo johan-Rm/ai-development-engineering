@@ -1,5 +1,7 @@
 # DEM-006 — Clarifier les responsabilités des dossiers du cadre AIDE
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-27.
 - État : validée et reconstituée ; prête pour livraison, non livrée.
 - Référence de session : référence de session indisponible.

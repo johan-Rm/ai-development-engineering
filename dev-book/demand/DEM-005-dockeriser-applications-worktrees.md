@@ -1,5 +1,7 @@
 # DEM-005 — Dockeriser les applications dans les cinq worktrees
 
+- Type : développement
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-26.
 - État : validée, en livraison vers develop.
 - Confirmation humaine : « confirmé », le 2026-10-26, après restitution du cadrage dans le chat.

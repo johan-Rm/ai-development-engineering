@@ -1,5 +1,7 @@
 # DEM-001 — Matérialiser les demandes
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-26.
 - État : cadrage confirmé ; résultat validé par l’humain ; commit autorisé, livraison non effectuée.
 - Couche concernée : devops, maintenance du cadre AIDE.

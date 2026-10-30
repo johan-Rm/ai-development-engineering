@@ -1,5 +1,7 @@
 # DEM-017 — Regrouper la documentation du cadre sous architecture
 
+- Type : développement
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-29
 - Session de création : `01a18804-42eb-7d20-8dbc-7430446e4350`
 - État : cadrage confirmé par l’humain (« ok »), le 2026-10-29.

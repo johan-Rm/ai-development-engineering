@@ -1,5 +1,7 @@
 # DEM-020 — Définir le README de la documentation
 
+- Type : développement
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-30.
 - Session de création et d’intervention : `01a18b7d-7bf6-7582-921d-c2f516c32379`.
 - État : validée et reconstituée sur `demands/DEM-020`, à livrer.

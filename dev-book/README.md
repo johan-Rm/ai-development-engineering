@@ -12,3 +12,7 @@ Le journal opérationnel du projet : besoins, tâches et traces de réalisation.
 Les guides et références durables du cadre sont dans [docs/architecture/](../docs/architecture/index.md).
 
 ## Conventions techniques
+
+### Types de demandes
+
+Chaque demande indique `- Type : développement` ou `- Type : consolidation`.

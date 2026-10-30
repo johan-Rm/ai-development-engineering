@@ -1,5 +1,7 @@
 # DEM-011 — Imposer la concision des réponses et documents
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-27.
 - État : OPS-063 et OPS-064 validées et commitées localement ; reconstituées sur `demands/DEM-011`, à livrer.
 - Session de création : `01a17e56-dc43-76f2-83fb-d8006838ac17`.

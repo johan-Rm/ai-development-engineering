@@ -1,5 +1,7 @@
 # DEM-008 — Réserver les noms DEM-* aux documents de demande
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-27.
 - État : reconstituée, validée avec réserve de conservation 002 acceptée ; non livrée.
 - Référence de session : référence de session indisponible.
