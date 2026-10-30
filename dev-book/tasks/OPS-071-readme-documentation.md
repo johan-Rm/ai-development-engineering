@@ -1,11 +1,9 @@
 # OPS-071 — Définir le README de la documentation
 
-- Date : 2026-10-30 ; état : validée et commitée localement (périmètre réduit), à reconstituer.
+- Date : 2026-10-30 ; état : validée et reconstituée (périmètre réduit), à livrer.
 - Session de création : `01a18b7d-7bf6-7582-921d-c2f516c32379`.
-- Demande : DEM-020 ; source actuelle : `tmp/demande-readme-documentation.md`
-  relativement au dépôt principal, sans copie dans la couche.
-- Fichier futur : `dev-book/demand/DEM-020-readme-documentation.md`, à matérialiser
-  seulement à la reconstitution ; absent au découpage.
+- Demande : [DEM-020](../demand/DEM-020-readme-documentation.md), matérialisée
+  depuis `tmp/demande-readme-documentation.md` du principal à la reconstitution.
 - Mission : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base locale vérifiée : `907ffee98240ddefb6ada9fd0cba47d07d27d641`, commune avec develop.
 - Dépendances par commits : aucune contribution amont identifiée. Aucun fetch réalisé.
