@@ -57,7 +57,7 @@ bases et des autres ressources utilisées.
 
 ### Développement
 
-**Demande → Interview → Découpage → Implémentation → Vérification → Reconstitution → Livraison → PR**
+**Interview → Analyse / découpage → Implémentation → Vérification / arbitrage → Reconstitution → Livraison**
 
 L’IA clarifie la demande avec l’humain, la découpe en tâches par couche et réalise chaque
 contribution. L’humain vérifie le résultat et les preuves, puis valide ou demande des
@@ -67,13 +67,14 @@ les commits de la demande avant les contrôles de livraison et la préparation d
 
 ### Consolidation
 
-**Constat → Interview → Analyse globale → Arbitrage → Implémentation → Vérification → Livraison**
+**Interview → Analyse / découpage → Implémentation → Vérification / arbitrage → Reconstitution → Livraison**
 
 Un constat local peut révéler un problème présent dans toute la base. L’IA analyse les
-occurrences et propose une règle et ses corrections. L’humain arbitre ; l’implémentation
-corrige le code concerné et ajoute les vérifications retenues. Après vérification humaine
-et contrôles réussis, la livraison produit les PRs de consolidation et les règles et
-contrôles qui renforcent les cycles suivants.
+occurrences et propose une règle et ses corrections. L’humain confirme la proposition
+avant l’implémentation. Celle-ci corrige le code et ajoute les vérifications retenues.
+Après vérification / arbitrage, la reconstitution réunit les commits validés ;
+la livraison contrôle puis intègre la PR et les conventions techniques qui
+renforcent les cycles suivants.
 
 [Consulter le schéma interactif](dev-book/resources/vue-d-ensemble-ai-development-engineering.html)
 

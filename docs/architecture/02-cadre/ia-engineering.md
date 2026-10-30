@@ -29,7 +29,9 @@ Les skills du cadre sont conservés dans le répertoire personnel de skills de l
 six skills pour le développement et six autres pour la consolidation. Chaque boucle possède
 ses propres entrées, procédures et sorties, sans dépendance aux skills de l’autre.
 
-Les skills d’arbitrage et de vérification préparent les éléments et consignent le verdict humain.
+L’étape 02 confirme les décisions nécessaires et prépare les cartes. Les skills de
+vérification / arbitrage de l’étape 04 consignent les verdicts sur le résultat.
+`arbitrer-convention` est supprimé ; `reconstituer-consolidation` porte l’étape 05.
 Les [autorisations du projet](../../../AGENTS.md#workflow-et-autorisations) encadrent
 les opérations Git ; les skills ne déclenchent pas automatiquement l’étape suivante.
 

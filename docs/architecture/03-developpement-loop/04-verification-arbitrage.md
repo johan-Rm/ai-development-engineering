@@ -1,4 +1,4 @@
-# Vérification
+# Vérification / arbitrage
 
 > L’humain confronte le résultat aux critères de la demande et de ses cartes et à la trajectoire du projet.
 
@@ -9,7 +9,8 @@ Une carte seule peut limiter le périmètre de vérification.
 
 ## Déroulement
 
-L’humain observe le résultat, examine la cohérence du code et vérifie le respect du périmètre et des conventions techniques. Il valide ou demande une correction, suivie d’une nouvelle vérification.
+L’humain observe le résultat, examine la cohérence du code et vérifie le respect du périmètre et des conventions techniques. Il valide, ajuste, diffère ou rejette. Une correction retourne à l’implémentation ;
+un changement de besoin ou de périmètre retourne à l’analyse / découpage.
 
 ## Sortie
 

@@ -23,28 +23,44 @@ documentaires nécessaires, vérification distante et fetch, push, création ou 
 `develop`, fusion et suivi après fusion. Aucune confirmation intermédiaire n’est nécessaire.
 Une instruction explicitement limitée à une PR conserve cette limite. Les validations humaines
 acquises, les contrôles bloquants et les protections GitHub restent nécessaires ; ne pas les contourner.
-La stratégie proposée est un merge commit, sous réserve de la politique GitHub configurée.
-La livraison complète inclut l’alignement de toutes les couches configurées sur le
-même SHA que develop après fusion vérifiée. Avant la PR, inventorier les branches,
-leurs missions et les modifications locales. Une divergence composée uniquement de
-copies des contributions validées peut être résolue par des merges ciblés dans la
-branche de livraison : vérifier les commits et l’équivalence du résultat, et conserver
-le contenu validé. Cela rend les couches ancêtres du résultat livré et permet leur
-avance rapide finale, sans reset ni réécriture.
+### Intégration et suivi communs aux deux boucles
 
-Après fusion distante vérifiée, avancer develop et chaque couche libre et propre
-par avance rapide, puis contrôler leur égalité de SHA et l’état de leurs worktrees.
-Préserver les .env, les données et les commits. Les branches de couche restent locales.
-Une couche occupée, sale ou avec du travail inédit reste intacte ; ce blocage signifie
-que le suivi de livraison n’est pas terminé, même si la PR est déjà fusionnée.
-Un écart de périmètre ou une contribution non validée reste à résoudre ; l’autonomie de livraison
-n’autorise pas à intégrer du travail étranger. Toute modification de cette procédure et du skill
-met à jour AGENTS.md et les guides concernés ensemble.
+Utiliser **Rebase and merge** pour intégrer les PR vers develop. Chaque commit est
+conservé avec un nouvel identifiant ; aucun commit de fusion ni squash n’est créé.
+Vérifier la méthode permise par GitHub ; si elle est interdite, signaler le blocage
+sans substituer une autre stratégie ni modifier les protections. Les branches de
+PR doivent être linéaires : ne pas créer de merges pour rattacher les couches.
+Une modification nécessaire du contenu validé demande une nouvelle vérification.
 
-La branche de demande utilise un worktree existant. Après fusion distante vérifiée,
-le rendre à sa branche de couche d’origine lorsqu’il est libre et propre, puis
-avancer cette branche par avance rapide comme les autres couches. Conserver le
-worktree, ses .env, données et fichiers locaux. Une copie de réunion n’est ni
-créée ni supprimée. Après alignement vérifié, supprimer seulement les branches
-temporaires livrées, sans autre PR ouverte ou commit inédit et sans forcer les
-références. Consigner le résultat dans la demande ou les cartes, sans rapport séparé.
+Avant intégration, consigner la PR, son HEAD, les SHA sources et reconstitués,
+les contrôles et les verdicts. Après intégration, vérifier l’état intégré de la PR,
+le SHA résultant et sa présence dans develop distant ; tracer les correspondances
+avec les commits réécrits. Une équivalence de patch seule ne prouve pas l’intégration.
+Ne pas réécrire les anciens commits de fusion.
+
+Actualiser develop local par avance rapide, dans le dossier principal disponible.
+Pour les couches locales libres et propres : avancer par avance rapide si possible.
+Si seuls les SHA réécrits empêchent l’avance rapide, vérifier que chaque contribution
+locale est bien incluse dans la PR intégrée, sans commit inédit, puis consigner
+l’ancien SHA. Un rebase local sans commit à rejouer peut repositionner cette seule
+branche sur le develop vérifié (`git rebase --onto <develop-vérifié> <ancien-tip> <couche>`).
+Cette autorisation concerne uniquement les couches locales non partagées et confirmées
+libres ; elle n’autorise ni rebase d’une branche occupée ni force-push. Au moindre
+doute de provenance ou d’équivalence, préserver la branche et signaler le suivi bloqué.
+Ne pas utiliser reset, stash ou suppression de worktree pour atteindre l’alignement.
+
+Vérifier l’égalité des SHA de develop et de toutes les couches avant de clôturer
+le suivi. Conserver les worktrees, données et `.env` ; ne jamais publier les layers/*.
+Une couche sale, occupée ou portant un commit inédit reste intacte et empêche la clôture.
+
+Revenir sur develop dans le dossier principal après l’intégration vérifiée. Supprimer
+la branche temporaire distante livrée seulement sans autre PR ouverte ni travail inédit.
+Pour la suppression locale sans forcer, vérifier d’abord l’intégration réelle et la
+correspondance de tous ses commits ; sur la branche temporaire libre et propre,
+un rebase sans commit à rejouer peut la placer sur le develop vérifié, puis revenir
+sur develop et exécuter `git branch -d demands/<identifiant>`. Sinon la conserver et
+signaler le suivi incomplet. Ne jamais supprimer develop, master ou une couche.
+
+Consigner le suivi après intégration dans le brouillon local de la même demande,
+s’il existe, sans modifier directement les fichiers suivis de develop ni créer
+un rapport supplémentaire. La promotion vers master nécessite une demande distincte.
