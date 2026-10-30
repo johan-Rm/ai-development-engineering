@@ -48,3 +48,8 @@ documentaire et liens conformes après résolution ; aucun défaut d’espaces.
 Rebase and merge autorisé sur GitHub ; aucune protection classique de develop
 retournée par l’API. Les contrôles CI restent à vérifier avant fusion.
 Le suivi ne pourra pas réaligner devops tant qu’il porte DEM-024 non livrée.
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/21.
+HEAD présenté à l’ouverture : `cd9f1c127df4d162dbbc6fb265ae059cefded401`.
+Ruleset develop actif : PR obligatoire, aucune approbation minimale ; Rebase and
+merge autorisé. Contrôle CI qualité lancé ; fusion différée jusqu’à son succès.
