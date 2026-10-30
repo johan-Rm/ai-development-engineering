@@ -28,7 +28,7 @@ Adapter les ancres entrantes à la structure convenue dans le chat.
 
 - Relecture avant/après : informations utiles préservées ; répétitions remplacées par leurs références ; commandes et comportements inchangés.
 - Vérifier les fichiers et ancres des liens sortants et entrants concernés.
-- Exécuter `git diff --check` et `python3 codebase-integrity/scripts/check.py` depuis le worktree ; qualité complète avant PR selon les [points de contrôle](../../docs/architecture/01-codebase-integrity/points-de-controle.md#exécuter-dans-ce-dépôt).
+- Exécuter `git diff --check` et `python3 codebase-integrity/scripts/check.py` depuis le worktree ; qualité complète avant PR selon les points de contrôle.
 - Consigner ici les résultats, limites et références nécessaires, sans recopier le besoin ni les guides. Aucun test applicatif nouveau pour cette réécriture documentaire.
 
 ## Suite prévue

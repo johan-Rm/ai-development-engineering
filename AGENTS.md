@@ -21,18 +21,20 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 - Intégration : `develop` ; production : `master` ; `main` reste historique. Aucune contribution de tâche sur intégration ou production.
 - Missions : `layers/<couche>` dans `worktree/<couche>` ; cadre : devops, préfixe OPS. [Routage et création des worktrees](docs/architecture/02-cadre/couches/organisation.md).
 - Suivre l’étape demandée de la [boucle de développement](docs/architecture/03-developpement-loop/index.md) ou de [consolidation](docs/architecture/04-consolidation-loop/index.md), avec son skill disponible ; [disponibilité et limites des skills](docs/architecture/02-cadre/ia-engineering.md#utiliser-les-skills).
-- `implementer-demande` ne crée aucun commit, corrections comprises. `verifier-demande` et `verifier-consolidation` créent les commits locaux distincts des cartes explicitement validées, avec code, tests, documentation, preuves et verdict, puis leurs traces documentaires. La validation autorise ces commits sans confirmation supplémentaire. Ne jamais inventer de verdict.
+- `implementer-demande` ne crée aucun commit, corrections comprises. `verifier-demande` et `verifier-consolidation` créent les commits locaux distincts des cartes explicitement validées, avec code, tests, documentation, preuves et verdict, puis leurs traces documentaires. La validation autorise ces commits sans confirmation supplémentaire. Ne jamais inventer de verdict. Appliquer les [conventions des messages de commit](docs/git-workflow/README.md#conventions-techniques).
 - Les deux boucles suivent six étapes : Interview, Analyse / découpage, Implémentation, Vérification / arbitrage, Reconstitution, Livraison. Le découpage est autonome. La reconstitution réunit les commits validés sur `demands/<identifiant>` ; jamais de copie de travail non commité. [Procédure de reconstitution](docs/architecture/03-developpement-loop/05-reconstitution.md).
 - Invoquer `livrer-demande` ou `livrer-consolidation` autorise commits documentaires nécessaires, vérification distante et fetch, push sans forcer, PR vers develop, intégration par Rebase and merge après contrôles et protections satisfaits, retour du worktree, alignement des couches libres et suppression des seules branches temporaires livrées. Pas de confirmation intermédiaire ; une instruction limitée à la PR garde cette limite. [Procédure et conditions de fin](docs/architecture/03-developpement-loop/06-livraison.md).
 - Hors de ces autorisations, les autres opérations Git nécessitent une demande explicite. En consolidation, appliquer les autorisations propres aux skills et au projet.
-- Après Rebase and merge, le suivi commun autorise un rebase local sans commit à rejouer pour les seules couches locales et branches temporaires livrées, libres, propres et sans travail inédit, après preuve d’intégration distante et correspondance des commits. Aucun rebase de branche partagée ou occupée ni force-push. [Conditions détaillées](docs/architecture/03-developpement-loop/06-livraison.md#intégration-et-suivi-communs-aux-deux-boucles).
+- Après Rebase and merge, le suivi commun autorise un rebase local sans commit à rejouer pour les seules couches locales et branches temporaires livrées, libres, propres et sans travail inédit, après preuve d’intégration distante et correspondance des commits. Aucun rebase de branche partagée ou occupée ni force-push. [Conditions détaillées](docs/git-workflow/nettoyage-des-branches.md).
 - Toute évolution d’un skill modifiant ces autorisations met à jour ce fichier et les guides concernés dans le même changement ; vérifier leur cohérence avant présentation.
 
 ## Contrôles et fin du travail
 
-- Appliquer les conventions techniques ; leur évolution et celle des contrôles passent par la consolidation selon [Codebase Integrity](codebase-integrity/README.md).
-- Exécuter les contrôles proportionnés au changement depuis le worktree affecté : [commandes par périmètre](docs/architecture/01-codebase-integrity/points-de-controle.md#exécuter-dans-ce-dépôt).
-- Avant PR : `python3 codebase-integrity/scripts/quality.py`. Tests de l’outillage : `python3 codebase-integrity/scripts/check.py`.
+Référence : [Codebase Integrity](codebase-integrity/README.md).
+
+- Appliquer les conventions techniques ; leur évolution et celle des contrôles passent par la consolidation.
+- Exécuter les contrôles proportionnés au changement depuis le worktree affecté.
+- Avant toute PR, exécuter les contrôles qualité et vérifier tous les commits à livrer par rapport à la cible d’intégration vérifiée.
 - Présenter le comportement obtenu, les vérifications et leurs limites, avec documentation à jour et preuves dans la carte. Un résultat inconnu ne vaut pas réussite ; une implémentation ne vaut pas validation humaine.
 - Après livraison complète, develop et toutes les couches configurées doivent partager le même SHA vérifié. Une couche occupée, sale ou portant du travail inédit reste intacte et bloque la clôture du suivi.
 

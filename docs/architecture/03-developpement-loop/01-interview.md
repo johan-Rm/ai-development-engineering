@@ -21,6 +21,11 @@ conservé si disponible, sinon son indisponibilité est explicite. Une carte ext
 reste facultative : conserver son lien ne nécessite aucune connexion et sa création ou
 sa modification exige une instruction explicite. Aucune référence n’est inventée.
 
+La demande doit rester compréhensible lorsque la documentation du projet évolue.
+Elle consigne le besoin et les décisions utiles sans recopier les procédures ni
+ajouter de chemins ou de liens vers les guides et leurs sections pour les rappeler.
+Les identifiants de cartes, SHA et références nécessaires aux preuves sont conservés.
+
 ## Sortie
 
 Une demande cadrée et enregistrée, avec des critères observables de réussite, la confirmation

@@ -11,6 +11,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -24,7 +26,11 @@ jobs:
         with:
           node-version: '24'
       - run: python3 codebase-integrity/scripts/apps.py install all
-      - run: python3 codebase-integrity/scripts/quality.py
+      - name: Qualité et commits de la contribution
+        env:
+          COMMIT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          COMMIT_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python3 codebase-integrity/scripts/quality.py --commit-base "$COMMIT_BASE" --commit-head "$COMMIT_HEAD"
       - name: Installer Chromium
         working-directory: app/web/targets/app
         run: npx playwright install --with-deps chromium
