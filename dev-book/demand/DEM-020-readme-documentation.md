@@ -72,3 +72,9 @@ identifiée ; DEM-016 et DEM-019 seulement cadrées.
 Les deux seuls commits divergents de devops sont les sources validées d’OPS-071.
 Leur rattachement ciblé dans la branche de livraison permet les avances rapides
 finales ; aucun changement du contenu validé n’est permis.
+
+Rattachement effectué : `e6eb0d2`. Conflit limité à la carte documentaire résolu
+avec sa version reconstituée ; arbre strictement identique au premier parent.
+Qualité complète locale réussie : `python3 codebase-integrity/scripts/quality.py`,
+code 0 ; journal `/tmp/dem020-quality.log` (tests d’outillage, API, types et builds
+web/backoffice). Seules des traces documentaires ont changé depuis le lancement.
