@@ -1,5 +1,7 @@
 # DEM-009 — Simplifier le workflow de développement
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-27.
 - État : validée, commitée et reconstituée ; non livrée.
 - Identifiant de session : `01a17c9e-d8e8-7833-805b-fe7a84cfecd0`.

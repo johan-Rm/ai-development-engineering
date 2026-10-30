@@ -1,5 +1,7 @@
 # DEM-010 — Corriger le titre long AIDE
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-27.
 - État : reconstituée et validée ; livraison en cours après clarification des contrôles.
 - Identifiant de session de création : `01a17e4d-043f-7c71-9aa5-3754c3794e18`.

@@ -1,5 +1,7 @@
 # DEM-015 — Renommer l’alias d’ouverture du workspace
 
+- Type : développement
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-29.
 - Session de création : `01a1869b-17bd-7292-a890-d6785556af2c`.
 - Cadrage confirmé dans le chat par « go » avant documentation.

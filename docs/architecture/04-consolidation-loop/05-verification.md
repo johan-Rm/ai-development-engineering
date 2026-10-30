@@ -18,4 +18,7 @@ Un verdict humain sur les corrections et leurs garde-fous. Les tâches validées
 
 `verifier-consolidation`.
 
-Le skill prépare les éléments et consigne le verdict humain. Le skill réalise également le commit distinct après validation, lorsque celui-ci est explicitement demandé.
+Après validation humaine explicite, le skill crée un commit local distinct par carte
+validée, sans confirmation supplémentaire, avec ses changements, tests, documentation,
+preuves et verdict. Il vérifie le périmètre et l’index, puis consigne les SHA créés.
+Aucun push, PR ou fusion à cette étape.

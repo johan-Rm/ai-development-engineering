@@ -1,5 +1,7 @@
 # DEM-007 — Vérifier la conformité du contenu local des couches
 
+- Type : développement
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-27.
 - État : périmètre corrigé validé et reconstitué ; non livrée.
 - Référence de session : référence de session indisponible.

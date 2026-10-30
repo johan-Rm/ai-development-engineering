@@ -1,5 +1,7 @@
 # DEM-012 — Alléger les consignes des agents
 
+- Type : développement
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-28.
 - État : reconstituée sur `demands/DEM-012` ; à livrer.
 - Session de création : `01a1820d-ecd1-7600-8d49-1422ef8b8f1b`.

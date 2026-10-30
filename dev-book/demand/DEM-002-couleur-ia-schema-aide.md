@@ -1,5 +1,7 @@
 # DEM-002 — Identifier les interactions IA en bleu dans le schéma AIDE
 
+- Type : consolidation
+- Session intervenante (typage DEM-022) : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Date : 2026-10-26.
 - État du cadrage : confirmé par l’humain dans le chat.
 - Référence de session indisponible ; aucune carte externe fournie.
