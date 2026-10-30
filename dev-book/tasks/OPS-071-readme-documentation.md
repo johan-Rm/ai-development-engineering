@@ -1,6 +1,6 @@
 # OPS-071 — Définir le README de la documentation
 
-- Date : 2026-10-30 ; état : validée par l’humain ; commit local à créer (périmètre réduit).
+- Date : 2026-10-30 ; état : validée et commitée localement (périmètre réduit), à reconstituer.
 - Session de création : `01a18b7d-7bf6-7582-921d-c2f516c32379`.
 - Demande : DEM-020 ; source actuelle : `tmp/demande-readme-documentation.md`
   relativement au dépôt principal, sans copie dans la couche.
@@ -69,6 +69,9 @@ Empreintes SHA-256 identiques à la présentation, avant ajout du verdict :
 - Cette carte : `235dcc986bf91fd0deef14c83edea42a550deb6415cc9cb87194603e864ed172`.
 
 Aucune modification fonctionnelle après présentation ; aucune livraison autorisée ici.
+
+Commit local de la contribution validée : `eee753443ea29b80dd691fdca48a4338dc247fb6`.
+Le commit documentaire suivant consigne uniquement cette trace ; aucun push ni PR.
 
 ### Preuves d’implémentation — 2026-10-30
 
