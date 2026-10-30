@@ -9,7 +9,7 @@
 
 ## Constat et besoin
 
-[DEM-021](DEM-021-conventions-documentaires.md) porte un champ « Type : consolidation »
+DEM-021 porte un champ « Type : consolidation »
 alors que le [README du dev-book](../README.md) ne définit ni ce champ ni ses valeurs.
 Les interviews de [développement](../../docs/architecture/03-developpement-loop/01-interview.md)
 et de [consolidation](../../docs/architecture/04-consolidation-loop/01-interview.md)
@@ -80,3 +80,20 @@ qui conserve les preuves, limites, verdict humain et SHA du commit.
 Révision humaine : la validation en consolidation déclenche les commits locaux,
 comme en développement. Skills, AGENTS.md et guide de vérification alignés ;
 nouvelle présentation validée par « validé » ; commits locaux autorisés.
+
+## Livraison — 2026-10-30, même session
+
+Commits validés réunis par avance rapide sur `demands/DEM-022` depuis develop
+`b40faca917b01074d078e49ad1cad6f7fb2ff7b6`, dans le principal initialement propre.
+L’humain confirme que l’invocation autorise la livraison complète et demande
+l’alignement du skill : `livrer-consolidation`, AGENTS.md et guide corrigés.
+DEM-021 reste hors livraison ; son lien local est remplacé par son identifiant.
+
+Qualité de livraison réussie sur `3fe38fca51bab7a2ea972e688601240344985f5a` dans devops :
+39 tests d’outillage, contrôles API, types et builds web/backoffice ; journal
+`/tmp/dem022-delivery-quality.log`. Corpus commité vérifié séparément : 19 demandes
+conformes, sans DEM-021. Changements suivants limités aux consignes et traces.
+
+Couches propres et sans autre mission active identifiée : API, web, backoffice.
+Design contient trois `.gitkeep` non suivis ; devops contient DEM-021 non suivie.
+Ces deux couches restent intactes et bloqueront la clôture de leur alignement.

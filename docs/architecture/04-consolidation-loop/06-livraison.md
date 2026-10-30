@@ -18,6 +18,6 @@ Des PRs de consolidation et des conventions techniques protégées par des véri
 
 `livrer-consolidation`.
 
-Le skill réalise directement le push, la création de PR, la fusion et le suivi après fusion
-lorsque ces opérations sont demandées et autorisées. Une demande de PR n’autorise pas à elle seule
-la fusion. Seules les branches confirmées libres sont réalignées sans perte de données.
+L’invocation autorise la livraison complète vers develop : commits documentaires,
+fetch, push, PR, fusion après contrôles et suivi des couches libres, sans confirmation
+intermédiaire. Une instruction limitée à la PR conserve cette limite.
