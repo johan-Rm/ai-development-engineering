@@ -5,7 +5,7 @@
 - Session de création : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Session intervenante : `01a18c38-1b13-7953-9118-aadc8cde8794` ; ajout demandé des suppressions ci-dessous.
 - Étape : première carte vérifiée et validée ; cartes applicatives restantes.
-- Statut : OPS-073 validée ; demandes de suppression applicatives non réalisées.
+- Statut : OPS-073 validée et commitée localement ; suppressions applicatives non réalisées.
 - Enregistrement demandé par l’humain dans la même session ; origine : interview conservée, sans nouvelle adoption de règle.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `b40faca917b01074d078e49ad1cad6f7fb2ff7b6`, arbre et index propres avant création ; livraison DEM-020 clôturée, aucune autre mission active identifiée.
