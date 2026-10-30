@@ -4,8 +4,8 @@
 - Date : 2026-10-30.
 - Session de création : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Session intervenante : `01a18c38-1b13-7953-9118-aadc8cde8794` ; ajout demandé des suppressions ci-dessous.
-- Étape : vérification terminée ; toutes les cartes validées et commitées localement.
-- Statut : prête pour les contrôles de livraison ; aucun push ni PR pour DEM-021.
+- Étape : livraison en cours ; contrôles réussis.
+- Statut : prête pour PR vers develop par Rebase and merge ; suivi des couches à terminer.
 - Enregistrement demandé par l’humain dans la même session ; origine : interview conservée, sans nouvelle adoption de règle.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `b40faca917b01074d078e49ad1cad6f7fb2ff7b6`, arbre et index propres avant création ; livraison DEM-020 clôturée, aucune autre mission active identifiée.
@@ -302,3 +302,62 @@ l’empreinte validée, hors traces documentaires. Le worktree et l’index éta
 propres après le troisième commit ; ce complément consigne uniquement les SHA
 et l’état de vérification. Contrôles documentaire, typage et diff conformes.
 La livraison et sa qualité complète restent à effectuer ; aucun push, PR ou merge.
+
+## Reconstitution — 2026-10-30
+
+Même session intervenante. Dossier principal libre et propre avant création,
+sur develop local `eac1b98072f82de8be79e1ffb9ce9d7c2493a5b3`.
+Branche créée : `demands/DEM-021` ; retour prévu sur develop après livraison.
+Les branches de couche, leurs environnements et les données sont conservés.
+
+| Commit source validé | Commit obtenu par cherry-pick -x |
+| --- | --- |
+| `a2c52a8d8f1b3850b30bae6c1f51f706ed148562` | `ab5a3f60753f142d64b61174e6492ef0e95cdefe` |
+| `cb3336b1389d32c0a3118c7870393a3d3f5349bc` | `478f64623a419702e3b2d3e281e02934812fe5c2` |
+| `6eaa52ac1e2d61bd5d73b18715440ec5ef407fc7` | `ee1f7c9b6e52408a924f80b4a80b8c10e9658dcd` |
+| `91e090d090eaaa9d5b9c3c76abd016b8048cb864` | `7a77e0f941a8d94c44fa9a22e934021b101b92f4` |
+| `cbf2f368654c31370af9975ec1b696750861c78c` | `806561a212d6bb2a6c60c6c37d63ded82bc1b51e` |
+| `6a527151f01c097ed39b5f67791a7d6d52f8440c` | `bc7095103e95320b7440cbedf31f1b48864401d3` |
+
+Les six commits se sont appliqués sans conflit. Leurs patch-id sont identiques ;
+`git range-diff` relève seulement la provenance ajoutée aux messages. Les écarts
+avec la branche source correspondent aux changements de develop déjà intégrés
+par DEM-022 ; aucun changement fonctionnel validé n’a été réinterprété.
+DEM-023 et le brief non suivi DEM-024 sont exclus de cette reconstitution.
+
+Contrôles depuis le dossier principal reconstitué :
+
+- `python3 codebase-integrity/scripts/check.py` : 66 tests réussis, socket locale autorisée.
+- `python3 codebase-integrity/scripts/check_docs.py` : conforme.
+- `python3 codebase-integrity/scripts/check_demands.py` : conforme.
+- `git diff --check develop..HEAD` : réussi.
+
+La qualité complète reste à exécuter avant PR. La présente trace documentaire
+reste non commitée pour le commit documentaire de livraison ; aucun push, PR ou
+fusion réalisé à cette étape. develop reste au SHA de base indiqué ci-dessus.
+
+## Livraison — 2026-10-30
+
+Même session intervenante ; dépôt principal sur `demands/DEM-021`, index vide
+avant les seules traces documentaires. Six contributions validées réunies au HEAD
+`bc7095103e95320b7440cbedf31f1b48864401d3` ; correspondances ci-dessus.
+
+`python3 codebase-integrity/scripts/quality.py` : réussi avec autorisation des
+sockets locales ; 66 tests d’outillage, contrat API, lint du conteneur, mapping
+Doctrine, export OpenAPI, typage et builds web/backoffice. Le premier passage
+restreint échouait uniquement à créer la socket du test d’identité.
+Synchronisation de base exclue par `--skip-sync` ; aucun test navigateur demandé.
+Contrôles documentaires, typage des demandes et `git diff --check` réussis.
+
+Distant vérifié : `johan-Rm/ai-development-engineering`, develop
+`eac1b98072f82de8be79e1ffb9ce9d7c2493a5b3`. Rebase and merge autorisé,
+protections lues et conservées ; aucune approbation requise par la règle active.
+Aucune PR préexistante pour cette branche. DEM-023/DEM-024 restent exclues.
+
+Inventaire : API, web et backoffice propres, sans mission active identifiée
+depuis le suivi DEM-022, à `eac1b98` ; avance rapide possible après intégration.
+Design à `b40faca`, trois `.gitkeep` non suivis : couche préservée. Devops à
+`6aee391`, contributions DEM-023 et brief non suivi DEM-024 : couche préservée.
+Ces deux couches empêchent la clôture du suivi, sans bloquer la PR de DEM-021.
+URL, SHA intégré et correspondances réécrites seront consignés après vérification
+distante dans le brouillon local de cette demande, sans écriture sur develop.
