@@ -1,4 +1,4 @@
-# Vérification
+# Vérification / arbitrage
 
 > L’humain vérifie l’application de son arbitrage et la fiabilité des preuves présentées.
 
@@ -8,7 +8,9 @@ Corrections, documentation et résultats des contrôles.
 
 ## Déroulement
 
-L’humain confronte le résultat à la décision : périmètre couvert, exceptions, écarts détectés et cas conformes acceptés. Il valide ou demande des corrections, suivies d’une nouvelle vérification.
+L’humain confronte le résultat à la décision : périmètre couvert, exceptions, écarts détectés et cas conformes acceptés. Il valide, ajuste, diffère ou rejette ; il arbitre l’adéquation de la règle et
+des contrôles au résultat observé. Les corrections reviennent à l’implémentation,
+les changements de règle à l’analyse / découpage.
 
 ## Sortie
 

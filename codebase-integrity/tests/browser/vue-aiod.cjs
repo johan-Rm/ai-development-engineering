@@ -17,15 +17,26 @@ const { chromium } = requireApp('playwright');
     await page.evaluate(() => document.fonts.ready);
     assert.equal(await page.locator('svg,canvas').count(),0);
     assert.equal(await page.locator('.action').count(),12);
+    const expectedSteps = ['Interview','Analyse / découpage','Implémentation','Vérification / arbitrage','Reconstitution','Livraison'];
+    for (const loop of ['.coding-loop','.consolidation-loop']) {
+      const steps = await page.locator(loop+' .action').evaluateAll(nodes => nodes.map(node => ({number:Number(node.querySelector('.step-number').textContent),title:node.querySelector('strong').textContent,skill:node.title.replace('Skill : ','')})).sort((a,b)=>a.number-b.number));
+      assert.deepEqual(steps.map(step=>step.title), expectedSteps);
+      assert.deepEqual(steps.map(step=>step.number),[1,2,3,4,5,6]);
+      assert.equal(new Set(steps.map(step=>step.skill)).size,6,'Un skill distinct par étape');
+    }
+    const skills = await page.locator('.action').evaluateAll(nodes => nodes.map(node => node.title));
+    assert.equal(new Set(skills).size,12,'Douze skills pour les deux boucles');
+    assert.equal(await page.locator('[data-detail="conso-arbitrage"]').count(),0);
+
     assert.equal(await page.locator('.frame').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(221, 226, 207)');
     assert.equal(await page.locator('.frame').evaluate(el=>getComputedStyle(el).color),'rgb(33, 33, 33)');
     const rulesSource = await page.locator('[data-detail="regles-controles"]').boundingBox();
     const rulesLink = await page.locator('.check-link[data-step="consolidation"] > i').first().boundingBox();
     assert.ok(Math.abs(rulesLink.y-rulesSource.y-rulesSource.height)<2,'La liaison part du footer Règles et contrôles');
     assert.deepEqual(await page.locator('.consolidation-loop .step-number').allTextContents(),['01','02','03','06','05','04']);
-    assert.deepEqual(await page.locator('.consolidation-loop .action strong').allTextContents(),['Interview','Analyse globale','Arbitrage','Livraison','Vérification','Implémentation']);
-    assert.equal(await page.locator('.consolidation-loop .action.ai').count(),4);
-    assert.deepEqual(await page.locator('.consolidation-loop .action.human').evaluateAll(nodes=>nodes.map(n=>n.dataset.detail)),['conso-arbitrage','conso-verification']);
+    assert.deepEqual(await page.locator('.consolidation-loop .action strong').allTextContents(),['Interview','Analyse / découpage','Implémentation','Livraison','Reconstitution','Vérification / arbitrage']);
+    assert.equal(await page.locator('.consolidation-loop .action.ai').count(),5);
+    assert.deepEqual(await page.locator('.consolidation-loop .action.human').evaluateAll(nodes=>nodes.map(n=>n.dataset.detail)),['conso-verification']);
     assert.equal(await page.locator('.check-ref,.pr-gate').count(),0);
     assert.equal(await page.locator('.check-link').count(),3);
     const link03 = await page.locator('.check-link[data-step="03"] > i').first().boundingBox();
@@ -39,7 +50,7 @@ const { chromium } = requireApp('playwright');
       const arrow = await tip.boundingBox();
       assert.ok(arrow.x>checks.x && arrow.x<checks.x+checks.width && Math.abs(arrow.y+arrow.height-checks.y)<6, 'Les deux liaisons aboutissent aux contrôles');
     }
-    assert.equal(await page.locator('[data-detail="controles"]').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(168, 185, 122)');
+    assert.equal(await page.locator('[data-detail="controles"]').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(192, 112, 64)');
     assert.equal(await page.locator('.connections').count(),0);
     assert.match(await page.locator('.checks-use').innerText(), /Exécute les contrôles/);
     assert.match(await page.locator('.checks-enrichment').innerText(), /Enrichit les contrôles/);
@@ -59,7 +70,7 @@ const { chromium } = requireApp('playwright');
     assert.deepEqual(await page.locator('.coding-loop .step-number').allTextContents(),['01','02','03','06','05','04']);
     assert.equal(await page.locator('.coding-loop .action.ai').count(),5);
     assert.equal(await page.locator('.coding-loop .action.human').count(),1);
-    assert.deepEqual(await page.locator('.coding-loop .action strong').allTextContents(), ['Interview','Découpage','Implémentation','Livraison','Reconstitution','Vérification']);
+    assert.deepEqual(await page.locator('.coding-loop .action strong').allTextContents(), ['Interview','Analyse / découpage','Implémentation','Livraison','Reconstitution','Vérification / arbitrage']);
     assert.equal(await page.locator('.coding-loop .action.human').getAttribute('data-detail'),'verification');
     assert.equal(await page.locator('.coding-loop [data-detail="demandes"], .coding-loop [data-detail="pr"]').count(),0);
     assert.equal(await page.locator('.cycle-entry [data-detail="demandes"]').count(),1);
@@ -73,6 +84,25 @@ const { chromium } = requireApp('playwright');
     assert.match(await page.locator('.signature').innerText(), /AI-powered Development Engineering/);
     assert.equal(await page.locator('header h1').count(), 0);
     assert.equal(await page.locator('.signature p').count(),1);
+    const assertAlignedSteps = async () => {
+      const geometry = await page.evaluate(() => ['.coding-block','.consolidation-block'].map(selector => {
+        const block = document.querySelector(selector);
+        const footer = block.querySelector('.cycle-exit,.consolidation-exit').getBoundingClientRect();
+        return {footer:footer.top,steps:[...block.querySelectorAll('.action')].map(node => {
+          const rect=node.getBoundingClientRect();
+          return {top:rect.top,bottom:rect.bottom,height:rect.height,scroll:node.scrollHeight,client:node.clientHeight};
+        })};
+      }));
+      for (let i=0;i<6;i++) {
+        assert.ok(Math.abs(geometry[0].steps[i].top-geometry[1].steps[i].top)<1,'Étapes correspondantes alignées verticalement');
+        assert.ok(Math.abs(geometry[0].steps[i].height-geometry[1].steps[i].height)<1,'Même hauteur dans les deux boucles');
+      }
+      for (const block of geometry) {
+        assert.ok(block.steps.every(step => step.bottom<=block.footer),'Aucune étape ne recouvre les sorties de boucle');
+        assert.ok(block.steps.every(step => step.scroll<=step.client+1),'Aucun texte ne déborde de son étape');
+      }
+    };
+    await assertAlignedSteps();
     const equalFrameBands = async () => page.evaluate(() => {
       const frame = document.querySelector('.frame').getBoundingClientRect();
       const workspace = document.querySelector('.workspace').getBoundingClientRect();
@@ -161,22 +191,24 @@ const { chromium } = requireApp('playwright');
     await page.locator('[data-detail="interview"]').click();
     assert.equal(await page.locator('#detail-description').isVisible(),false,'La définition du thème ne reste pas affichée sur une étape');
     await page.keyboard.press('Escape');
-    for (const step of ['interview','analyse','arbitrage','implementation','verification','livraison']) {
+    for (const step of ['interview','analyse','implementation','verification','reconstitution','livraison']) {
       await page.locator(`[data-detail="conso-${step}"]`).click();
       assert.match(await page.locator('#detail-list').innerText(), /Sortie attendue/);
       if (step==='analyse') assert.match(await page.locator('#detail-intro').innerText(), /toute la base de code/);
-      if (step==='arbitrage') assert.match(await page.locator('#detail-intro').innerText(), /contrôle envisagé détectera les écarts/);
+      if (step==='reconstitution') assert.match(await page.locator('#detail-list').innerText(), /reconstituer-consolidation/);
       if (step==='verification') assert.match(await page.locator('#detail-intro').innerText(), /fonctionnement réel des contrôles implémentés/);
       if (step==='livraison') assert.match(await page.locator('#detail-intro').innerText(), /sans IA, en CI\/CD ou à la demande/);
+      if (step==='livraison') assert.match(await page.locator('#detail-list').innerText(), /Rebase and merge/);
       await page.keyboard.press('Escape');
     }
     const route = await page.locator('.route-start').boundingBox();
     const verification = await page.locator('[data-detail="verification"]').boundingBox();
     assert.ok(Math.abs(route.y - (verification.y + verification.height / 2)) < 2, 'La liaison part de la vérification humaine');
-    for (const viewport of [{width:1366,height:768},{width:390,height:844}]) {
+    for (const viewport of [{width:1366,height:768},{width:1280,height:614},{width:390,height:844}]) {
       await page.setViewportSize(viewport);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),true);
       assert.ok(await equalFrameBands(), 'Bandes égales sur ordinateur et mobile');
+      await assertAlignedSteps();
       assert.equal(await page.locator('.explore-hint').count(), 0);
       assert.ok(await page.locator('.workspace').evaluate(el => el.scrollHeight <= el.clientHeight + 1), 'Aucun contenu masqué verticalement');
       assert.equal(await page.locator('.workspace').evaluate(el => getComputedStyle(el).overflowY), 'hidden');

@@ -8,7 +8,8 @@ Demande découpée en cartes prêtes, couches disponibles et dépendances prése
 
 ## Déroulement
 
-L’IA suit les dépendances des cartes et, pour chacune, vérifie la branche et le worktree, lit les README applicables, puis réalise le changement. Elle applique les conventions techniques, exécute les contrôles pertinents et prépare les tests et la documentation associés.
+Une demande entière confie toutes ses cartes prêtes, sauf restriction explicite.
+L’IA suit leurs dépendances réelles et, pour chacune, vérifie la branche et le worktree, lit les README applicables, puis réalise le changement. Elle applique les conventions techniques, exécute les contrôles pertinents et prépare les tests et la documentation associés.
 
 Avant une nouvelle mission, vérifier `git status --porcelain=v1 --untracked-files=all`
 dans le worktree affecté et l’index : une couche sale ou occupée bloque le démarrage,
@@ -16,6 +17,7 @@ sans nettoyage ni commit pour contourner le blocage. Une reprise de la même mis
 peut conserver ses changements non commités identifiés, sans travail étranger.
 Un arbre propre ne suffit pas à établir la disponibilité de la couche.
 
+Réaliser toutes les cartes indépendantes sans validation intermédiaire artificielle.
 Une carte amont peut être réalisée puis présentée à la vérification, mais son
 consommateur attend le commit issu de sa validation. Aucun transfert de travail
 non commité entre missions.
