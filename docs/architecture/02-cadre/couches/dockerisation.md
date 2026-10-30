@@ -1,5 +1,7 @@
 # Utiliser la dockerisation des couches
 
+> Démarrer et vérifier une stack isolée pour chaque couche.
+
 ## Préparer l’environnement local
 
 Consulter le code d’une couche dans une stack Docker autonome. Sous Linux/WSL,
@@ -31,8 +33,6 @@ Chaque nom démarre uniquement la stack de cette couche, avec API et les deux
 interfaces. `docker-stop-<couche>` conserve ses données ; `docker-status-<couche>` affiche son état.
 `INTERFACE=web` ou `INTERFACE=backoffice` reste disponible pour limiter les interfaces.
 Ces raccourcis fonctionnent aussi depuis un worktree équipé du Makefile.
-Avant intégration de DEM-005, le dépôt principal ne dispose pas encore du Makefile :
-utiliser celui de `worktree/devops` pour vérifier les raccourcis.
 
 ```sh
 make help

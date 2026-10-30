@@ -39,7 +39,7 @@ prévue par [DEM-010](DEM-010-corriger-titre-long-aide.md).
    vérifiée sur ordinateur et mobile.
 4. L'attente textuelle du test associé est adaptée et son résultat consigné.
    Appliquer les contrôles proportionnés selon les
-   [points de contrôle](../../docs/01-codebase-integrity/points-de-controle.md).
+   [points de contrôle](../../docs/architecture/01-codebase-integrity/points-de-controle.md).
 
 ## Confirmation humaine
 

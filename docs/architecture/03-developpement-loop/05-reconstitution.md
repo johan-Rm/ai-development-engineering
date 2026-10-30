@@ -1,5 +1,7 @@
 # Reconstitution
 
+> Réunir les commits validés sur une branche de demande depuis develop.
+
 Créer une branche depuis develop et y cherry-pick les commits validés de la demande.
 
 ## Entrée

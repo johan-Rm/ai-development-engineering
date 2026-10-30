@@ -10,8 +10,8 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 ## Avant d’intervenir
 
 - Les instructions explicites de l’utilisateur priment. Ne déléguer que sur demande explicite.
-- Lire la demande, la carte et les [couches](docs/architecture/02-cadre/couches/index.md) ; respecter worktree, branche, chemins autorisés et dépendances par commits.
-- Lire les README existants de la racine au dossier concerné, sans parcourir les autres dossiers. Ils définissent les responsabilités et conventions techniques locales ; voir [documentation et revue](docs/architecture/02-cadre/documentation.md).
+- Lire la demande, la carte et les [couches](docs/architecture/02-cadre/couches/organisation.md) ; respecter worktree, branche, chemins autorisés et dépendances par commits.
+- Lire les README existants de la racine au dossier concerné, sans parcourir les autres dossiers. Ils définissent les responsabilités et conventions techniques locales ; la documentation apporte les explications complémentaires. Voir [documentation et revue](docs/architecture/02-cadre/documentation.md).
 - Avant toute écriture, vérifier le chemin absolu, la branche, l’index et `git status --porcelain=v1 --untracked-files=all` dans le worktree affecté.
 - Une couche sale ou occupée bloque une nouvelle mission ; une reprise conserve seulement ses changements identifiés, sans travail étranger. Un arbre propre ne prouve pas la disponibilité.
 - Préserver travail existant, worktrees, `.env` et données. Pas de stash, reset --hard, force-push ni suppression de worktree pour résoudre une situation ; pas de rebase d’une branche partagée ou occupée sans coordination.
@@ -19,7 +19,7 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 ## Workflow et autorisations
 
 - Intégration : `develop` ; production : `master` ; `main` reste historique. Aucune contribution de tâche sur intégration ou production.
-- Missions : `layers/<couche>` dans `worktree/<couche>` ; cadre : devops, préfixe OPS. [Routage et création des worktrees](docs/architecture/02-cadre/couches/index.md).
+- Missions : `layers/<couche>` dans `worktree/<couche>` ; cadre : devops, préfixe OPS. [Routage et création des worktrees](docs/architecture/02-cadre/couches/organisation.md).
 - Suivre l’étape demandée de la [boucle de développement](docs/architecture/03-developpement-loop/index.md) ou de [consolidation](docs/architecture/04-consolidation-loop/index.md), avec son skill disponible ; [disponibilité et limites des skills](docs/architecture/02-cadre/ia-engineering.md#utiliser-les-skills).
 - `implementer-demande` ne crée aucun commit, corrections comprises. `verifier-demande` et `verifier-consolidation` créent les commits locaux distincts des cartes explicitement validées, avec code, tests, documentation, preuves et verdict, puis leurs traces documentaires. La validation autorise ces commits sans confirmation supplémentaire. Ne jamais inventer de verdict.
 - Le découpage est autonome. La reconstitution réunit les commits validés sur `demands/<identifiant>` ; jamais de copie de travail non commité. [Procédure de reconstitution](docs/architecture/03-developpement-loop/05-reconstitution.md).
@@ -45,6 +45,6 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 
 - Journal des demandes, cartes et preuves : [dev-book](dev-book/README.md).
 - Skills et définition des missions : [IA Engineering](docs/architecture/02-cadre/ia-engineering.md).
-- Isolation des services : [couches](docs/architecture/02-cadre/couches/index.md) ; un worktree seul n’isole pas ports, bases, volumes, caches et écritures.
+- Isolation des services : [couches](docs/architecture/02-cadre/couches/organisation.md) ; un worktree seul n’isole pas ports, bases, volumes, caches et écritures.
 - Travail graphique : lire la [charte officielle du dépôt](<design/Brand Guidelines - Graines Digitales (standalone).html>) et ses [adaptations au schéma](design/charte-graphique.md), sans substituer de copie externe.
 - Autres guides durables : [index documentaire](docs/index.md).
