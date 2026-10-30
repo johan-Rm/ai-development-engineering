@@ -4,7 +4,7 @@
 - Demande et arbitrage : [DEM-022](../demand/DEM-022-types-demandes.md#arbitrage-humain--2026-10-30).
 - Mission : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `b40faca917b01074d078e49ad1cad6f7fb2ff7b6` ; aucune dépendance amont par commit.
-- État : validée le 2026-10-30, même session ; commit local en préparation.
+- État : validée et commitée localement ; à livrer.
 
 ## Périmètre et critères
 
@@ -85,3 +85,6 @@ check_demands.py et ses tests, métadonnées des 18 demandes existantes, DEM-022
 cette carte et guides modifiés (points de contrôle, interviews, vérification).
 DEM-021 reste hors commit ; les quatre skills personnels adaptés restent hors dépôt.
 Les tests ciblés (9) et le contrôle du corpus ont réussi à la dernière présentation.
+
+Commit validé : `fe09842309a98f05c804d3c0fcb0bb5966beaab6`. Contenu vérifié : 30 fichiers ;
+seule DEM-021 reste non suivie, index vide après commit.

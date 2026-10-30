@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-10-30.
 - Session de création : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
-- État : OPS-072 validée après nouvelle présentation le 2026-10-30 ; commit local en préparation.
+- État : OPS-072 validée et commitée localement le 2026-10-30 ; à livrer.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Continuité documentaire de la même session : seule DEM-021 préexistait non commitée, identifiée et préservée ; index vide. Aucune mission d’implémentation ouverte.
 
@@ -75,7 +75,7 @@ Aucun autre point de la proposition présentée ne reste non tranché.
 
 Cette demande concerne le format et le routage des demandes, distincts des conventions
 documentaires de DEM-021. Carte : [OPS-072](../tasks/OPS-072-types-demandes.md),
-qui conserve les preuves, limites et verdict humain. Aucun commit créé.
+qui conserve les preuves, limites, verdict humain et SHA du commit.
 
 Révision humaine : la validation en consolidation déclenche les commits locaux,
 comme en développement. Skills, AGENTS.md et guide de vérification alignés ;
