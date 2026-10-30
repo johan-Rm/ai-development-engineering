@@ -4,12 +4,12 @@
 - Date : 2026-10-30.
 - Session de création : `01a18b94-1588-7021-869d-d11d9ff6ba72`.
 - Session intervenante : `01a18c38-1b13-7953-9118-aadc8cde8794` ; ajout demandé des suppressions ci-dessous.
-- Étape : toutes les cartes vérifiées et validées ; commits des dernières cartes à créer.
-- Statut : toutes les cartes validées ; commits d’API-003, WEB-003 et BO-003 en cours.
+- Étape : vérification terminée ; toutes les cartes validées et commitées localement.
+- Statut : prête pour les contrôles de livraison ; aucun push ni PR pour DEM-021.
 - Enregistrement demandé par l’humain dans la même session ; origine : interview conservée, sans nouvelle adoption de règle.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `b40faca917b01074d078e49ad1cad6f7fb2ff7b6`, arbre et index propres avant création ; livraison DEM-020 clôturée, aucune autre mission active identifiée.
-- Prochaine étape : livraison après consignation des commits locaux.
+- Prochaine étape : `livrer-consolidation` pour DEM-021.
 
 ## Besoin et périmètre
 
@@ -270,7 +270,8 @@ Contrôles exécutés le 2026-10-30 depuis `worktree/devops` :
 Aucun lancement applicatif, installation ou test navigateur effectué pour cette
 migration documentaire. Aucune donnée ni configuration d’environnement modifiée.
 La qualité complète reste à exécuter avant PR ; aucune validation humaine des trois
-cartes restantes n’est déduite de ces contrôles. Aucun commit créé dans cette reprise.
+cartes restantes n’est déduite de ces contrôles. Aucun commit créé pendant l’implémentation ; les commits issus de la validation
+sont référencés dans les cartes.
 
 Contenu présenté : 14 chemins, dont quatre guides et un sommaire nouveaux sous
 `docs/applications/`, trois README supprimés et les adaptations de structure,
@@ -292,3 +293,12 @@ introduit la procédure commune des interfaces ; BO-003 complète sa navigation.
 Les fichiers de travail restent ceux validés ; seules les références disponibles
 à chaque commit sont indexées dans les sommaires intermédiaires.
 Aucun changement applicatif, contrôle, environnement ni travail étranger ajouté.
+
+### Fin de vérification
+
+Les trois commits distincts sont consignés dans les sections « Commit local »
+des cartes ci-dessus. Leur résultat cumulé sur les 14 chemins est identique à
+l’empreinte validée, hors traces documentaires. Le worktree et l’index étaient
+propres après le troisième commit ; ce complément consigne uniquement les SHA
+et l’état de vérification. Contrôles documentaire, typage et diff conformes.
+La livraison et sa qualité complète restent à effectuer ; aucun push, PR ou merge.

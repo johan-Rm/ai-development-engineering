@@ -5,7 +5,7 @@
 - Périmètre applicatif : api.
 - Couche exécutante : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `cb3336b1389d32c0a3118c7870393a3d3f5349bc`.
-- Statut : validée humainement le 2026-10-30 ; commit local à créer.
+- Statut : validée humainement et commitée localement le 2026-10-30.
 - Dépendance : commit validé d’[OPS-073](OPS-073-conventions-documentaires.md#commit-local),
   présent dans la branche ; aucune dépendance de code aux deux autres cartes.
 - Organisation : [prise en charge globale](../demand/DEM-021-conventions-documentaires.md#prise-en-charge-globale-des-cartes-restantes).
@@ -45,3 +45,8 @@ Contrôles et identification du contenu : voir les
 Validation et périmètre du commit : voir le
 [verdict humain](../demand/DEM-021-conventions-documentaires.md#verdict-sur-les-trois-cartes-restantes).
 Le commit local est autorisé par cette validation.
+
+## Commit local
+
+Commit validé : `6eaa52ac1e2d61bd5d73b18715440ec5ef407fc7`. Contenu et périmètre vérifiés après création.
+La navigation partagée suit la répartition consignée avec le verdict humain.
