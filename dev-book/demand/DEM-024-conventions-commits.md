@@ -4,7 +4,7 @@
 - Date : 2026-10-30.
 - Session de création : `01a18c38-1b13-7953-9118-aadc8cde8794`.
 - Session intervenante : `01a18cd5-5286-75e0-bd7f-b86c292bcf63`.
-- Statut : OPS-075 validée humainement le 2026-10-30 ; commit local à créer.
+- Statut : OPS-075 validée humainement et commitée localement ; reconstitution à effectuer.
 
 ## Besoin
 
@@ -162,3 +162,5 @@ typage et espaces conformes. Exceptions historiques abandonnées et anciennes
 propositions de placement remplacées par une thématique Git autonome.
 Les trois corrections de liens signalées à la revue font partie de l’état accepté.
 Les preuves détaillées et l’identité du contenu présenté sont conservées dans OPS-075.
+
+Commit validé d’OPS-075 : `29f6a8dcd677e803cdcf808375f83a2cafda729d`.

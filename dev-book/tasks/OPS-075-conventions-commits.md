@@ -4,7 +4,7 @@
 - Session de création : `01a18cd5-5286-75e0-bd7f-b86c292bcf63`.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `6aee39172aebb0539c0972ef98a59e3e0ec15dca` ; aucune dépendance de code.
-- Statut : validée humainement le 2026-10-30 ; commit local à créer.
+- Statut : validée humainement et commitée localement le 2026-10-30.
 
 ## Mission et périmètre
 
@@ -67,3 +67,9 @@ Identité revérifiée avant ajout de ces seules traces documentaires.
 Le périmètre validé inclut la suppression des renvois devenus caducs dans DEM-013,
 DEM-018 et OPS-066, nécessaire après retrait de la section d’exécution.
 Aucun changement fonctionnel depuis la présentation. Aucun push, PR ou merge.
+
+## Commit local
+
+Commit validé : `29f6a8dcd677e803cdcf808375f83a2cafda729d`. Périmètre vérifié : 23 fichiers,
+preuves et verdict compris. Contrôle de la plage base → commit : conforme (un commit).
+La présente consignation constitue une trace documentaire complémentaire.
