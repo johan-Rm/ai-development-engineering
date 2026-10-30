@@ -2,7 +2,7 @@
 
 - Date : 2026-10-30
 - Session de création : `01a18c1a-ab5a-7940-b95d-8e44ac3b92fc`
-- État : validée ; commit local en cours, à livrer.
+- État : validée et commitée ; à livrer.
 - Demande : DEM-025, brouillon `tmp/demande-ranger-ressources-design.md` relatif au dépôt principal.
 - Lien définitif futur : `../demand/DEM-025-ranger-ressources-design.md`, à créer à la reconstitution.
 - Couche : design ; worktree : `worktree/design` ; branche : `layers/design` conservée.
@@ -74,3 +74,5 @@ Correction à vérifier ; le verdict précédent ne vaut pas validation de cet �
 
 Verdict humain explicite : « validé », après présentation de UX-002 corrigée.
 Empreintes revérifiées identiques à la présentation ; validation limitée à UX-002.
+
+Commit local de la carte validée : `1faf42c8f0d0110414dca347a774c78d6351946a`.
