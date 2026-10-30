@@ -3,7 +3,7 @@
 - Demande : [DEM-021](../demand/DEM-021-conventions-documentaires.md#arbitrage-humain--2026-10-30).
 - Session de création : `01a18c38-1b13-7953-9118-aadc8cde8794`.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
-- Statut : validée humainement le 2026-10-30 ; commit local à créer.
+- Statut : validée humainement et commitée localement le 2026-10-30.
 - Dépendance : aucune ; base `3fe38fca51bab7a2ea972e688601240344985f5a`.
 
 ## Mission et périmètre
@@ -76,3 +76,9 @@ consignent le verdict, l’état de la demande et les références des commits.
 Contenu corrigé présenté avant consignation du verdict : base ci-dessus, 34 chemins modifiés/supprimés/non suivis.
 Empreinte SHA-256 des chemins triés et contenus (suppressions marquées, hors cette
 carte) : `afc7001f5b98ac34261049d7987e0c720e6b378e5015495051c1296e55a4acaa`. Index Git vide.
+
+## Commit local
+
+Commit validé : `a2c52a8d8f1b3850b30bae6c1f51f706ed148562`. Contenu vérifié : les 34 chemins de la carte,
+y compris les preuves et le verdict. Arbre et index propres après ce commit.
+La présente consignation est un complément documentaire ; aucune autre carte exécutée.

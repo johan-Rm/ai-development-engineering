@@ -4,7 +4,8 @@
 - Session de création : `01a18c38-1b13-7953-9118-aadc8cde8794`.
 - Couche : api ; worktree `worktree/api` ; branche `layers/api`.
 - Statut : en attente des commits amont validés.
-- Dépendance : OPS-073 et OPS-073, commits à renseigner après validation humaine.
+- Dépendance : commit validé d’[OPS-073](OPS-073-conventions-documentaires.md#commit-local),
+  à rendre disponible dans le worktree API avant toute implémentation.
 
 ## Mission et périmètre
 
