@@ -57,7 +57,7 @@ Le commentaire préparatoire « à créer » est retiré une fois la commande r�
   worktrees, workspace, applications accessibles aux trois adresses et démarrage
   de l’interview dans Codex. Conserver les résultats et limites dans les futures cartes.
 - Contrôles documentaires et tests adaptés à l’outillage modifié selon les
-  [points de contrôle](../../docs/architecture/01-codebase-integrity/points-de-controle.md#exécuter-dans-ce-dépôt),
+  points de contrôle,
   dont `python3 codebase-integrity/scripts/check.py` et qualité avant PR.
 
 Aucune installation ni recette Ubuntu neuf effectuée à l’interview.
