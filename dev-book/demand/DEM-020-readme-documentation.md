@@ -78,3 +78,8 @@ avec sa version reconstituée ; arbre strictement identique au premier parent.
 Qualité complète locale réussie : `python3 codebase-integrity/scripts/quality.py`,
 code 0 ; journal `/tmp/dem020-quality.log` (tests d’outillage, API, types et builds
 web/backoffice). Seules des traces documentaires ont changé depuis le lancement.
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/18 ; source
+`demands/DEM-020`, cible `develop`. Fusion prévue par merge commit après contrôles
+distants satisfaits ; SHA effectif, alignement et clôture à consigner dans le
+brouillon conservé sous tmp/ après fusion.
