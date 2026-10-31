@@ -3,7 +3,7 @@
 - Type : développement
 - Date : 2026-10-30
 - Session de création : `01a18c1a-ab5a-7940-b95d-8e44ac3b92fc`
-- État : reconstituée ; livraison bloquée par le contrôle navigateur en échec.
+- État : reconstituée ; livraison reprise sur dérogation humaine explicite.
 - Confirmation humaine : « oui » dans la session de création, après restitution du cadrage.
 
 ## Besoin et utilisateurs
@@ -115,3 +115,12 @@ La validation humaine avec cette limite ne vaut pas réussite du contrôle requi
 Livraison arrêtée avant push/PR ; correction à implémenter puis à faire valider
 avant reprise, sans affaiblissement du test. Aucun alignement après intégration
 ni suppression de branche effectué.
+
+## Dérogation humaine de livraison — 2026-10-31
+
+Instruction explicite : « tu doit outre passé ça et ensuite nous devons supprimer
+ce test ». L’humain autorise la poursuite de DEM-025 malgré le seul échec navigateur
+préexistant décrit dans OPS-077. Cet échec demeure consigné ; aucun succès
+ni exception de contrôle automatique inventé. Les autres contrôles et protections
+GitHub restent applicables. La suppression du test est demandée pour la suite,
+après cette livraison.
