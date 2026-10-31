@@ -4,7 +4,7 @@
 - Date : 2026-10-30.
 - Session de création : `01a18c38-1b13-7953-9118-aadc8cde8794`.
 - Session intervenante : `01a18cd5-5286-75e0-bd7f-b86c292bcf63`.
-- Statut : OPS-075 validée humainement et commitée localement ; reconstitution à effectuer.
+- Statut : reconstituée ; contrôles locaux conformes, livraison en cours.
 
 ## Besoin
 
@@ -164,3 +164,36 @@ Les trois corrections de liens signalées à la revue font partie de l’état a
 Les preuves détaillées et l’identité du contenu présenté sont conservées dans OPS-075.
 
 Commit validé d’OPS-075 : `29f6a8dcd677e803cdcf808375f83a2cafda729d`.
+
+## Reconstitution — 2026-10-31
+
+Reprise dans le dossier principal sur la branche existante `demands/DEM-024`,
+sans rejouer les cherry-picks. Base develop vérifiée :
+`1279afa5d4f7d1ee2cae4d5416e7690bf108da65`, après intégration de DEM-023 par PR #21.
+Retour prévu sur develop après livraison.
+
+| Source validée | Commit reconstitué |
+| --- | --- |
+| `29f6a8dcd677e803cdcf808375f83a2cafda729d` | `6816c1159f1bf1a2381927bbea1436e684fdf818` |
+| `e43b8461146522e0e7645e6e1692424acfd9f0ce` | `bc3ecd653531f622815b0dbb21342fa14ab208de` |
+
+Patchs identiques et provenance des deux sources vérifiés. Aucun conflit restant.
+Contrôle des deux commits, typage des demandes et espaces conformes. La qualité
+complète sur ce HEAD a réussi le 2026-10-30 : 81 tests de l’outillage, API/OpenAPI,
+typage et builds web/backoffice ; aucun changement de code depuis ce passage.
+
+Le 2026-10-31, le contrôle documentaire signale trois ancres devenues invalides
+après le renommage local d’une section d’AGENTS.md : DEM-012, DEM-013 et le guide
+IA Engineering. Cette modification humaine non commitée est préservée et exclue
+du périmètre reconstitué ; son traitement reste nécessaire avant livraison.
+Index vide. Seule cette trace de reconstitution est ajoutée par la reprise,
+non commitée pour la livraison. Aucun push, PR ni fusion pour DEM-024.
+
+## Livraison — 2026-10-31
+
+À la demande humaine, seule la modification locale d’AGENTS.md est mise en stash,
+sans réapplication prévue après livraison. Le contrôle documentaire est de nouveau
+conforme. Contrôle des deux commits et typage conformes ; qualité complète réussie
+sur le même HEAD et le même environnement lors de la reconstitution, sans nouveau
+changement de code depuis (81 tests, API/OpenAPI, typage et builds).
+Le complément documentaire de reconstitution est inclus dans cette livraison.
