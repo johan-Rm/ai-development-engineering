@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-10-31
 - Session de création : `01a18c1a-ab5a-7940-b95d-8e44ac3b92fc`
-- État : OPS-078 validée et commitée ; à reconstituer.
+- État : reconstituée ; livraison en préparation.
 - Confirmation humaine : « oui » après restitution du périmètre.
 
 ## Constat
@@ -105,3 +105,31 @@ Validation explicite « validé » d’OPS-078 le 2026-10-31. Preuves et verdict
 conservés dans la carte ; la livraison reste à effectuer.
 
 Commit local validé d’OPS-078 : `b287eca1bdbcf04bdaaa63fe19bcbb6e32ba58b7`.
+
+## Reconstitution — 2026-10-31
+
+Principal libre et propre sur develop, base locale `b916a7d87e7f58e8ced927951420607adcb3cc41`.
+Branche `demands/DEM-027` créée dans le principal (`.`), sans nouveau worktree.
+Cherry-picks `-x` sans conflit :
+
+| Source validée | Commit obtenu | Rôle |
+| --- | --- | --- |
+| `b287eca1bdbcf04bdaaa63fe19bcbb6e32ba58b7` | `d0f66d6bd478c7ca4f7d8902f56d8b73b7d9eb5e` | OPS-078 |
+| `603a6c4` | `019d1b3a416a4432c54fef1a678ac43f26cec668` | Trace du commit validé |
+
+Arbre reconstitué identique à l’arbre source de devops avant cette trace.
+Les couches restent sur layers/* ; retour du principal sur develop après
+intégration distante autorisée. Aucun push ni fusion à la reconstitution.
+
+## Contrôles de livraison — 2026-10-31
+
+Cible distante vérifiée par fetch : `origin/develop` sur la base `b916a7d`.
+Principal sur demands/DEM-027 ; cinq couches propres, sans travail étranger identifié.
+La couche devops conserve les deux commits source validés ; les autres sont sur la base.
+
+`python3 codebase-integrity/scripts/quality.py --commit-base develop` : code de sortie 0
+sur la branche reconstituée. Contrôles des commits, types des demandes, documentation,
+81 tests d’outillage, contrat API, conteneur, mapping, OpenAPI, types et builds
+web/backoffice réussis. Journal local : `/tmp/dem027-delivery-quality.log`.
+Contrôle documentaire et `git diff --check` réussis. Aucun autre fichier fonctionnel
+modifié. Les parcours Playwright applicatifs restent à vérifier par la CI de la PR.
