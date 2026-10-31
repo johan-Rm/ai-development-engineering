@@ -3,7 +3,7 @@
 - Date : 2026-10-30
 - Session de création : `01a18c1a-ab5a-7940-b95d-8e44ac3b92fc`
 - Demande : DEM-025 ; brouillon `tmp/demande-ranger-ressources-design.md`, relatif au dépôt principal.
-- Demande définitive future : `dev-book/demand/DEM-025-ranger-ressources-design.md`, non créée.
+- Demande reconstituée : [DEM-025](../demand/DEM-025-ranger-ressources-design.md).
 - Couche : devops ; worktree : `worktree/devops` ; branche : `layers/devops` conservée.
 - HEAD observé : `e43b8461146522e0e7645e6e1692424acfd9f0ce`.
 - État : validée et commitée ; à livrer.

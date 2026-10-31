@@ -4,7 +4,7 @@
 - Session de création : `01a18c1a-ab5a-7940-b95d-8e44ac3b92fc`
 - État : validée et commitée ; à livrer.
 - Demande : DEM-025, brouillon `tmp/demande-ranger-ressources-design.md` relatif au dépôt principal.
-- Lien définitif futur : `../demand/DEM-025-ranger-ressources-design.md`, à créer à la reconstitution.
+- Demande reconstituée : [DEM-025](../demand/DEM-025-ranger-ressources-design.md).
 - Couche : design ; worktree : `worktree/design` ; branche : `layers/design` conservée.
 - Base observée : `b40faca917b01074d078e49ad1cad6f7fb2ff7b6`.
 
