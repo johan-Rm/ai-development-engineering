@@ -167,7 +167,7 @@ la livraison. Aucun verdict humain acquis.
 OPS-058 `caf3ad1`, OPS-059 `619a84d`, correction de conservation OPS-058 `073ada7`.
 Les six copies sont déplacées ou restaurées dans un répertoire de mission
 persistant extérieur, sans préfixe DEM-. Il n’y a plus de dossier worktree/DEM-*.
-Preuve : [migration des réunions](../resources/migration-reunions-008.md).
+Preuve : migration des réunions (rapport historique supprimé dans DEM-025).
 
 La purge de /tmp pendant l’interruption a emporté la copie 002 déjà déplacée.
 Ses fichiers suivis sont récupérés au HEAD d’origine ; les éventuels contenus

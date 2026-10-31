@@ -53,7 +53,7 @@ stash, reset destructif, force-push ou rebase implicite. Aucun verdict humain in
 ## Réalisation
 
 Audit effectué le 2026-10-27 :
-[rapport](../resources/audit-contenu-local-007.md), script reproductible inclus.
+rapport (rapport historique supprimé dans DEM-025), script reproductible inclus.
 Cadrage et cartes commités en `e7e0c4f` avant l’audit. Devops ne présente aucun
 travail étranger non commité ; son dernier commit DEM-006 est ancêtre du develop
 local. Branche conservée ; aucune écriture concurrente observée pendant le relevé.

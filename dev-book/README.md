@@ -23,12 +23,12 @@ Les ressources regroupent les sources de l’auteur et les représentations du c
 
 - Conserver sans modification les originaux : [carrousel](resources/AIOD-carrousel-v1.html),
   [PDF](resources/AIOD.pdf), [schéma d’approche](resources/aiod-approche_1.png) et
-  pictogrammes [SVG](resources/Picto-fond-noir-1000x1000.svg) et
+  pictogrammes [SVG](../design/Picto-fond-noir-1000x1000.svg) et
   [JPG](resources/Picto-fond-noir-1000x1000.jpg).
 - Le carrousel a servi à rédiger les principes ; le PDF et le schéma restent à
   relire ensemble. Consulter la documentation pour le fonctionnement actuel.
-- La [vue interactive](resources/vue-d-ensemble-ai-development-engineering.html)
-  présente le cadre actuel ; la [vue synthétique](resources/cadre-aiod.html)
+- La [vue interactive](../design/drafts/vue-d-ensemble-ai-development-engineering-v2.html)
+  présente le cadre actuel ; la [vue synthétique](../design/drafts/vue-d-ensemble-ai-development-engineering-v1.html)
   conserve le nom historique AIOD.
 - Dans la vue interactive, conserver les chemins personnels des douze skills
   comme texte pour permettre la consultation du dossier seul. Vérifier leur
