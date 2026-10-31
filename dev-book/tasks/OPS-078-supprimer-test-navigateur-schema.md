@@ -3,7 +3,7 @@
 - Demande : [DEM-027](../demand/DEM-027-supprimer-test-navigateur-schema.md).
 - Date : 2026-10-31
 - Session de création : `01a18c1a-ab5a-7940-b95d-8e44ac3b92fc`
-- État : validée ; commit local en cours, à livrer.
+- État : validée et commitée ; à livrer.
 - Couche : devops ; worktree : `worktree/devops` ; branche : `layers/devops` conservée.
 - Base : `b916a7d87e7f58e8ced927951420607adcb3cc41` ; aucune dépendance amont.
 
@@ -73,3 +73,5 @@ identique à la présentation : empreinte `af018dc321c0640e23a3c9fb7519bbdb54cdb
 Le commit comprend les deux suppressions, cette carte avec preuves et verdict,
 et la demande de consolidation portant l’analyse et les décisions confirmées.
 Aucun changement fonctionnel depuis la présentation.
+
+Commit local de la carte validée : `b287eca1bdbcf04bdaaa63fe19bcbb6e32ba58b7`.
