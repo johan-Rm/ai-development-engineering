@@ -6,7 +6,7 @@
 - Demande définitive future : `dev-book/demand/DEM-025-ranger-ressources-design.md`, non créée.
 - Couche : devops ; worktree : `worktree/devops` ; branche : `layers/devops` conservée.
 - HEAD observé : `e43b8461146522e0e7645e6e1692424acfd9f0ce`.
-- État : validée ; commit local à effectuer, à livrer.
+- État : validée et commitée ; à livrer.
 
 ## Objectif et périmètre
 
@@ -97,3 +97,5 @@ cartes avec la limite navigateur préexistante présentée. Empreinte globale du
 soumis revérifiée : `4a6bde5f4e5c0467e06c93042f75c7cedbf4c07f62053674c7e8c700aa764813`.
 Aucun changement fonctionnel depuis la présentation ; seules ces traces sont ajoutées.
 Le contrôle navigateur reste en échec : cette validation ne vaut pas réussite du contrôle.
+
+Commit local validé : `7cfedb93d2f1a183d0ce60ce7aaace02313f5551`.
