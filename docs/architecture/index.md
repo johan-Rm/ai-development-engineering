@@ -29,4 +29,4 @@
 - [Préparer son environnement de développement](../../SETUP.md)
 - [Instructions des agents](../../AGENTS.md)
 - [Journal des tâches et preuves](../../dev-book/README.md)
-- [Schéma interactif](../../dev-book/resources/vue-d-ensemble-ai-development-engineering.html)
+- [Schéma interactif](../../design/drafts/vue-d-ensemble-ai-development-engineering-v2.html)

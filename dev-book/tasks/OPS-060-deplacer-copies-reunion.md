@@ -67,7 +67,7 @@ Réalisation décrite dans les preuves ci-dessous ; verdict humain consigné en 
 ## Réalisation et limite — 2026-10-27
 
 Dépendances : OPS-058 `caf3ad1`, correction `073ada7`, OPS-059 `619a84d`.
-[Preuve détaillée](../resources/migration-reunions-008.md).
+Preuve détaillée (rapport historique supprimé dans DEM-025).
 Six copies désormais extérieures sous un nom sans DEM-. Métadonnées anciennes
 réparées. Contenus de 003 à 007 identiques au déplacement, preuves SHA-256
 persistantes ; rapport et deux liens normalisés ensuite dans 007, diff local

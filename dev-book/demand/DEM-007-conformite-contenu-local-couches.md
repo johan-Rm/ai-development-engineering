@@ -163,7 +163,7 @@ l’interview est une observation datée et devra être revérifié avant toute 
 ## Implémentation partielle — 2026-10-27
 
 Cadrage et cartes : `e7e0c4f`. OPS-055 réalisée, preuve dans le
-[rapport d’audit](../resources/audit-contenu-local-007.md) : six arbres parcourus,
+rapport d’audit (rapport historique supprimé dans DEM-025) : six arbres parcourus,
 dix caches sans source, contenus utiles préservés, deux familles de dossiers vides
 à expliquer. Aucun nettoyage. L’absence de modification est observée par deux
 relevés consécutifs de métadonnées, avec les limites décrites dans le rapport.

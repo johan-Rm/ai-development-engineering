@@ -13,7 +13,7 @@ const { chromium } = requireApp('playwright');
     const page = await browser.newPage({ viewport: {width:1918,height:924} });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    await page.goto(pathToFileURL(path.join(root,'dev-book/resources/vue-d-ensemble-ai-development-engineering.html')).href);
+    await page.goto(pathToFileURL(path.join(root,'design/drafts/vue-d-ensemble-ai-development-engineering-v2.html')).href);
     await page.evaluate(() => document.fonts.ready);
     assert.equal(await page.locator('svg,canvas').count(),0);
     assert.equal(await page.locator('.action').count(),12);
@@ -216,7 +216,7 @@ const { chromium } = requireApp('playwright');
     }
     await page.close();
     const mobile = await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
-    await mobile.goto(pathToFileURL(path.join(root,'dev-book/resources/vue-d-ensemble-ai-development-engineering.html')).href);
+    await mobile.goto(pathToFileURL(path.join(root,'design/drafts/vue-d-ensemble-ai-development-engineering-v2.html')).href);
     await mobile.locator('[data-detail="consolidation"]').tap();
     assert.equal(await mobile.locator('#detail-title').innerText(),'Consolidation');
     assert.match(await mobile.locator('#detail-list').innerText(),/Garde-fous/);
