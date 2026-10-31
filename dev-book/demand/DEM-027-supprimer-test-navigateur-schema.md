@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-10-31
 - Session de création : `01a18c1a-ab5a-7940-b95d-8e44ac3b92fc`
-- État : OPS-078 validée ; commit local en cours, à reconstituer.
+- État : OPS-078 validée et commitée ; à reconstituer.
 - Confirmation humaine : « oui » après restitution du périmètre.
 
 ## Constat
@@ -80,7 +80,7 @@ la recherche et le diff complètent la preuve, sans test reflétant seulement la
 
 | Carte | Couche | Mission | Dépendance | État |
 | --- | --- | --- | --- | --- |
-| [OPS-078](../tasks/OPS-078-supprimer-test-navigateur-schema.md) | devops | Finaliser le retrait confirmé | Aucune carte amont | Validée ; commit local en cours |
+| [OPS-078](../tasks/OPS-078-supprimer-test-navigateur-schema.md) | devops | Finaliser le retrait confirmé | Aucune carte amont | Validée et commitée : `b287eca` |
 
 Worktree `worktree/devops`, branche existante `layers/devops`, base locale
 `b916a7d87e7f58e8ced927951420607adcb3cc41`, sans fetch ni alignement.
@@ -103,3 +103,5 @@ humain sur le résultat ; vérification / arbitrage à effectuer.
 
 Validation explicite « validé » d’OPS-078 le 2026-10-31. Preuves et verdict
 conservés dans la carte ; la livraison reste à effectuer.
+
+Commit local validé d’OPS-078 : `b287eca1bdbcf04bdaaa63fe19bcbb6e32ba58b7`.
