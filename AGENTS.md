@@ -12,6 +12,7 @@ Si davantage de détails paraît nécessaire, donner une synthèse puis attendre
 - Les instructions explicites de l’utilisateur priment. Ne déléguer que sur demande explicite.
 - Lire la demande, la carte et les [couches](docs/architecture/02-cadre/couches/organisation.md) ; respecter worktree, branche, chemins autorisés et dépendances par commits.
 - Lire les README existants de la racine au dossier concerné, sans parcourir les autres dossiers. Ils définissent les responsabilités et conventions techniques locales ; la documentation apporte les explications complémentaires. Voir [documentation et revue](docs/architecture/02-cadre/documentation.md).
+- Respecter strictement la structure des README : conserver leurs rubriques et leur ordre ; ne pas ajouter de section, de sommaire ou d’inventaire sans demande explicite. Appliquer les [conventions documentaires](docs/README.md#conventions-techniques) et vérifier la structure dans le diff avant présentation.
 - Avant toute écriture, vérifier le chemin absolu, la branche, l’index et `git status --porcelain=v1 --untracked-files=all` dans le worktree affecté.
 - Une couche sale ou occupée bloque une nouvelle mission ; une reprise conserve seulement ses changements identifiés, sans travail étranger. Un arbre propre ne prouve pas la disponibilité.
 - Préserver travail existant, worktrees, `.env` et données. Pas de stash, reset --hard, force-push ni suppression de worktree pour résoudre une situation ; pas de rebase d’une branche partagée ou occupée sans coordination.
