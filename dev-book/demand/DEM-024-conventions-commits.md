@@ -197,3 +197,9 @@ conforme. Contrôle des deux commits et typage conformes ; qualité complète r�
 sur le même HEAD et le même environnement lors de la reconstitution, sans nouveau
 changement de code depuis (81 tests, API/OpenAPI, typage et builds).
 Le complément documentaire de reconstitution est inclus dans cette livraison.
+
+PR : https://github.com/johan-Rm/ai-development-engineering/pull/22.
+HEAD à l’ouverture : `d2d49eaf09abc700d9fdd18e098e846c86dc213f`.
+Publication effectuée par SSH après refus du jeton HTTPS dépourvu du scope workflow ;
+aucune permission ni protection modifiée. Fusion conditionnée à la CI réussie.
+Le suivi préservera les contributions de DEM-025 présentes en design et devops.
