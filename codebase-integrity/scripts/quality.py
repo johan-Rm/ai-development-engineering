@@ -11,10 +11,12 @@ parser.add_argument('--commit-base')
 parser.add_argument('--commit-head', default='HEAD')
 args, application_args = parser.parse_known_args()
 if args.commit_base:
+    subprocess.run([sys.executable, str(root / 'codebase-integrity/scripts/contribution.py'),
+                    '--repo', str(root), '--base', args.commit_base, '--head', args.commit_head], check=True)
     subprocess.run([sys.executable, str(root / 'codebase-integrity/scripts/check_commits.py'),
                     '--base', args.commit_base, '--head', args.commit_head], check=True)
 else:
-    print('Messages de commits non vérifiés : fournir --commit-base avant PR.', flush=True)
+    print('Contribution et commits non vérifiés : fournir --commit-base avant PR.', flush=True)
 subprocess.run([sys.executable, str(root / 'codebase-integrity/scripts/check_demands.py')], check=True)
 subprocess.run([sys.executable, str(root / 'codebase-integrity/scripts/check_docs.py')], check=True)
 subprocess.run([sys.executable, str(root / 'codebase-integrity/scripts/check.py')], check=True)

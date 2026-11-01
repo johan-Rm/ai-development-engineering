@@ -42,3 +42,19 @@ Documentation du travail avec Git, des contributions isolées à leur intégrati
   périmètre documentaire des scopes DEM et absence de merges. Les erreurs sont bloquantes.
 - Appliquer le contrôle aux nouveaux commits à livrer ; ne pas reprendre ni réécrire
   les commits passés. Aucun mécanisme d’exception historique.
+- Interdire tout ajout, modification, suppression ou déplacement touchant
+  `codebase-integrity/` dans une contribution de développement, même annulé ensuite.
+- Pour une consolidation corrective, associer chaque correction à une convention
+  nouvelle ou existante dans son README et à un contrôle ajouté ou renforcé.
+  Une convention existante est référencée, sans duplication. Un contrôle existant
+  jugé suffisant ne dispense pas de son renforcement.
+- Une consolidation sans correction de code déclare un motif explicite soumis
+  à revue humaine ; aucun nouveau contrôle n’est alors obligatoire.
+- Refuser les références ambiguës ou contradictoires, les changements de type
+  d’une demande dans la contribution et le mélange des deux types de boucle.
+  La [déclaration structurée](../../dev-book/README.md#types-de-demandes) conserve
+  les associations et les accompagnements motivés sans recopier les conventions.
+- Exécuter le [contrôle de contribution](../../codebase-integrity/README.md#conventions-techniques)
+  depuis la base d’intégration avant PR et avant l’applicatif en CI. Son échec
+  est bloquant. La revue humaine vérifie type, adéquation des conventions,
+  renforcement réel des contrôles et qualification des accompagnements.

@@ -11,6 +11,10 @@ Avant ouverture, les cartes attendues ont leurs verdicts et leurs commits, et
 les contrôles qualité portent sur l'ensemble à livrer. Le vérificateur des messages
 examine toute la plage : un commit invalide au milieu de la série bloque la PR.
 Les références sont confrontées aux documents présents dans l'arbre reconstitué.
+Le contrôle de contribution applique les [règles selon la boucle](README.md#vérification),
+avec les associations déclarées dans la demande. Sa réussite ne dispense pas
+de la revue de leur adéquation. Un statut obligatoire et une protection du workflow
+doivent être vérifiés sur GitHub avant d’annoncer une fusion techniquement bloquée.
 
 La relecture humaine porte aussi sur ce que les contrôles ne peuvent pas établir :
 la précision du titre, la pertinence du type et l'adéquation du résultat au besoin.
