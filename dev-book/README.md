@@ -17,6 +17,26 @@ Les guides et références durables du cadre sont dans [docs/architecture/](../d
 
 Chaque demande indique `- Type : développement` ou `- Type : consolidation`.
 
+Une consolidation à livrer porte un seul bloc clôturé `contribution-json`, objet
+JSON strict de version 1 : `version` (entier), `corrections` et `accompagnements`
+(listes), `sans_correction` (texte). Aucun champ ni clé dupliquée n’est accepté.
+Chaque correction contient `chemins` (liste non vide de chemins corrigés),
+`convention` (`chemin/README.md#ancre`, depuis la racine, dans les conventions
+techniques) et `controles` (liste non vide de fichiers ajoutés ou modifiés).
+Chaque accompagnement contient `chemins` et `motif` non vide.
+
+Tous les chemins modifiés par les commits sont déclarés exactement une fois,
+hors demande et cartes référencées, prises en compte automatiquement.
+Les chemins sont explicites, relatifs à la racine et sans joker ni traversée.
+Une suppression ou un déplacement déclare aussi l’ancien chemin.
+Les corrections et le motif `sans_correction` s’excluent ; sans correction,
+ce dernier commence par `sans correction de code : ` suivi de sa justification.
+Les accompagnements restent obligatoirement couverts dans ce cas.
+Les fichiers de contrôle doivent exister à la tête et leur contenu différer
+de l’ancêtre commun avec la base. Le contrôle de présence ne prouve pas leur
+adéquation : appliquer la [revue des contributions](../docs/git-workflow/README.md#vérification).
+Les anciennes demandes non livrées dans la plage examinée ne sont pas migrées.
+
 ### Conservation des ressources
 
 Les ressources regroupent les sources de l’auteur et les représentations du cadre.

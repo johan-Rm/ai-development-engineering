@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+"""Extraire et lancer uniquement le vérificateur de la base explicitement choisie."""
+import argparse
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+
+MODULES = ('check_contributions.py', 'check_commits.py', 'check_demands.py', 'check_docs.py')
+
+
+def run(repo, base, head):
+    def git(*args):
+        return subprocess.run(['git', '-C', str(repo), *args], check=True, capture_output=True).stdout
+    base = git('rev-parse', '--verify', '--end-of-options', base + '^{commit}').decode().strip()
+    with tempfile.TemporaryDirectory(prefix='contribution-policy-') as folder:
+        for name in MODULES:
+            source = 'codebase-integrity/scripts/' + name
+            metadata = git('ls-tree', base, '--', source).decode().split()
+            if not metadata or metadata[0] not in ('100644', '100755'):
+                raise ValueError(f'vérificateur de base absent ou non régulier : {source} ; amorçage requis')
+            (Path(folder) / name).write_bytes(git('cat-file', 'blob', metadata[2]))
+        # -I exclut PYTHONPATH et le dossier courant ; seul le dossier extrait est ajouté.
+        bootstrap = 'import runpy,sys; sys.path.insert(0,sys.argv[1]); sys.argv=sys.argv[2:]; runpy.run_path(sys.argv[0],run_name="__main__")'
+        return subprocess.run([sys.executable, '-I', '-B', '-c', bootstrap, folder,
+                               str(Path(folder) / MODULES[0]), '--repo', str(repo),
+                               '--base', base, '--head', head], cwd=folder, check=True)
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--repo', type=Path, default=Path(__file__).resolve().parents[2])
+    parser.add_argument('--base', required=True)
+    parser.add_argument('--head', default='HEAD')
+    args = parser.parse_args(argv)
+    try:
+        run(args.repo.resolve(), args.base, args.head)
+        return 0
+    except (OSError, ValueError, subprocess.CalledProcessError) as exc:
+        print(f'Contrôle de contribution impossible : {exc}', file=sys.stderr)
+        return 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

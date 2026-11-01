@@ -164,8 +164,10 @@ class QualityIntegrationTest(unittest.TestCase):
         calls = []
         self.run_quality(['--commit-base', 'base', '--commit-head', 'head', '--option-app'],
                          lambda args, **kwargs: calls.append(args))
-        self.assertEqual(Path(calls[0][1]).name, 'check_commits.py')
-        self.assertEqual(calls[0][2:], ['--base', 'base', '--head', 'head'])
+        self.assertEqual(Path(calls[0][1]).name, 'contribution.py')
+        self.assertEqual(calls[0][-4:], ['--base', 'base', '--head', 'head'])
+        self.assertEqual(Path(calls[1][1]).name, 'check_commits.py')
+        self.assertEqual(calls[1][2:], ['--base', 'base', '--head', 'head'])
         self.assertEqual(calls[-1][-3:], ['check', 'all', '--option-app'])
 
     def test_commit_failure_blocks_following_quality_steps(self):

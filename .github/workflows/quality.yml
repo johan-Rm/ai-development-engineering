@@ -6,13 +6,42 @@ on:
 permissions:
   contents: read
 jobs:
-  quality:
+  contribution:
+    name: Contribution de confiance
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.base.sha || github.event.before }}
+          path: policy
           fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: candidate
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Vérifier sans exécuter le candidat
+        env:
+          COMMIT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          COMMIT_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python3 -I -B policy/codebase-integrity/scripts/contribution.py --repo "$GITHUB_WORKSPACE/candidate" --base "$COMMIT_BASE" --head "$COMMIT_HEAD"
+  quality:
+    needs: contribution
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      # Le candidat n'est exécuté que dans ce runner distinct, sans secrets ni écriture.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

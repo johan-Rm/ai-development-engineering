@@ -10,6 +10,9 @@ Changement reconstitué et tâches validées.
 
 L’IA exécute les contrôles sur l’ensemble à livrer, corrige les échecs et vérifie que les tests et la documentation accompagnent le comportement final. Elle prépare une PR décrivant le besoin traité, les preuves et les limites.
 
+Avant PR, exécuter le [contrôle de contribution depuis la base vérifiée](../../../codebase-integrity/README.md#conventions-techniques)
+et appliquer les [règles selon la boucle](../../git-workflow/README.md#vérification).
+
 ## Sortie
 
 Une PR correspondant à la demande initiale. Sa validation exige la réussite des tests du Codebase Integrity et des autres contrôles bloquants. Un résultat inconnu n’est pas une réussite.

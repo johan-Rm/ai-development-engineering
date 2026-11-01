@@ -10,6 +10,11 @@ Tâches validées et branche produite par la reconstitution de l’étape 05.
 
 L’IA exécute les contrôles de livraison, finalise les références documentaires et prépare les PRs. Chaque nouveau contrôle dispose d’une commande stable, de préconditions et d’un résultat attendu.
 
+Avant PR, exécuter le [contrôle de contribution depuis la base vérifiée](../../../codebase-integrity/README.md#conventions-techniques)
+et examiner la [déclaration de consolidation](../../../dev-book/README.md#types-de-demandes).
+L’amorçage initial et les protections distantes restent des préconditions explicites,
+sans repli silencieux vers un vérificateur candidat.
+
 ## Sortie
 
 Des PRs de consolidation et des conventions techniques protégées par des vérifications reproductibles. Les contrôles bloquants doivent réussir avant la PR.
