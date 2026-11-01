@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-11-01
 - Session de création : `01a195af-a030-75c2-9958-a8e2307d9447`
-- État : OPS-079 validée et commitée localement ; à reconstituer.
+- État : reconstituée ; livraison bloquée avant PR par l’amorçage.
 - Domaine proposé : Fiabilité des vérifications.
 - Confirmation humaine du cadrage : « oui ».
 
@@ -216,3 +216,54 @@ sur la plage depuis la base d’OPS-079 : conformes (un commit).
 Ce dernier vérifie la déclaration sur les objets commités, sans constituer
 une exécution par le vérificateur de la base, encore absent ; amorçage non résolu.
 La présente consignation est une trace documentaire complémentaire.
+
+## Reconstitution — 2026-11-01
+
+Principal libre et propre sur develop avant création de `demands/DEM-028` ;
+base locale vérifiée `531f4db38c93f4fab61bc190ec4d26c46062e57b`.
+Cherry-picks `-x` sans conflit, dans l’ordre :
+
+| Source validée | Commit obtenu | Rôle |
+| --- | --- | --- |
+| `0cb25aaa55149b533be1bbc7919986834421f668` | `d0912d7c62913d750e51376904d7e4319d7ea746` | OPS-079 |
+| `feaa599ed3698809bbd31558adddbc3fb141dfdc` | `06d75f4b90b01c35d3d2b0a364ab40b61afe4b83` | Trace du commit validé |
+
+Arbre reconstitué identique à `layers/devops` avant la présente trace ; provenance
+des deux commits vérifiée. Contrôle des commits, vérificateur candidat de
+contribution, documentation, types des demandes et espaces : conformes.
+Les 102 tests déjà réussis portent sur le même contenu ; pas de nouvelle exécution.
+Le contrôle depuis la base reste indisponible jusqu’à résolution de l’amorçage ;
+la conformité du vérificateur candidat ne remplace pas cette précondition.
+
+Les couches conservent leurs branches ; aucun fetch, push, PR ou fusion effectué.
+La présente trace reste non commitée pour la livraison. Aucun résultat applicatif
+complet ou contrôle distant supplémentaire revendiqué à cette étape.
+
+## Contrôles de livraison — 2026-11-01
+
+Remote et authentification vérifiés ; fetch d’origin/develop sur
+`531f4db38c93f4fab61bc190ec4d26c46062e57b`, identique à la base locale.
+Branche reconstituée sur `06d75f4`, aucun autre commit à livrer avant les traces.
+Aucune PR existante pour `demands/DEM-028` ; Rebase and merge autorisé.
+
+- `python3 codebase-integrity/scripts/quality.py --commit-base develop --commit-head HEAD` :
+  échec, code 1. Le vérificateur de base est absent d’origin/develop, confirmé par
+  lecture Git ; l’amorçage ne peut pas être remplacé par l’exécution du candidat.
+- Contrôles indépendants : `python3 codebase-integrity/scripts/quality.py`, sortie 0,
+  hors bac à sable pour le serveur HTTP local. Types, documentation, 102 tests,
+  contrôles API, contrat OpenAPI, typage et builds applicatifs réussis.
+  Journal : `/tmp/dem028-quality-independent.log`. L’avertissement sans base est
+  attendu ; cette réussite ne vaut pas réussite du contrôle de contribution.
+- GitHub : pas de protection de branche classique, mais ruleset actif
+  `Protection develop` (25975725), imposant PR, résolution des discussions,
+  interdiction de suppression et de push non linéaire. Aucun statut obligatoire
+  ni protection dédiée du workflow dans les règles effectives consultées.
+  Aucune protection modifiée ; aucun contournement employé.
+- Inventaire : API, backoffice, web et devops propres ; design porte trois fichiers
+  non suivis dans `design/drafts/`, préservés sans intervention. Son alignement
+  reste bloqué tant que ce travail étranger n’est pas coordonné.
+
+La mise en service exige un arbitrage explicite d’amorçage et une protection
+distante adaptée. Aucun changement fonctionnel, push, PR ou fusion effectué.
+Le contrôle requis échoué interdit l’ouverture de PR à cette étape ; aucune
+livraison ni clôture annoncée. Les seules écritures sont les traces documentaires.
