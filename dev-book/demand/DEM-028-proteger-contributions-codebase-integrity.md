@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-11-01
 - Session de création : `01a195af-a030-75c2-9958-a8e2307d9447`
-- État : OPS-079 validée humainement ; commit local autorisé.
+- État : OPS-079 validée et commitée localement ; à reconstituer.
 - Domaine proposé : Fiabilité des vérifications.
 - Confirmation humaine du cadrage : « oui ».
 
@@ -140,7 +140,7 @@ Réponses humaines exactes à l’interview interactive :
 
 | Carte | Couche | Mission | Dépendance | État |
 | --- | --- | --- | --- | --- |
-| [OPS-079](../tasks/OPS-079-controler-contributions.md) | devops | Conventions, déclaration, vérificateur, tests et CI | Aucune dépendance amont | Validée humainement |
+| [OPS-079](../tasks/OPS-079-controler-contributions.md) | devops | Conventions, déclaration, vérificateur, tests et CI | Aucune dépendance amont | Validée et commitée localement |
 
 Une seule mission évite des dépendances artificielles entre documentation,
 outillage et CI de la même couche. Applications, design, environnements et skills
@@ -206,3 +206,13 @@ humain du résultat ; la validation du cadrage ne vaut pas validation de la réa
 OPS-079 validée explicitement le 2026-11-01 : « validé ».
 Preuves et identité du contenu conservées dans la carte. Reconstitution et livraison
 restent à effectuer ; aucune protection distante ni amorçage déclaré acquis.
+
+## Commit local validé
+
+OPS-079 : `0cb25aaa55149b533be1bbc7919986834421f668`.
+Contenu vérifié : 15 fichiers autorisés, preuves et verdict compris ; arbre propre
+après commit. Contrôle des commits et vérificateur candidat de contribution
+sur la plage depuis la base d’OPS-079 : conformes (un commit).
+Ce dernier vérifie la déclaration sur les objets commités, sans constituer
+une exécution par le vérificateur de la base, encore absent ; amorçage non résolu.
+La présente consignation est une trace documentaire complémentaire.
