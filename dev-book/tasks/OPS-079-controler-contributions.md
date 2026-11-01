@@ -3,7 +3,7 @@
 - Demande : [DEM-028](../demand/DEM-028-proteger-contributions-codebase-integrity.md).
 - Date : 2026-11-01
 - Session de création : `01a195af-a030-75c2-9958-a8e2307d9447`
-- État : validée humainement ; commit local autorisé.
+- État : validée humainement et commitée localement ; à reconstituer.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `531f4db38c93f4fab61bc190ec4d26c46062e57b`.
 - Dépendance amont : aucune ; ne transférer aucun travail non commité.
@@ -180,3 +180,5 @@ les 102 tests complets ont réussi après correction. Aucun changement fonctionn
 depuis présentation. Les limites de mise en service restent applicables.
 La validation autorise le commit local de cette carte, preuves et documentation
 comprises ; aucun push, PR ou fusion à cette étape.
+
+Commit validé et contrôle de la plage : voir la trace de commit dans DEM-028.
