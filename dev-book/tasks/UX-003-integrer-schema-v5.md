@@ -4,8 +4,7 @@
 - Création : 2026-11-01 ; reprise : 2026-11-02.
 - Session de création et de reprise : `01a191fd-85e2-7582-b808-fe2d2089afb6`.
 - État : validée et commitée localement ; à livrer.
-- Besoin et critères : `tmp/demande-schema-v5.md`, dans le dépôt principal.
-- Demande définitive future : `dev-book/demand/DEM-029-integrer-schema-v5.md`, à la reconstitution.
+- Besoin et critères : [DEM-029](../demand/DEM-029-integrer-schema-v5.md).
 - Couche : design ; worktree : `worktree/design` ; branche conservée : `layers/design`.
 - Base locale observée : `531f4db38c93f4fab61bc190ec4d26c46062e57b` ; aucun fetch ni alignement.
 
