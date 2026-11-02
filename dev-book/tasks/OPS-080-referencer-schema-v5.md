@@ -3,7 +3,7 @@
 - Demande : DEM-029 ; type : développement.
 - Création : 2026-11-01 ; reprise : 2026-11-02.
 - Session de création et de reprise : `01a191fd-85e2-7582-b808-fe2d2089afb6`.
-- État : validée par l’humain ; commit local à créer.
+- État : validée et commitée localement ; à livrer.
 - Besoin et critères : `tmp/demande-schema-v5.md`, dans le dépôt principal.
 - Demande définitive future : `dev-book/demand/DEM-029-integrer-schema-v5.md`, à la reconstitution.
 - Couche : devops ; worktree : `worktree/devops` ; branche conservée : `layers/devops`.
@@ -47,3 +47,5 @@ Empreinte SHA-256 des trois documents concaténés en ordre lexicographique :
 `ca0884b1003dd3b0ac4febdfb0dc4bad5436a7a8eb44d3c2bfd4e94e8563fb95`.
 Limites : contrôle documentaire et relecture du diff ; pas de nouvel audit visuel,
 les HTML sont ceux du commit UX-003 validé.
+
+Commit validé OPS-080 : `5791aaea3d22cbed97741cd4f9187f26859f5d91`.
