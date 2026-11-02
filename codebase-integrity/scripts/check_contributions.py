@@ -144,7 +144,7 @@ def consolidation(repo, initial, final, text, touched, traces):
             f'couverture incorrecte ; absents={sorted(expected-covered)!r}, superflus={sorted(covered-expected)!r}')
 
 
-def check(repo, base, head):
+def check(repo, base, head, expected_demand=None):
     require(commits.git(repo, 'rev-parse', '--is-shallow-repository').strip() == 'false',
             'historique superficiel interdit')
     base, head = commits.resolve(repo, base), commits.resolve(repo, head)
@@ -157,10 +157,14 @@ def check(repo, base, head):
     demand_paths, touched, traces, types = {}, {}, {}, set()
     for sha in commits.git(repo, 'rev-list', '--reverse', f'{base}..{head}').splitlines():
         scope, identifier = commits.message_fields(commits.git(repo, 'show', '-s', '--format=%B', sha))
+        require(expected_demand is None or identifier == expected_demand,
+                'amorçage réservé à la seule demande DEM-028')
         demand_paths[identifier] = next(p for p in final
             if re.fullmatch(rf'dev-book/demand/{identifier}-[^/]+\.md', p))
         name = demand_paths[identifier]
         kind = demand_type(content(repo, final, name))
+        require(expected_demand is None or kind == 'consolidation',
+                'amorçage réservé à une consolidation')
         types.add(kind)
         # Vérifie aussi une ancienne version, même si le fichier a été renommé.
         for tree in (base_tree, objects(repo, sha)):
@@ -191,9 +195,10 @@ def main(argv=None):
     parser.add_argument('--repo', required=True, type=Path)
     parser.add_argument('--base', required=True)
     parser.add_argument('--head', default='HEAD')
+    parser.add_argument('--demand', choices=['DEM-028'], help='restriction pour l’amorçage initial')
     args = parser.parse_args(argv)
     try:
-        count = check(args.repo.resolve(), args.base, args.head)
+        count = check(args.repo.resolve(), args.base, args.head, args.demand)
         print(f'Contribution conforme : {count} commits ; adéquation soumise à revue humaine.')
         return 0
     except (OSError, ValueError, UnicodeError) as exc:

@@ -15,43 +15,33 @@ Les guides et références durables du cadre sont dans [docs/architecture/](../d
 
 ### Types de demandes
 
-Chaque demande indique `- Type : développement` ou `- Type : consolidation`.
-
-Une consolidation à livrer porte un seul bloc clôturé `contribution-json`, objet
-JSON strict de version 1 : `version` (entier), `corrections` et `accompagnements`
-(listes), `sans_correction` (texte). Aucun champ ni clé dupliquée n’est accepté.
-Chaque correction contient `chemins` (liste non vide de chemins corrigés),
-`convention` (`chemin/README.md#ancre`, depuis la racine, dans les conventions
-techniques) et `controles` (liste non vide de fichiers ajoutés ou modifiés).
-Chaque accompagnement contient `chemins` et `motif` non vide.
-
-Tous les chemins modifiés par les commits sont déclarés exactement une fois,
-hors demande et cartes référencées, prises en compte automatiquement.
-Les chemins sont explicites, relatifs à la racine et sans joker ni traversée.
-Une suppression ou un déplacement déclare aussi l’ancien chemin.
-Les corrections et le motif `sans_correction` s’excluent ; sans correction,
-ce dernier commence par `sans correction de code : ` suivi de sa justification.
-Les accompagnements restent obligatoirement couverts dans ce cas.
-Les fichiers de contrôle doivent exister à la tête et leur contenu différer
-de l’ancêtre commun avec la base. Le contrôle de présence ne prouve pas leur
-adéquation : appliquer la [revue des contributions](../docs/git-workflow/README.md#vérification).
-Les anciennes demandes non livrées dans la plage examinée ne sont pas migrées.
+- Déclarer un seul type : `développement` ou `consolidation`.
+- Placer le champ `- Type : ...` dans les métadonnées de la demande.
+- Fournir une déclaration `contribution-json` unique pour chaque consolidation à livrer.
+- Limiter la déclaration aux champs `version`, `corrections`, `accompagnements` et `sans_correction`.
+- Fixer `version` à l’entier `1` et refuser les clés dupliquées.
+- Décrire chaque correction par `chemins`, `convention` et `controles`.
+- Référencer chaque convention par une ancre de son README source.
+- Décrire chaque accompagnement par `chemins` et un `motif` non vide.
+- Déclarer chaque chemin modifié exactement une fois, hors demande et cartes référencées.
+- Utiliser des chemins explicites relatifs à la racine, sans traversée ni joker.
+- Déclarer les deux chemins d’un déplacement et les chemins supprimés.
+- Exiger des listes de chemins et de contrôles non vides pour chaque correction.
+- Exiger des contrôles présents à la tête et différents de l’ancêtre commun.
+- Exclure mutuellement les corrections et le motif `sans_correction`.
+- Préfixer ce motif par `sans correction de code : ` et ajouter une justification.
+- Ne pas imposer la déclaration aux demandes hors de la plage à livrer.
 
 ### Conservation des ressources
-
-Les ressources regroupent les sources de l’auteur et les représentations du cadre.
 
 - Conserver sans modification les originaux : [carrousel](resources/AIOD-carrousel-v1.html),
   [PDF](resources/AIOD.pdf), [schéma d’approche](resources/aiod-approche_1.png) et
   pictogrammes [SVG](../design/Picto-fond-noir-1000x1000.svg) et
   [JPG](resources/Picto-fond-noir-1000x1000.jpg).
-- Le carrousel a servi à rédiger les principes ; le PDF et le schéma restent à
-  relire ensemble. Consulter la documentation pour le fonctionnement actuel.
-- La [vue interactive](../design/drafts/vue-d-ensemble-ai-development-engineering-v2.html)
-  présente le cadre actuel ; la [vue synthétique](../design/drafts/vue-d-ensemble-ai-development-engineering-v1.html)
-  conserve le nom historique AIOD.
+- Relire ensemble le PDF et le schéma d’approche.
+- Préserver la [vue interactive](../design/drafts/vue-d-ensemble-ai-development-engineering-v2.html)
+  et le nom historique AIOD dans la [vue synthétique](../design/drafts/vue-d-ensemble-ai-development-engineering-v1.html).
 - Dans la vue interactive, conserver les chemins personnels des douze skills
   comme texte pour permettre la consultation du dossier seul. Vérifier leur
   disponibilité avant livraison.
 - Les couleurs identifient les acteurs selon l’[adaptation graphique](../design/charte-graphique.md).
-  Un skill de vérification ne remplace pas le verdict humain.

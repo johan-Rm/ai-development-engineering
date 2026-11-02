@@ -24,3 +24,38 @@ technique ne vaut pas verdict humain, et un contrôle inconnu ne vaut pas réuss
 La préparation de la PR, son intégration et le suivi sont distincts. Une instruction
 limitée à la PR n'autorise pas sa fusion. Les conditions et commandes d'exécution
 sont conservées dans les procédures de livraison et de Codebase Integrity.
+
+## Exécuter les contrôles
+
+Depuis la racine de la copie contenant les commits candidats :
+
+```sh
+python3 codebase-integrity/scripts/contribution.py --repo . --base develop --head HEAD
+python3 codebase-integrity/scripts/quality.py --commit-base develop --commit-head HEAD
+```
+
+Remplacer `develop` par le SHA d’intégration vérifié. Git, Python et un historique
+complet sont nécessaires au contrôle de contribution ; les applications ont leurs
+propres prérequis. Les fichiers non commités ne sont pas examinés par ce contrôle.
+Sans base explicite, `quality.py` exécute les contrôles locaux mais ne prouve pas
+la conformité de la contribution.
+
+Le lanceur lit les objets Git et charge le vérificateur depuis la base. La CI
+sépare cette vérification de l’exécution applicative ; les tests de la version
+candidate restent exécutés séparément. La revue humaine apprécie le type déclaré,
+la pertinence des conventions, le renforcement réel des tests et la qualification
+des fichiers d’accompagnement. Le format de déclaration est défini dans les
+[conventions du dev-book](../../dev-book/README.md#types-de-demandes).
+
+Pour le premier amorçage, fournir le commit explicitement approuvé via
+`--bootstrap-policy-sha <SHA>`. En CI, renseigner après validation humaine la variable
+de dépôt utilisée par le [workflow de qualité](../../.github/workflows/quality.yml). Le lanceur
+limite ce mode à sa demande et à sa base initiales configurées ; il compare le
+contenu complet du candidat à celui du commit approuvé. Rebase and merge peut
+réécrire les SHA sans changer ce contenu. Toute édition après approbation,
+même documentaire, nécessite une nouvelle approbation.
+
+Après intégration vérifiée, supprimer la variable d’amorçage. Le lanceur utilise
+alors exclusivement le vérificateur présent dans la base. L’identité de contenu
+ne garantit pas à elle seule la protection du workflow : statut obligatoire et
+protections distantes restent à vérifier avant d’annoncer le blocage d’une fusion.

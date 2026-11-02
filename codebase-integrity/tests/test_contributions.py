@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 SCRIPTS = Path(__file__).resolve().parents[1] / 'scripts'
 sys.path.insert(0, str(SCRIPTS))
@@ -313,6 +314,87 @@ class Contributions(unittest.TestCase):
     def test_main_reports_failure(self):
         with contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(contributions.main(['--repo', str(self.root), '--base', self.base]), 1)
+
+    def bootstrap_fixture(self):
+        checker = 'codebase-integrity/scripts/check_contributions.py'
+        (self.root / checker).unlink()
+        (self.root / self.demand).unlink()
+        (self.root / self.card).unlink()
+        base = self.commit('historique sans vérificateur')
+        self.corrective()
+        self.write(checker, (SCRIPTS / 'check_contributions.py').read_text())
+        self.manifest['corrections'][0]['chemins'].append(checker)
+        self.metadata()
+        return base, self.commit()
+
+    def test_bootstrap_approved_content_runs_all_contribution_checks(self):
+        base, approved = self.bootstrap_fixture()
+        with patch.object(trusted, 'BOOTSTRAP_BASE', base):
+            self.assertEqual(trusted.run(self.root, base, approved, approved).returncode, 0)
+
+    def test_bootstrap_missing_or_symbolic_approval_is_refused(self):
+        base, approved = self.bootstrap_fixture()
+        with patch.object(trusted, 'BOOTSTRAP_BASE', base):
+            for approval in (None, 'HEAD', approved[:7], '0' * 40):
+                with self.subTest(approval=approval), self.assertRaises(
+                        (ValueError, subprocess.CalledProcessError)):
+                    trusted.run(self.root, base, approved, approval)
+
+    def test_bootstrap_rejects_content_changed_after_approval(self):
+        base, approved = self.bootstrap_fixture()
+        self.write('codebase-integrity/scripts/check_contributions.py', 'raise SystemExit(0)')
+        head = self.commit()
+        with patch.object(trusted, 'BOOTSTRAP_BASE', base), self.assertRaisesRegex(ValueError, 'différent'):
+            trusted.run(self.root, base, head, approved)
+
+    def test_bootstrap_accepts_rewritten_commit_with_identical_tree(self):
+        base, approved = self.bootstrap_fixture()
+        rewritten = self.commit()
+        self.assertNotEqual(rewritten, approved)
+        with patch.object(trusted, 'BOOTSTRAP_BASE', base):
+            self.assertEqual(trusted.run(self.root, base, rewritten, approved).returncode, 0)
+
+    def test_bootstrap_refuses_another_initial_base(self):
+        base, approved = self.bootstrap_fixture()
+        with patch.object(trusted, 'BOOTSTRAP_BASE', '0' * 40), self.assertRaisesRegex(ValueError, 'base initiale'):
+            trusted.run(self.root, base, approved, approved)
+
+    def test_bootstrap_does_not_replace_normal_base_policy(self):
+        self.write('code.py', 'candidate')
+        head = self.commit()
+        self.assertEqual(trusted.run(self.root, self.base, head, 'HEAD').returncode, 0)
+
+    def test_bootstrap_invalid_declaration_still_fails(self):
+        base, _ = self.bootstrap_fixture()
+        self.manifest['corrections'][0]['controles'] = ['absent.py']
+        self.metadata()
+        approved = self.commit()
+        with patch.object(trusted, 'BOOTSTRAP_BASE', base), self.assertRaises(subprocess.CalledProcessError):
+            trusted.run(self.root, base, approved, approved)
+
+    def test_bootstrap_rejects_another_otherwise_valid_demand(self):
+        base, _ = self.bootstrap_fixture()
+        self.git('checkout', '-q', '--detach', base)
+        self.demand = 'dev-book/demand/DEM-029-fixture.md'
+        self.corrective()
+        checker = 'codebase-integrity/scripts/check_contributions.py'
+        self.write(checker, (SCRIPTS / 'check_contributions.py').read_text())
+        self.manifest['corrections'][0]['chemins'].append(checker)
+        self.metadata()
+        self.write(self.card, '# Carte\n\n- Demande : DEM-029\n\n## Mission\n')
+        approved = self.commit('feat(OPS-079): modifier le contrat\n\nDemande : DEM-029')
+        self.assertEqual(contributions.check(self.root, base, approved), 1)
+        with patch.object(trusted, 'BOOTSTRAP_BASE', base), self.assertRaises(subprocess.CalledProcessError):
+            trusted.run(self.root, base, approved, approved)
+
+    def test_bootstrap_environment_is_explicit_and_cli_can_override_it(self):
+        base, approved = self.bootstrap_fixture()
+        with patch.object(trusted, 'BOOTSTRAP_BASE', base), patch.dict(
+                'os.environ', {'DEM028_BOOTSTRAP_POLICY_SHA': approved}):
+            self.assertEqual(trusted.main(['--repo', str(self.root), '--base', base, '--head', approved]), 0)
+            with contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(trusted.main(['--repo', str(self.root), '--base', base,
+                                              '--head', approved, '--bootstrap-policy-sha', 'HEAD']), 1)
 
 
 if __name__ == '__main__':
