@@ -39,8 +39,9 @@ Les guides et références durables du cadre sont dans [docs/architecture/](../d
   pictogrammes [SVG](../design/Picto-fond-noir-1000x1000.svg) et
   [JPG](resources/Picto-fond-noir-1000x1000.jpg).
 - Relire ensemble le PDF et le schéma d’approche.
-- Préserver la [vue interactive](../design/drafts/vue-d-ensemble-ai-development-engineering-v2.html)
-  et le nom historique AIOD dans la [vue synthétique](../design/drafts/vue-d-ensemble-ai-development-engineering-v1.html).
+- La [vue interactive](../design/drafts/vue-d-ensemble-ai-development-engineering-v5.html) est la référence ; préserver
+  la [v2](../design/drafts/vue-d-ensemble-ai-development-engineering-v2.html) et le nom historique AIOD
+  dans la [vue synthétique](../design/drafts/vue-d-ensemble-ai-development-engineering-v1.html).
 - Dans la vue interactive, conserver les chemins personnels des douze skills
   comme texte pour permettre la consultation du dossier seul. Vérifier leur
   disponibilité avant livraison.

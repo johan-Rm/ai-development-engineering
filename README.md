@@ -76,7 +76,7 @@ Après vérification / arbitrage, la reconstitution réunit les commits validés
 la livraison contrôle puis intègre la PR et les conventions techniques qui
 renforcent les cycles suivants.
 
-[Consulter le schéma interactif](design/drafts/vue-d-ensemble-ai-development-engineering-v2.html)
+[Consulter le schéma interactif](design/drafts/vue-d-ensemble-ai-development-engineering-v5.html)
 
 ## Se repérer
 
