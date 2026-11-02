@@ -3,7 +3,7 @@
 - Demande : [DEM-028](../demand/DEM-028-proteger-contributions-codebase-integrity.md).
 - Date : 2026-11-01
 - Session de création : `01a195af-a030-75c2-9958-a8e2307d9447`
-- État : correction d’amorçage et documentation validées ; commit local autorisé.
+- État : correction d’amorçage et documentation validées et commitées localement.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `531f4db38c93f4fab61bc190ec4d26c46062e57b`.
 - Dépendance amont : aucune ; ne transférer aucun travail non commité.
@@ -245,3 +245,5 @@ documentaires. Documentation, types et espaces revérifiés conformes.
 Aucun changement fonctionnel depuis présentation. OPS-080 reste hors commit.
 Validation du résultat et autorisation de commit local uniquement : aucun SHA
 d’amorçage activé sur GitHub, aucune nouvelle reconstitution ni livraison ici.
+
+Commit de correction : SHA et contrôles consignés dans la demande.

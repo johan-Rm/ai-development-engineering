@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-11-01
 - Session de création : `01a195af-a030-75c2-9958-a8e2307d9447`
-- État : correction d’amorçage et documentation d’OPS-079 validées ; commit local autorisé.
+- État : correction d’OPS-079 validée et commitée ; à réunir sur la branche de demande.
 - Domaine proposé : Fiabilité des vérifications.
 - Confirmation humaine du cadrage : « oui ».
 
@@ -140,7 +140,7 @@ Réponses humaines exactes à l’interview interactive :
 
 | Carte | Couche | Mission | Dépendance | État |
 | --- | --- | --- | --- | --- |
-| [OPS-079](../tasks/OPS-079-controler-contributions.md) | devops | Conventions, déclaration, vérificateur, tests et CI | Aucune dépendance amont | Correction validée ; commit local autorisé |
+| [OPS-079](../tasks/OPS-079-controler-contributions.md) | devops | Conventions, déclaration, vérificateur, tests et CI | Aucune dépendance amont | Correction validée et commitée |
 
 Une seule mission évite des dépendances artificielles entre documentation,
 outillage et CI de la même couche. Applications, design, environnements et skills
@@ -310,3 +310,9 @@ Périmètre, identité et preuves dans la carte. Le contrôle par commit, la dé
 structurée et le mécanisme d’amorçage présentés sont conservés.
 La correction doit encore être commitée puis réunie sur la branche reconstituée.
 L’approbation du contenu final d’amorçage et son activation distante restent à faire.
+
+Commit de correction : `5fefd0a2001f5cd5082900e47ad6465d9bba2b51`.
+Onze fichiers validés, preuves et verdict compris. Contrôles des commits et du
+vérificateur candidat sur les trois commits source depuis la base initiale :
+conformes. Seule OPS-080 demeure non suivie ; préservée hors commit.
+La présente modification se limite à la trace du commit et à l’état de suivi.
