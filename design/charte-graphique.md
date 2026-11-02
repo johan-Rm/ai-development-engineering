@@ -55,12 +55,13 @@ Ces décisions viennent de l’utilisateur et priment sur la palette standard po
 
 - Le cadre est défini par l’humain : **actions humaines en olive `#6B7A4A` et cadre extérieur en olive pâle `#DDE2CF`**. Le texte du cadre pâle est noir pour rester lisible.
 - Les quatre thèmes du cadre sont des badges olive principal `#6B7A4A` avec texte blanc cassé.
-- Codebase Integrity utilise un fond terre cuite `#C07040` à 100 % d’opacité, avec titre et sous-texte blanc cassé `#FAFAF6` (DEM-003). Cette adaptation conserve son rôle de contrôles sans IA ; les éléments IA restent bleus.
-- L’IA est identifiée par le **bleu `#1B6EAE`**. Cette couleur est une extension demandée,
-  pas une couleur prétendument présente dans la charte.
-- Pour les actions du schéma : aplats à 100 % d’opacité, olive pour l’humain et bleu pour l’IA,
-  sans bordure. Texte blanc cassé sur l’olive et sur le bleu.
-  Aucun trait, barre, pastille ou ornement ajouté uniquement pour signaler un rôle.
+- Les premières versions emploient la terre cuite `#C07040` pour Codebase Integrity et le bleu `#1B6EAE` pour l’IA ; elles restent des références historiques.
+- Pour la v5 de référence (DEM-029), l’IA utilise le bleu acier `#327DA5` ; Codebase Integrity, les sorties et les actions humaines utilisent l’olive `#6B7A4A`. Le texte des blocs reste blanc cassé `#FAFAF6`.
+- La finition Material expressif de la v5 autorise surfaces satinées, ombres, angles asymétriques et motifs discrets dans le cadre, le socle et les étapes. Ces exceptions ne modifient pas la charte officielle.
+- Le logo conserve ses proportions : fleur olive, goutte `#F5F6EB` opaque. Les fontes Rationale et Inter restent intégrées.
+- Les quatre badges entourent le cadre : Couches en haut, Documentation à gauche, IA Engineering à droite, Consolidation en bas. Les badges haut et bas mesurent 34px de hauteur ; les bandes du cadre restent symétriques.
+- Le socle central occupe la hauteur disponible ; les sorties olive des deux boucles le rejoignent par la couleur. Son filigrane CI/CD rappelle la finalité des contrôles, sans supprimer les vérifications avant PR.
+- Les v3, v4, v6, v7 et v8 sont conservées comme essais ; leurs différences visuelles ne remplacent pas les décisions de la v5.
 - Chaque étape est attribuée à un seul acteur. Séparer les actions humaines et celles de l’IA ;
   ne pas créer de rôle ou de couleur « Humain + IA ».
 - Les flèches qui décrivent les relations restent utiles au schéma ; elles ne sont pas des marqueurs de rôle.
