@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-11-01
 - Session de création : `01a195af-a030-75c2-9958-a8e2307d9447`
-- État : correction d’OPS-079 validée et commitée ; à réunir sur la branche de demande.
+- État : correction validée reconstituée ; livraison en cours.
 - Domaine proposé : Fiabilité des vérifications.
 - Confirmation humaine du cadrage : « oui ».
 
@@ -316,3 +316,49 @@ Onze fichiers validés, preuves et verdict compris. Contrôles des commits et du
 vérificateur candidat sur les trois commits source depuis la base initiale :
 conformes. Seule OPS-080 demeure non suivie ; préservée hors commit.
 La présente modification se limite à la trace du commit et à l’état de suivi.
+
+## Reprise de reconstitution — 2026-11-02
+
+Principal propre sur la même branche `demands/DEM-028`, HEAD initial `692d188`.
+Provenance des deux premiers cherry-picks vérifiée ; aucun commit déjà présent
+rejoué. Les seules corrections source validées ont été ajoutées :
+
+| Source validée | Commit obtenu | Rôle |
+| --- | --- | --- |
+| `5fefd0a2001f5cd5082900e47ad6465d9bba2b51` | `3b986f7607a2953d5bdbad964fbf1b38c56e921f` | Correction d’OPS-079 |
+| `e1ad28338cdc77c3ba00759c462afd7f6d7bef2e` | `1950accabe00db6d95a10de9d07a6718fa031998` | Trace de la correction validée |
+
+Conflit limité au document de la demande : traces de livraison antérieures et
+retours validés conservés ensemble. Une erreur de résolution documentaire a été
+corrigée dans le premier cherry-pick local non publié avant application du second.
+Aucun commit source réécrit ; aucun changement de comportement. Absence de
+marqueurs de conflit vérifiée sur les cinq commits finalement présents.
+
+Comparaison avec `layers/devops` : seul le document de demande diffère par les
+traces propres au principal. Code, tests, README, guides et workflow identiques
+au résultat validé. Les 111 tests réussis portent donc sur le même code.
+Contrôles des commits, vérificateur candidat, documentation, types et espaces :
+conformes. Aucune approbation d’amorçage activée ni exécution CI distante effectuée.
+
+Cette trace reste non commitée pour la livraison. Les couches restent sur leurs
+branches ; OPS-080 préservée dans devops. Aucun push, PR ou fusion.
+
+## Reprise de livraison — 2026-11-02
+
+Validation de la correction acquise (« ok go c’est validé »), puis invocation
+explicite de la livraison complète. Cible distante revérifiée par fetch : base
+initiale inchangée. Aucun changement fonctionnel depuis validation.
+Le commit qui clôt cette trace documentaire fournit le contenu final de référence
+pour l’approbation d’amorçage ; aucune autre édition n’est prévue avant intégration.
+Le mécanisme approuvé reste actif : tous les contrôles doivent réussir, sans dispense.
+
+Le statut CI n’est pas obligatoire dans les règles GitHub effectives : les résultats
+seront vérifiés explicitement avant intégration. Aucune protection ne sera modifiée ;
+ne pas présenter cette livraison comme une garantie de blocage des futures PR.
+
+Principal réservé à cette livraison. API, web et backoffice propres ; devops
+porte OPS-080 non suivie, design porte UX-003 et des brouillons graphiques non suivis.
+Ces deux couches sont préservées ; leur alignement nécessite une coordination
+ultérieure et empêche la clôture globale du suivi. Le suivi distant de la livraison
+et les SHA réellement intégrés seront conservés dans le corps de la PR existante,
+sans nouvelle écriture directe sur develop.
