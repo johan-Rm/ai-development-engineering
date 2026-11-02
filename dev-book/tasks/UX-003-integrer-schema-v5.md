@@ -3,7 +3,7 @@
 - Demande : DEM-029 ; type : développement.
 - Création : 2026-11-01 ; reprise : 2026-11-02.
 - Session de création et de reprise : `01a191fd-85e2-7582-b808-fe2d2089afb6`.
-- État : validée par l’humain ; commit local à créer.
+- État : validée et commitée localement ; à livrer.
 - Besoin et critères : `tmp/demande-schema-v5.md`, dans le dépôt principal.
 - Demande définitive future : `dev-book/demand/DEM-029-integrer-schema-v5.md`, à la reconstitution.
 - Couche : design ; worktree : `worktree/design` ; branche conservée : `layers/design`.
@@ -72,3 +72,5 @@ Limites : revue Chromium desktop, sans audit exhaustif WCAG ni validation graphi
 Verdict humain du 2026-11-02 : « validé », après présentation d’UX-003 seule.
 Empreinte du lot revérifiée avant commit ; aucune modification fonctionnelle depuis la présentation.
 La validation couvre UX-003 ; OPS-080 reste à implémenter après consommation du commit.
+
+Commit validé UX-003 : `ca13ecb669469facedb6d7fed761439c9c1dd83d`.
