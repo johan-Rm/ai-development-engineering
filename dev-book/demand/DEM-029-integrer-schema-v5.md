@@ -4,7 +4,7 @@
 - Création : 2026-11-01 ; cadrage actualisé le 2026-11-02.
 - Session de création et de reprise : `01a191fd-85e2-7582-b808-fe2d2089afb6`.
 - Confirmation humaine : cadrage actualisé confirmé le 2026-11-02 par « parfait / validé ».
-- État : reconstituée sur `demands/DEM-029` ; livraison en cours.
+- État : cartes validées ; livraison par la PR référencée ci-dessous, suivi post-fusion dans le brouillon local.
 
 ## Besoin
 
@@ -59,8 +59,8 @@ Contrôles de reconstitution du 2026-11-02 : quatre patch-id identiques aux sour
 empreintes des deux cartes conformes, contrôle documentaire et `git diff --check` réussis.
 AGENTS.md, v1/v2 et charte officielle inchangés par rapport à develop.
 Les preuves navigateur d’UX-003 restent applicables aux HTML identiques ; aucun nouvel audit visuel.
-Les contrôles qualité et de contribution de toute la plage restent à exécuter avant livraison.
-La demande définitive et les liens des cartes restent non commités pour la trace de livraison.
+La demande définitive et les liens des cartes ont été intégrés au commit documentaire
+`f17f2d06a56089e7143413f754ccc75ea71c25b2`.
 
 ## Livraison
 
@@ -68,4 +68,15 @@ Cible distante vérifiée le 2026-11-02 : `origin/develop` sur
 `d365b712c92e60fad5e4f0965c376c5018719eb4`, identique à la base locale.
 Rebase and merge autorisé par GitHub ; aucune PR DEM-029 existante.
 L’API de protection classique retourne « Branch not protected » ; aucune protection modifiée.
-Contrôles complets de la plage et de l’application à exécuter avant ouverture.
+Ruleset actif : PR requise, discussions résolues, suppression et réécriture de develop protégées ; aucune revue obligatoire. Aucune règle modifiée.
+
+PR : [#26](https://github.com/johan-Rm/ai-development-engineering/pull/26), vers develop.
+HEAD vérifié avant ouverture : `f17f2d06a56089e7143413f754ccc75ea71c25b2`.
+`python3 codebase-integrity/scripts/quality.py --commit-base d365b712c92e60fad5e4f0965c376c5018719eb4 --commit-head HEAD` : réussi (contribution et cinq commits, demandes, liens, 111 tests d’outillage, contrôles API, typechecks et builds web/backoffice).
+Le test HTTP local exige une exécution hors bac à sable ; la relance complète a réussi sans modifier les contrôles.
+Preuve temporaire : `/tmp/dem029-quality.log`. Les preuves UX-003 couvrent les mêmes HTML.
+
+La présente trace ne change que ce document ; contrôler à nouveau contribution, commits et liens avant push.
+Attendre la CI du HEAD final et vérifier la PR exacte avant Rebase and merge.
+Correspondances réécrites et égalité des SHA des couches à consigner dans le brouillon
+après preuve d’intégration distante ; ne pas modifier directement develop.
