@@ -18,3 +18,9 @@ confond pas avec réorganiser son code.
 
 La liste des types, la syntaxe exacte et les exceptions sont définies dans les
 [conventions techniques de cette thématique](README.md#conventions-techniques).
+
+Les types expriment : fonctionnalité (`feat`), correction (`fix`), documentation
+(`docs`), réorganisation sans changement de comportement (`refactor`), tests
+(`test`), performance (`perf`), construction ou dépendances (`build`), intégration
+continue (`ci`), formatage sans changement de comportement (`style`) et autre
+maintenance (`chore`).

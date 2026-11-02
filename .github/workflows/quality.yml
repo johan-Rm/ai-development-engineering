@@ -26,11 +26,38 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Choisir la source de confiance
+        id: policy
+        env:
+          COMMIT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          APPROVED_POLICY_SHA: ${{ vars.DEM028_BOOTSTRAP_POLICY_SHA }}
+        run: |
+          if git -C policy cat-file -e "$COMMIT_BASE:codebase-integrity/scripts/check_contributions.py"; then
+            echo 'bootstrap=false' >> "$GITHUB_OUTPUT"
+          else
+            if [[ ! "$APPROVED_POLICY_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+              echo 'Amorçage bloqué : commit approuvé explicitement requis.' >&2
+              exit 1
+            fi
+            echo 'bootstrap=true' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.policy.outputs.bootstrap == 'true'
+        with:
+          ref: ${{ vars.DEM028_BOOTSTRAP_POLICY_SHA }}
+          path: approved-policy
+          fetch-depth: 0
+          persist-credentials: false
       - name: Vérifier sans exécuter le candidat
         env:
           COMMIT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
           COMMIT_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: python3 -I -B policy/codebase-integrity/scripts/contribution.py --repo "$GITHUB_WORKSPACE/candidate" --base "$COMMIT_BASE" --head "$COMMIT_HEAD"
+          BOOTSTRAP: ${{ steps.policy.outputs.bootstrap }}
+          DEM028_BOOTSTRAP_POLICY_SHA: ${{ vars.DEM028_BOOTSTRAP_POLICY_SHA }}
+        run: |
+          policy_dir=policy
+          if [ "$BOOTSTRAP" = true ]; then policy_dir=approved-policy; fi
+          python3 -I -B "$policy_dir/codebase-integrity/scripts/contribution.py" --repo "$GITHUB_WORKSPACE/candidate" --base "$COMMIT_BASE" --head "$COMMIT_HEAD"
   quality:
     needs: contribution
     runs-on: ubuntu-latest
@@ -59,6 +86,7 @@ jobs:
         env:
           COMMIT_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
           COMMIT_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+          DEM028_BOOTSTRAP_POLICY_SHA: ${{ vars.DEM028_BOOTSTRAP_POLICY_SHA }}
         run: python3 codebase-integrity/scripts/quality.py --commit-base "$COMMIT_BASE" --commit-head "$COMMIT_HEAD"
       - name: Installer Chromium
         working-directory: app/web/targets/app

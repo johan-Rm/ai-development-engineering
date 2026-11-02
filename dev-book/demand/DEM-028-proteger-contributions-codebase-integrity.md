@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-11-01
 - Session de création : `01a195af-a030-75c2-9958-a8e2307d9447`
-- État : reconstituée ; livraison bloquée avant PR par l’amorçage.
+- État : correction d’amorçage et documentation d’OPS-079 validées ; commit local autorisé.
 - Domaine proposé : Fiabilité des vérifications.
 - Confirmation humaine du cadrage : « oui ».
 
@@ -140,7 +140,7 @@ Réponses humaines exactes à l’interview interactive :
 
 | Carte | Couche | Mission | Dépendance | État |
 | --- | --- | --- | --- | --- |
-| [OPS-079](../tasks/OPS-079-controler-contributions.md) | devops | Conventions, déclaration, vérificateur, tests et CI | Aucune dépendance amont | Validée et commitée localement |
+| [OPS-079](../tasks/OPS-079-controler-contributions.md) | devops | Conventions, déclaration, vérificateur, tests et CI | Aucune dépendance amont | Correction validée ; commit local autorisé |
 
 Une seule mission évite des dépendances artificielles entre documentation,
 outillage et CI de la même couche. Applications, design, environnements et skills
@@ -185,6 +185,7 @@ protection n’est autorisé ; une autorisation manquante restera à obtenir à 
         "codebase-integrity/tests/README.md",
         "dev-book/README.md",
         "docs/git-workflow/README.md",
+        "docs/git-workflow/convention-de-commits.md",
         "docs/git-workflow/regles-de-pr.md",
         "docs/architecture/03-developpement-loop/06-livraison.md",
         "docs/architecture/04-consolidation-loop/06-livraison.md"
@@ -267,3 +268,45 @@ La mise en service exige un arbitrage explicite d’amorçage et une protection
 distante adaptée. Aucun changement fonctionnel, push, PR ou fusion effectué.
 Le contrôle requis échoué interdit l’ouverture de PR à cette étape ; aucune
 livraison ni clôture annoncée. Les seules écritures sont les traces documentaires.
+
+## Évolution du mécanisme d’amorçage — 2026-11-01
+
+Après blocage de la livraison reconstituée sur `demands/DEM-028`, l’humain refuse
+une dispense ponctuelle de contrôle et choisit de revoir le mécanisme.
+La proposition d’une première installation limitée au contenu d’un commit
+explicitement approuvé est expliquée, puis sa préparation est autorisée : « go ».
+Cette autorisation ne vaut pas approbation du contenu corrigé ni de son futur SHA.
+
+Le fonctionnement normal reste inchangé. Pour DEM-028 seule, depuis la base
+initiale sans vérificateur, la commande charge le vérificateur d’un commit approuvé
+fourni hors des fichiers candidats. Elle vérifie l’identité du contenu Git complet
+avec ce commit, puis applique tous les contrôles à la contribution, restreinte
+à cette consolidation. Les SHA peuvent différer après réécriture si le contenu
+est identique. Toute différence, autre base, autre demande ou absence d’approbation
+est refusée. Dès que la base possède le contrôleur, l’approbation d’amorçage ne
+sert plus et aucun remplacement du contrôleur intégré n’est permis.
+
+La documentation d’exécution et la variable externe sont définies dans le README
+de Codebase Integrity. Leur activation attend validation humaine et commit identifié ;
+aucune variable ni protection distante n’est modifiée pendant cette préparation.
+Les anciennes validations couvrent l’état précédent ; une nouvelle vérification
+de la correction est requise avant nouveau commit, reconstitution et livraison.
+
+Coordination confirmée : devops réservé à DEM-028 pendant la correction, écritures
+de l’autre mission suspendues ; conserver sa carte OPS-080 sans modification.
+
+## Retour documentaire — 2026-11-02
+
+Instruction humaine : aucune référence à une demande dans les README ; le chapitre
+des conventions ne contient que des règles courtes destinées aux tests.
+README concernés corrigés sans ajout ni réordonnancement de rubriques.
+Commandes, préconditions et explications déplacées vers les guides Git existants,
+sans changement du comportement des contrôles. Autres retours humains attendus.
+
+## Validation de la correction — 2026-11-02
+
+Correction d’OPS-079 validée explicitement : « ok go c’est validé ».
+Périmètre, identité et preuves dans la carte. Le contrôle par commit, la déclaration
+structurée et le mécanisme d’amorçage présentés sont conservés.
+La correction doit encore être commitée puis réunie sur la branche reconstituée.
+L’approbation du contenu final d’amorçage et son activation distante restent à faire.

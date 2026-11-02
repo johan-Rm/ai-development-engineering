@@ -3,7 +3,7 @@
 - Demande : [DEM-028](../demand/DEM-028-proteger-contributions-codebase-integrity.md).
 - Date : 2026-11-01
 - Session de création : `01a195af-a030-75c2-9958-a8e2307d9447`
-- État : validée humainement et commitée localement ; à reconstituer.
+- État : correction d’amorçage et documentation validées ; commit local autorisé.
 - Couche : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base : `531f4db38c93f4fab61bc190ec4d26c46062e57b`.
 - Dépendance amont : aucune ; ne transférer aucun travail non commité.
@@ -182,3 +182,66 @@ La validation autorise le commit local de cette carte, preuves et documentation
 comprises ; aucun push, PR ou fusion à cette étape.
 
 Commit validé et contrôle de la plage : voir la trace de commit dans DEM-028.
+
+## Reprise d’amorçage — 2026-11-01
+
+Évolution et autorisation de préparation consignées dans DEM-028.
+Reprise sur `layers/devops`, HEAD `feaa599ed3698809bbd31558adddbc3fb141dfdc`,
+index vide. L’humain réserve cette couche à DEM-028 et suspend les écritures
+de l’autre mission. Sa carte OPS-080 non suivie reste hors périmètre ; empreinte
+SHA-256 avant reprise : `8d93803dd20bdfb0a7912310fb3b1b100b5396cae6c9f91c1280399f39750662`.
+Le principal reste sur sa branche reconstituée ; aucun transfert de travail
+non commité ni modification de cette branche pendant la correction.
+
+Correction limitée au lanceur, restriction de demande du vérificateur, CI,
+tests, README sources et traces de cette demande. La déclaration existante
+couvre ces mêmes chemins ; aucune modification applicative ou de skill.
+Nouvelle validation du résultat nécessaire ; aucun nouveau commit ici.
+
+Preuves de cette reprise :
+
+- Neuf tests d’amorçage ajoutés : contenu approuvé accepté avec contrôles actifs,
+  approbation absente/invalide refusée, modification après approbation refusée,
+  commit réécrit au contenu identique accepté, autre base refusée, priorité au
+  contrôleur intégré, déclaration invalide refusée, autre demande pourtant conforme
+  refusée, variable externe et priorité du paramètre explicite vérifiées.
+- `python3 codebase-integrity/scripts/check.py` : 111 tests réussis, sortie 0,
+  dont 30 tests de contribution ; serveur HTTP existant autorisé hors bac à sable.
+  Journal : `/tmp/dem028-bootstrap-tests.log`.
+- `check_docs.py`, `check_demands.py` et `git diff --check` : conformes ; notice
+  documentaire existante conservée. YAML, choix conditionnel de la source approuvée,
+  ordre des jobs, permissions et rubriques des README vérifiés localement.
+- Huit fichiers suivis corrigés ; aucun nouveau fichier de cette mission.
+  Index vide, HEAD inchangé. OPS-080 possède la même empreinte qu’avant reprise.
+
+Aucun SHA approuvé ni variable GitHub activée : les essais utilisent uniquement
+des dépôts jetables, pas une approbation réelle de cette version. La nouvelle
+validation, son commit, la réunion des corrections sur la branche de demande,
+la fixation du contenu final approuvé et les contrôles de livraison restent à faire.
+Toute édition après fixation de l’approbation invalide celle-ci, même documentaire.
+Les protections distantes restent à traiter séparément ; aucune fusion garantie.
+
+## Retour documentaire — 2026-11-02
+
+Correction demandée dans les README : règles courtes uniquement dans les conventions,
+sans référence à une demande. Commandes et explications déplacées vers les guides
+Git existants, dont `docs/git-workflow/convention-de-commits.md` pour le sens des
+types. Rubriques et ordre des README conservés. Déclaration de contribution mise
+à jour pour ce guide ; aucun code ni test modifié par cette correction documentaire.
+Contrôles documentaires, types et espaces conformes ; OPS-080 préservée.
+L’empreinte de la présentation précédente est caduque ; autres retours attendus.
+
+## Verdict de la correction — 2026-11-02
+
+Verdict exact : « ok go c’est validé », après présentation du contrôle par commit,
+du maintien de la déclaration structurée et de l’amorçage, puis clarification du
+routage selon le champ Type de la demande. Ce fonctionnement est conservé.
+
+Identité revérifiée avant consignation : base
+`feaa599ed3698809bbd31558adddbc3fb141dfdc`, onze fichiers suivis modifiés,
+index vide, SHA-256 `bb04492fa5d45e38de2594b9395a6aff5f9dccc478a7d8013717aa3daeb2cb6d`.
+Les 111 tests ont réussi après correction ; les retours suivants sont uniquement
+documentaires. Documentation, types et espaces revérifiés conformes.
+Aucun changement fonctionnel depuis présentation. OPS-080 reste hors commit.
+Validation du résultat et autorisation de commit local uniquement : aucun SHA
+d’amorçage activé sur GitHub, aucune nouvelle reconstitution ni livraison ici.
