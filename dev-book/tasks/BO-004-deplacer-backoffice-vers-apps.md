@@ -51,3 +51,6 @@ Le 2026-11-06 : « validé » pour les quatre cartes présentées, avec les rés
 de la restitution. Contenu revérifié contre `tmp/verification-DEM-030.json`
 du dépôt principal avant indexation ; aucune modification fonctionnelle.
 Validation acquise ; commit local autorisé, livraison non réalisée.
+
+État : validée et commitée localement ; à livrer.
+Commit de réalisation validé : `f68df8ed4dad8545d556c95f7394755892a1d7bb`.
