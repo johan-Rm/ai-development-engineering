@@ -11,7 +11,7 @@ import sys
 import worktrees
 
 ALIAS = 'vscode-worktree-ai-powered-development-engineering'
-WORKSPACE = 'aide.code-workspace'
+WORKSPACE = 'ai-powered-development-engineering.vscode-worktree'
 
 
 def regular_file(path):

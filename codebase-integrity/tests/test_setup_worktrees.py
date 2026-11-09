@@ -52,9 +52,10 @@ class SetupWorktrees(unittest.TestCase):
         aliases = self.home / '.bash_aliases'
         aliases.write_text("alias personnel='echo conserver'\n")
         self.prepare()
-        workspace = self.root / 'aide.code-workspace'
+        workspace = self.root / 'ai-powered-development-engineering.vscode-worktree'
         paths = {item['path'] for item in json.loads(workspace.read_text())['folders']}
         self.assertEqual(paths, {'.'} | {f'worktree/{layer}' for layer in self.layers})
+        self.assertFalse((self.root / 'aide.code-workspace').exists())
         for layer, config in self.layers.items():
             target = self.root / 'worktree' / layer
             self.assertEqual(self.run_command('git', 'branch', '--show-current', cwd=target).stdout.strip(), config['branch'])
@@ -66,6 +67,7 @@ class SetupWorktrees(unittest.TestCase):
         before = aliases.read_bytes(), workspace.read_bytes()
         self.prepare()
         self.assertEqual(before, (aliases.read_bytes(), workspace.read_bytes()))
+        self.assertFalse((self.root / 'aide.code-workspace').exists())
         self.assertEqual(local.read_text(), 'LOCAL=conserver')
         self.assertEqual(dirty.read_text(), 'travail en cours')
         binary = self.home / 'bin'
@@ -79,7 +81,7 @@ class SetupWorktrees(unittest.TestCase):
         self.assertEqual(result.stdout.splitlines(), ['1', str(workspace)])
 
     def test_existing_workspace_customizations_are_preserved(self):
-        target = self.root / 'aide.code-workspace'
+        target = self.root / 'ai-powered-development-engineering.vscode-worktree'
         shutil.copyfile(ROOT / target.name, target)
         document = json.loads(target.read_text())
         document['settings']['editor.fontSize'] = 19
@@ -89,7 +91,7 @@ class SetupWorktrees(unittest.TestCase):
         self.assertEqual(target.read_bytes(), before)
 
     def test_incompatible_workspace_or_alias_refused_before_creation(self):
-        target = self.root / 'aide.code-workspace'
+        target = self.root / 'ai-powered-development-engineering.vscode-worktree'
         target.write_text('{"folders": []}')
         self.prepare(success=False)
         self.assertFalse((self.root / 'worktree').exists())
