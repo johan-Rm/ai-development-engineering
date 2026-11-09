@@ -8,7 +8,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
-ALIAS = 'vscode-worktree-ai-powered-development-engineering'
+ALIAS = 'ai-powered-development-engineering.code-workspace'
 
 
 class SetupWorktrees(unittest.TestCase):
@@ -52,7 +52,7 @@ class SetupWorktrees(unittest.TestCase):
         aliases = self.home / '.bash_aliases'
         aliases.write_text("alias personnel='echo conserver'\n")
         self.prepare()
-        workspace = self.root / 'ai-powered-development-engineering.vscode-worktree'
+        workspace = self.root / 'ai-powered-development-engineering.code-workspace'
         paths = {item['path'] for item in json.loads(workspace.read_text())['folders']}
         self.assertEqual(paths, {'.'} | {f'worktree/{layer}' for layer in self.layers})
         self.assertFalse((self.root / 'aide.code-workspace').exists())
@@ -81,7 +81,7 @@ class SetupWorktrees(unittest.TestCase):
         self.assertEqual(result.stdout.splitlines(), ['1', str(workspace)])
 
     def test_existing_workspace_customizations_are_preserved(self):
-        target = self.root / 'ai-powered-development-engineering.vscode-worktree'
+        target = self.root / 'ai-powered-development-engineering.code-workspace'
         shutil.copyfile(ROOT / target.name, target)
         document = json.loads(target.read_text())
         document['settings']['editor.fontSize'] = 19
@@ -91,7 +91,7 @@ class SetupWorktrees(unittest.TestCase):
         self.assertEqual(target.read_bytes(), before)
 
     def test_incompatible_workspace_or_alias_refused_before_creation(self):
-        target = self.root / 'ai-powered-development-engineering.vscode-worktree'
+        target = self.root / 'ai-powered-development-engineering.code-workspace'
         target.write_text('{"folders": []}')
         self.prepare(success=False)
         self.assertFalse((self.root / 'worktree').exists())

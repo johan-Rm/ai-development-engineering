@@ -71,7 +71,7 @@ source ~/.bash_aliases
 ## 5. Ouvrir le workspace VS Code
 
 ```bash
-vscode-worktree-ai-powered-development-engineering
+ai-powered-development-engineering.code-workspace
 ```
 
 ## 6. Démarrer et vérifier les applications

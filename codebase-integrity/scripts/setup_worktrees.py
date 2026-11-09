@@ -10,8 +10,8 @@ import sys
 
 import worktrees
 
-ALIAS = 'vscode-worktree-ai-powered-development-engineering'
-WORKSPACE = 'ai-powered-development-engineering.vscode-worktree'
+ALIAS = 'ai-powered-development-engineering.code-workspace'
+WORKSPACE = 'ai-powered-development-engineering.code-workspace'
 
 
 def regular_file(path):

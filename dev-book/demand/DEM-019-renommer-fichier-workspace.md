@@ -157,7 +157,8 @@ contrôle de contribution de la plage finale à exécuter avant PR.
         "ai-powered-development-engineering.vscode-worktree",
         "codebase-integrity/scripts/setup_worktrees.py",
         "codebase-integrity/tests/test_setup_worktrees.py",
-        "codebase-integrity/README.md"
+        "codebase-integrity/README.md",
+        "ai-powered-development-engineering.code-workspace"
       ],
       "convention": "codebase-integrity/README.md#conventions-techniques",
       "controles": [
@@ -168,7 +169,8 @@ contrôle de contribution de la plage finale à exécuter avant PR.
   "accompagnements": [
     {
       "chemins": [
-        "docs/architecture/02-cadre/couches/organisation.md"
+        "docs/architecture/02-cadre/couches/organisation.md",
+        "SETUP.md"
       ],
       "motif": "Actualiser la référence active au workspace renommé."
     }
@@ -192,3 +194,28 @@ aucune PR ouverte pour cette source avant création. Principal réservé à DEM-
 les cinq couches sont propres, dernières missions clôturées sauf OPS-083 livrée
 ici. Devops ne porte que le commit source validé ; aucune contribution inédite
 sur les autres couches. Aucun layer publié. Retour prévu sur develop après fusion.
+
+## Correction du besoin et reprise — 2026-11-09
+
+L’humain corrige son observation précédente : VS Code s’ouvrait sans dossiers.
+La preuve graphique annoncée réussie est donc retirée ; livraison suspendue.
+Il confirme ensuite le nom `ai-powered-development-engineering.code-workspace`,
+puis demande ce même nom pour l’alias personnel. Ces décisions remplacent le
+nom sans extension native et la conservation du nom d’alias du cadrage antérieur.
+Le fichier et son contenu restent identiques ; adapter aussi SETUP à la commande.
+
+Correction effectuée dans le principal déjà reconstitué sur `demands/DEM-019`,
+sans copier de travail entre couches et sans nouveau commit. Préparation, tests,
+convention, guide et SETUP adaptés. Alias personnel renommé et cible corrigée,
+autres octets préservés ; syntaxe Bash et définition en shell neuf conformes.
+Lancement réel via le nouvel alias : code 0 ; observation des six dossiers et
+nouvelle validation du résultat encore attendues. L’ancien verdict ne couvre
+pas cette correction. La réécriture documentaire précédemment proposée reste
+non autorisée ; le contrôle historique demeure à résoudre avant publication.
+
+## Validation de la correction — 2026-11-09
+
+Après lancement du nouvel alias et demande de vérification des dossiers,
+l’humain répond « parfait ça roule », puis demande à nouveau la livraison.
+La correction du nom et de l’alias est validée ; preuve dans OPS-083.
+Le blocage historique documentaire reste distinct de cette validation.

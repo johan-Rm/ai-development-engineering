@@ -30,7 +30,7 @@ python3 codebase-integrity/scripts/worktrees.py add --layer <couche> --branch la
 
 ## Suivre les couches dans le workspace
 
-Le fichier `ai-powered-development-engineering.vscode-worktree`, à la racine du
+Le fichier `ai-powered-development-engineering.code-workspace`, à la racine du
 dépôt principal, fournit une vue commune du dépôt et des worktrees dans VS Code. Le [guide d’installation](../../../../SETUP.md#5-ouvrir-le-workspace-vs-code)
 explique sa préparation. Ses chemins relatifs permettent de conserver cette
 configuration dans le projet sans imposer un chemin personnel.

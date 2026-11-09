@@ -2,7 +2,7 @@
 
 - Type : consolidation
 - Demande : [DEM-019](../demand/DEM-019-renommer-fichier-workspace.md).
-- Date : 2026-11-09 ; état : validée et commitée ; réserves de recette levées à la livraison.
+- Date : 2026-11-09 ; état : correction validée ; ancien verdict graphique retiré et remplacé.
 - Session de création : `01a1c0bc-2805-70e1-a520-6daa5dd4d039`.
 - Mission : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base locale : `b93a9897c0a120e3f773308e7d356c2e993448fd`, commune avec develop.
@@ -139,3 +139,21 @@ nom d’alias. Ouverture `code --new-window` du fichier final : sortie 0.
 L’humain répond « Oui, les six dossiers sont ouverts » à la recette de ce nom
 exact. Les deux réserves précédentes sont levées ; aucun changement fonctionnel
 supplémentaire dans le dépôt. Les shells déjà ouverts doivent recharger l’alias.
+
+## Reprise après échec de recette — 2026-11-09
+
+Décisions et retrait de l’observation antérieure : voir la section de correction
+de DEM-019. Le périmètre inclut désormais `SETUP.md`, le renommage du workspace
+en `.code-workspace` et du nom de l’alias personnel. La correction est réalisée
+sur la branche de demande déjà reconstituée ; aucun changement dans la couche.
+Sept tests ciblés de setup réussis ; contrôle documentaire et diff conformes.
+Contenu du workspace inchangé, ancien nom sans extension native absent.
+Nouvelle recette humaine et validation du résultat requises ; aucun commit.
+
+## Verdict de correction — 2026-11-09
+
+Retour humain exact : « parfait ça roule », après ouverture par le nouvel alias
+et question sur la présence des dossiers. La nouvelle invocation de livraison
+confirme la poursuite. Nom final du fichier et de l’alias :
+`ai-powered-development-engineering.code-workspace`. Correction validée ;
+ancienne recette du nom sans extension native caduque.
