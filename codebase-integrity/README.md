@@ -16,7 +16,7 @@ Les outils qui vérifient les conventions techniques du projet de manière déte
 
 - Utiliser le dépôt du script comme référence, sans parcourir les worktrees imbriqués.
 - Lire les configurations depuis la copie de travail appelante.
-- Nommer le workspace du principal `ai-powered-development-engineering.vscode-worktree`
+- Nommer le workspace du principal `ai-powered-development-engineering.code-workspace`
   et utiliser ce nom dans la préparation et ses références actives ; préserver
   les traces historiques.
 - Résoudre les applications sous `apps/` si cet emplacement existe dans la racine
