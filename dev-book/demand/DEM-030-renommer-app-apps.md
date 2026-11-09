@@ -178,3 +178,12 @@ Le périmètre transféré est réservé dans `tmp/demande-adapter-lanceur-apps.
 du principal ; demande définitive DEM-031 à matérialiser à sa reconstitution.
 L’ordre de livraison reste à résoudre : le lanceur ancien utilise `app/`,
 le nouveau utilise `apps/`. Aucune compatibilité ni règle de contrôle ajoutée.
+
+Contrôle après séparation : `contribution.py --repo . --base develop --head HEAD`
+et `check_commits.py --base develop --head HEAD` réussis sur huit commits ;
+`check_docs.py` réussi. Aucun commit de cette plage ne touche Codebase Integrity.
+DEM-031 / OPS-082 est isolée dans `worktree/devops`, sur `layers/devops` depuis
+develop ; deux fichiers identiques à la source validée, quatre tests Apps réussis.
+Ce transfert reste non commité pour sa vérification propre ; aucune publication.
+L’autonomie applicative des deux demandes n’est pas acquise avant résolution
+de leur compatibilité de chemins.
