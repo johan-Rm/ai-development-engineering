@@ -12,9 +12,9 @@ Les contributions échangent des contrats et des commits identifiés. Un worktre
 
 | Couche | Chemins | Branche | Préfixe | Preuve |
 | --- | --- | --- | --- | --- |
-| API | `app/api/` | `layers/api` | API | Requête et réponse, tests du contrat |
-| Web | `app/web/` | `layers/web` | WEB | Build et rendu des cibles |
-| Backoffice | `app/backoffice/` | `layers/backoffice` | BO | Parcours d’administration |
+| API | `apps/api/` | `layers/api` | API | Requête et réponse, tests du contrat |
+| Web | `apps/web/` | `layers/web` | WEB | Build et rendu des cibles |
+| Backoffice | `apps/backoffice/` | `layers/backoffice` | BO | Parcours d’administration |
 | Design | `design/` | `layers/design` | UX | Relecture visuelle des parcours |
 | Devops | `infra/`, instructions, documentation et outillage du cadre | `layers/devops` | OPS | Configuration ou contrôle adapté au changement |
 

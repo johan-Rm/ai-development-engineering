@@ -62,7 +62,7 @@ services:
       COMPOSER_CACHE_DIR: /composer-cache
     volumes:
       - type: bind
-        source: ${AIDE_APP_ROOT:?}/app/api/app
+        source: ${AIDE_APP_ROOT:?}/apps/api/app
         target: /app
         read_only: true
         bind:
@@ -86,7 +86,7 @@ services:
     profiles: [web]
     volumes:
       - type: bind
-        source: ${AIDE_APP_ROOT:?}/app/web/targets/app
+        source: ${AIDE_APP_ROOT:?}/apps/web/targets/app
         target: /app
         read_only: true
         bind:
@@ -100,7 +100,7 @@ services:
     profiles: [backoffice]
     volumes:
       - type: bind
-        source: ${AIDE_APP_ROOT:?}/app/backoffice
+        source: ${AIDE_APP_ROOT:?}/apps/backoffice
         target: /app
         read_only: true
         bind:

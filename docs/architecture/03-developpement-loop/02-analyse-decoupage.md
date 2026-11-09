@@ -24,8 +24,10 @@ l’intégration et de la production, même pour une seule couche. La reconstitu
 ## Sortie
 
 Des cartes ordonnées par couche, rattachées à la demande initiale. Chaque tâche produira son commit à l’étape 04, après validation humaine.
-Une dépendance amont non commitée bloque son consommateur jusqu’à cette validation
+Une dépendance de réalisation amont non commitée bloque son consommateur jusqu’à cette validation
 et à son commit ; prévoir cette alternance entre implémentation et vérification.
+Une dépendance de vérification globale diffère seulement les contrôles exigeant
+la réunion des commits ; elle ne bloque pas les changements indépendants.
 
 ## Procédure associée
 

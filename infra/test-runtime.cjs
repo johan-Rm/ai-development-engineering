@@ -31,9 +31,9 @@ function request(method, endpoint, data) {
   })
 }
 async function main() {
-  const files = ['.env', 'app/api/app/.env', 'app/backoffice/.env', 'app/web/targets/app/.env'].map(p => path.join(info.root, p))
+  const files = ['.env', 'apps/api/app/.env', 'apps/backoffice/.env', 'apps/web/targets/app/.env'].map(p => path.join(info.root, p))
   const before = files.map(file => fs.existsSync(file) ? digest(file) : null)
-  const diff = run('git', ['diff', '--', 'app'])
+  const diff = run('git', ['diff', '--', 'apps'])
   const initial = await request('GET', '/api/articles')
   assert.equal(initial.status, 200)
   if (process.env.EXPECT_EMPTY === '1') assert.equal(initial.data.totalItems, 0)
@@ -46,7 +46,7 @@ async function main() {
       assert.equal(container.Config.User, `${process.getuid()}:${process.getgid()}`)
       const source = container.Mounts.find(m => m.Destination === '/app')
       assert.equal(source.RW, false)
-      assert.ok(source.Source.startsWith(`${info.root}/app/`))
+      assert.ok(source.Source.startsWith(`${info.root}/apps/`))
       const generated = service === 'api' ? ['/app/vendor', '/app/var'] : ['/app/node_modules', '/app/.nuxt', '/app/.output']
       assert.equal(run('docker', ['exec', container.Id, 'find', ...generated, '-type', 'f', '-uid', '0', '-print', '-quit']), '')
     }
@@ -66,7 +66,7 @@ async function main() {
     catch (error) { console.error(`Nettoyage différé de l’article ${article.data.id}:`, error.message); throw error }
   }
   assert.equal((await request('GET', '/api/articles')).data.totalItems, initial.data.totalItems)
-  assert.equal(run('git', ['diff', '--', 'app']), diff)
+  assert.equal(run('git', ['diff', '--', 'apps']), diff)
   for (const [i, file] of files.entries()) assert.equal(fs.existsSync(file) ? digest(file) : null, before[i])
   const result = { layer: info.layer, port: Number(info.port), initialTotal: initial.data.totalItems,
     persistence: true, envPreserved: true, applicationDiffPreserved: true, rootOwnedGeneratedFiles: false,
