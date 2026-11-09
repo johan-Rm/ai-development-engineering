@@ -2,7 +2,7 @@
 
 - Demande : DEM-031 ; type : consolidation.
 - Création et reprise d’analyse : 2026-11-09 ; session : `01a1b040-6627-7b60-a2ec-ab2f985bf83d`.
-- État : validée par l’humain ; commit local en cours.
+- État : validée et commitée localement ; à reconstituer et livrer.
 - Couche : devops ; worktree : `worktree/devops` ; branche : `layers/devops`.
 - Base locale : `d42251e1dca1c4efd700a6a453f4bec80a2634c3` ; index vide.
 - Besoin, analyse et règle confirmée : `tmp/demande-adapter-lanceur-apps.md`
@@ -87,3 +87,5 @@ Le 2026-11-09 : « validé », après présentation du nouveau comportement et d
 preuves. Empreintes des quatre fichiers revérifiées avant commit : conformes
 à `tmp/verification-implementation-DEM-031.json` du principal. Aucun changement
 fonctionnel depuis la présentation ; périmètre limité à OPS-082.
+
+Commit validé OPS-082 : `0d713f489d2d0027a61174517caa2f8aaae5cf9f`.
