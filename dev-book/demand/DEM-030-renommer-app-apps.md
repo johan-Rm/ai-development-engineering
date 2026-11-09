@@ -187,3 +187,14 @@ develop ; deux fichiers identiques à la source validée, quatre tests Apps réu
 Ce transfert reste non commité pour sa vérification propre ; aucune publication.
 L’autonomie applicative des deux demandes n’est pas acquise avant résolution
 de leur compatibilité de chemins.
+
+## Livraison après séparation
+
+Le 2026-11-09, candidat `73b6710ac31ce761cad90f5f3cfba99d874f9766` :
+`quality.py --commit-base origin/develop --commit-head HEAD` échoue au lancement
+applicatif : « Application absente : app/api/app ». Contribution, messages,
+documentation, types et 111 tests d’outillage réussis hors restriction de sockets.
+La séparation retire le blocage de contribution mais laisse le lanceur ancien
+incompatible avec les dossiers renommés. Aucun push ni PR. Une compatibilité
+transitoire dans DEM-031 serait une correction supplémentaire à faire valider
+avant reprise de livraison ; elle n’est pas incluse dans le transfert demandé.
