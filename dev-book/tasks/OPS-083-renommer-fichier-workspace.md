@@ -1,12 +1,13 @@
 # OPS-083 — Renommer le fichier workspace
 
-- Type : consolidation ; demande : DEM-019.
-- Date : 2026-11-09 ; état : validée avec réserves de suivi ; commit local autorisé.
+- Type : consolidation
+- Demande : [DEM-019](../demand/DEM-019-renommer-fichier-workspace.md).
+- Date : 2026-11-09 ; état : validée et commitée ; réserves de recette levées à la livraison.
 - Session de création : `01a1c0bc-2805-70e1-a520-6daa5dd4d039`.
 - Mission : devops ; worktree `worktree/devops` ; branche `layers/devops`.
 - Base locale : `b93a9897c0a120e3f773308e7d356c2e993448fd`, commune avec develop.
-- Besoin et analyse : `tmp/demande-renommer-fichier-workspace.md` dans le principal.
-- Demande définitive prévue : `dev-book/demand/DEM-019-renommer-fichier-workspace.md`, à créer seulement à la reconstitution.
+- Besoin et analyse : [DEM-019](../demand/DEM-019-renommer-fichier-workspace.md),
+  matérialisée depuis `tmp/demande-renommer-fichier-workspace.md` du principal.
 
 ## Objectif et périmètre
 
@@ -127,3 +128,14 @@ leur réalisation et ne clôt pas DEM-019. Le suivi reste obligatoire avant clô
 HEAD de base et empreinte du contenu présenté revérifiés identiques après verdict ;
 index vide, aucun changement étranger. Contrôles et limites ci-dessus inchangés.
 Seuls ce verdict et l’état de la carte sont ajoutés avant le commit local autorisé.
+
+## Recette finale — 2026-11-09
+
+Après reconstitution, cible personnelle de l’alias basculée vers le fichier final
+présent dans le principal. Comparaison avant/après : seule cette cible a changé,
+les autres octets sont identiques ; syntaxe `bash -n` valide, définition exacte
+confirmée après chargement dans un Bash neuf. Aucun changement de commande ni de
+nom d’alias. Ouverture `code --new-window` du fichier final : sortie 0.
+L’humain répond « Oui, les six dossiers sont ouverts » à la recette de ce nom
+exact. Les deux réserves précédentes sont levées ; aucun changement fonctionnel
+supplémentaire dans le dépôt. Les shells déjà ouverts doivent recharger l’alias.
