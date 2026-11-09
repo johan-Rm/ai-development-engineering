@@ -3,7 +3,7 @@
 - Type : consolidation
 - Date : 2026-11-09
 - Session de création et d’analyse : `01a1b040-6627-7b60-a2ec-ab2f985bf83d`
-- État : reconstituée ; contrôles de livraison en cours.
+- État : reconstituée et contrôlée ; prête à publier vers develop.
 - Décisions humaines : « deux fichiers » pour le transfert ; « confirmé » pour
   la compatibilité et les contrôles proposés, le 2026-11-09.
 
@@ -110,3 +110,16 @@ sur cette base ; aucun transfert entre worktrees.
 | --- | --- | --- |
 | implementation | `0d713f489d2d0027a61174517caa2f8aaae5cf9f` | `d9638e719bb75d71cee8426f9b4fdb567ff7ca2e` |
 | trace | `30c83d0edf2373b1e25463eb63e0a6096f20bc3b` | `d5bc2f2fc31dbd6b7a3de65887263703314f7080` |
+
+## Contrôles de livraison
+
+Le 2026-11-09, base distante après fetch :
+`d42251e1dca1c4efd700a6a453f4bec80a2634c3`.
+`quality.py --commit-base origin/develop --commit-head HEAD` réussi sur
+`b1729a0e37372fbd9ffbfa148298c881501b0b2a` : contribution, messages,
+liens, 117 tests d’outillage, API/OpenAPI, typechecks et builds sur `app/`.
+Preuves sur les trois applications sous `apps/` conservées dans OPS-082.
+Rebase and merge autorisé ; règles de develop consultées, sans modification.
+Couches API/Web/Backoffice portant DEM-030 : préserver leurs commits inédits ;
+leur réalignement bloque la clôture du suivi global jusqu’à leur livraison.
+Aucun test navigateur/runtime supplémentaire exécuté localement.
