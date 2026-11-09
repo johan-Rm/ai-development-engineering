@@ -2,7 +2,7 @@
 
 - Type : développement
 - Date : 2026-11-06
-- État : séparation de Codebase Integrity vers DEM-031 effectuée ; contrôles à reprendre, aucune livraison.
+- État : actualisée après intégration de DEM-031 ; qualité réussie, prête à publier.
 - Session de création : `01a1b040-6627-7b60-a2ec-ab2f985bf83d`
 
 ## Besoin et périmètre
@@ -198,3 +198,31 @@ La séparation retire le blocage de contribution mais laisse le lanceur ancien
 incompatible avec les dossiers renommés. Aucun push ni PR. Une compatibilité
 transitoire dans DEM-031 serait une correction supplémentaire à faire valider
 avant reprise de livraison ; elle n’est pas incluse dans le transfert demandé.
+
+## Reprise après intégration de DEM-031
+
+Le 2026-11-09 : DEM-031 intégrée par PR #27 ; base distante vérifiée
+`db1c1eddb5907fe75bac3aa76ffc6507fca650ec`. DEM-030 était locale et non publiée, sans autre mission ;
+actualisation sans conflit, dix patches comparés identiques avant/après.
+
+| Avant actualisation | Après actualisation |
+| --- | --- |
+| `af541f8c183a0bcfb89561da004f982d6320baa8` | `2c2f9f38e7fbc2a3cb74a36e7d441ecd99697e23` |
+| `28cd1dbc9f507782e85ead745f917eebadc9ef9f` | `3ecc07a9b5192b4bd2ce441a4deff2bfe7d322f3` |
+| `289edcf087948ef66929b2f4be1f7fc24dd9bebc` | `9b21076ce46c8d58f724a2b2ae0d25a301af4cb0` |
+| `aaf781c7574dc78e76908b278cb906cdb8dbe24d` | `597b1f50deb7f972df8bca1143dc3f46ea012131` |
+| `a1225cce19f207dd8c342a8ff822b238f1495da8` | `3d7eb15e6ba4a63747d0d4bc6b0452aab7e71d8c` |
+| `c646e9195c5698ddff3bef3e0c2254231507b17d` | `eb3b96c84012c6747bce3eda9ab7b2447e02b701` |
+| `f37c01973e1fb4f2fd9a5fe941257621ad42536b` | `e3b2e1bdc105de0d6f829132bae55f640981cfb4` |
+| `38f85ef108c2c2bbadd3d4e943d085245de77f6d` | `3b239f29422ac23d9df0dbf888639f863c3dfba5` |
+| `73b6710ac31ce761cad90f5f3cfba99d874f9766` | `1eb10e3dd77a32329c98aaa1bdaed37db95ca179` |
+| `18051d714b634c2149edcae6c000f5066bfc7da7` | `7d45e0735c8779f8f5dfb57ef46858c2c93f27b8` |
+
+Candidat contrôlé : `7d45e0735c8779f8f5dfb57ef46858c2c93f27b8`.
+`quality.py --commit-base origin/develop --commit-head HEAD` réussi :
+contribution, messages des dix commits, liens, 117 tests d’outillage, API/OpenAPI,
+typechecks et builds. Le blocage applicatif antérieur est résolu par DEM-031.
+35 728 fichiers locaux préservés sous apps/ (inodes, modes, tailles et dates
+comparés), sans écrasement ni copie entre couches ; app/ absent.
+Preuves Make d’OPS-081 conservées, son implémentation étant inchangée.
+Les archives et le stash AGENTS.md restent conservés. Aucun déploiement prévu.
