@@ -12,8 +12,8 @@ Depuis la racine de la copie de travail, entrer dans le dossier de l’interface
 
 | Interface | Dossier | Adresse locale |
 | --- | --- | --- |
-| [Web](web.md) | `app/web/targets/app/` | http://127.0.0.1:3000 |
-| [Backoffice](backoffice.md) | `app/backoffice/` | http://127.0.0.1:3001 |
+| [Web](web.md) | `apps/web/targets/app/` | http://127.0.0.1:3000 |
+| [Backoffice](backoffice.md) | `apps/backoffice/` | http://127.0.0.1:3001 |
 
 ```sh
 npm ci

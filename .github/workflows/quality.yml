@@ -89,7 +89,7 @@ jobs:
           DEM028_BOOTSTRAP_POLICY_SHA: ${{ vars.DEM028_BOOTSTRAP_POLICY_SHA }}
         run: python3 codebase-integrity/scripts/quality.py --commit-base "$COMMIT_BASE" --commit-head "$COMMIT_HEAD"
       - name: Installer Chromium
-        working-directory: app/web/targets/app
+        working-directory: apps/web/targets/app
         run: npx playwright install --with-deps chromium
       - name: Parcours navigateur avec API locale
         shell: bash
@@ -109,5 +109,5 @@ jobs:
             cat "$RUNNER_TEMP/aiod-api.log"
             exit 1
           fi
-          (cd app/web/targets/app && npm run test:e2e)
-          (cd app/backoffice && npm run test:e2e)
+          (cd apps/web/targets/app && npm run test:e2e)
+          (cd apps/backoffice && npm run test:e2e)

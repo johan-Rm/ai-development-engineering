@@ -11,7 +11,7 @@ est indisponible, elle affiche une erreur et un bouton « Réessayer ».
 Le serveur relaie uniquement la lecture de la collection par `GET /api/articles` ;
 les modifications ne sont pas exposées par cette interface. Les brouillons sont
 visibles, conformément aux [limites du socle API](api.md#consulter-le-contrat).
-Le dossier `app/web/shared/` est réservé à un futur socle commun à plusieurs cibles.
+Le dossier `apps/web/shared/` est réservé à un futur socle commun à plusieurs cibles.
 
 ## Vérifier le parcours
 

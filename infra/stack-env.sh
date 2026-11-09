@@ -48,15 +48,15 @@ case "$INTERFACE" in
 esac
 stack_mountpoints() {
     local source directory
-    local -a sources=("$stack_root/app/api/app") names=(vendor var)
+    local -a sources=("$stack_root/apps/api/app") names=(vendor var)
     case "$INTERFACE" in
-        web) sources+=("$stack_root/app/web/targets/app") ;;
-        backoffice) sources+=("$stack_root/app/backoffice") ;;
-        both) sources+=("$stack_root/app/web/targets/app" "$stack_root/app/backoffice") ;;
+        web) sources+=("$stack_root/apps/web/targets/app") ;;
+        backoffice) sources+=("$stack_root/apps/backoffice") ;;
+        both) sources+=("$stack_root/apps/web/targets/app" "$stack_root/apps/backoffice") ;;
     esac
     for source in "${sources[@]}"; do
         [[ -d "$source" ]] || stack_fail "Source absente : $source"
-        if [[ "$source" != "$stack_root/app/api/app" ]]; then names=(node_modules .nuxt .output); fi
+        if [[ "$source" != "$stack_root/apps/api/app" ]]; then names=(node_modules .nuxt .output); fi
         for directory in "${names[@]}"; do
             [[ ! -L "$source/$directory" ]] || stack_fail "Point de montage symbolique refusé : $source/$directory"
             mkdir -p -- "$source/$directory"

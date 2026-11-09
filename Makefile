@@ -85,9 +85,9 @@ test-browser:
 	arguments=()
 	if [[ "$${RELOAD:-0}" == 1 ]]; then
 	    mounts+=(-e AIDE_RELOAD_SOURCE_DIR=/sources)
-	    mounts+=(--mount "type=bind,source=$$AIDE_APP_ROOT/app/web/targets/app/app/app.vue,target=/sources/web.vue")
-	    mounts+=(--mount "type=bind,source=$$AIDE_APP_ROOT/app/backoffice/app/app.vue,target=/sources/backoffice.vue")
-	    mounts+=(--mount "type=bind,source=$$AIDE_APP_ROOT/app/api/app/public/router.php,target=/sources/router.php")
+	    mounts+=(--mount "type=bind,source=$$AIDE_APP_ROOT/apps/web/targets/app/app/app.vue,target=/sources/web.vue")
+	    mounts+=(--mount "type=bind,source=$$AIDE_APP_ROOT/apps/backoffice/app/app.vue,target=/sources/backoffice.vue")
+	    mounts+=(--mount "type=bind,source=$$AIDE_APP_ROOT/apps/api/app/public/router.php,target=/sources/router.php")
 	    arguments+=(--reload)
 	fi
 	docker build -f "$$AIDE_APP_ROOT/infra/Dockerfile.browser" -t "aide-app-browser:$$AIDE_APP_IMAGE_KEY" "$$AIDE_APP_ROOT/infra"

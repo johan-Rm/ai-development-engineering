@@ -9,9 +9,9 @@ mkdir -p "$main" "$trial/bin"
 cp "$source_root/Makefile" "$main/Makefile"
 cp -R "$source_root/infra" "$main/infra"
 cp "$source_root/infra/config/layers.json" "$main/infra/config/layers.json"
-mkdir -p "$main/app/api/app" "$main/app/web/targets/app" "$main/app/backoffice"
-touch "$main/app/api/app/.fixture" "$main/app/web/targets/app/.fixture" "$main/app/backoffice/.fixture"
-printf 'APP_ENV=dev\n' > "$main/app/api/app/.env.example"
+mkdir -p "$main/apps/api/app" "$main/apps/web/targets/app" "$main/apps/backoffice"
+touch "$main/apps/api/app/.fixture" "$main/apps/web/targets/app/.fixture" "$main/apps/backoffice/.fixture"
+printf 'APP_ENV=dev\n' > "$main/apps/api/app/.env.example"
 git -C "$main" init -q -b develop
 git -C "$main" add .
 git -C "$main" -c user.name='Make test' -c user.email=test@example.invalid commit -qm fixture
@@ -92,8 +92,8 @@ export FAKE_OWN_PORT="$port"
 AIDE_APP_PORT_BASE="$base" make --no-print-directory -C "$api" up INTERFACE=both > "$trial/up.log"
 grep -q "^port=$port$" "$trial/up.log"
 grep -q ' up -d --build --wait' "$trial/docker.log"
-[[ -d "$api/app/backoffice/.nuxt" && -d "$api/app/web/targets/app/.output" ]]
-[[ ! -e "$api/app/api/app/.env" ]]
+[[ -d "$api/apps/backoffice/.nuxt" && -d "$api/apps/web/targets/app/.output" ]]
+[[ ! -e "$api/apps/api/app/.env" ]]
 cmp "$api/.env" "$trial/env-before"
 make --no-print-directory -C "$api" prepare AIDE_APP_PORT_BASE="$base" > "$trial/prepare.log"
 grep -q ' build api$' "$trial/docker.log"
@@ -109,8 +109,8 @@ printf 'OK : make -n ne lance aucune commande Docker\n'
 grep -q ' down$'  "$trial/docker.log"
 ! grep -q -- '--volumes\| down -v' "$trial/docker.log"
 printf 'OK : collision réelle refusée, port propre accepté, up/down directs et données préservées\n'
-rm -rf -- "$api/app/web/targets/app/node_modules"
-ln -s "$api/app/backoffice/node_modules" "$api/app/web/targets/app/node_modules"
+rm -rf -- "$api/apps/web/targets/app/node_modules"
+ln -s "$api/apps/backoffice/node_modules" "$api/apps/web/targets/app/node_modules"
 expect_failure make --no-print-directory -C "$api" up AIDE_APP_PORT_BASE="$base"
 grep -q 'symbolique refusé' "$trial/failure.log"
 printf 'OK : montage symbolique refusé\n'

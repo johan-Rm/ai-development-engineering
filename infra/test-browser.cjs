@@ -1,5 +1,5 @@
 // Optional real-browser recipe, also runnable in the isolated Playwright image.
-const { chromium, expect } = require(process.env.AIDE_PLAYWRIGHT_MODULE || '../app/backoffice/node_modules/@playwright/test')
+const { chromium, expect } = require(process.env.AIDE_PLAYWRIGHT_MODULE || '../apps/backoffice/node_modules/@playwright/test')
 const fs = require('node:fs/promises')
 const path = require('node:path')
 const assert = require('node:assert/strict')
@@ -44,7 +44,7 @@ async function main() {
     await reader.screenshot({ path: path.join(process.env.AIDE_BROWSER_ARTIFACT_DIR || '/tmp', `DEM-005-${layer}-web.png`), fullPage: true })
     if (process.argv.includes('--reload')) {
       // Temporarily edit only this worktree, and restore the exact bytes even on failure.
-      for (const [relative, target] of [['app/web/targets/app/app/app.vue', reader], ['app/backoffice/app/app.vue', page]]) {
+      for (const [relative, target] of [['apps/web/targets/app/app/app.vue', reader], ['apps/backoffice/app/app.vue', page]]) {
         const file = process.env.AIDE_RELOAD_SOURCE_DIR
           ? path.join(process.env.AIDE_RELOAD_SOURCE_DIR, relative.includes('backoffice') ? 'backoffice.vue' : 'web.vue')
           : path.join(process.cwd(), relative)
@@ -63,7 +63,7 @@ async function main() {
       }
       const file = process.env.AIDE_RELOAD_SOURCE_DIR
         ? path.join(process.env.AIDE_RELOAD_SOURCE_DIR, 'router.php')
-        : path.join(process.cwd(), 'app/api/app/public/router.php')
+        : path.join(process.cwd(), 'apps/api/app/public/router.php')
       const original = await fs.readFile(file)
       try {
         const code = original.toString().replace('<?php', "<?php\nif ($_SERVER['REQUEST_URI'] === '/__aide_reload') { echo 'reload-dem005'; return; }")

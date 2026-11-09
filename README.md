@@ -87,7 +87,7 @@ renforcent les cycles suivants.
 | [AGENTS.md](AGENTS.md) et [.codex/config.toml](.codex/config.toml) | Instructions du projet, skills recommandés et configuration Codex. |
 | [dev-book/](dev-book/README.md) | Demandes, tâches, procédures, ressources et preuves. |
 | `**/README.md` | Responsabilités et conventions techniques des dossiers concernés. |
-| [app/](app/README.md) | Applications de démonstration : API Symfony/API Platform, web et backoffice Nuxt. |
+| [apps/](apps/README.md) | Applications de démonstration : API Symfony/API Platform, web et backoffice Nuxt. |
 | [design/](design/README.md) et [infra/](infra/README.md) | Références graphiques et infrastructure de recette. |
 
 Le cadre est indépendant des langages et frameworks du projet. Les applications de ce dépôt

@@ -4,7 +4,7 @@
 
 ## Entrée
 
-Demande découpée en cartes prêtes, couches disponibles et dépendances présentes par commits identifiés. Une carte seule peut limiter le périmètre.
+Demande découpée en cartes prêtes, couches disponibles et dépendances de réalisation présentes par commits identifiés. Une carte seule peut limiter le périmètre.
 
 ## Déroulement
 
@@ -19,7 +19,9 @@ Un arbre propre ne suffit pas à établir la disponibilité de la couche.
 
 Réaliser toutes les cartes indépendantes sans validation intermédiaire artificielle.
 Une carte amont peut être réalisée puis présentée à la vérification, mais son
-consommateur attend le commit issu de sa validation. Aucun transfert de travail
+consommateur de réalisation attend le commit issu de sa validation. Une dépendance
+de vérification globale diffère les contrôles d’ensemble, sans bloquer les changements
+indépendants ; corriger les dépendances trop larges dans les cartes et la matrice. Aucun transfert de travail
 non commité entre missions.
 
 ## Sortie
