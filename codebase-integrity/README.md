@@ -16,6 +16,8 @@ Les outils qui vérifient les conventions techniques du projet de manière déte
 
 - Utiliser le dépôt du script comme référence, sans parcourir les worktrees imbriqués.
 - Lire les configurations depuis la copie de travail appelante.
+- Résoudre les applications sous `apps/` si cet emplacement existe dans la racine
+  sélectionnée, sinon sous `app/` ; ne pas revenir à `app/` si `apps/` est incomplet.
 - Lire les couches dans `infra/config/layers.json` et les témoins dans `infra/process-check.json`.
 - Contrôler les objets Git de la base et de la tête explicitement désignées.
 - Charger le vérificateur et ses dépendances depuis la base d’intégration.
